@@ -62,6 +62,7 @@ var properties = [
   'warn'
 ];
 
+var defineProperty = require('object-define-property-x');
 var isPrimitive = require('is-primitive');
 var isFunction = require('is-function-x');
 var forEach = require('for-each');
@@ -71,11 +72,11 @@ var slice = require('array-slice-x');
 var hasOwn = require('has-own-property-x');
 var format = require('util-format-x');
 var noop = require('lodash.noop');
-var now = function _now() {
-  return new Date().getTime();
-};
+var now = require('date-now');
+var collections = require('collections-x');
+var safeToString = require('safe-to-string-x');
 
-var times = {};
+var times = new collections.Map();
 var con = {
   consoleAssert: function _consoleAssert(expression) {
     if (!expression) {
@@ -98,17 +99,17 @@ var con = {
   log: function _log() {},
 
   time: function _time(label) {
-    times[label] = now();
+    times.set(safeToString(label), now());
   },
 
   timeEnd: function _timeEnd(label) {
-    var time = times[label];
-    if (!time) {
-      throw new Error('No such label: ' + label);
+    var name = safeToString(label);
+    if (times.has(name) === false) {
+      throw new Error('No such label: ' + name);
     }
 
-    var duration = now() - time;
-    con.log(label + ': ' + duration + 'ms');
+    var duration = now() - times.get(name);
+    con.log(name + ': ' + duration + 'ms');
   },
 
   trace: function _trace() {
@@ -129,10 +130,14 @@ if (typeof console !== 'undefined' && isPrimitive(console) === false) {
       // eslint-disable-next-line no-console
       var method = console[property];
       if (isFunction(method)) {
-        con[property] = method;
+        defineProperty(con, property, {
+          value: method
+        });
       }
     } else {
-      con[property] = noop;
+      defineProperty(con, property, {
+        value: noop
+      });
     }
   });
 }

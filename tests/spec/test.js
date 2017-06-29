@@ -55,18 +55,19 @@ describe('con', function () {
 
     properties.forEach(function (property) {
       expect(function () {
-        if (property !== 'assert') {
-          con[property]();
+        var method = con[property];
+        if (Object(method) !== method) {
+          throw new Error('Not an object');
+        }
+
+        if (method.call !== Function.call) {
+          throw new Error('Missing call');
+        }
+
+        if (method.apply !== Function.apply) {
+          throw new Error('Missing apply');
         }
       }).not.toThrow();
     });
-  });
-
-  it('assert throws', function () {
-    expect(function () {
-      con.assert();
-    }).toThrow();
-
-    expect(typeof con.assert).toBe('function');
   });
 });
