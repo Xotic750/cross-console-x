@@ -62,6 +62,7 @@ var properties = [
   'warn'
 ];
 
+var defineProperties = require('object-define-properties-x');
 var defineProperty = require('object-define-property-x');
 var isPrimitive = require('is-primitive');
 var isFunction = require('is-function-x');
@@ -75,57 +76,11 @@ var noop = require('lodash.noop');
 var now = require('date-now');
 var collections = require('collections-x');
 var safeToString = require('safe-to-string-x');
+var objectKeys = Object.keys || require('object-keys');
 
-var times = new collections.Map();
-var con = {
-  consoleAssert: function _consoleAssert(expression) {
-    if (!expression) {
-      assert.ok(false, format.apply(null, slice(arguments, 1)));
-    }
-  },
-
-  dir: function _dir(object) {
-    con.log(inspect(object) + '\n');
-  },
-
-  error: function _error() {
-    con.warn.apply(con, slice(arguments));
-  },
-
-  info: function _info() {
-    con.log.apply(con, slice(arguments));
-  },
-
-  log: function _log() {},
-
-  time: function _time(label) {
-    times.set(safeToString(label), now());
-  },
-
-  timeEnd: function _timeEnd(label) {
-    var name = safeToString(label);
-    if (times.has(name) === false) {
-      throw new Error('No such label: ' + name);
-    }
-
-    var duration = now() - times.get(name);
-    con.log(name + ': ' + duration + 'ms');
-  },
-
-  trace: function _trace() {
-    var err = new Error();
-    err.name = 'Trace';
-    err.message = format.apply(null, slice(arguments));
-    con.error(err.stack);
-  },
-
-  warn: function _warn() {
-    con.log.apply(con, slice(arguments));
-  }
-};
-
+var con = {};
 if (typeof console !== 'undefined' && isPrimitive(console) === false) {
-  forEach(properties, function (property) {
+  forEach(properties, function assigner(property) {
     if (hasOwn(console, property)) {
       // eslint-disable-next-line no-console
       var method = console[property];
@@ -134,13 +89,93 @@ if (typeof console !== 'undefined' && isPrimitive(console) === false) {
           value: method
         });
       }
-    } else {
-      defineProperty(con, property, {
-        value: noop
-      });
     }
   });
 }
+
+var times = new collections.Map();
+var shams = defineProperties({}, {
+  consoleAssert: {
+    value: function consoleAssert(expression) {
+      if (!expression) {
+        assert.ok(false, format.apply(null, slice(arguments, 1)));
+      }
+    }
+  },
+
+  dir: {
+    value: function dir(object) {
+      this.log(inspect(object) + '\n');
+    }
+  },
+
+  error: {
+    value: function error() {
+      this.warn.apply(this, slice(arguments));
+    }
+  },
+
+  info: {
+    value: function info() {
+      this.log.apply(this, slice(arguments));
+    }
+  },
+
+  log: {
+    value: function log() {}
+  },
+
+  time: {
+    value: function time(label) {
+      times.set(safeToString(label), now());
+    }
+  },
+
+  timeEnd: {
+    value: function timeEnd(label) {
+      var name = safeToString(label);
+      if (times.has(name) === false) {
+        throw new Error('No such label: ' + name);
+      }
+
+      var duration = now() - times.get(name);
+      this.log(name + ': ' + duration + 'ms');
+    }
+  },
+
+  trace: {
+    value: function trace() {
+      var err = new Error();
+      err.name = 'Trace';
+      err.message = format.apply(null, slice(arguments));
+      this.error(err.stack);
+    }
+  },
+
+  warn: {
+    configurable: true,
+    value: function warn() {
+      this.log.apply(this, slice(arguments));
+    },
+    writable: true
+  }
+});
+
+objectKeys(shams).forEach(function (key) {
+  if (hasOwn(con, key) === false) {
+    defineProperty(con, key, {
+      value: shams[key]
+    });
+  }
+});
+
+forEach(properties, function assigner(property) {
+  if (hasOwn(con, property) === false) {
+    defineProperty(con, property, {
+      value: noop
+    });
+  }
+});
 
 /**
  * The console-x object provides access to the browser's debugging console
