@@ -1,8 +1,8 @@
 {
-  "name": "console-x",
+  "name": "cross-console-x",
   "version": "1.0.0",
   "description": "A cross-environment fix for missing methods.",
-  "homepage": "https://github.com/Xotic750/console-x",
+  "homepage": "https://github.com/Xotic750/cross-console-x",
   "author": {
     "name": "Graham Fairweather",
     "email": "xotic750@gmail.com"
@@ -22,10 +22,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Xotic750/console-x.git"
+    "url": "https://github.com/Xotic750/cross-console-x.git"
   },
   "bugs": {
-    "url": "https://github.com/Xotic750/console-x/issues"
+    "url": "https://github.com/Xotic750/cross-console-x/issues"
   },
   "dependencies": {
     "array-slice-x": "^1.0.1",
@@ -70,7 +70,7 @@
     "replace-x": "^1.1.1",
     "rimraf": "^2.6.1",
     "serve": "^6.0.0",
-    "uglify-js": "^3.0.21"
+    "uglify-js": "^3.0.22"
   },
   "scripts": {
     "clean": "rimraf README.md lib/*",
@@ -85,8 +85,8 @@
     "lint": "eslint *.js tests/spec/*.js",
     "security": "nsp check",
     "test": "jasmine-node --matchall tests/spec/",
-    "browserify": "browserify -p browserify-derequire -e index.js -o lib/console-x.js -u 'crypto' -s returnExports",
-    "uglify": "uglifyjs lib/console-x.js -o lib/console-x.min.js --support-ie8 --compress --keep-fnames --mangle --beautify ascii_only=true,beautify=false --source-map filename=lib/console-x.map",
+    "browserify": "browserify -p browserify-derequire -e index.js -o lib/cross-console-x.js -u 'crypto' -s returnExports",
+    "uglify": "uglifyjs lib/cross-console-x.js -o lib/cross-console-x.min.js --support-ie8 --compress --keep-fnames --mangle --beautify ascii_only=true,beautify=false --source-map filename=lib/cross-console-x.map",
     "precommit": "npm run production",
     "prepush": "npm run production"
   }
