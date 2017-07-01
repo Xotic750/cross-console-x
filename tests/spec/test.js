@@ -45,6 +45,7 @@ describe('con', function () {
       'markTimeline',
       'profile',
       'profileEnd',
+      'stamp',
       'table',
       'time',
       'timeEnd',

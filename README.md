@@ -27,7 +27,7 @@ A cross-environment fix for missing methods.
 
 Requires ES3 or above.
 
-**Version**: 1.0.0  
+**Version**: 1.1.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
@@ -42,10 +42,14 @@ typically provided.
 Missing methods are shimmed when possible, otherwise they provide no
 operation.
 
+Additional stamp() method provided.
+A thin wrapper to any method that prepends a timestamp.
+
 **Kind**: Exported member  
 **See**: [https://developer.mozilla.org/en/docs/Web/API/console](https://developer.mozilla.org/en/docs/Web/API/console)  
 **Example**  
 ```js
 var con = require('cross-console-x');
 con.log('hi');
+con.stamp('log', 'hi');
 ```

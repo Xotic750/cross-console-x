@@ -26,7 +26,7 @@
  *
  * Requires ES3 or above.
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -77,6 +77,14 @@ var now = require('date-now');
 var collections = require('collections-x');
 var safeToString = require('safe-to-string-x');
 var objectKeys = Object.keys || require('object-keys');
+var toISOString = require('to-iso-string');
+var errorX = require('error-x');
+
+var Trace = errorX.create('Trace');
+
+var timeStamp = function _timeStamp() {
+  return toISOString(new Date());
+};
 
 var con = {};
 if (typeof console !== 'undefined' && isPrimitive(console) === false) {
@@ -96,6 +104,7 @@ if (typeof console !== 'undefined' && isPrimitive(console) === false) {
 var times = new collections.Map();
 var shams = defineProperties({}, {
   consoleAssert: {
+    enumerable: true,
     value: function consoleAssert(expression) {
       if (!expression) {
         assert.ok(false, format.apply(null, slice(arguments, 1)));
@@ -104,34 +113,47 @@ var shams = defineProperties({}, {
   },
 
   dir: {
+    enumerable: true,
     value: function dir(object) {
       this.log(inspect(object) + '\n');
     }
   },
 
   error: {
+    enumerable: true,
     value: function error() {
       this.warn.apply(this, slice(arguments));
     }
   },
 
   info: {
+    enumerable: true,
     value: function info() {
       this.log.apply(this, slice(arguments));
     }
   },
 
   log: {
+    enumerable: true,
     value: function log() {}
   },
 
+  stamp: {
+    enumerable: true,
+    value: function stamp(type) {
+      this[type]('[%s] [%s] %s', timeStamp(), type, format.apply(null, slice(arguments, 1)));
+    }
+  },
+
   time: {
+    enumerable: true,
     value: function time(label) {
       times.set(safeToString(label), now());
     }
   },
 
   timeEnd: {
+    enumerable: true,
     value: function timeEnd(label) {
       var name = safeToString(label);
       if (times.has(name) === false) {
@@ -144,20 +166,19 @@ var shams = defineProperties({}, {
   },
 
   trace: {
+    enumerable: true,
     value: function trace() {
-      var err = new Error();
-      err.name = 'Trace';
-      err.message = format.apply(null, slice(arguments));
-      this.error(err.stack);
+      var msg = format.apply(null, slice(arguments));
+      var err = new Trace(msg);
+      this.error(err.toString(), err.stack);
     }
   },
 
   warn: {
-    configurable: true,
+    enumerable: true,
     value: function warn() {
       this.log.apply(this, slice(arguments));
-    },
-    writable: true
+    }
   }
 });
 
@@ -186,9 +207,13 @@ forEach(properties, function assigner(property) {
  * Missing methods are shimmed when possible, otherwise they provide no
  * operation.
  *
+ * Additional stamp() method provided.
+ * A thin wrapper to any method that prepends a timestamp.
+ *
  * @see {@link https://developer.mozilla.org/en/docs/Web/API/console}
  * @example
  * var con = require('cross-console-x');
  * con.log('hi');
+ * con.stamp('log', 'hi');
  */
 module.exports = con;
