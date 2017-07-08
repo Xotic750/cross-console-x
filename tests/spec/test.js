@@ -22,52 +22,52 @@ if (typeof module === 'object' && module.exports) {
 }
 
 describe('con', function () {
+  var properties = [
+    'assert',
+    'clear',
+    'count',
+    'debug',
+    'dir',
+    'dirxml',
+    'error',
+    'exception',
+    'group',
+    'groupCollapsed',
+    'groupEnd',
+    'info',
+    'log',
+    'markTimeline',
+    'profile',
+    'profileEnd',
+    'stamp',
+    'table',
+    'time',
+    'timeEnd',
+    'timeStamp',
+    'trace',
+    'warn'
+  ];
+
   it('is an object', function () {
     expect(typeof con).toBe('object');
     expect(con === null).toBe(false);
   });
 
   it('all methods are functions', function () {
-    var properties = [
-      'assert',
-      'clear',
-      'count',
-      'debug',
-      'dir',
-      'dirxml',
-      'error',
-      'exception',
-      'group',
-      'groupCollapsed',
-      'groupEnd',
-      'info',
-      'log',
-      'markTimeline',
-      'profile',
-      'profileEnd',
-      'stamp',
-      'table',
-      'time',
-      'timeEnd',
-      'timeStamp',
-      'trace',
-      'warn'
-    ];
-
     properties.forEach(function (property) {
       expect(function () {
         var method = con[property];
-        if (Object(method) !== method) {
-          throw new Error('Not an object');
+        if (typeof method !== 'function') {
+          throw new Error('Not a function');
         }
+      }).not.toThrow();
+    });
+  });
 
-        if (method.call !== Function.call) {
-          throw new Error('Missing call');
-        }
-
-        if (method.apply !== Function.apply) {
-          throw new Error('Missing apply');
-        }
+  it('all methods should not throw', function () {
+    properties.forEach(function (property) {
+      expect(function () {
+        con[property]();
       }).not.toThrow();
     });
   });

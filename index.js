@@ -26,7 +26,7 @@
  *
  * Requires ES3 or above.
  *
- * @version 1.4.0
+ * @version 1.5.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -78,13 +78,9 @@ var collections = require('collections-x');
 var safeToString = require('safe-to-string-x');
 var objectKeys = require('object-keys-x');
 var toISOString = require('to-iso-string-x');
+var includes = require('array-includes');
 var errorX = require('error-x');
-
 var Trace = errorX.create('Trace');
-
-var timeStamp = function _timeStamp() {
-  return toISOString(new Date());
-};
 
 var con = {};
 if (typeof console !== 'undefined' && isPrimitive(console) === false) {
@@ -92,9 +88,24 @@ if (typeof console !== 'undefined' && isPrimitive(console) === false) {
     if (hasOwn(console, property)) {
       // eslint-disable-next-line no-console
       var method = console[property];
-      if (isFunction(method)) {
+      var fn;
+      if (isFunction(method) || (isPrimitive(method) === false && method.apply && method.call)) {
+        // eslint-disable-next-line no-unused-vars
+        var f = function _f(context, args) {
+          var result;
+          try {
+            result = method.apply(context, slice(args));
+          } catch (e) {}
+          return result;
+        };
+
+        // eslint-disable-next-line no-eval
+        fn = eval('(0,function ' + property + '(){return f(this,arguments);})');
+      }
+
+      if (isFunction(fn)) {
         defineProperty(con, property, {
-          value: method
+          value: fn
         });
       }
     }
@@ -105,8 +116,9 @@ var times = new collections.Map();
 var shams = defineProperties({}, {
   consoleAssert: {
     enumerable: true,
-    value: function consoleAssert(expression) {
-      if (!expression) {
+    value: function consoleAssert() {
+      var expression = arguments[0];
+      if (Boolean(expression) === false) {
         assert.ok(false, format.apply(null, slice(arguments, 1)));
       }
     }
@@ -114,8 +126,12 @@ var shams = defineProperties({}, {
 
   dir: {
     enumerable: true,
-    value: function dir(object) {
-      this.log(inspect(object) + '\n');
+    value: function dir() {
+      if (arguments.length > 0) {
+        this.log(inspect(arguments[0]) + '\n');
+      } else {
+        this.log();
+      }
     }
   },
 
@@ -140,29 +156,36 @@ var shams = defineProperties({}, {
 
   stamp: {
     enumerable: true,
-    value: function stamp(type) {
-      var stampStr = format('[%s] [%s]', timeStamp(), type);
-      this[type].apply(this, [stampStr].concat(slice(arguments, 1)));
+    value: function stamp() {
+      var type = arguments.length > 0 ? arguments[0] : null;
+      if (includes(properties, type)) {
+        var stampStr = format('[%s] [%s]', toISOString(new Date()), type);
+        this[type].apply(this, [stampStr].concat(slice(arguments, 1)));
+      }
     }
   },
 
   time: {
     enumerable: true,
-    value: function time(label) {
-      times.set(safeToString(label), now());
+    value: function time() {
+      var label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
+      times.set(label, now());
     }
   },
 
   timeEnd: {
     enumerable: true,
-    value: function timeEnd(label) {
-      var name = safeToString(label);
-      if (times.has(name) === false) {
-        throw new Error('No such label: ' + name);
+    value: function timeEnd() {
+      var label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
+      var duration;
+      if (times.has(label)) {
+        duration = now() - times.get(label);
+        times.delete(label);
+      } else {
+        duration = 0;
       }
 
-      var duration = now() - times.get(name);
-      this.log(name + ': ' + duration + 'ms');
+      this.log(label + ': ' + duration + 'ms');
     }
   },
 
