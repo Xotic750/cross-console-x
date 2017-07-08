@@ -26,7 +26,7 @@
  *
  * Requires ES3 or above.
  *
- * @version 1.3.0
+ * @version 1.4.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -76,8 +76,8 @@ var noop = require('lodash.noop');
 var now = require('date-now');
 var collections = require('collections-x');
 var safeToString = require('safe-to-string-x');
-var objectKeys = Object.keys || require('object-keys');
-var toISOString = require('to-iso-string');
+var objectKeys = require('object-keys-x');
+var toISOString = require('to-iso-string-x');
 var errorX = require('error-x');
 
 var Trace = errorX.create('Trace');
@@ -88,7 +88,7 @@ var timeStamp = function _timeStamp() {
 
 var con = {};
 if (typeof console !== 'undefined' && isPrimitive(console) === false) {
-  forEach(properties, function assigner(property) {
+  forEach(properties, function assigner1(property) {
     if (hasOwn(console, property)) {
       // eslint-disable-next-line no-console
       var method = console[property];
@@ -141,7 +141,8 @@ var shams = defineProperties({}, {
   stamp: {
     enumerable: true,
     value: function stamp(type) {
-      this[type]('[%s] [%s] %s', timeStamp(), type, format.apply(null, slice(arguments, 1)));
+      var stampStr = format('[%s] [%s]', timeStamp(), type);
+      this[type].apply(this, [stampStr].concat(slice(arguments, 1)));
     }
   },
 
@@ -182,7 +183,7 @@ var shams = defineProperties({}, {
   }
 });
 
-objectKeys(shams).forEach(function (key) {
+forEach(objectKeys(shams), function assigner2(key) {
   if (hasOwn(con, key) === false) {
     defineProperty(con, key, {
       value: shams[key]
@@ -190,7 +191,7 @@ objectKeys(shams).forEach(function (key) {
   }
 });
 
-forEach(properties, function assigner(property) {
+forEach(properties, function assigner3(property) {
   if (hasOwn(con, property) === false) {
     defineProperty(con, property, {
       value: noop
