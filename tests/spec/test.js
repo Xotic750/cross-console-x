@@ -67,7 +67,7 @@ describe('con', function () {
   it('all methods should not throw', function () {
     properties.forEach(function (property) {
       expect(function () {
-        con[property]();
+        con[property]('Hi');
       }).not.toThrow();
     });
   });

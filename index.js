@@ -84,17 +84,18 @@ var Trace = errorX.create('Trace');
 
 var con = {};
 if (typeof console !== 'undefined' && isPrimitive(console) === false) {
+  var apply = Function.prototype.apply;
   forEach(properties, function assigner1(property) {
     if (hasOwn(console, property)) {
       // eslint-disable-next-line no-console
       var method = console[property];
       var fn;
-      if (isFunction(method) || (isPrimitive(method) === false && method.apply && method.call)) {
+      if (isPrimitive(method) === false) {
         // eslint-disable-next-line no-unused-vars
         var f = function _f(context, args) {
           var result;
           try {
-            result = method.apply(context, slice(args));
+            result = apply.call(method, context, slice(args));
           } catch (e) {}
           return result;
         };
@@ -180,7 +181,8 @@ var shams = defineProperties({}, {
       var duration;
       if (times.has(label)) {
         duration = now() - times.get(label);
-        times.delete(label);
+        var key = 'delete';
+        times[key](label);
       } else {
         duration = 0;
       }
@@ -192,9 +194,7 @@ var shams = defineProperties({}, {
   trace: {
     enumerable: true,
     value: function trace() {
-      var msg = format.apply(null, slice(arguments));
-      var err = new Trace(msg);
-      this.error(err.toString(), err.stack);
+      this.error(new Trace(format.apply(null, slice(arguments))));
     }
   },
 

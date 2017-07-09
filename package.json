@@ -92,7 +92,7 @@
     "security": "nsp check",
     "test": "jasmine-node --matchall tests/spec/",
     "browserify": "browserify -p browserify-derequire -e index.js -o lib/cross-console-x.js -u 'crypto' -s returnExports",
-    "uglify": "uglifyjs lib/cross-console-x.js -o lib/cross-console-x.min.js --support-ie8 --compress --keep-fnames --mangle --beautify ascii_only=true,beautify=false --source-map",
+    "uglify": "uglifyjs lib/cross-console-x.js -o lib/cross-console-x.min.js --ie8 --compress --keep-fnames --mangle --beautify ascii_only=true,beautify=false --source-map",
     "precommit": "npm run production",
     "prepush": "npm run production"
   }
