@@ -1,6 +1,8 @@
 <a name="module_cross-console-x"></a>
 
 ## cross-console-x
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Xotic750/cross-console-x.svg)](https://greenkeeper.io/)
 <a href="https://travis-ci.org/Xotic750/cross-console-x"
 title="Travis status">
 <img
