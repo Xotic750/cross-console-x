@@ -64,7 +64,7 @@
     "lodash.noop": "^3.0.1",
     "object-define-properties-x": "^4.2.0",
     "object-define-property-x": "^5.0.0",
-    "object-keys-x": "^2.5.0",
+    "object-keys-x": "^3.0.0",
     "to-iso-string-x": "^1.5.0",
     "util-format-x": "^1.3.0",
     "to-string-symbols-supported-x": "^2.0.4"
