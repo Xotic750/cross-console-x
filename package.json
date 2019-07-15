@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "array-includes": "^3.0.3",
-    "array-slice-x": "^3.5.0",
+    "array-slice-x": "^4.0.0",
     "assert-x": "^2.0.0",
     "bind-x": "^3.0.0",
     "collections-x": "^2.0.0",
