@@ -62,7 +62,7 @@
     "is-function-x": "^4.0.10",
     "is-primitive": "^3.0.1",
     "lodash.noop": "^3.0.1",
-    "object-define-properties-x": "^4.2.0",
+    "object-define-properties-x": "^5.0.0",
     "object-define-property-x": "^5.0.2",
     "object-keys-x": "^3.0.3",
     "to-iso-string-x": "^1.5.0",
