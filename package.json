@@ -52,7 +52,7 @@
     "array-includes": "^3.0.3",
     "array-slice-x": "^4.0.5",
     "assert-x": "^2.0.0",
-    "bind-x": "^3.0.0",
+    "bind-x": "^4.0.0",
     "collections-x": "^2.0.0",
     "date-now": "^1.0.1",
     "error-x": "^2.0.0",

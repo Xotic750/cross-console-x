@@ -1,12 +1,3 @@
-/**
- * @file A cross-environment fix for missing methods.
- * @version 2.0.0
- * @author Xotic750 <Xotic750@gmail.com>
- * @copyright  Xotic750
- * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module cross-console-x
- */
-
 // Avoid `console` errors in environments that lack a console.
 
 import defineProperties from 'object-define-properties-x';
@@ -217,9 +208,5 @@ forEach(properties, function assigner3(property) {
  * A thin wrapper to any method that prepends a timestamp.
  *
  * @see {@link https://developer.mozilla.org/en/docs/Web/API/console}
- * @example
- * var con = require('cross-console-x');
- * con.log('hi');
- * con.stamp('log', 'hi');
  */
 export default con;
