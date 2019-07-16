@@ -51,11 +51,13 @@ describe('con', function() {
   ];
 
   it('is an object', function() {
+    expect.assertions(1);
     expect(typeof con).toBe('object');
     expect(con === null).toBe(false);
   });
 
   it('all methods are functions', function() {
+    expect.assertions(1);
     properties.forEach(function(property) {
       expect(function() {
         const method = con[property];
@@ -63,15 +65,16 @@ describe('con', function() {
         if (typeof method !== 'function') {
           throw new Error('Not a function');
         }
-      }).not.toThrow();
+      }).not.toThrowErrorMatchingSnapshot();
     });
   });
 
   it('all methods should not throw', function() {
+    expect.assertions(1);
     properties.forEach(function(property) {
       expect(function() {
         con[property]('Hi');
-      }).not.toThrow();
+      }).not.toThrowErrorMatchingSnapshot();
     });
   });
 });

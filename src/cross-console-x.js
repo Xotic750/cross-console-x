@@ -9,6 +9,25 @@
 
 // Avoid `console` errors in environments that lack a console.
 
+import defineProperties from 'object-define-properties-x';
+import defineProperty from 'object-define-property-x';
+import isPrimitive from 'is-primitive';
+import isFunction from 'is-function-x';
+import forEach from 'for-each';
+import assert from 'assert-x';
+import inspect from 'inspect-x';
+import slice from 'array-slice-x';
+import hasOwn from 'has-own-property-x';
+import format from 'util-format-x';
+import noop from 'lodash.noop';
+import now from 'date-now';
+import collections from 'collections-x';
+import safeToString from 'to-string-symbols-supported-x';
+import objectKeys from 'object-keys-x';
+import toISOString from 'to-iso-string-x';
+import includes from 'array-includes';
+import errorX from 'error-x';
+
 const properties = [
   'assert',
   'clear',
@@ -33,25 +52,6 @@ const properties = [
   'trace',
   'warn',
 ];
-
-const defineProperties = require('object-define-properties-x');
-const defineProperty = require('object-define-property-x');
-const isPrimitive = require('is-primitive');
-const isFunction = require('is-function-x');
-const forEach = require('for-each');
-const assert = require('assert-x');
-const inspect = require('inspect-x');
-const slice = require('array-slice-x');
-const hasOwn = require('has-own-property-x');
-const format = require('util-format-x');
-const noop = require('lodash.noop');
-const now = require('date-now');
-const collections = require('collections-x');
-const safeToString = require('to-string-symbols-supported-x');
-const objectKeys = require('object-keys-x');
-const toISOString = require('to-iso-string-x');
-const includes = require('array-includes');
-const errorX = require('error-x');
 
 const Trace = errorX.create('Trace');
 
@@ -222,4 +222,4 @@ forEach(properties, function assigner3(property) {
  * con.log('hi');
  * con.stamp('log', 'hi');
  */
-module.exports = con;
+export default con;
