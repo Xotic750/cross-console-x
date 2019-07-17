@@ -61,7 +61,6 @@
     "inspect-x": "^2.0.0",
     "is-function-x": "^4.0.14",
     "is-primitive": "^3.0.1",
-    "lodash.noop": "^3.0.1",
     "object-define-properties-x": "^5.0.2",
     "object-define-property-x": "^5.0.5",
     "object-keys-x": "^3.0.6",
