@@ -24,10 +24,6 @@
 
 A cross-environment fix for missing methods.
 
-**Version**: 2.0.0  
-**Author**: Xotic750 <Xotic750@gmail.com>  
-**License**: [MIT](https://opensource.org/licenses/MIT)  
-**Copyright**: Xotic750  
 <a name="exp_module_cross-console-x--module.exports"></a>
 
 ### `module.exports` ⏏
