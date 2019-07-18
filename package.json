@@ -51,11 +51,11 @@
   "dependencies": {
     "array-includes": "^3.0.3",
     "array-slice-x": "^4.0.11",
-    "assert-x": "^3.0.0",
+    "assert-x": "^3.0.1",
     "bind-x": "^4.0.3",
     "collections-x": "^3.0.1",
     "date-now": "^1.0.1",
-    "error-x": "^3.0.0",
+    "error-x": "^3.0.2",
     "for-each": "^0.3.3",
     "has-own-property-x": "^4.0.6",
     "inspect-x": "^3.0.0",
