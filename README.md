@@ -21,15 +21,17 @@
 <a name="module_cross-console-x"></a>
 
 ## cross-console-x
+
 A cross-environment fix for missing methods.
 
 **Version**: 2.0.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
-**License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
+**License**: [MIT](https://opensource.org/licenses/MIT)  
 **Copyright**: Xotic750  
 <a name="exp_module_cross-console-x--module.exports"></a>
 
 ### `module.exports` ⏏
+
 The cross-console-x object provides access to the browser's debugging console
 (e.g., the Web Console in Firefox). The specifics of how it works vary from
 browser to browser, but there is a de facto set of features that are
@@ -43,9 +45,11 @@ A thin wrapper to any method that prepends a timestamp.
 
 **Kind**: Exported member  
 **See**: [https://developer.mozilla.org/en/docs/Web/API/console](https://developer.mozilla.org/en/docs/Web/API/console)  
-**Example**  
+**Example**
+
 ```js
-var con = require('cross-console-x');
+import con from 'cross-console-x';
+
 con.log('hi');
 con.stamp('log', 'hi');
 ```
