@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-18T23:11:59.213Z",
+  "date": "2019-07-19T23:15:17.814Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
-  "hash": "281b8d90819a01918ce1",
+  "hash": "24da8ae7b2d1c2093885",
   "license": "MIT",
-  "version": "3.0.1"
+  "version": "3.0.2"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -409,7 +409,7 @@ var hop = {}.hasOwnProperty;
  *
  * @param {!object} object - The object to test.
  * @throws {TypeError} If object is null or undefined.
- * @param {string|Symbol} property - The name or Symbol of the property to test.
+ * @param {string|number|Symbol} property - The name or Symbol of the property to test.
  * @returns {boolean} `true` if the property is set on `object`, else `false`.
  */
 
@@ -449,10 +449,10 @@ module.exports = function isPrimitive(val) {
 
 "use strict";
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(47);
+/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(46);
 /* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_arguments__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
-/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(48);
+/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(47);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(0);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_5__);
@@ -972,13 +972,13 @@ var defProp = $defineProperty;
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
-/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(47);
+/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(46);
 /* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(is_arguments__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(48);
+/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(47);
 /* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(41);
+/* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(35);
 /* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5);
 /* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(68);
 /* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(object_keys__WEBPACK_IMPORTED_MODULE_9__);
@@ -2379,7 +2379,7 @@ var getPO = gpo;
 /* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
 /* harmony import */ var same_value_zero_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(61);
 /* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(72);
-/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(49);
+/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(48);
 /* harmony import */ var calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(62);
 /* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(10);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(0);
@@ -2684,7 +2684,7 @@ var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
 var to_primitive_x_esm = __webpack_require__(58);
 
 // EXTERNAL MODULE: ./node_modules/trim-x/dist/trim-x.esm.js + 1 modules
-var trim_x_esm = __webpack_require__(46);
+var trim_x_esm = __webpack_require__(45);
 
 // CONCATENATED MODULE: ./node_modules/nan-x/dist/nan-x.esm.js
 /**
@@ -2897,6 +2897,68 @@ var to_number_x_esm_toNumber2018 = function toNumber2018(argument) {
 
 /***/ }),
 /* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(31);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(27);
+/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(15);
+/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(20);
+
+
+
+
+
+
+var regexExec = /none/.exec;
+var regexClass = '[object RegExp]';
+
+var tryRegexExecCall = function tryRegexExec(value, descriptor) {
+  try {
+    value.lastIndex = 0;
+    regexExec.call(value);
+    return true;
+  } catch (e) {
+    return false;
+  } finally {
+    Object(object_define_property_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(value, 'lastIndex', descriptor);
+  }
+};
+/**
+ * This method tests if a value is a regex.
+ *
+ * @param {*} value - The value to test.
+ * @returns {boolean} `true` if value is a regex; otherwise `false`.
+ */
+
+
+var isRegex = function isRegex(value) {
+  if (Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value) === false) {
+    return false;
+  }
+
+  if (has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"] === false) {
+    return Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(value) === regexClass;
+  }
+
+  var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(value, 'lastIndex');
+  var hasLastIndexDataProperty = descriptor && Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(descriptor, 'value');
+
+  if (hasLastIndexDataProperty !== true) {
+    return false;
+  }
+
+  return tryRegexExecCall(value, descriptor);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (isRegex);
+
+
+
+/***/ }),
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3216,7 +3278,7 @@ var string2016 = stringES2016;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3402,52 +3464,6 @@ var arrayMap = $map;
 
 
 /***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var has = __webpack_require__(66);
-var regexExec = RegExp.prototype.exec;
-var gOPD = Object.getOwnPropertyDescriptor;
-
-var tryRegexExecCall = function tryRegexExec(value) {
-	try {
-		var lastIndex = value.lastIndex;
-		value.lastIndex = 0;
-
-		regexExec.call(value);
-		return true;
-	} catch (e) {
-		return false;
-	} finally {
-		value.lastIndex = lastIndex;
-	}
-};
-var toStr = Object.prototype.toString;
-var regexClass = '[object RegExp]';
-var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
-
-module.exports = function isRegex(value) {
-	if (!value || typeof value !== 'object') {
-		return false;
-	}
-	if (!hasToStringTag) {
-		return toStr.call(value) === regexClass;
-	}
-
-	var descriptor = gOPD(value, 'lastIndex');
-	var hasLastIndexDataProperty = descriptor && has(descriptor, 'value');
-	if (!hasLastIndexDataProperty) {
-		return false;
-	}
-
-	return tryRegexExecCall(value);
-};
-
-
-/***/ }),
 /* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3548,7 +3564,7 @@ var isError = function isError(value) {
 /* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(45);
+/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(44);
 var _this = undefined;
 
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -3610,68 +3626,6 @@ var isMap = function isMap(object) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(31);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(27);
-/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(15);
-/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(20);
-
-
-
-
-
-
-var regexExec = /none/.exec;
-var regexClass = '[object RegExp]';
-
-var tryRegexExecCall = function tryRegexExec(value, descriptor) {
-  try {
-    value.lastIndex = 0;
-    regexExec.call(value);
-    return true;
-  } catch (e) {
-    return false;
-  } finally {
-    Object(object_define_property_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(value, 'lastIndex', descriptor);
-  }
-};
-/**
- * This method tests if a value is a regex.
- *
- * @param {*} value - The value to test.
- * @returns {boolean} `true` if value is a regex; otherwise `false`.
- */
-
-
-var isRegex = function isRegex(value) {
-  if (Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value) === false) {
-    return false;
-  }
-
-  if (has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"] === false) {
-    return Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(value) === regexClass;
-  }
-
-  var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(value, 'lastIndex');
-  var hasLastIndexDataProperty = descriptor && Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(descriptor, 'value');
-
-  if (hasLastIndexDataProperty !== true) {
-    return false;
-  }
-
-  return tryRegexExecCall(value, descriptor);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (isRegex);
-
-
-
-/***/ }),
-/* 42 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
 /* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 
@@ -3693,14 +3647,14 @@ var requireCoercibleToString = function requireCoercibleToString(value) {
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(45);
+/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(44);
 var _this = undefined;
 
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -3758,7 +3712,7 @@ var isSet = function isSet(object) {
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4015,7 +3969,7 @@ var is_async_function_x_esm_isAsyncFunction = function isAsyncFunction(fn) {
 
 
 // EXTERNAL MODULE: ./node_modules/is-regex/index.js
-var is_regex = __webpack_require__(37);
+var is_regex = __webpack_require__(49);
 var is_regex_default = /*#__PURE__*/__webpack_require__.n(is_regex);
 
 // EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
@@ -4091,7 +4045,7 @@ var is_array_buffer_x_esm_isArrayBuffer = function isArrayBuffer(object) {
 
 
 // EXTERNAL MODULE: ./node_modules/is-set-x/dist/is-set-x.esm.js
-var is_set_x_esm = __webpack_require__(43);
+var is_set_x_esm = __webpack_require__(42);
 
 // EXTERNAL MODULE: ./node_modules/is-map-x/dist/is-map-x.esm.js
 var is_map_x_esm = __webpack_require__(40);
@@ -4275,7 +4229,7 @@ var get_function_name_x_esm_getFunctionName = function getFunctionName(fn) {
 var has_symbol_support_x_esm = __webpack_require__(13);
 
 // EXTERNAL MODULE: ./node_modules/white-space-x/dist/white-space-x.esm.js
-var white_space_x_esm = __webpack_require__(35);
+var white_space_x_esm = __webpack_require__(36);
 
 // EXTERNAL MODULE: ./node_modules/array-reduce-x/dist/array-reduce-x.esm.js
 var array_reduce_x_esm = __webpack_require__(22);
@@ -4479,7 +4433,7 @@ var arrayEvery = $every;
 
 
 // EXTERNAL MODULE: ./node_modules/array-map-x/dist/array-map-x.esm.js
-var array_map_x_esm = __webpack_require__(36);
+var array_map_x_esm = __webpack_require__(37);
 
 // CONCATENATED MODULE: ./node_modules/has-reflect-support-x/dist/has-reflect-support-x.esm.js
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -4656,7 +4610,7 @@ var json3 = __webpack_require__(57);
 var same_value_zero_x_esm = __webpack_require__(61);
 
 // EXTERNAL MODULE: ./node_modules/find-index-x/dist/find-index-x.esm.js
-var find_index_x_esm = __webpack_require__(49);
+var find_index_x_esm = __webpack_require__(48);
 
 // EXTERNAL MODULE: ./node_modules/index-of-x/dist/index-of-x.esm.js
 var index_of_x_esm = __webpack_require__(30);
@@ -4998,7 +4952,7 @@ var to_integer_x_esm = __webpack_require__(26);
 var require_object_coercible_x_esm = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/is-regexp-x/dist/is-regexp-x.esm.js
-var is_regexp_x_esm = __webpack_require__(41);
+var is_regexp_x_esm = __webpack_require__(35);
 
 // CONCATENATED MODULE: ./node_modules/string-starts-with-x/dist/string-starts-with-x.esm.js
 
@@ -5167,7 +5121,7 @@ var string_includes_x_esm_inc = string_includes_x_esm_$includes;
 var math_clamp_x_esm = __webpack_require__(59);
 
 // EXTERNAL MODULE: ./node_modules/array-like-slice-x/dist/array-like-slice-x.esm.js
-var array_like_slice_x_esm = __webpack_require__(48);
+var array_like_slice_x_esm = __webpack_require__(47);
 
 // CONCATENATED MODULE: ./node_modules/array-difference-x/dist/array-difference-x.esm.js
 function array_difference_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -6420,7 +6374,7 @@ var ins = inspect;
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6489,7 +6443,7 @@ var is_length_x_esm_isLength = function isLength(value) {
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6498,10 +6452,10 @@ var is_length_x_esm_isLength = function isLength(value) {
 var trim_left_x_esm = __webpack_require__(55);
 
 // EXTERNAL MODULE: ./node_modules/require-coercible-to-string-x/dist/require-coercible-to-string-x.esm.js
-var require_coercible_to_string_x_esm = __webpack_require__(42);
+var require_coercible_to_string_x_esm = __webpack_require__(41);
 
 // EXTERNAL MODULE: ./node_modules/white-space-x/dist/white-space-x.esm.js
-var white_space_x_esm = __webpack_require__(35);
+var white_space_x_esm = __webpack_require__(36);
 
 // CONCATENATED MODULE: ./node_modules/trim-right-x/dist/trim-right-x.esm.js
 
@@ -6571,7 +6525,7 @@ var trim_x_esm_trim2018 = function trim2018(string) {
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6609,7 +6563,7 @@ module.exports = supportsStandardArguments ? isStandardArguments : isLegacyArgum
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6684,7 +6638,7 @@ var slice = function slice(arrayLike, start, end) {
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6815,13 +6769,59 @@ var fi = findIdx;
 
 
 /***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var has = __webpack_require__(66);
+var regexExec = RegExp.prototype.exec;
+var gOPD = Object.getOwnPropertyDescriptor;
+
+var tryRegexExecCall = function tryRegexExec(value) {
+	try {
+		var lastIndex = value.lastIndex;
+		value.lastIndex = 0;
+
+		regexExec.call(value);
+		return true;
+	} catch (e) {
+		return false;
+	} finally {
+		value.lastIndex = lastIndex;
+	}
+};
+var toStr = Object.prototype.toString;
+var regexClass = '[object RegExp]';
+var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
+
+module.exports = function isRegex(value) {
+	if (!value || typeof value !== 'object') {
+		return false;
+	}
+	if (!hasToStringTag) {
+		return toStr.call(value) === regexClass;
+	}
+
+	var descriptor = gOPD(value, 'lastIndex');
+	var hasLastIndexDataProperty = descriptor && has(descriptor, 'value');
+	if (!hasLastIndexDataProperty) {
+		return false;
+	}
+
+	return tryRegexExecCall(value);
+};
+
+
+/***/ }),
 /* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(45);
+/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(44);
 
 
 
@@ -6847,8 +6847,8 @@ var isArrayLike = function isArrayLike(value) {
 
 "use strict";
 /* unused harmony export normalizeSpace2016 */
-/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(46);
-/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
+/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(45);
+/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
 
 
 var SPACE = ' ';
@@ -6892,7 +6892,7 @@ var normalizeSpace2018 = function normalizeSpace2018(string) {
 
 "use strict";
 /* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
-/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(42);
+/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(41);
 
 
 var EMPTY_STRING = '';
@@ -7150,8 +7150,8 @@ var arrayForEach = $forEach;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return trimLeft2016; });
-/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(42);
-/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
+/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(41);
+/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
 
 
 var EMPTY_STRING = '';
@@ -8420,7 +8420,7 @@ var clamp = function clamp(value) {
 /* unused harmony export TypeErrorConstructor */
 /* unused harmony export URIErrorConstructor */
 /* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
-/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(46);
+/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(45);
 /* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
 /* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(79);
 /* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(stackframe__WEBPACK_IMPORTED_MODULE_3__);
@@ -8428,16 +8428,16 @@ var clamp = function clamp(value) {
 /* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(error_stack_parser__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
 /* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
-/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(49);
+/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(48);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2);
-/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(44);
+/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(43);
 /* harmony import */ var truncate_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(83);
 /* harmony import */ var is_error_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(39);
 /* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(8);
 /* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(3);
 /* harmony import */ var object_create_x__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(63);
 /* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(4);
-/* harmony import */ var array_map_x__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(36);
+/* harmony import */ var array_map_x__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(37);
 /* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(23);
 /* harmony import */ var is_finite_x__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(38);
 /* harmony import */ var is_var_name__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(102);
@@ -10060,7 +10060,7 @@ var is_nil_x_esm = __webpack_require__(8);
 var is_map_x_esm = __webpack_require__(40);
 
 // EXTERNAL MODULE: ./node_modules/is-set-x/dist/is-set-x.esm.js
-var is_set_x_esm = __webpack_require__(43);
+var is_set_x_esm = __webpack_require__(42);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
 var is_object_like_x_esm = __webpack_require__(4);
@@ -11400,7 +11400,7 @@ var string_pad_start_x_esm_padStart = function padStart(string, targetLength) {
 
 
 // EXTERNAL MODULE: ./node_modules/array-map-x/dist/array-map-x.esm.js
-var array_map_x_esm = __webpack_require__(36);
+var array_map_x_esm = __webpack_require__(37);
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
 var array_slice_x_esm = __webpack_require__(7);
@@ -11507,7 +11507,7 @@ var tis = $toISOString;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
+/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
 /* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(57);
 /* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(json3__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
@@ -12190,7 +12190,7 @@ module.exports = function isNumberObject(value) {
 
 "use strict";
 /* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
-/* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(41);
+/* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
 /* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
 /* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
@@ -13083,7 +13083,7 @@ module.exports = boundIncludesShim;
 var error_x_esm = __webpack_require__(60);
 
 // EXTERNAL MODULE: ./node_modules/is-regex/index.js
-var is_regex = __webpack_require__(37);
+var is_regex = __webpack_require__(49);
 var is_regex_default = /*#__PURE__*/__webpack_require__.n(is_regex);
 
 // EXTERNAL MODULE: ./node_modules/to-string-symbols-supported-x/dist/to-string-symbols-supported-x.esm.js
@@ -13106,7 +13106,7 @@ var is_date_object = __webpack_require__(28);
 var is_date_object_default = /*#__PURE__*/__webpack_require__.n(is_date_object);
 
 // EXTERNAL MODULE: ./node_modules/is-arguments/index.js
-var is_arguments = __webpack_require__(47);
+var is_arguments = __webpack_require__(46);
 var is_arguments_default = /*#__PURE__*/__webpack_require__.n(is_arguments);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
@@ -13132,10 +13132,13 @@ var is_error_x_esm = __webpack_require__(39);
 var is_map_x_esm = __webpack_require__(40);
 
 // EXTERNAL MODULE: ./node_modules/is-set-x/dist/is-set-x.esm.js
-var is_set_x_esm = __webpack_require__(43);
+var is_set_x_esm = __webpack_require__(42);
 
 // EXTERNAL MODULE: ./node_modules/is-nil-x/dist/is-nil-x.esm.js
 var is_nil_x_esm = __webpack_require__(8);
+
+// EXTERNAL MODULE: ./node_modules/is-regexp-x/dist/is-regexp-x.esm.js
+var is_regexp_x_esm = __webpack_require__(35);
 
 // EXTERNAL MODULE: ./node_modules/index-of-x/dist/index-of-x.esm.js
 var index_of_x_esm = __webpack_require__(30);
@@ -13294,7 +13297,7 @@ var baseDeepEqual = function _baseDeepEqual(actual, expected, strict, previousSt
   // properties (`global`, `multiline`, `lastIndex`, `ignoreCase` & `sticky`).
 
 
-  if (is_regex_default()(actual) && is_regex_default()(expected)) {
+  if (Object(is_regexp_x_esm["a" /* default */])(actual) && Object(is_regexp_x_esm["a" /* default */])(expected)) {
     return actual.toString() === expected.toString() && actual.lastIndex === expected.lastIndex;
   } // 7.4. Other pairs that do not both pass typeof value == 'object',
   // equivalence is determined by == or strict ===.
@@ -13879,7 +13882,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
 /* harmony import */ var array_for_each_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(54);
 /* harmony import */ var assert_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(104);
-/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(44);
+/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(43);
 /* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(7);
 /* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5);
 /* harmony import */ var util_format_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(75);
@@ -14501,7 +14504,7 @@ var trim = function (value) {
 
 var ES5 = __webpack_require__(119);
 
-var hasRegExpMatcher = __webpack_require__(37);
+var hasRegExpMatcher = __webpack_require__(49);
 
 // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-abstract-operations
 var ES6 = assign(assign({}, ES5), {
