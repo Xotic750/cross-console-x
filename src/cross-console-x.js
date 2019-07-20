@@ -7,7 +7,7 @@ import assert from 'assert-x';
 import inspect from 'inspect-x';
 import slice from 'array-slice-x';
 import hasOwn from 'has-own-property-x';
-import format from 'util-format-x';
+import {format} from 'util-format-x';
 import {MapConstructor} from 'collections-x';
 import safeToString from 'to-string-symbols-supported-x';
 import objectKeys from 'object-keys-x';
@@ -102,8 +102,8 @@ const shams = defineProperties(
         const expression = arguments[0];
 
         if (Boolean(expression) === false) {
-          /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-          assert.ok(false, format.apply(null, slice(arguments, 1)));
+          /* eslint-disable-next-line prefer-rest-params */
+          assert.ok(false, format(...slice(arguments, 1)));
         }
       },
     },
@@ -150,8 +150,8 @@ const shams = defineProperties(
 
         if (includes(properties, type)) {
           const stampStr = format('[%s] [%s]', toISOString(new Date()), type);
-          /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-          this[type].apply(this, [stampStr].concat(slice(arguments, 1)));
+          /* eslint-disable-next-line prefer-rest-params */
+          this[type].apply(this, [stampStr, ...slice(arguments, 1)]);
         }
       },
     },
@@ -187,8 +187,8 @@ const shams = defineProperties(
     trace: {
       enumerable: true,
       value: function trace() {
-        /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-        this.error(new Trace(format.apply(null, slice(arguments))));
+        /* eslint-disable-next-line prefer-rest-params */
+        this.error(new Trace(format(...slice(arguments))));
       },
     },
 

@@ -1,3 +1,11 @@
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 import defineProperties from 'object-define-properties-x';
 import defineProperty from 'object-define-property-x';
 import isPrimitive from 'is-primitive';
@@ -7,7 +15,7 @@ import assert from 'assert-x';
 import inspect from 'inspect-x';
 import slice from 'array-slice-x';
 import hasOwn from 'has-own-property-x';
-import format from 'util-format-x';
+import { format } from 'util-format-x';
 import { MapConstructor } from 'collections-x';
 import safeToString from 'to-string-symbols-supported-x';
 import objectKeys from 'object-keys-x';
@@ -78,8 +86,8 @@ var shams = defineProperties({}, {
       var expression = arguments[0];
 
       if (Boolean(expression) === false) {
-        /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-        assert.ok(false, format.apply(null, slice(arguments, 1)));
+        /* eslint-disable-next-line prefer-rest-params */
+        assert.ok(false, format.apply(void 0, _toConsumableArray(slice(arguments, 1))));
       }
     }
   },
@@ -122,9 +130,9 @@ var shams = defineProperties({}, {
 
       if (includes(properties, type)) {
         var stampStr = format('[%s] [%s]', toISOString(new Date()), type);
-        /* eslint-disable-next-line prefer-rest-params,prefer-spread */
+        /* eslint-disable-next-line prefer-rest-params */
 
-        this[type].apply(this, [stampStr].concat(slice(arguments, 1)));
+        this[type].apply(this, [stampStr].concat(_toConsumableArray(slice(arguments, 1))));
       }
     }
   },
@@ -157,8 +165,8 @@ var shams = defineProperties({}, {
   trace: {
     enumerable: true,
     value: function trace() {
-      /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-      this.error(new Trace(format.apply(null, slice(arguments))));
+      /* eslint-disable-next-line prefer-rest-params */
+      this.error(new Trace(format.apply(void 0, _toConsumableArray(slice(arguments)))));
     }
   },
   warn: {

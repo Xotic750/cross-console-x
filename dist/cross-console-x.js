@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-19T23:15:17.814Z",
+  "date": "2019-07-20T15:21:39.880Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
-  "hash": "24da8ae7b2d1c2093885",
+  "hash": "30d5fb8c88548c7648e3",
   "license": "MIT",
-  "version": "3.0.2"
+  "version": "4.0.0"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -120,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 105);
+/******/ 	return __webpack_require__(__webpack_require__.s = 109);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -220,10 +220,10 @@ var is_primitive = __webpack_require__(6);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // EXTERNAL MODULE: ./node_modules/normalize-space-x/dist/normalize-space-x.esm.js
-var normalize_space_x_esm = __webpack_require__(51);
+var normalize_space_x_esm = __webpack_require__(53);
 
 // EXTERNAL MODULE: ./node_modules/replace-comments-x/dist/replace-comments-x.esm.js
-var replace_comments_x_esm = __webpack_require__(52);
+var replace_comments_x_esm = __webpack_require__(54);
 
 // CONCATENATED MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js
 var _this = undefined;
@@ -371,34 +371,8 @@ var toLength2018 = function toLength2018(value) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
-
-
-/**
- * Checks if `value` is object-like. A value is object-like if it's not a
- * primitive and not a function.
- *
- * @param {*} [value] - The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-
-var isObjectLike = function isObjectLike(value) {
-  return is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(value) === false && Object(is_function_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value, true) === false;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (isObjectLike);
-
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
+/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(34);
 
 
 var hop = {}.hasOwnProperty;
@@ -418,6 +392,32 @@ var hasOwnProperty = function hasOwnProperty(object, property) {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (hasOwnProperty);
+
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not a
+ * primitive and not a function.
+ *
+ * @param {*} [value] - The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ */
+
+var isObjectLike = function isObjectLike(value) {
+  return is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(value) === false && Object(is_function_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value, true) === false;
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (isObjectLike);
 
 
 
@@ -537,22 +537,22 @@ var isNil = function isNil(value) {
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/array-for-each-x/dist/array-for-each-x.esm.js
-var array_for_each_x_esm = __webpack_require__(54);
+var array_for_each_x_esm = __webpack_require__(58);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(15);
+var object_define_property_x_esm = __webpack_require__(14);
 
 // EXTERNAL MODULE: ./node_modules/to-object-x/dist/to-object-x.esm.js
 var to_object_x_esm = __webpack_require__(1);
 
 // EXTERNAL MODULE: ./node_modules/assert-is-object-x/dist/assert-is-object-x.esm.js
-var assert_is_object_x_esm = __webpack_require__(17);
+var assert_is_object_x_esm = __webpack_require__(16);
 
 // EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
-var object_keys_x_esm = __webpack_require__(16);
+var object_keys_x_esm = __webpack_require__(15);
 
 // EXTERNAL MODULE: ./node_modules/get-own-enumerable-property-symbols-x/dist/get-own-enumerable-property-symbols-x.esm.js
-var get_own_enumerable_property_symbols_x_esm = __webpack_require__(71);
+var get_own_enumerable_property_symbols_x_esm = __webpack_require__(76);
 
 // CONCATENATED MODULE: ./node_modules/get-own-enumerable-keys-x/dist/get-own-enumerable-keys-x.esm.js
 
@@ -618,7 +618,7 @@ var object_define_properties_x_esm_defineProperties = function defineProperties(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_boxed_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(69);
+/* harmony import */ var has_boxed_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(74);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -676,7 +676,7 @@ module.exports = function isString(value) {
 
 "use strict";
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_2__);
 
@@ -710,7 +710,7 @@ var assertIsFunction = function assertIsFunction(callback) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_1__);
 var _this = undefined;
 
@@ -740,47 +740,12 @@ var hasSymbolSupport = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_1__);
-
-
-/* eslint-disable-next-line compat/compat */
-
-var pToString = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.prototype.toString;
-var isSymbolFn = typeof pToString === 'function' && is_symbol__WEBPACK_IMPORTED_MODULE_1___default.a;
-/** @type {Function} */
-
-var castString = ''.constructor;
-/**
- * The abstract operation ToString converts argument to a value of type String,
- * however the specification states that if the argument is a Symbol then a
- * 'TypeError' is thrown. This version also allows Symbols be converted to
- * a string. Other uncoercible exotics will still throw though.
- *
- * @param {*} [value] - The value to convert to a string.
- * @returns {string} The converted value.
- */
-
-var toStringSymbolsSupported = function toStringSymbolsSupported(value) {
-  return isSymbolFn && isSymbolFn(value) ? pToString.call(value) : castString(value);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (toStringSymbolsSupported);
-
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(34);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
-/* harmony import */ var assert_is_object_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(17);
+/* harmony import */ var assert_is_object_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(16);
 
 
 
@@ -965,7 +930,7 @@ var defProp = $defineProperty;
 
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -979,8 +944,8 @@ var defProp = $defineProperty;
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(35);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5);
-/* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(68);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(4);
+/* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(73);
 /* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(object_keys__WEBPACK_IMPORTED_MODULE_9__);
 
 
@@ -1091,11 +1056,11 @@ var ok = objectKeys;
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -1122,44 +1087,14 @@ var assertIsObject = function assertIsObject(value) {
 
 
 /***/ }),
-/* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_0__);
-
-var ERROR_MESSAGE = 'Cannot convert a Symbol value to a string';
-var castString = ERROR_MESSAGE.constructor;
-/**
- * The abstract operation ToString converts argument to a value of type String.
- *
- * @param {*} [value] - The value to convert to a string.
- * @throws {TypeError} If `value` is a Symbol.
- * @returns {string} The converted value.
- */
-
-var ToString = function ToString(value) {
-  if (is_symbol__WEBPACK_IMPORTED_MODULE_0___default()(value)) {
-    throw new TypeError(ERROR_MESSAGE);
-  }
-
-  return castString(value);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (ToString);
-
-
-
-/***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var toStr = Object.prototype.toString;
-var hasSymbols = __webpack_require__(106)();
+var hasSymbols = __webpack_require__(110)();
 
 if (hasSymbols) {
 	var symToStr = Symbol.prototype.toString;
@@ -1191,6 +1126,71 @@ if (hasSymbols) {
 		return  false && false;
 	};
 }
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_0__);
+
+var ERROR_MESSAGE = 'Cannot convert a Symbol value to a string';
+var castString = ERROR_MESSAGE.constructor;
+/**
+ * The abstract operation ToString converts argument to a value of type String.
+ *
+ * @param {*} [value] - The value to convert to a string.
+ * @throws {TypeError} If `value` is a Symbol.
+ * @returns {string} The converted value.
+ */
+
+var ToString = function ToString(value) {
+  if (is_symbol__WEBPACK_IMPORTED_MODULE_0___default()(value)) {
+    throw new TypeError(ERROR_MESSAGE);
+  }
+
+  return castString(value);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (ToString);
+
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/* eslint-disable-next-line compat/compat */
+
+var pToString = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.prototype.toString;
+var isSymbolFn = typeof pToString === 'function' && is_symbol__WEBPACK_IMPORTED_MODULE_1___default.a;
+/** @type {Function} */
+
+var castString = ''.constructor;
+/**
+ * The abstract operation ToString converts argument to a value of type String,
+ * however the specification states that if the argument is a Symbol then a
+ * 'TypeError' is thrown. This version also allows Symbols be converted to
+ * a string. Other uncoercible exotics will still throw though.
+ *
+ * @param {*} [value] - The value to convert to a string.
+ * @returns {string} The converted value.
+ */
+
+var toStringSymbolsSupported = function toStringSymbolsSupported(value) {
+  return isSymbolFn && isSymbolFn(value) ? pToString.call(value) : castString(value);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (toStringSymbolsSupported);
+
 
 
 /***/ }),
@@ -1270,216 +1270,6 @@ var isArrayFn = function iife() {
 
 /***/ }),
 /* 22 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
-var _this = undefined;
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-
-var natRed = [].reduce;
-var castObject = {}.constructor;
-var nativeReduce = typeof natRed === 'function' && natRed; // ES5 15.4.4.21
-// http://es5.github.com/#x15.4.4.21
-// https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduce
-
-var isWorking;
-
-if (nativeReduce) {
-  isWorking = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([], nativeReduce, function (acc) {
-    _newArrowCheck(this, _this);
-
-    return acc;
-  }.bind(undefined)).threw;
-  var res;
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(castObject('abc'), nativeReduce, function (acc, c) {
-      _newArrowCheck(this, _this);
-
-      return acc + c;
-    }.bind(undefined), 'x');
-    isWorking = res.threw === false && res.value === 'xabc';
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
-      /* eslint-disable-next-line prefer-rest-params */
-      return arguments;
-    }(1, 2, 3), nativeReduce, function (acc, arg) {
-      _newArrowCheck(this, _this);
-
-      return acc + arg;
-    }.bind(undefined), 1);
-    isWorking = res.threw === false && res.value === 7;
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({
-      0: 1,
-      1: 2,
-      3: 3,
-      4: 4,
-      length: 4
-    }, nativeReduce, function (acc, arg) {
-      _newArrowCheck(this, _this);
-
-      return acc + arg;
-    }.bind(undefined), 2);
-    isWorking = res.threw === false && res.value === 8;
-  }
-
-  if (isWorking) {
-    var doc = typeof document !== 'undefined' && document;
-
-    if (doc) {
-      var fragment = doc.createDocumentFragment();
-      var div = doc.createElement('div');
-      fragment.appendChild(div);
-      res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(fragment.childNodes, nativeReduce, function (acc, node) {
-        _newArrowCheck(this, _this);
-
-        acc[acc.length] = node;
-        return acc;
-      }.bind(undefined), []);
-      isWorking = res.threw === false && res.value.length === 1 && res.value[0] === div;
-    }
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call('ab', nativeReduce, function (_, __, ___, list) {
-      _newArrowCheck(this, _this);
-
-      return list;
-    }.bind(undefined));
-    isWorking = res.threw === false && _typeof(res.value) === 'object';
-  }
-}
-/**
- * This method applies a function against an accumulator and each element in the
- * array (from left to right) to reduce it to a single value.
- *
- * @param {Array} array - The array to iterate over.
- * @param {Function} callBack - Function to execute for each element.
- * @param {*} [initialValue] - Value to use as the first argument to the first
- *  call of the callback. If no initial value is supplied, the first element in
- *  the array will be used. Calling reduce on an empty array without an initial
- *  value is an error.
- * @throws {TypeError} If array is null or undefined.
- * @throws {TypeError} If callBack is not a function.
- * @throws {TypeError} If called on an empty array without an initial value.
- * @returns {*} The value that results from the reduction.
- */
-
-
-var $reduce;
-
-if (nativeReduce && isWorking) {
-  $reduce = function reduce(array, callBack
-  /* , initialValue */
-  ) {
-    var args = [callBack];
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      args[1] = arguments[2];
-    }
-
-    return nativeReduce.apply(array, args);
-  };
-} else {
-  $reduce = function reduce(array, callBack
-  /* , initialValue */
-  ) {
-    var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(array); // If no callback function or if callback is not a callable function
-
-    Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack);
-    var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object);
-    var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
-    var argsLength = arguments.length; // no value to return if no initial value and an empty array
-
-    if (length === 0 && argsLength < 3) {
-      throw new TypeError('reduce of empty array with no initial value');
-    }
-
-    var i = 0;
-    var result;
-
-    if (argsLength > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      result = arguments[2];
-    } else {
-      do {
-        if (i in iterable) {
-          result = iterable[i];
-          i += 1;
-          break;
-        } // if array contains no values, no initial value to return
-
-
-        i += 1;
-
-        if (i >= length) {
-          throw new TypeError('reduce of empty array with no initial value');
-        }
-      } while (true);
-      /* eslint-disable-line no-constant-condition */
-
-    }
-
-    while (i < length) {
-      if (i in iterable) {
-        result = callBack(result, iterable[i], i, object);
-      }
-
-      i += 1;
-    }
-
-    return result;
-  };
-}
-
-var red = $reduce;
-/* harmony default export */ __webpack_exports__["a"] = (red);
-
-
-
-/***/ }),
-/* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/**
- * This method determines whether the passed value is NaN and its type is
- * `Number`. It is a more robust version of the original, global isNaN().
- *
- * @param {*} [value] - The value to be tested for NaN.
- * @returns {boolean} `true` if the given value is NaN and its type is Number;
- *  otherwise, `false`.
- */
-var isNaN = function isNaN(value) {
-  /* eslint-disable-next-line no-self-compare */
-  return value !== value;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (isNaN);
-
-
-
-/***/ }),
-/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1669,6 +1459,216 @@ if (nativFilter) {
 
 var arrayFilter = $filter;
 /* harmony default export */ __webpack_exports__["a"] = (arrayFilter);
+
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
+var _this = undefined;
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+
+
+
+var natRed = [].reduce;
+var castObject = {}.constructor;
+var nativeReduce = typeof natRed === 'function' && natRed; // ES5 15.4.4.21
+// http://es5.github.com/#x15.4.4.21
+// https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduce
+
+var isWorking;
+
+if (nativeReduce) {
+  isWorking = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([], nativeReduce, function (acc) {
+    _newArrowCheck(this, _this);
+
+    return acc;
+  }.bind(undefined)).threw;
+  var res;
+
+  if (isWorking) {
+    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(castObject('abc'), nativeReduce, function (acc, c) {
+      _newArrowCheck(this, _this);
+
+      return acc + c;
+    }.bind(undefined), 'x');
+    isWorking = res.threw === false && res.value === 'xabc';
+  }
+
+  if (isWorking) {
+    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
+      /* eslint-disable-next-line prefer-rest-params */
+      return arguments;
+    }(1, 2, 3), nativeReduce, function (acc, arg) {
+      _newArrowCheck(this, _this);
+
+      return acc + arg;
+    }.bind(undefined), 1);
+    isWorking = res.threw === false && res.value === 7;
+  }
+
+  if (isWorking) {
+    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({
+      0: 1,
+      1: 2,
+      3: 3,
+      4: 4,
+      length: 4
+    }, nativeReduce, function (acc, arg) {
+      _newArrowCheck(this, _this);
+
+      return acc + arg;
+    }.bind(undefined), 2);
+    isWorking = res.threw === false && res.value === 8;
+  }
+
+  if (isWorking) {
+    var doc = typeof document !== 'undefined' && document;
+
+    if (doc) {
+      var fragment = doc.createDocumentFragment();
+      var div = doc.createElement('div');
+      fragment.appendChild(div);
+      res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(fragment.childNodes, nativeReduce, function (acc, node) {
+        _newArrowCheck(this, _this);
+
+        acc[acc.length] = node;
+        return acc;
+      }.bind(undefined), []);
+      isWorking = res.threw === false && res.value.length === 1 && res.value[0] === div;
+    }
+  }
+
+  if (isWorking) {
+    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call('ab', nativeReduce, function (_, __, ___, list) {
+      _newArrowCheck(this, _this);
+
+      return list;
+    }.bind(undefined));
+    isWorking = res.threw === false && _typeof(res.value) === 'object';
+  }
+}
+/**
+ * This method applies a function against an accumulator and each element in the
+ * array (from left to right) to reduce it to a single value.
+ *
+ * @param {Array} array - The array to iterate over.
+ * @param {Function} callBack - Function to execute for each element.
+ * @param {*} [initialValue] - Value to use as the first argument to the first
+ *  call of the callback. If no initial value is supplied, the first element in
+ *  the array will be used. Calling reduce on an empty array without an initial
+ *  value is an error.
+ * @throws {TypeError} If array is null or undefined.
+ * @throws {TypeError} If callBack is not a function.
+ * @throws {TypeError} If called on an empty array without an initial value.
+ * @returns {*} The value that results from the reduction.
+ */
+
+
+var $reduce;
+
+if (nativeReduce && isWorking) {
+  $reduce = function reduce(array, callBack
+  /* , initialValue */
+  ) {
+    var args = [callBack];
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      args[1] = arguments[2];
+    }
+
+    return nativeReduce.apply(array, args);
+  };
+} else {
+  $reduce = function reduce(array, callBack
+  /* , initialValue */
+  ) {
+    var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(array); // If no callback function or if callback is not a callable function
+
+    Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack);
+    var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object);
+    var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
+    var argsLength = arguments.length; // no value to return if no initial value and an empty array
+
+    if (length === 0 && argsLength < 3) {
+      throw new TypeError('reduce of empty array with no initial value');
+    }
+
+    var i = 0;
+    var result;
+
+    if (argsLength > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      result = arguments[2];
+    } else {
+      do {
+        if (i in iterable) {
+          result = iterable[i];
+          i += 1;
+          break;
+        } // if array contains no values, no initial value to return
+
+
+        i += 1;
+
+        if (i >= length) {
+          throw new TypeError('reduce of empty array with no initial value');
+        }
+      } while (true);
+      /* eslint-disable-line no-constant-condition */
+
+    }
+
+    while (i < length) {
+      if (i in iterable) {
+        result = callBack(result, iterable[i], i, object);
+      }
+
+      i += 1;
+    }
+
+    return result;
+  };
+}
+
+var red = $reduce;
+/* harmony default export */ __webpack_exports__["a"] = (red);
+
+
+
+/***/ }),
+/* 24 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/**
+ * This method determines whether the passed value is NaN and its type is
+ * `Number`. It is a more robust version of the original, global isNaN().
+ *
+ * @param {*} [value] - The value to be tested for NaN.
+ * @returns {boolean} `true` if the given value is NaN and its type is Number;
+ *  otherwise, `false`.
+ */
+var isNaN = function isNaN(value) {
+  /* eslint-disable-next-line no-self-compare */
+  return value !== value;
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (isNaN);
 
 
 
@@ -1873,11 +1873,11 @@ var s = $some;
 
 "use strict";
 
-// EXTERNAL MODULE: ./node_modules/to-number-x/dist/to-number-x.esm.js + 2 modules
-var to_number_x_esm = __webpack_require__(34);
+// EXTERNAL MODULE: ./node_modules/to-number-x/dist/to-number-x.esm.js
+var to_number_x_esm = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/is-nan-x/dist/is-nan-x.esm.js
-var is_nan_x_esm = __webpack_require__(23);
+var is_nan_x_esm = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js + 1 modules
 var is_finite_x_esm = __webpack_require__(38);
@@ -1990,7 +1990,7 @@ var to_integer_x_esm_toInteger2018 = function toInteger2018(value) {
 var to_object_x_esm = __webpack_require__(1);
 
 // EXTERNAL MODULE: ./node_modules/to-property-key-x/dist/to-property-key-x.esm.js
-var to_property_key_x_esm = __webpack_require__(33);
+var to_property_key_x_esm = __webpack_require__(34);
 
 // EXTERNAL MODULE: ./node_modules/attempt-x/dist/attempt-x.esm.js
 var attempt_x_esm = __webpack_require__(0);
@@ -1999,7 +1999,7 @@ var attempt_x_esm = __webpack_require__(0);
 var has_symbol_support_x_esm = __webpack_require__(13);
 
 // EXTERNAL MODULE: ./node_modules/has-own-property-x/dist/has-own-property-x.esm.js
-var has_own_property_x_esm = __webpack_require__(5);
+var has_own_property_x_esm = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
 var is_primitive = __webpack_require__(6);
@@ -2010,16 +2010,16 @@ var is_string = __webpack_require__(11);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/to-string-symbols-supported-x/dist/to-string-symbols-supported-x.esm.js
-var to_string_symbols_supported_x_esm = __webpack_require__(14);
+var to_string_symbols_supported_x_esm = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/to-integer-x/dist/to-integer-x.esm.js + 1 modules
 var to_integer_x_esm = __webpack_require__(26);
 
-// EXTERNAL MODULE: ./node_modules/to-number-x/dist/to-number-x.esm.js + 2 modules
-var to_number_x_esm = __webpack_require__(34);
+// EXTERNAL MODULE: ./node_modules/to-number-x/dist/to-number-x.esm.js
+var to_number_x_esm = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/math-clamp-x/dist/math-clamp-x.esm.js
-var math_clamp_x_esm = __webpack_require__(59);
+var math_clamp_x_esm = __webpack_require__(65);
 
 // CONCATENATED MODULE: ./node_modules/is-index-x/dist/is-index-x.esm.js
 
@@ -2061,7 +2061,7 @@ var is_index_x_esm_isIndex = function isIndex(value, length) {
 
 
 // EXTERNAL MODULE: ./node_modules/property-is-enumerable-x/dist/property-is-enumerable-x.esm.js
-var property_is_enumerable_x_esm = __webpack_require__(70);
+var property_is_enumerable_x_esm = __webpack_require__(75);
 
 // CONCATENATED MODULE: ./node_modules/object-get-own-property-descriptor-x/dist/object-get-own-property-descriptor-x.esm.js
 
@@ -2372,15 +2372,15 @@ var getPO = gpo;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(23);
+/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(24);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
 /* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
-/* harmony import */ var same_value_zero_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(61);
-/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(72);
+/* harmony import */ var same_value_zero_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(67);
+/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(56);
 /* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(48);
-/* harmony import */ var calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(62);
+/* harmony import */ var calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(68);
 /* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(10);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(0);
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -2595,7 +2595,7 @@ var indexOf = function indexOf(array, searchElement) {
 
 "use strict";
 /* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -2645,8 +2645,146 @@ var requireObjectCoercible = function requireObjectCoercible(value) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return toNumber2016; });
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(63);
+/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(45);
+/* harmony import */ var parse_int_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(51);
+/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(64);
+
+
+
+
+
+var binaryRadix = 2;
+var octalRadix = 8;
+var testCharsCount = 2;
+var ERROR_MESSAGE = 'Cannot convert a Symbol value to a number';
+/** @type {NumberConstructor} */
+
+var castNumber = testCharsCount.constructor;
+var pStrSlice = ERROR_MESSAGE.slice;
+var binaryRegex = /^0b[01]+$/i;
+var RegExpConstructor = binaryRegex.constructor; // Note that in IE 8, RegExp.prototype.test doesn't seem to exist: ie, "test" is
+// an own property of regexes. wtf.
+
+var test = binaryRegex.test;
+
+var isBinary = function _isBinary(value) {
+  return test.call(binaryRegex, value);
+};
+
+var octalRegex = /^0o[0-7]+$/i;
+
+var isOctal = function _isOctal(value) {
+  return test.call(octalRegex, value);
+};
+
+var nonWSregex2016 = new RegExpConstructor("[\x85\u200B\uFFFE]", 'g');
+
+var hasNonWS2016 = function _hasNonWS(value) {
+  return test.call(nonWSregex2016, value);
+};
+
+var nonWSregex2018 = new RegExpConstructor("[\x85\u180E\u200B\uFFFE]", 'g');
+
+var hasNonWS2018 = function _hasNonWS(value) {
+  return test.call(nonWSregex2018, value);
+};
+
+var invalidHexLiteral = /^[-+]0x[0-9a-f]+$/i;
+
+var isInvalidHexLiteral = function _isInvalidHexLiteral(value) {
+  return test.call(invalidHexLiteral, value);
+};
+/**
+ * This method converts argument to a value of type Number. (ES2016).
+ *
+ * @param {*} [argument] - The argument to convert to a number.
+ * @throws {TypeError} - If argument is a Symbol or not coercible.
+ * @returns {*} The argument converted to a number.
+ */
+
+
+function toNumber2016(argument) {
+  var value = Object(to_primitive_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(argument, Number);
+
+  if (is_symbol__WEBPACK_IMPORTED_MODULE_0___default()(value)) {
+    throw new TypeError(ERROR_MESSAGE);
+  }
+
+  if (typeof value === 'string') {
+    if (isBinary(value)) {
+      return toNumber2016(Object(parse_int_x__WEBPACK_IMPORTED_MODULE_3__[/* parseInt2016 */ "b"])(pStrSlice.call(value, testCharsCount), binaryRadix));
+    }
+
+    if (isOctal(value)) {
+      return toNumber2016(Object(parse_int_x__WEBPACK_IMPORTED_MODULE_3__[/* parseInt2016 */ "b"])(pStrSlice.call(value, testCharsCount), octalRadix));
+    }
+
+    if (hasNonWS2016(value) || isInvalidHexLiteral(value)) {
+      return nan_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"];
+    }
+
+    var trimmed = Object(trim_x__WEBPACK_IMPORTED_MODULE_2__[/* trim2016 */ "b"])(value);
+
+    if (trimmed !== value) {
+      return toNumber2016(trimmed);
+    }
+  }
+
+  return castNumber(value);
+}
+/**
+ * This method converts argument to a value of type Number. (ES2018).
+ *
+ * @param {*} [argument] - The argument to convert to a number.
+ * @throws {TypeError} - If argument is a Symbol or not coercible.
+ * @returns {*} The argument converted to a number.
+ */
+
+var toNumber2018 = function toNumber2018(argument) {
+  var value = Object(to_primitive_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(argument, castNumber);
+
+  if (is_symbol__WEBPACK_IMPORTED_MODULE_0___default()(value)) {
+    throw new TypeError(ERROR_MESSAGE);
+  }
+
+  if (typeof value === 'string') {
+    if (isBinary(value)) {
+      return toNumber2018(Object(parse_int_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(pStrSlice.call(value, testCharsCount), binaryRadix));
+    }
+
+    if (isOctal(value)) {
+      return toNumber2018(Object(parse_int_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(pStrSlice.call(value, testCharsCount), octalRadix));
+    }
+
+    if (hasNonWS2018(value) || isInvalidHexLiteral(value)) {
+      return nan_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"];
+    }
+
+    var trimmed = Object(trim_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(value);
+
+    if (trimmed !== value) {
+      return toNumber2018(trimmed);
+    }
+  }
+
+  return castNumber(value);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (toNumber2018);
+
+
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(58);
+/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(63);
 /* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(18);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2671,240 +2809,15 @@ var toPropertyKey = function toPropertyKey(argument) {
 
 
 /***/ }),
-/* 34 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXTERNAL MODULE: ./node_modules/is-symbol/index.js
-var is_symbol = __webpack_require__(19);
-var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
-
-// EXTERNAL MODULE: ./node_modules/to-primitive-x/dist/to-primitive-x.esm.js
-var to_primitive_x_esm = __webpack_require__(58);
-
-// EXTERNAL MODULE: ./node_modules/trim-x/dist/trim-x.esm.js + 1 modules
-var trim_x_esm = __webpack_require__(45);
-
-// CONCATENATED MODULE: ./node_modules/nan-x/dist/nan-x.esm.js
-/**
- * The constant NaN derived mathematically by 0 / 0.
- *
- * @type number
- */
-/* harmony default export */ var nan_x_esm = (0 / 0);
-
-
-// EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
-var to_string_x_esm = __webpack_require__(18);
-
-// EXTERNAL MODULE: ./node_modules/trim-left-x/dist/trim-left-x.esm.js
-var trim_left_x_esm = __webpack_require__(55);
-
-// CONCATENATED MODULE: ./node_modules/parse-int-x/dist/parse-int-x.esm.js
-
-
-
-var nativeParseInt = parseInt;
-/**  @type {Function} */
-
-var castNumber = 0 .constructor; // noinspection JSPotentiallyInvalidConstructorUsage
-
-var _ref = '',
-    charAt = _ref.charAt;
-var hexRegex = /^[-+]?0[xX]/;
-var test = hexRegex.test;
-/**
- * This method parses a string argument and returns an integer of the specified
- * radix (the base in mathematical numeral systems). (ES2016).
- *
- * @param {string} [string] - The value to parse. If the string argument is not a
- *  string, then it is converted to a string (using the ToString abstract
- *  operation). Leading whitespace in the string argument is ignored.
- * @param {number} [radix] - An integer between 2 and 36 that represents the radix
- *  (the base in mathematical numeral systems) of the above mentioned string.
- *  Specify 10 for the decimal numeral system commonly used by humans. Always
- *  specify this parameter to eliminate reader confusion and to guarantee
- *  predictable behavior. Different implementations produce different results
- *  when a radix is not specified, usually defaulting the value to 10.
- * @throws {TypeError} If target is a Symbol or is not coercible.
- * @returns {number} An integer number parsed from the given string. If the first
- *  character cannot be converted to a number, NaN is returned.
- */
-
-function parseInt2016(string, radix) {
-  var str = Object(trim_left_x_esm["b" /* trimLeft2016 */])(Object(to_string_x_esm["a" /* default */])(string));
-  return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
-}
-/**
- * This method parses a string argument and returns an integer of the specified
- * radix (the base in mathematical numeral systems). (ES2018).
- *
- * @param {string} [string] - The value to parse. If the string argument is not a
- *  string, then it is converted to a string (using the ToString abstract
- *  operation). Leading whitespace in the string argument is ignored.
- * @param {number} [radix] - An integer between 2 and 36 that represents the radix
- *  (the base in mathematical numeral systems) of the above mentioned string.
- *  Specify 10 for the decimal numeral system commonly used by humans. Always
- *  specify this parameter to eliminate reader confusion and to guarantee
- *  predictable behavior. Different implementations produce different results
- *  when a radix is not specified, usually defaulting the value to 10.
- * @throws {TypeError} If target is a Symbol or is not coercible.
- * @returns {number} An integer number parsed from the given string. If the first
- *  character cannot be converted to a number, NaN is returned.
- */
-
-var parse_int_x_esm_parseInt2018 = function parseInt2018(string, radix) {
-  var str = Object(trim_left_x_esm["a" /* default */])(Object(to_string_x_esm["a" /* default */])(string));
-
-  if (charAt.call(str, 0) === "\u180E") {
-    return nan_x_esm;
-  }
-
-  return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
-};
-
-/* harmony default export */ var parse_int_x_esm = (parse_int_x_esm_parseInt2018);
-
-
-// CONCATENATED MODULE: ./node_modules/to-number-x/dist/to-number-x.esm.js
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return toNumber2016; });
-
-
-
-
-
-var binaryRadix = 2;
-var octalRadix = 8;
-var testCharsCount = 2;
-var ERROR_MESSAGE = 'Cannot convert a Symbol value to a number';
-/** @type {NumberConstructor} */
-
-var to_number_x_esm_castNumber = testCharsCount.constructor;
-var pStrSlice = ERROR_MESSAGE.slice;
-var binaryRegex = /^0b[01]+$/i;
-var RegExpConstructor = binaryRegex.constructor; // Note that in IE 8, RegExp.prototype.test doesn't seem to exist: ie, "test" is
-// an own property of regexes. wtf.
-
-var to_number_x_esm_test = binaryRegex.test;
-
-var isBinary = function _isBinary(value) {
-  return to_number_x_esm_test.call(binaryRegex, value);
-};
-
-var octalRegex = /^0o[0-7]+$/i;
-
-var isOctal = function _isOctal(value) {
-  return to_number_x_esm_test.call(octalRegex, value);
-};
-
-var nonWSregex2016 = new RegExpConstructor("[\x85\u200B\uFFFE]", 'g');
-
-var hasNonWS2016 = function _hasNonWS(value) {
-  return to_number_x_esm_test.call(nonWSregex2016, value);
-};
-
-var nonWSregex2018 = new RegExpConstructor("[\x85\u180E\u200B\uFFFE]", 'g');
-
-var hasNonWS2018 = function _hasNonWS(value) {
-  return to_number_x_esm_test.call(nonWSregex2018, value);
-};
-
-var invalidHexLiteral = /^[-+]0x[0-9a-f]+$/i;
-
-var isInvalidHexLiteral = function _isInvalidHexLiteral(value) {
-  return to_number_x_esm_test.call(invalidHexLiteral, value);
-};
-/**
- * This method converts argument to a value of type Number. (ES2016).
- *
- * @param {*} [argument] - The argument to convert to a number.
- * @throws {TypeError} - If argument is a Symbol or not coercible.
- * @returns {*} The argument converted to a number.
- */
-
-
-function toNumber2016(argument) {
-  var value = Object(to_primitive_x_esm["a" /* default */])(argument, Number);
-
-  if (is_symbol_default()(value)) {
-    throw new TypeError(ERROR_MESSAGE);
-  }
-
-  if (typeof value === 'string') {
-    if (isBinary(value)) {
-      return toNumber2016(parseInt2016(pStrSlice.call(value, testCharsCount), binaryRadix));
-    }
-
-    if (isOctal(value)) {
-      return toNumber2016(parseInt2016(pStrSlice.call(value, testCharsCount), octalRadix));
-    }
-
-    if (hasNonWS2016(value) || isInvalidHexLiteral(value)) {
-      return nan_x_esm;
-    }
-
-    var trimmed = Object(trim_x_esm["b" /* trim2016 */])(value);
-
-    if (trimmed !== value) {
-      return toNumber2016(trimmed);
-    }
-  }
-
-  return to_number_x_esm_castNumber(value);
-}
-/**
- * This method converts argument to a value of type Number. (ES2018).
- *
- * @param {*} [argument] - The argument to convert to a number.
- * @throws {TypeError} - If argument is a Symbol or not coercible.
- * @returns {*} The argument converted to a number.
- */
-
-var to_number_x_esm_toNumber2018 = function toNumber2018(argument) {
-  var value = Object(to_primitive_x_esm["a" /* default */])(argument, to_number_x_esm_castNumber);
-
-  if (is_symbol_default()(value)) {
-    throw new TypeError(ERROR_MESSAGE);
-  }
-
-  if (typeof value === 'string') {
-    if (isBinary(value)) {
-      return toNumber2018(parse_int_x_esm(pStrSlice.call(value, testCharsCount), binaryRadix));
-    }
-
-    if (isOctal(value)) {
-      return toNumber2018(parse_int_x_esm(pStrSlice.call(value, testCharsCount), octalRadix));
-    }
-
-    if (hasNonWS2018(value) || isInvalidHexLiteral(value)) {
-      return nan_x_esm;
-    }
-
-    var trimmed = Object(trim_x_esm["a" /* default */])(value);
-
-    if (trimmed !== value) {
-      return toNumber2018(trimmed);
-    }
-  }
-
-  return to_number_x_esm_castNumber(value);
-};
-
-/* harmony default export */ var to_number_x_esm = __webpack_exports__["a"] = (to_number_x_esm_toNumber2018);
-
-
-
-/***/ }),
 /* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(31);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
 /* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(27);
-/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(15);
+/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
 /* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(20);
 
 
@@ -3470,7 +3383,7 @@ var arrayMap = $map;
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/is-nan-x/dist/is-nan-x.esm.js
-var is_nan_x_esm = __webpack_require__(23);
+var is_nan_x_esm = __webpack_require__(24);
 
 // CONCATENATED MODULE: ./node_modules/infinity-x/dist/infinity-x.esm.js
 /**
@@ -3505,7 +3418,7 @@ var is_finite_x_esm_isFinite = function isFinite(number) {
 
 "use strict";
 /* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var get_prototype_of_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(29);
 
 
@@ -3558,161 +3471,6 @@ var isError = function isError(value) {
 
 /***/ }),
 /* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(44);
-var _this = undefined;
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
-var getSize;
-
-if (typeof Map === 'function') {
-  /* eslint-disable-next-line compat/compat */
-  var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Map.prototype, 'size');
-
-  if (descriptor && typeof descriptor.get === 'function') {
-    var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(function () {
-      _newArrowCheck(this, _this);
-
-      /* eslint-disable-next-line compat/compat */
-      return new Map();
-    }.bind(undefined));
-
-    if (res.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value)) {
-      res = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(res.value, descriptor.get);
-
-      if (res.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(res.value)) {
-        getSize = descriptor.get;
-      }
-    }
-  }
-}
-/**
- * Determine if an `object` is a `Map`.
- *
- * @param {*} object - The object to test.
- * @returns {boolean} `true` if the `object` is a `Map`,
- *  else `false`.
- */
-
-
-var isMap = function isMap(object) {
-  if (castBoolean(getSize) === false || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false) {
-    return false;
-  }
-
-  var result = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(object, getSize);
-  return result.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(result.value);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (isMap);
-
-
-
-/***/ }),
-/* 41 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
-
-
-/**
- * This method requires an argument is corecible then converts using ToString.
- *
- * @param {*} [value] - The value to converted to a string.
- * @throws {TypeError} If value is null or undefined.
- * @returns {string} The value as a string.
- */
-
-var requireCoercibleToString = function requireCoercibleToString(value) {
-  return Object(to_string_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (requireCoercibleToString);
-
-
-
-/***/ }),
-/* 42 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(44);
-var _this = undefined;
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
-var getSize;
-
-if (typeof Set === 'function') {
-  /* eslint-disable-next-line compat/compat */
-  var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Set.prototype, 'size');
-
-  if (descriptor && typeof descriptor.get === 'function') {
-    var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(function () {
-      _newArrowCheck(this, _this);
-
-      /* eslint-disable-next-line compat/compat */
-      return new Set();
-    }.bind(undefined));
-
-    if (res.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value)) {
-      res = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(res.value, descriptor.get);
-
-      if (res.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(res.value)) {
-        getSize = descriptor.get;
-      }
-    }
-  }
-}
-/**
- * Determine if an `object` is a `Set`.
- *
- * @param {*} object - The object to test.
- * @returns {boolean} `true` if the `object` is a `Set`,
- *  else `false`.
- */
-
-
-var isSet = function isSet(object) {
-  if (castBoolean(getSize) === false || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false) {
-    return false;
-  }
-
-  var result = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(object, getSize);
-  return result.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(result.value);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (isSet);
-
-
-
-/***/ }),
-/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3893,7 +3651,7 @@ var libBind = $bind;
 var is_function_x_esm = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./node_modules/is-generator-function/index.js
-var is_generator_function = __webpack_require__(99);
+var is_generator_function = __webpack_require__(103);
 var is_generator_function_default = /*#__PURE__*/__webpack_require__.n(is_generator_function);
 
 // EXTERNAL MODULE: ./node_modules/to-string-tag-x/dist/to-string-tag-x.esm.js
@@ -3903,10 +3661,10 @@ var to_string_tag_x_esm = __webpack_require__(20);
 var has_to_string_tag_x_esm = __webpack_require__(31);
 
 // EXTERNAL MODULE: ./node_modules/normalize-space-x/dist/normalize-space-x.esm.js
-var normalize_space_x_esm = __webpack_require__(51);
+var normalize_space_x_esm = __webpack_require__(53);
 
 // EXTERNAL MODULE: ./node_modules/replace-comments-x/dist/replace-comments-x.esm.js
-var replace_comments_x_esm = __webpack_require__(52);
+var replace_comments_x_esm = __webpack_require__(54);
 
 // EXTERNAL MODULE: ./node_modules/get-prototype-of-x/dist/get-prototype-of-x.esm.js
 var get_prototype_of_x_esm = __webpack_require__(29);
@@ -3980,7 +3738,7 @@ var is_date_object = __webpack_require__(28);
 var is_date_object_default = /*#__PURE__*/__webpack_require__.n(is_date_object);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
-var is_object_like_x_esm = __webpack_require__(4);
+var is_object_like_x_esm = __webpack_require__(5);
 
 // EXTERNAL MODULE: ./node_modules/object-get-own-property-descriptor-x/dist/object-get-own-property-descriptor-x.esm.js + 1 modules
 var object_get_own_property_descriptor_x_esm = __webpack_require__(27);
@@ -4045,13 +3803,13 @@ var is_array_buffer_x_esm_isArrayBuffer = function isArrayBuffer(object) {
 
 
 // EXTERNAL MODULE: ./node_modules/is-set-x/dist/is-set-x.esm.js
-var is_set_x_esm = __webpack_require__(42);
+var is_set_x_esm = __webpack_require__(43);
 
 // EXTERNAL MODULE: ./node_modules/is-map-x/dist/is-map-x.esm.js
-var is_map_x_esm = __webpack_require__(40);
+var is_map_x_esm = __webpack_require__(41);
 
 // EXTERNAL MODULE: ./node_modules/is-typed-array/index.js
-var is_typed_array = __webpack_require__(80);
+var is_typed_array = __webpack_require__(83);
 var is_typed_array_default = /*#__PURE__*/__webpack_require__.n(is_typed_array);
 
 // CONCATENATED MODULE: ./node_modules/is-data-view-x/dist/is-data-view-x.esm.js
@@ -4137,7 +3895,7 @@ var is_nil_x_esm = __webpack_require__(8);
 var is_error_x_esm = __webpack_require__(39);
 
 // EXTERNAL MODULE: ./node_modules/is-promise/index.js
-var is_promise = __webpack_require__(81);
+var is_promise = __webpack_require__(84);
 var is_promise_default = /*#__PURE__*/__webpack_require__.n(is_promise);
 
 // EXTERNAL MODULE: ./node_modules/is-string/index.js
@@ -4145,26 +3903,26 @@ var is_string = __webpack_require__(11);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-number-object/index.js
-var is_number_object = __webpack_require__(82);
+var is_number_object = __webpack_require__(85);
 var is_number_object_default = /*#__PURE__*/__webpack_require__.n(is_number_object);
 
 // EXTERNAL MODULE: ./node_modules/is-boolean-object/index.js
-var is_boolean_object = __webpack_require__(56);
+var is_boolean_object = __webpack_require__(60);
 var is_boolean_object_default = /*#__PURE__*/__webpack_require__.n(is_boolean_object);
 
 // EXTERNAL MODULE: ./node_modules/object-is/index.js
-var object_is = __webpack_require__(100);
+var object_is = __webpack_require__(104);
 var object_is_default = /*#__PURE__*/__webpack_require__.n(object_is);
 
 // EXTERNAL MODULE: ./node_modules/is-symbol/index.js
-var is_symbol = __webpack_require__(19);
+var is_symbol = __webpack_require__(17);
 var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
 
 // EXTERNAL MODULE: ./node_modules/is-array-x/dist/is-array-x.esm.js
 var is_array_x_esm = __webpack_require__(21);
 
 // EXTERNAL MODULE: ./node_modules/is-nan/index.js
-var is_nan = __webpack_require__(101);
+var is_nan = __webpack_require__(105);
 var is_nan_default = /*#__PURE__*/__webpack_require__.n(is_nan);
 
 // EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
@@ -4232,10 +3990,10 @@ var has_symbol_support_x_esm = __webpack_require__(13);
 var white_space_x_esm = __webpack_require__(36);
 
 // EXTERNAL MODULE: ./node_modules/array-reduce-x/dist/array-reduce-x.esm.js
-var array_reduce_x_esm = __webpack_require__(22);
+var array_reduce_x_esm = __webpack_require__(23);
 
 // EXTERNAL MODULE: ./node_modules/array-filter-x/dist/array-filter-x.esm.js
-var array_filter_x_esm = __webpack_require__(24);
+var array_filter_x_esm = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/array-some-x/dist/array-some-x.esm.js
 var array_some_x_esm = __webpack_require__(25);
@@ -4448,87 +4206,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
 // EXTERNAL MODULE: ./node_modules/assert-is-object-x/dist/assert-is-object-x.esm.js
-var assert_is_object_x_esm = __webpack_require__(17);
+var assert_is_object_x_esm = __webpack_require__(16);
 
-// EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
-var object_keys_x_esm = __webpack_require__(16);
-
-// CONCATENATED MODULE: ./node_modules/get-own-property-names-x/dist/get-own-property-names-x.esm.js
-function get_own_property_names_x_esm_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { get_own_property_names_x_esm_typeof = function _typeof(obj) { return typeof obj; }; } else { get_own_property_names_x_esm_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return get_own_property_names_x_esm_typeof(obj); }
-
-
-
-
-
-
-
-var ObjectCtr = {}.constructor;
-var nGOPN = ObjectCtr.getOwnPropertyNames;
-var nativeGOPN = typeof nGOPN === 'function' && nGOPN;
-/**
- * This method creates an array of all properties (enumerable or not) found
- * directly upon a given object.
- *
- * @param {object} obj - The object whose enumerable and non-enumerable own
- *  properties are to be returned.
- * @throws {TypeError} If target is null or undefined.
- * @returns {Array} An array of strings that correspond to the properties found
- *  directly upon the given object.
- */
-
-var getOPN;
-
-if (nativeGOPN) {
-  var get_own_property_names_x_esm_isCorrectRes = function isCorrectRes(r, length) {
-    return r.threw === false && Object(is_array_x_esm["a" /* default */])(r.value) && r.value.length === length;
-  };
-
-  var either = function either(r, a, b) {
-    var x = r.value[0];
-    var y = r.value[1];
-    return x === a && y === b || x === b && y === a;
-  };
-
-  var get_own_property_names_x_esm_res = Object(attempt_x_esm["a" /* default */])(nativeGOPN, 'fo');
-
-  if (get_own_property_names_x_esm_isCorrectRes(get_own_property_names_x_esm_res, 3) && either(get_own_property_names_x_esm_res, '0', '1') && get_own_property_names_x_esm_res.value[2] === 'length') {
-    getOPN = nativeGOPN;
-  } else {
-    get_own_property_names_x_esm_res = Object(attempt_x_esm["a" /* default */])(nativeGOPN, {
-      a: 1,
-      b: 2
-    });
-
-    if (get_own_property_names_x_esm_isCorrectRes(get_own_property_names_x_esm_res, 2) && either(get_own_property_names_x_esm_res, 'a', 'b')) {
-      var win = (typeof window === "undefined" ? "undefined" : get_own_property_names_x_esm_typeof(window)) === 'object' && window;
-      var cachedWindowNames = win ? nativeGOPN(win) : [];
-
-      getOPN = function getOwnPropertyNames(obj) {
-        var val = Object(to_object_x_esm["a" /* default */])(obj); // IE bug where layout engine calls userland gOPN for cross-domain `window` objects
-
-        if (win && win !== window && Object(to_string_tag_x_esm["a" /* default */])(val) === '[object Window]') {
-          var result = Object(attempt_x_esm["a" /* default */])(nativeGOPN, val);
-          return result.threw ? Object(array_slice_x_esm["a" /* default */])(cachedWindowNames) : result.value;
-        }
-
-        return nativeGOPN(val);
-      };
-    }
-  }
-}
-
-if (typeof getOPN !== 'function') {
-  getOPN = function getOwnPropertyNames(obj) {
-    return Object(object_keys_x_esm["a" /* default */])(obj);
-  };
-}
-
-var gopn = getOPN;
-/* harmony default export */ var get_own_property_names_x_esm = (gopn);
-
+// EXTERNAL MODULE: ./node_modules/get-own-property-names-x/dist/get-own-property-names-x.esm.js
+var get_own_property_names_x_esm = __webpack_require__(50);
 
 // EXTERNAL MODULE: ./node_modules/get-own-property-symbols-x/dist/get-own-property-symbols-x.esm.js
-var get_own_property_symbols_x_esm = __webpack_require__(53);
+var get_own_property_symbols_x_esm = __webpack_require__(55);
 
 // CONCATENATED MODULE: ./node_modules/reflect-own-keys-x/dist/reflect-own-keys-x.esm.js
 
@@ -4548,7 +4232,7 @@ if (nativeOwnKeys) {
     return r.threw === false && Object(is_array_x_esm["a" /* default */])(r.value) && r.value.length === length;
   };
 
-  var reflect_own_keys_x_esm_either = function either(r, a, b) {
+  var either = function either(r, a, b) {
     var x = r.value[0];
     var y = r.value[1];
     return x === a && y === b || x === b && y === a;
@@ -4562,7 +4246,7 @@ if (nativeOwnKeys) {
       a: 1,
       b: 2
     });
-    reflect_own_keys_x_esm_isWorking = reflect_own_keys_x_esm_isCorrectRes(reflect_own_keys_x_esm_res, 2) && reflect_own_keys_x_esm_either(reflect_own_keys_x_esm_res, 'a', 'b');
+    reflect_own_keys_x_esm_isWorking = reflect_own_keys_x_esm_isCorrectRes(reflect_own_keys_x_esm_res, 2) && either(reflect_own_keys_x_esm_res, 'a', 'b');
   }
 
   if (reflect_own_keys_x_esm_isWorking && has_reflect_support_x_esm) {
@@ -4573,7 +4257,7 @@ if (nativeOwnKeys) {
     };
     testObj[symbol] = 2;
     reflect_own_keys_x_esm_res = Object(attempt_x_esm["a" /* default */])(nativeOwnKeys, testObj);
-    reflect_own_keys_x_esm_isWorking = reflect_own_keys_x_esm_isCorrectRes(reflect_own_keys_x_esm_res, 2) && reflect_own_keys_x_esm_either(reflect_own_keys_x_esm_res, 'a', symbol);
+    reflect_own_keys_x_esm_isWorking = reflect_own_keys_x_esm_isCorrectRes(reflect_own_keys_x_esm_res, 2) && either(reflect_own_keys_x_esm_res, 'a', symbol);
   }
 }
 /**
@@ -4595,7 +4279,7 @@ if (reflect_own_keys_x_esm_isWorking) {
 
   reflectOwnKeys = function ownKeys(target) {
     Object(assert_is_object_x_esm["a" /* default */])(target);
-    return reflect_own_keys_x_esm_concat.call(get_own_property_names_x_esm(target), Object(get_own_property_symbols_x_esm["a" /* default */])(target));
+    return reflect_own_keys_x_esm_concat.call(Object(get_own_property_names_x_esm["a" /* default */])(target), Object(get_own_property_symbols_x_esm["a" /* default */])(target));
   };
 }
 
@@ -4604,10 +4288,13 @@ var rok = reflectOwnKeys;
 
 
 // EXTERNAL MODULE: ./node_modules/json3/lib/json3.js
-var json3 = __webpack_require__(57);
+var json3 = __webpack_require__(61);
+
+// EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
+var object_keys_x_esm = __webpack_require__(15);
 
 // EXTERNAL MODULE: ./node_modules/same-value-zero-x/dist/same-value-zero-x.esm.js
-var same_value_zero_x_esm = __webpack_require__(61);
+var same_value_zero_x_esm = __webpack_require__(67);
 
 // EXTERNAL MODULE: ./node_modules/find-index-x/dist/find-index-x.esm.js
 var find_index_x_esm = __webpack_require__(48);
@@ -4616,7 +4303,7 @@ var find_index_x_esm = __webpack_require__(48);
 var index_of_x_esm = __webpack_require__(30);
 
 // EXTERNAL MODULE: ./node_modules/calculate-from-index-x/dist/calculate-from-index-x.esm.js
-var calculate_from_index_x_esm = __webpack_require__(62);
+var calculate_from_index_x_esm = __webpack_require__(68);
 
 // CONCATENATED MODULE: ./node_modules/array-includes-x/dist/array-includes-x.esm.js
 function array_includes_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -4781,7 +4468,7 @@ var inc = $includes;
 
 
 // EXTERNAL MODULE: ./node_modules/get-own-enumerable-property-symbols-x/dist/get-own-enumerable-property-symbols-x.esm.js
-var get_own_enumerable_property_symbols_x_esm = __webpack_require__(71);
+var get_own_enumerable_property_symbols_x_esm = __webpack_require__(76);
 
 // CONCATENATED MODULE: ./node_modules/object-assign-x/dist/object-assign-x.esm.js
 function object_assign_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -4820,7 +4507,7 @@ var lacksProperEnumerationOrder = function enumOrder() {
   var test1 = object_assign_x_esm_castObject('abc');
   test1[5] = 'de';
 
-  if (get_own_property_names_x_esm(test1)[0] === '5') {
+  if (Object(get_own_property_names_x_esm["a" /* default */])(test1)[0] === '5') {
     return true;
   }
 
@@ -4832,7 +4519,7 @@ var lacksProperEnumerationOrder = function enumOrder() {
     acc["_".concat(fromCharCode(index))] = index;
     return acc;
   }.bind(this), {});
-  var order = Object(array_reduce_x_esm["a" /* default */])(get_own_property_names_x_esm(test2), function (acc, name) {
+  var order = Object(array_reduce_x_esm["a" /* default */])(Object(get_own_property_names_x_esm["a" /* default */])(test2), function (acc, name) {
     object_assign_x_esm_newArrowCheck(this, _this);
 
     return acc + test2[name];
@@ -4937,13 +4624,13 @@ var object_assign_x_esm_assign = $assign;
 
 
 // EXTERNAL MODULE: ./node_modules/to-iso-string-x/dist/to-iso-string-x.esm.js + 1 modules
-var to_iso_string_x_esm = __webpack_require__(74);
+var to_iso_string_x_esm = __webpack_require__(77);
 
 // EXTERNAL MODULE: ./node_modules/collections-x/dist/collections-x.esm.js + 3 modules
-var collections_x_esm = __webpack_require__(73);
+var collections_x_esm = __webpack_require__(57);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(15);
+var object_define_property_x_esm = __webpack_require__(14);
 
 // EXTERNAL MODULE: ./node_modules/to-integer-x/dist/to-integer-x.esm.js + 1 modules
 var to_integer_x_esm = __webpack_require__(26);
@@ -5118,7 +4805,7 @@ var string_includes_x_esm_inc = string_includes_x_esm_$includes;
 
 
 // EXTERNAL MODULE: ./node_modules/math-clamp-x/dist/math-clamp-x.esm.js
-var math_clamp_x_esm = __webpack_require__(59);
+var math_clamp_x_esm = __webpack_require__(65);
 
 // EXTERNAL MODULE: ./node_modules/array-like-slice-x/dist/array-like-slice-x.esm.js
 var array_like_slice_x_esm = __webpack_require__(47);
@@ -6374,6 +6061,161 @@ var ins = inspect;
 
 
 /***/ }),
+/* 41 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(44);
+var _this = undefined;
+
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+
+
+/** @type {BooleanConstructor} */
+
+var castBoolean = true.constructor;
+var getSize;
+
+if (typeof Map === 'function') {
+  /* eslint-disable-next-line compat/compat */
+  var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Map.prototype, 'size');
+
+  if (descriptor && typeof descriptor.get === 'function') {
+    var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(function () {
+      _newArrowCheck(this, _this);
+
+      /* eslint-disable-next-line compat/compat */
+      return new Map();
+    }.bind(undefined));
+
+    if (res.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value)) {
+      res = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(res.value, descriptor.get);
+
+      if (res.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(res.value)) {
+        getSize = descriptor.get;
+      }
+    }
+  }
+}
+/**
+ * Determine if an `object` is a `Map`.
+ *
+ * @param {*} object - The object to test.
+ * @returns {boolean} `true` if the `object` is a `Map`,
+ *  else `false`.
+ */
+
+
+var isMap = function isMap(object) {
+  if (castBoolean(getSize) === false || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false) {
+    return false;
+  }
+
+  var result = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(object, getSize);
+  return result.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(result.value);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (isMap);
+
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
+
+
+/**
+ * This method requires an argument is corecible then converts using ToString.
+ *
+ * @param {*} [value] - The value to converted to a string.
+ * @throws {TypeError} If value is null or undefined.
+ * @returns {string} The value as a string.
+ */
+
+var requireCoercibleToString = function requireCoercibleToString(value) {
+  return Object(to_string_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (requireCoercibleToString);
+
+
+
+/***/ }),
+/* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(44);
+var _this = undefined;
+
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+
+
+/** @type {BooleanConstructor} */
+
+var castBoolean = true.constructor;
+var getSize;
+
+if (typeof Set === 'function') {
+  /* eslint-disable-next-line compat/compat */
+  var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Set.prototype, 'size');
+
+  if (descriptor && typeof descriptor.get === 'function') {
+    var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(function () {
+      _newArrowCheck(this, _this);
+
+      /* eslint-disable-next-line compat/compat */
+      return new Set();
+    }.bind(undefined));
+
+    if (res.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value)) {
+      res = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(res.value, descriptor.get);
+
+      if (res.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(res.value)) {
+        getSize = descriptor.get;
+      }
+    }
+  }
+}
+/**
+ * Determine if an `object` is a `Set`.
+ *
+ * @param {*} object - The object to test.
+ * @returns {boolean} `true` if the `object` is a `Set`,
+ *  else `false`.
+ */
+
+
+var isSet = function isSet(object) {
+  if (castBoolean(getSize) === false || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false) {
+    return false;
+  }
+
+  var result = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(object, getSize);
+  return result.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(result.value);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (isSet);
+
+
+
+/***/ }),
 /* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6449,10 +6291,10 @@ var is_length_x_esm_isLength = function isLength(value) {
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/trim-left-x/dist/trim-left-x.esm.js
-var trim_left_x_esm = __webpack_require__(55);
+var trim_left_x_esm = __webpack_require__(59);
 
 // EXTERNAL MODULE: ./node_modules/require-coercible-to-string-x/dist/require-coercible-to-string-x.esm.js
-var require_coercible_to_string_x_esm = __webpack_require__(41);
+var require_coercible_to_string_x_esm = __webpack_require__(42);
 
 // EXTERNAL MODULE: ./node_modules/white-space-x/dist/white-space-x.esm.js
 var white_space_x_esm = __webpack_require__(36);
@@ -6775,7 +6617,7 @@ var fi = findIdx;
 "use strict";
 
 
-var has = __webpack_require__(66);
+var has = __webpack_require__(71);
 var regexExec = RegExp.prototype.exec;
 var gOPD = Object.getOwnPropertyDescriptor;
 
@@ -6819,6 +6661,166 @@ module.exports = function isRegex(value) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
+/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
+/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
+/* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+
+
+
+
+var ObjectCtr = {}.constructor;
+var nGOPN = ObjectCtr.getOwnPropertyNames;
+var nativeGOPN = typeof nGOPN === 'function' && nGOPN;
+/**
+ * This method creates an array of all properties (enumerable or not) found
+ * directly upon a given object.
+ *
+ * @param {object} obj - The object whose enumerable and non-enumerable own
+ *  properties are to be returned.
+ * @throws {TypeError} If target is null or undefined.
+ * @returns {Array} An array of strings that correspond to the properties found
+ *  directly upon the given object.
+ */
+
+var getOPN;
+
+if (nativeGOPN) {
+  var isCorrectRes = function isCorrectRes(r, length) {
+    return r.threw === false && Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(r.value) && r.value.length === length;
+  };
+
+  var either = function either(r, a, b) {
+    var x = r.value[0];
+    var y = r.value[1];
+    return x === a && y === b || x === b && y === a;
+  };
+
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeGOPN, 'fo');
+
+  if (isCorrectRes(res, 3) && either(res, '0', '1') && res.value[2] === 'length') {
+    getOPN = nativeGOPN;
+  } else {
+    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeGOPN, {
+      a: 1,
+      b: 2
+    });
+
+    if (isCorrectRes(res, 2) && either(res, 'a', 'b')) {
+      var win = (typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object' && window;
+      var cachedWindowNames = win ? nativeGOPN(win) : [];
+
+      getOPN = function getOwnPropertyNames(obj) {
+        var val = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj); // IE bug where layout engine calls userland gOPN for cross-domain `window` objects
+
+        if (win && win !== window && Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(val) === '[object Window]') {
+          var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeGOPN, val);
+          return result.threw ? Object(array_slice_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(cachedWindowNames) : result.value;
+        }
+
+        return nativeGOPN(val);
+      };
+    }
+  }
+}
+
+if (typeof getOPN !== 'function') {
+  getOPN = function getOwnPropertyNames(obj) {
+    return Object(object_keys_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(obj);
+  };
+}
+
+var gopn = getOPN;
+/* harmony default export */ __webpack_exports__["a"] = (gopn);
+
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return parseInt2016; });
+/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(64);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
+/* harmony import */ var trim_left_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(59);
+
+
+
+var nativeParseInt = parseInt;
+/**  @type {Function} */
+
+var castNumber = 0 .constructor; // noinspection JSPotentiallyInvalidConstructorUsage
+
+var _ref = '',
+    charAt = _ref.charAt;
+var hexRegex = /^[-+]?0[xX]/;
+var test = hexRegex.test;
+/**
+ * This method parses a string argument and returns an integer of the specified
+ * radix (the base in mathematical numeral systems). (ES2016).
+ *
+ * @param {string} [string] - The value to parse. If the string argument is not a
+ *  string, then it is converted to a string (using the ToString abstract
+ *  operation). Leading whitespace in the string argument is ignored.
+ * @param {number} [radix] - An integer between 2 and 36 that represents the radix
+ *  (the base in mathematical numeral systems) of the above mentioned string.
+ *  Specify 10 for the decimal numeral system commonly used by humans. Always
+ *  specify this parameter to eliminate reader confusion and to guarantee
+ *  predictable behavior. Different implementations produce different results
+ *  when a radix is not specified, usually defaulting the value to 10.
+ * @throws {TypeError} If target is a Symbol or is not coercible.
+ * @returns {number} An integer number parsed from the given string. If the first
+ *  character cannot be converted to a number, NaN is returned.
+ */
+
+function parseInt2016(string, radix) {
+  var str = Object(trim_left_x__WEBPACK_IMPORTED_MODULE_2__[/* trimLeft2016 */ "b"])(Object(to_string_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(string));
+  return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
+}
+/**
+ * This method parses a string argument and returns an integer of the specified
+ * radix (the base in mathematical numeral systems). (ES2018).
+ *
+ * @param {string} [string] - The value to parse. If the string argument is not a
+ *  string, then it is converted to a string (using the ToString abstract
+ *  operation). Leading whitespace in the string argument is ignored.
+ * @param {number} [radix] - An integer between 2 and 36 that represents the radix
+ *  (the base in mathematical numeral systems) of the above mentioned string.
+ *  Specify 10 for the decimal numeral system commonly used by humans. Always
+ *  specify this parameter to eliminate reader confusion and to guarantee
+ *  predictable behavior. Different implementations produce different results
+ *  when a radix is not specified, usually defaulting the value to 10.
+ * @throws {TypeError} If target is a Symbol or is not coercible.
+ * @returns {number} An integer number parsed from the given string. If the first
+ *  character cannot be converted to a number, NaN is returned.
+ */
+
+var parseInt2018 = function parseInt2018(string, radix) {
+  var str = Object(trim_left_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(Object(to_string_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(string));
+
+  if (charAt.call(str, 0) === "\u180E") {
+    return nan_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"];
+  }
+
+  return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (parseInt2018);
+
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(44);
@@ -6842,7 +6844,7 @@ var isArrayLike = function isArrayLike(value) {
 
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6887,12 +6889,12 @@ var normalizeSpace2018 = function normalizeSpace2018(string) {
 
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
-/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(41);
+/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(42);
 
 
 var EMPTY_STRING = '';
@@ -6917,7 +6919,7 @@ var replaceComments = function replaceComments(string, replacement) {
 
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6961,2653 +6963,11 @@ var getOwnPropertySymbols = function getOwnPropertySymbols(obj) {
 
 
 /***/ }),
-/* 54 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
-var _this = undefined;
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-
-/** @type {ArrayConstructor} */
-
-var ArrayCtr = [].constructor;
-/** @type {ObjectConstructor} */
-
-var castObject = {}.constructor;
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
-var nativeForEach = typeof ArrayCtr.prototype.forEach === 'function' && ArrayCtr.prototype.forEach;
-var isWorking;
-
-if (nativeForEach) {
-  var spy = 0;
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1, 2], nativeForEach, function (item) {
-    _newArrowCheck(this, _this);
-
-    spy += item;
-  }.bind(undefined));
-  isWorking = res.threw === false && typeof res.value === 'undefined' && spy === 3;
-
-  if (isWorking) {
-    spy = '';
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(castObject('abc'), nativeForEach, function (item) {
-      _newArrowCheck(this, _this);
-
-      spy += item;
-    }.bind(undefined));
-    isWorking = res.threw === false && typeof res.value === 'undefined' && spy === 'abc';
-  }
-
-  if (isWorking) {
-    spy = 0;
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
-      /* eslint-disable-next-line prefer-rest-params */
-      return arguments;
-    }(1, 2, 3), nativeForEach, function (item) {
-      _newArrowCheck(this, _this);
-
-      spy += item;
-    }.bind(undefined));
-    isWorking = res.threw === false && typeof res.value === 'undefined' && spy === 6;
-  }
-
-  if (isWorking) {
-    spy = 0;
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({
-      0: 1,
-      1: 2,
-      3: 3,
-      4: 4,
-      length: 4
-    }, nativeForEach, function (item) {
-      _newArrowCheck(this, _this);
-
-      spy += item;
-    }.bind(undefined));
-    isWorking = res.threw === false && typeof res.value === 'undefined' && spy === 6;
-  }
-
-  if (isWorking) {
-    var doc = typeof document !== 'undefined' && document;
-
-    if (doc) {
-      spy = null;
-      var fragment = doc.createDocumentFragment();
-      var div = doc.createElement('div');
-      fragment.appendChild(div);
-      res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(fragment.childNodes, nativeForEach, function (item) {
-        _newArrowCheck(this, _this);
-
-        spy = item;
-      }.bind(undefined));
-      isWorking = res.threw === false && typeof res.value === 'undefined' && spy === div;
-    }
-  }
-
-  if (isWorking) {
-    var isStrict = function returnIsStrict() {
-      /* eslint-disable-next-line babel/no-invalid-this */
-      return castBoolean(this) === false;
-    }();
-
-    if (isStrict) {
-      spy = null;
-      res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1], nativeForEach, function () {
-        _newArrowCheck(this, _this);
-
-        /* eslint-disable-next-line babel/no-invalid-this */
-        spy = typeof this === 'string';
-      }.bind(undefined), 'x');
-      isWorking = res.threw === false && typeof res.value === 'undefined' && spy === true;
-    }
-  }
-
-  if (isWorking) {
-    spy = {};
-    var fn = ['return nativeForEach.call("foo", function (_, __, context) {', 'if (castBoolean(context) === false || typeof context !== "object") {', 'spy.value = true;}});'].join('');
-    /* eslint-disable-next-line no-new-func */
-
-    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Function('nativeForEach', 'spy', 'castBoolean', fn), nativeForEach, spy);
-    isWorking = res.threw === false && typeof res.value === 'undefined' && spy.value !== true;
-  }
-}
-/**
- * This method executes a provided function once for each array element.
- *
- * @param {Array} array - The array to iterate over.
- * @param {Function} callBack - Function to execute for each element.
- * @param {*} [thisArg] - Value to use as this when executing callback.
- * @throws {TypeError} If array is null or undefined.
- * @throws {TypeError} If callBack is not a function.
- */
-
-
-var $forEach;
-
-if (nativeForEach) {
-  $forEach = function forEach(array, callBack
-  /* , thisArg */
-  ) {
-    var args = [callBack];
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      args[1] = arguments[2];
-    }
-
-    return nativeForEach.apply(array, args);
-  };
-} else {
-  $forEach = function forEach(array, callBack
-  /* , thisArg */
-  ) {
-    var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(array); // If no callback function or if callback is not a callable function
-
-    Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack);
-    var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object);
-    var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
-    var thisArg;
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      thisArg = arguments[2];
-    }
-
-    var noThis = typeof thisArg === 'undefined';
-
-    for (var i = 0; i < length; i += 1) {
-      if (i in iterable) {
-        if (noThis) {
-          callBack(iterable[i], i, object);
-        } else {
-          callBack.call(thisArg, iterable[i], i, object);
-        }
-      }
-    }
-  };
-}
-
-var arrayForEach = $forEach;
-/* harmony default export */ __webpack_exports__["a"] = (arrayForEach);
-
-
-
-/***/ }),
-/* 55 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return trimLeft2016; });
-/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(41);
-/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
-
-
-var EMPTY_STRING = '';
-var RegExpCtr = /none/.constructor;
-var reLeft2016 = new RegExpCtr("^[".concat(white_space_x__WEBPACK_IMPORTED_MODULE_1__[/* string2016 */ "b"], "]+"));
-var reLeft = new RegExpCtr("^[".concat(white_space_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], "]+"));
-var replace = EMPTY_STRING.replace;
-/**
- * This method removes whitespace from the left end of a string. (ES2016).
- *
- * @param {string} [string] - The string to trim the left end whitespace from.
- * @throws {TypeError} If string is null or undefined or not coercible.
- * @returns {string} The left trimmed string.
- */
-
-function trimLeft2016(string) {
-  return replace.call(Object(require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(string), reLeft2016, EMPTY_STRING);
-}
-/**
- * This method removes whitespace from the left end of a string. (ES2018).
- *
- * @param {string} [string] - The string to trim the left end whitespace from.
- * @throws {TypeError} If string is null or undefined or not coercible.
- * @returns {string} The left trimmed string.
- */
-
-var trimLeft2018 = function trimLeft2018(string) {
-  return replace.call(Object(require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(string), reLeft, EMPTY_STRING);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (trimLeft2018);
-
-
-
-/***/ }),
 /* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var boolToStr = Boolean.prototype.toString;
-
-var tryBooleanObject = function tryBooleanObject(value) {
-	try {
-		boolToStr.call(value);
-		return true;
-	} catch (e) {
-		return false;
-	}
-};
-var toStr = Object.prototype.toString;
-var boolClass = '[object Boolean]';
-var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
-
-module.exports = function isBoolean(value) {
-	if (typeof value === 'boolean') { return true; }
-	if (typeof value !== 'object') { return false; }
-	return hasToStringTag ? tryBooleanObject(value) : toStr.call(value) === boolClass;
-};
-
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! JSON v3.3.2 | https://bestiejs.github.io/json3 | Copyright 2012-2015, Kit Cambridge, Benjamin Tan | http://kit.mit-license.org */
-;(function () {
-  // Detect the `define` function exposed by asynchronous module loaders. The
-  // strict `define` check is necessary for compatibility with `r.js`.
-  var isLoader =  true && __webpack_require__(113);
-
-  // A set of types used to distinguish objects from primitives.
-  var objectTypes = {
-    "function": true,
-    "object": true
-  };
-
-  // Detect the `exports` object exposed by CommonJS implementations.
-  var freeExports = objectTypes[typeof exports] && exports && !exports.nodeType && exports;
-
-  // Use the `global` object exposed by Node (including Browserify via
-  // `insert-module-globals`), Narwhal, and Ringo as the default context,
-  // and the `window` object in browsers. Rhino exports a `global` function
-  // instead.
-  var root = objectTypes[typeof window] && window || this,
-      freeGlobal = freeExports && objectTypes[typeof module] && module && !module.nodeType && typeof global == "object" && global;
-
-  if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal || freeGlobal.self === freeGlobal)) {
-    root = freeGlobal;
-  }
-
-  // Public: Initializes JSON 3 using the given `context` object, attaching the
-  // `stringify` and `parse` functions to the specified `exports` object.
-  function runInContext(context, exports) {
-    context || (context = root.Object());
-    exports || (exports = root.Object());
-
-    // Native constructor aliases.
-    var Number = context.Number || root.Number,
-        String = context.String || root.String,
-        Object = context.Object || root.Object,
-        Date = context.Date || root.Date,
-        SyntaxError = context.SyntaxError || root.SyntaxError,
-        TypeError = context.TypeError || root.TypeError,
-        Math = context.Math || root.Math,
-        nativeJSON = context.JSON || root.JSON;
-
-    // Delegate to the native `stringify` and `parse` implementations.
-    if (typeof nativeJSON == "object" && nativeJSON) {
-      exports.stringify = nativeJSON.stringify;
-      exports.parse = nativeJSON.parse;
-    }
-
-    // Convenience aliases.
-    var objectProto = Object.prototype,
-        getClass = objectProto.toString,
-        isProperty = objectProto.hasOwnProperty,
-        undefined;
-
-    // Internal: Contains `try...catch` logic used by other functions.
-    // This prevents other functions from being deoptimized.
-    function attempt(func, errorFunc) {
-      try {
-        func();
-      } catch (exception) {
-        if (errorFunc) {
-          errorFunc();
-        }
-      }
-    }
-
-    // Test the `Date#getUTC*` methods. Based on work by @Yaffle.
-    var isExtended = new Date(-3509827334573292);
-    attempt(function () {
-      // The `getUTCFullYear`, `Month`, and `Date` methods return nonsensical
-      // results for certain dates in Opera >= 10.53.
-      isExtended = isExtended.getUTCFullYear() == -109252 && isExtended.getUTCMonth() === 0 && isExtended.getUTCDate() === 1 &&
-        isExtended.getUTCHours() == 10 && isExtended.getUTCMinutes() == 37 && isExtended.getUTCSeconds() == 6 && isExtended.getUTCMilliseconds() == 708;
-    });
-
-    // Internal: Determines whether the native `JSON.stringify` and `parse`
-    // implementations are spec-compliant. Based on work by Ken Snyder.
-    function has(name) {
-      if (has[name] != null) {
-        // Return cached feature test result.
-        return has[name];
-      }
-      var isSupported;
-      if (name == "bug-string-char-index") {
-        // IE <= 7 doesn't support accessing string characters using square
-        // bracket notation. IE 8 only supports this for primitives.
-        isSupported = "a"[0] != "a";
-      } else if (name == "json") {
-        // Indicates whether both `JSON.stringify` and `JSON.parse` are
-        // supported.
-        isSupported = has("json-stringify") && has("date-serialization") && has("json-parse");
-      } else if (name == "date-serialization") {
-        // Indicates whether `Date`s can be serialized accurately by `JSON.stringify`.
-        isSupported = has("json-stringify") && isExtended;
-        if (isSupported) {
-          var stringify = exports.stringify;
-          attempt(function () {
-            isSupported =
-              // JSON 2, Prototype <= 1.7, and older WebKit builds incorrectly
-              // serialize extended years.
-              stringify(new Date(-8.64e15)) == '"-271821-04-20T00:00:00.000Z"' &&
-              // The milliseconds are optional in ES 5, but required in 5.1.
-              stringify(new Date(8.64e15)) == '"+275760-09-13T00:00:00.000Z"' &&
-              // Firefox <= 11.0 incorrectly serializes years prior to 0 as negative
-              // four-digit years instead of six-digit years. Credits: @Yaffle.
-              stringify(new Date(-621987552e5)) == '"-000001-01-01T00:00:00.000Z"' &&
-              // Safari <= 5.1.5 and Opera >= 10.53 incorrectly serialize millisecond
-              // values less than 1000. Credits: @Yaffle.
-              stringify(new Date(-1)) == '"1969-12-31T23:59:59.999Z"';
-          });
-        }
-      } else {
-        var value, serialized = '{"a":[1,true,false,null,"\\u0000\\b\\n\\f\\r\\t"]}';
-        // Test `JSON.stringify`.
-        if (name == "json-stringify") {
-          var stringify = exports.stringify, stringifySupported = typeof stringify == "function";
-          if (stringifySupported) {
-            // A test function object with a custom `toJSON` method.
-            (value = function () {
-              return 1;
-            }).toJSON = value;
-            attempt(function () {
-              stringifySupported =
-                // Firefox 3.1b1 and b2 serialize string, number, and boolean
-                // primitives as object literals.
-                stringify(0) === "0" &&
-                // FF 3.1b1, b2, and JSON 2 serialize wrapped primitives as object
-                // literals.
-                stringify(new Number()) === "0" &&
-                stringify(new String()) == '""' &&
-                // FF 3.1b1, 2 throw an error if the value is `null`, `undefined`, or
-                // does not define a canonical JSON representation (this applies to
-                // objects with `toJSON` properties as well, *unless* they are nested
-                // within an object or array).
-                stringify(getClass) === undefined &&
-                // IE 8 serializes `undefined` as `"undefined"`. Safari <= 5.1.7 and
-                // FF 3.1b3 pass this test.
-                stringify(undefined) === undefined &&
-                // Safari <= 5.1.7 and FF 3.1b3 throw `Error`s and `TypeError`s,
-                // respectively, if the value is omitted entirely.
-                stringify() === undefined &&
-                // FF 3.1b1, 2 throw an error if the given value is not a number,
-                // string, array, object, Boolean, or `null` literal. This applies to
-                // objects with custom `toJSON` methods as well, unless they are nested
-                // inside object or array literals. YUI 3.0.0b1 ignores custom `toJSON`
-                // methods entirely.
-                stringify(value) === "1" &&
-                stringify([value]) == "[1]" &&
-                // Prototype <= 1.6.1 serializes `[undefined]` as `"[]"` instead of
-                // `"[null]"`.
-                stringify([undefined]) == "[null]" &&
-                // YUI 3.0.0b1 fails to serialize `null` literals.
-                stringify(null) == "null" &&
-                // FF 3.1b1, 2 halts serialization if an array contains a function:
-                // `[1, true, getClass, 1]` serializes as "[1,true,],". FF 3.1b3
-                // elides non-JSON values from objects and arrays, unless they
-                // define custom `toJSON` methods.
-                stringify([undefined, getClass, null]) == "[null,null,null]" &&
-                // Simple serialization test. FF 3.1b1 uses Unicode escape sequences
-                // where character escape codes are expected (e.g., `\b` => `\u0008`).
-                stringify({ "a": [value, true, false, null, "\x00\b\n\f\r\t"] }) == serialized &&
-                // FF 3.1b1 and b2 ignore the `filter` and `width` arguments.
-                stringify(null, value) === "1" &&
-                stringify([1, 2], null, 1) == "[\n 1,\n 2\n]";
-            }, function () {
-              stringifySupported = false;
-            });
-          }
-          isSupported = stringifySupported;
-        }
-        // Test `JSON.parse`.
-        if (name == "json-parse") {
-          var parse = exports.parse, parseSupported;
-          if (typeof parse == "function") {
-            attempt(function () {
-              // FF 3.1b1, b2 will throw an exception if a bare literal is provided.
-              // Conforming implementations should also coerce the initial argument to
-              // a string prior to parsing.
-              if (parse("0") === 0 && !parse(false)) {
-                // Simple parsing test.
-                value = parse(serialized);
-                parseSupported = value["a"].length == 5 && value["a"][0] === 1;
-                if (parseSupported) {
-                  attempt(function () {
-                    // Safari <= 5.1.2 and FF 3.1b1 allow unescaped tabs in strings.
-                    parseSupported = !parse('"\t"');
-                  });
-                  if (parseSupported) {
-                    attempt(function () {
-                      // FF 4.0 and 4.0.1 allow leading `+` signs and leading
-                      // decimal points. FF 4.0, 4.0.1, and IE 9-10 also allow
-                      // certain octal literals.
-                      parseSupported = parse("01") !== 1;
-                    });
-                  }
-                  if (parseSupported) {
-                    attempt(function () {
-                      // FF 4.0, 4.0.1, and Rhino 1.7R3-R4 allow trailing decimal
-                      // points. These environments, along with FF 3.1b1 and 2,
-                      // also allow trailing commas in JSON objects and arrays.
-                      parseSupported = parse("1.") !== 1;
-                    });
-                  }
-                }
-              }
-            }, function () {
-              parseSupported = false;
-            });
-          }
-          isSupported = parseSupported;
-        }
-      }
-      return has[name] = !!isSupported;
-    }
-    has["bug-string-char-index"] = has["date-serialization"] = has["json"] = has["json-stringify"] = has["json-parse"] = null;
-
-    if (!has("json")) {
-      // Common `[[Class]]` name aliases.
-      var functionClass = "[object Function]",
-          dateClass = "[object Date]",
-          numberClass = "[object Number]",
-          stringClass = "[object String]",
-          arrayClass = "[object Array]",
-          booleanClass = "[object Boolean]";
-
-      // Detect incomplete support for accessing string characters by index.
-      var charIndexBuggy = has("bug-string-char-index");
-
-      // Internal: Normalizes the `for...in` iteration algorithm across
-      // environments. Each enumerated key is yielded to a `callback` function.
-      var forOwn = function (object, callback) {
-        var size = 0, Properties, dontEnums, property;
-
-        // Tests for bugs in the current environment's `for...in` algorithm. The
-        // `valueOf` property inherits the non-enumerable flag from
-        // `Object.prototype` in older versions of IE, Netscape, and Mozilla.
-        (Properties = function () {
-          this.valueOf = 0;
-        }).prototype.valueOf = 0;
-
-        // Iterate over a new instance of the `Properties` class.
-        dontEnums = new Properties();
-        for (property in dontEnums) {
-          // Ignore all properties inherited from `Object.prototype`.
-          if (isProperty.call(dontEnums, property)) {
-            size++;
-          }
-        }
-        Properties = dontEnums = null;
-
-        // Normalize the iteration algorithm.
-        if (!size) {
-          // A list of non-enumerable properties inherited from `Object.prototype`.
-          dontEnums = ["valueOf", "toString", "toLocaleString", "propertyIsEnumerable", "isPrototypeOf", "hasOwnProperty", "constructor"];
-          // IE <= 8, Mozilla 1.0, and Netscape 6.2 ignore shadowed non-enumerable
-          // properties.
-          forOwn = function (object, callback) {
-            var isFunction = getClass.call(object) == functionClass, property, length;
-            var hasProperty = !isFunction && typeof object.constructor != "function" && objectTypes[typeof object.hasOwnProperty] && object.hasOwnProperty || isProperty;
-            for (property in object) {
-              // Gecko <= 1.0 enumerates the `prototype` property of functions under
-              // certain conditions; IE does not.
-              if (!(isFunction && property == "prototype") && hasProperty.call(object, property)) {
-                callback(property);
-              }
-            }
-            // Manually invoke the callback for each non-enumerable property.
-            for (length = dontEnums.length; property = dontEnums[--length];) {
-              if (hasProperty.call(object, property)) {
-                callback(property);
-              }
-            }
-          };
-        } else {
-          // No bugs detected; use the standard `for...in` algorithm.
-          forOwn = function (object, callback) {
-            var isFunction = getClass.call(object) == functionClass, property, isConstructor;
-            for (property in object) {
-              if (!(isFunction && property == "prototype") && isProperty.call(object, property) && !(isConstructor = property === "constructor")) {
-                callback(property);
-              }
-            }
-            // Manually invoke the callback for the `constructor` property due to
-            // cross-environment inconsistencies.
-            if (isConstructor || isProperty.call(object, (property = "constructor"))) {
-              callback(property);
-            }
-          };
-        }
-        return forOwn(object, callback);
-      };
-
-      // Public: Serializes a JavaScript `value` as a JSON string. The optional
-      // `filter` argument may specify either a function that alters how object and
-      // array members are serialized, or an array of strings and numbers that
-      // indicates which properties should be serialized. The optional `width`
-      // argument may be either a string or number that specifies the indentation
-      // level of the output.
-      if (!has("json-stringify") && !has("date-serialization")) {
-        // Internal: A map of control characters and their escaped equivalents.
-        var Escapes = {
-          92: "\\\\",
-          34: '\\"',
-          8: "\\b",
-          12: "\\f",
-          10: "\\n",
-          13: "\\r",
-          9: "\\t"
-        };
-
-        // Internal: Converts `value` into a zero-padded string such that its
-        // length is at least equal to `width`. The `width` must be <= 6.
-        var leadingZeroes = "000000";
-        var toPaddedString = function (width, value) {
-          // The `|| 0` expression is necessary to work around a bug in
-          // Opera <= 7.54u2 where `0 == -0`, but `String(-0) !== "0"`.
-          return (leadingZeroes + (value || 0)).slice(-width);
-        };
-
-        // Internal: Serializes a date object.
-        var serializeDate = function (value) {
-          var getData, year, month, date, time, hours, minutes, seconds, milliseconds;
-          // Define additional utility methods if the `Date` methods are buggy.
-          if (!isExtended) {
-            var floor = Math.floor;
-            // A mapping between the months of the year and the number of days between
-            // January 1st and the first of the respective month.
-            var Months = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
-            // Internal: Calculates the number of days between the Unix epoch and the
-            // first day of the given month.
-            var getDay = function (year, month) {
-              return Months[month] + 365 * (year - 1970) + floor((year - 1969 + (month = +(month > 1))) / 4) - floor((year - 1901 + month) / 100) + floor((year - 1601 + month) / 400);
-            };
-            getData = function (value) {
-              // Manually compute the year, month, date, hours, minutes,
-              // seconds, and milliseconds if the `getUTC*` methods are
-              // buggy. Adapted from @Yaffle's `date-shim` project.
-              date = floor(value / 864e5);
-              for (year = floor(date / 365.2425) + 1970 - 1; getDay(year + 1, 0) <= date; year++);
-              for (month = floor((date - getDay(year, 0)) / 30.42); getDay(year, month + 1) <= date; month++);
-              date = 1 + date - getDay(year, month);
-              // The `time` value specifies the time within the day (see ES
-              // 5.1 section 15.9.1.2). The formula `(A % B + B) % B` is used
-              // to compute `A modulo B`, as the `%` operator does not
-              // correspond to the `modulo` operation for negative numbers.
-              time = (value % 864e5 + 864e5) % 864e5;
-              // The hours, minutes, seconds, and milliseconds are obtained by
-              // decomposing the time within the day. See section 15.9.1.10.
-              hours = floor(time / 36e5) % 24;
-              minutes = floor(time / 6e4) % 60;
-              seconds = floor(time / 1e3) % 60;
-              milliseconds = time % 1e3;
-            };
-          } else {
-            getData = function (value) {
-              year = value.getUTCFullYear();
-              month = value.getUTCMonth();
-              date = value.getUTCDate();
-              hours = value.getUTCHours();
-              minutes = value.getUTCMinutes();
-              seconds = value.getUTCSeconds();
-              milliseconds = value.getUTCMilliseconds();
-            };
-          }
-          serializeDate = function (value) {
-            if (value > -1 / 0 && value < 1 / 0) {
-              // Dates are serialized according to the `Date#toJSON` method
-              // specified in ES 5.1 section 15.9.5.44. See section 15.9.1.15
-              // for the ISO 8601 date time string format.
-              getData(value);
-              // Serialize extended years correctly.
-              value = (year <= 0 || year >= 1e4 ? (year < 0 ? "-" : "+") + toPaddedString(6, year < 0 ? -year : year) : toPaddedString(4, year)) +
-              "-" + toPaddedString(2, month + 1) + "-" + toPaddedString(2, date) +
-              // Months, dates, hours, minutes, and seconds should have two
-              // digits; milliseconds should have three.
-              "T" + toPaddedString(2, hours) + ":" + toPaddedString(2, minutes) + ":" + toPaddedString(2, seconds) +
-              // Milliseconds are optional in ES 5.0, but required in 5.1.
-              "." + toPaddedString(3, milliseconds) + "Z";
-              year = month = date = hours = minutes = seconds = milliseconds = null;
-            } else {
-              value = null;
-            }
-            return value;
-          };
-          return serializeDate(value);
-        };
-
-        // For environments with `JSON.stringify` but buggy date serialization,
-        // we override the native `Date#toJSON` implementation with a
-        // spec-compliant one.
-        if (has("json-stringify") && !has("date-serialization")) {
-          // Internal: the `Date#toJSON` implementation used to override the native one.
-          function dateToJSON (key) {
-            return serializeDate(this);
-          }
-
-          // Public: `JSON.stringify`. See ES 5.1 section 15.12.3.
-          var nativeStringify = exports.stringify;
-          exports.stringify = function (source, filter, width) {
-            var nativeToJSON = Date.prototype.toJSON;
-            Date.prototype.toJSON = dateToJSON;
-            var result = nativeStringify(source, filter, width);
-            Date.prototype.toJSON = nativeToJSON;
-            return result;
-          }
-        } else {
-          // Internal: Double-quotes a string `value`, replacing all ASCII control
-          // characters (characters with code unit values between 0 and 31) with
-          // their escaped equivalents. This is an implementation of the
-          // `Quote(value)` operation defined in ES 5.1 section 15.12.3.
-          var unicodePrefix = "\\u00";
-          var escapeChar = function (character) {
-            var charCode = character.charCodeAt(0), escaped = Escapes[charCode];
-            if (escaped) {
-              return escaped;
-            }
-            return unicodePrefix + toPaddedString(2, charCode.toString(16));
-          };
-          var reEscape = /[\x00-\x1f\x22\x5c]/g;
-          var quote = function (value) {
-            reEscape.lastIndex = 0;
-            return '"' +
-              (
-                reEscape.test(value)
-                  ? value.replace(reEscape, escapeChar)
-                  : value
-              ) +
-              '"';
-          };
-
-          // Internal: Recursively serializes an object. Implements the
-          // `Str(key, holder)`, `JO(value)`, and `JA(value)` operations.
-          var serialize = function (property, object, callback, properties, whitespace, indentation, stack) {
-            var value, type, className, results, element, index, length, prefix, result;
-            attempt(function () {
-              // Necessary for host object support.
-              value = object[property];
-            });
-            if (typeof value == "object" && value) {
-              if (value.getUTCFullYear && getClass.call(value) == dateClass && value.toJSON === Date.prototype.toJSON) {
-                value = serializeDate(value);
-              } else if (typeof value.toJSON == "function") {
-                value = value.toJSON(property);
-              }
-            }
-            if (callback) {
-              // If a replacement function was provided, call it to obtain the value
-              // for serialization.
-              value = callback.call(object, property, value);
-            }
-            // Exit early if value is `undefined` or `null`.
-            if (value == undefined) {
-              return value === undefined ? value : "null";
-            }
-            type = typeof value;
-            // Only call `getClass` if the value is an object.
-            if (type == "object") {
-              className = getClass.call(value);
-            }
-            switch (className || type) {
-              case "boolean":
-              case booleanClass:
-                // Booleans are represented literally.
-                return "" + value;
-              case "number":
-              case numberClass:
-                // JSON numbers must be finite. `Infinity` and `NaN` are serialized as
-                // `"null"`.
-                return value > -1 / 0 && value < 1 / 0 ? "" + value : "null";
-              case "string":
-              case stringClass:
-                // Strings are double-quoted and escaped.
-                return quote("" + value);
-            }
-            // Recursively serialize objects and arrays.
-            if (typeof value == "object") {
-              // Check for cyclic structures. This is a linear search; performance
-              // is inversely proportional to the number of unique nested objects.
-              for (length = stack.length; length--;) {
-                if (stack[length] === value) {
-                  // Cyclic structures cannot be serialized by `JSON.stringify`.
-                  throw TypeError();
-                }
-              }
-              // Add the object to the stack of traversed objects.
-              stack.push(value);
-              results = [];
-              // Save the current indentation level and indent one additional level.
-              prefix = indentation;
-              indentation += whitespace;
-              if (className == arrayClass) {
-                // Recursively serialize array elements.
-                for (index = 0, length = value.length; index < length; index++) {
-                  element = serialize(index, value, callback, properties, whitespace, indentation, stack);
-                  results.push(element === undefined ? "null" : element);
-                }
-                result = results.length ? (whitespace ? "[\n" + indentation + results.join(",\n" + indentation) + "\n" + prefix + "]" : ("[" + results.join(",") + "]")) : "[]";
-              } else {
-                // Recursively serialize object members. Members are selected from
-                // either a user-specified list of property names, or the object
-                // itself.
-                forOwn(properties || value, function (property) {
-                  var element = serialize(property, value, callback, properties, whitespace, indentation, stack);
-                  if (element !== undefined) {
-                    // According to ES 5.1 section 15.12.3: "If `gap` {whitespace}
-                    // is not the empty string, let `member` {quote(property) + ":"}
-                    // be the concatenation of `member` and the `space` character."
-                    // The "`space` character" refers to the literal space
-                    // character, not the `space` {width} argument provided to
-                    // `JSON.stringify`.
-                    results.push(quote(property) + ":" + (whitespace ? " " : "") + element);
-                  }
-                });
-                result = results.length ? (whitespace ? "{\n" + indentation + results.join(",\n" + indentation) + "\n" + prefix + "}" : ("{" + results.join(",") + "}")) : "{}";
-              }
-              // Remove the object from the traversed object stack.
-              stack.pop();
-              return result;
-            }
-          };
-
-          // Public: `JSON.stringify`. See ES 5.1 section 15.12.3.
-          exports.stringify = function (source, filter, width) {
-            var whitespace, callback, properties, className;
-            if (objectTypes[typeof filter] && filter) {
-              className = getClass.call(filter);
-              if (className == functionClass) {
-                callback = filter;
-              } else if (className == arrayClass) {
-                // Convert the property names array into a makeshift set.
-                properties = {};
-                for (var index = 0, length = filter.length, value; index < length;) {
-                  value = filter[index++];
-                  className = getClass.call(value);
-                  if (className == "[object String]" || className == "[object Number]") {
-                    properties[value] = 1;
-                  }
-                }
-              }
-            }
-            if (width) {
-              className = getClass.call(width);
-              if (className == numberClass) {
-                // Convert the `width` to an integer and create a string containing
-                // `width` number of space characters.
-                if ((width -= width % 1) > 0) {
-                  if (width > 10) {
-                    width = 10;
-                  }
-                  for (whitespace = ""; whitespace.length < width;) {
-                    whitespace += " ";
-                  }
-                }
-              } else if (className == stringClass) {
-                whitespace = width.length <= 10 ? width : width.slice(0, 10);
-              }
-            }
-            // Opera <= 7.54u2 discards the values associated with empty string keys
-            // (`""`) only if they are used directly within an object member list
-            // (e.g., `!("" in { "": 1})`).
-            return serialize("", (value = {}, value[""] = source, value), callback, properties, whitespace, "", []);
-          };
-        }
-      }
-
-      // Public: Parses a JSON source string.
-      if (!has("json-parse")) {
-        var fromCharCode = String.fromCharCode;
-
-        // Internal: A map of escaped control characters and their unescaped
-        // equivalents.
-        var Unescapes = {
-          92: "\\",
-          34: '"',
-          47: "/",
-          98: "\b",
-          116: "\t",
-          110: "\n",
-          102: "\f",
-          114: "\r"
-        };
-
-        // Internal: Stores the parser state.
-        var Index, Source;
-
-        // Internal: Resets the parser state and throws a `SyntaxError`.
-        var abort = function () {
-          Index = Source = null;
-          throw SyntaxError();
-        };
-
-        // Internal: Returns the next token, or `"$"` if the parser has reached
-        // the end of the source string. A token may be a string, number, `null`
-        // literal, or Boolean literal.
-        var lex = function () {
-          var source = Source, length = source.length, value, begin, position, isSigned, charCode;
-          while (Index < length) {
-            charCode = source.charCodeAt(Index);
-            switch (charCode) {
-              case 9: case 10: case 13: case 32:
-                // Skip whitespace tokens, including tabs, carriage returns, line
-                // feeds, and space characters.
-                Index++;
-                break;
-              case 123: case 125: case 91: case 93: case 58: case 44:
-                // Parse a punctuator token (`{`, `}`, `[`, `]`, `:`, or `,`) at
-                // the current position.
-                value = charIndexBuggy ? source.charAt(Index) : source[Index];
-                Index++;
-                return value;
-              case 34:
-                // `"` delimits a JSON string; advance to the next character and
-                // begin parsing the string. String tokens are prefixed with the
-                // sentinel `@` character to distinguish them from punctuators and
-                // end-of-string tokens.
-                for (value = "@", Index++; Index < length;) {
-                  charCode = source.charCodeAt(Index);
-                  if (charCode < 32) {
-                    // Unescaped ASCII control characters (those with a code unit
-                    // less than the space character) are not permitted.
-                    abort();
-                  } else if (charCode == 92) {
-                    // A reverse solidus (`\`) marks the beginning of an escaped
-                    // control character (including `"`, `\`, and `/`) or Unicode
-                    // escape sequence.
-                    charCode = source.charCodeAt(++Index);
-                    switch (charCode) {
-                      case 92: case 34: case 47: case 98: case 116: case 110: case 102: case 114:
-                        // Revive escaped control characters.
-                        value += Unescapes[charCode];
-                        Index++;
-                        break;
-                      case 117:
-                        // `\u` marks the beginning of a Unicode escape sequence.
-                        // Advance to the first character and validate the
-                        // four-digit code point.
-                        begin = ++Index;
-                        for (position = Index + 4; Index < position; Index++) {
-                          charCode = source.charCodeAt(Index);
-                          // A valid sequence comprises four hexdigits (case-
-                          // insensitive) that form a single hexadecimal value.
-                          if (!(charCode >= 48 && charCode <= 57 || charCode >= 97 && charCode <= 102 || charCode >= 65 && charCode <= 70)) {
-                            // Invalid Unicode escape sequence.
-                            abort();
-                          }
-                        }
-                        // Revive the escaped character.
-                        value += fromCharCode("0x" + source.slice(begin, Index));
-                        break;
-                      default:
-                        // Invalid escape sequence.
-                        abort();
-                    }
-                  } else {
-                    if (charCode == 34) {
-                      // An unescaped double-quote character marks the end of the
-                      // string.
-                      break;
-                    }
-                    charCode = source.charCodeAt(Index);
-                    begin = Index;
-                    // Optimize for the common case where a string is valid.
-                    while (charCode >= 32 && charCode != 92 && charCode != 34) {
-                      charCode = source.charCodeAt(++Index);
-                    }
-                    // Append the string as-is.
-                    value += source.slice(begin, Index);
-                  }
-                }
-                if (source.charCodeAt(Index) == 34) {
-                  // Advance to the next character and return the revived string.
-                  Index++;
-                  return value;
-                }
-                // Unterminated string.
-                abort();
-              default:
-                // Parse numbers and literals.
-                begin = Index;
-                // Advance past the negative sign, if one is specified.
-                if (charCode == 45) {
-                  isSigned = true;
-                  charCode = source.charCodeAt(++Index);
-                }
-                // Parse an integer or floating-point value.
-                if (charCode >= 48 && charCode <= 57) {
-                  // Leading zeroes are interpreted as octal literals.
-                  if (charCode == 48 && ((charCode = source.charCodeAt(Index + 1)), charCode >= 48 && charCode <= 57)) {
-                    // Illegal octal literal.
-                    abort();
-                  }
-                  isSigned = false;
-                  // Parse the integer component.
-                  for (; Index < length && ((charCode = source.charCodeAt(Index)), charCode >= 48 && charCode <= 57); Index++);
-                  // Floats cannot contain a leading decimal point; however, this
-                  // case is already accounted for by the parser.
-                  if (source.charCodeAt(Index) == 46) {
-                    position = ++Index;
-                    // Parse the decimal component.
-                    for (; position < length; position++) {
-                      charCode = source.charCodeAt(position);
-                      if (charCode < 48 || charCode > 57) {
-                        break;
-                      }
-                    }
-                    if (position == Index) {
-                      // Illegal trailing decimal.
-                      abort();
-                    }
-                    Index = position;
-                  }
-                  // Parse exponents. The `e` denoting the exponent is
-                  // case-insensitive.
-                  charCode = source.charCodeAt(Index);
-                  if (charCode == 101 || charCode == 69) {
-                    charCode = source.charCodeAt(++Index);
-                    // Skip past the sign following the exponent, if one is
-                    // specified.
-                    if (charCode == 43 || charCode == 45) {
-                      Index++;
-                    }
-                    // Parse the exponential component.
-                    for (position = Index; position < length; position++) {
-                      charCode = source.charCodeAt(position);
-                      if (charCode < 48 || charCode > 57) {
-                        break;
-                      }
-                    }
-                    if (position == Index) {
-                      // Illegal empty exponent.
-                      abort();
-                    }
-                    Index = position;
-                  }
-                  // Coerce the parsed value to a JavaScript number.
-                  return +source.slice(begin, Index);
-                }
-                // A negative sign may only precede numbers.
-                if (isSigned) {
-                  abort();
-                }
-                // `true`, `false`, and `null` literals.
-                var temp = source.slice(Index, Index + 4);
-                if (temp == "true") {
-                  Index += 4;
-                  return true;
-                } else if (temp == "fals" && source.charCodeAt(Index + 4 ) == 101) {
-                  Index += 5;
-                  return false;
-                } else if (temp == "null") {
-                  Index += 4;
-                  return null;
-                }
-                // Unrecognized token.
-                abort();
-            }
-          }
-          // Return the sentinel `$` character if the parser has reached the end
-          // of the source string.
-          return "$";
-        };
-
-        // Internal: Parses a JSON `value` token.
-        var get = function (value) {
-          var results, hasMembers;
-          if (value == "$") {
-            // Unexpected end of input.
-            abort();
-          }
-          if (typeof value == "string") {
-            if ((charIndexBuggy ? value.charAt(0) : value[0]) == "@") {
-              // Remove the sentinel `@` character.
-              return value.slice(1);
-            }
-            // Parse object and array literals.
-            if (value == "[") {
-              // Parses a JSON array, returning a new JavaScript array.
-              results = [];
-              for (;;) {
-                value = lex();
-                // A closing square bracket marks the end of the array literal.
-                if (value == "]") {
-                  break;
-                }
-                // If the array literal contains elements, the current token
-                // should be a comma separating the previous element from the
-                // next.
-                if (hasMembers) {
-                  if (value == ",") {
-                    value = lex();
-                    if (value == "]") {
-                      // Unexpected trailing `,` in array literal.
-                      abort();
-                    }
-                  } else {
-                    // A `,` must separate each array element.
-                    abort();
-                  }
-                } else {
-                  hasMembers = true;
-                }
-                // Elisions and leading commas are not permitted.
-                if (value == ",") {
-                  abort();
-                }
-                results.push(get(value));
-              }
-              return results;
-            } else if (value == "{") {
-              // Parses a JSON object, returning a new JavaScript object.
-              results = {};
-              for (;;) {
-                value = lex();
-                // A closing curly brace marks the end of the object literal.
-                if (value == "}") {
-                  break;
-                }
-                // If the object literal contains members, the current token
-                // should be a comma separator.
-                if (hasMembers) {
-                  if (value == ",") {
-                    value = lex();
-                    if (value == "}") {
-                      // Unexpected trailing `,` in object literal.
-                      abort();
-                    }
-                  } else {
-                    // A `,` must separate each object member.
-                    abort();
-                  }
-                } else {
-                  hasMembers = true;
-                }
-                // Leading commas are not permitted, object property names must be
-                // double-quoted strings, and a `:` must separate each property
-                // name and value.
-                if (value == "," || typeof value != "string" || (charIndexBuggy ? value.charAt(0) : value[0]) != "@" || lex() != ":") {
-                  abort();
-                }
-                results[value.slice(1)] = get(lex());
-              }
-              return results;
-            }
-            // Unexpected token encountered.
-            abort();
-          }
-          return value;
-        };
-
-        // Internal: Updates a traversed object member.
-        var update = function (source, property, callback) {
-          var element = walk(source, property, callback);
-          if (element === undefined) {
-            delete source[property];
-          } else {
-            source[property] = element;
-          }
-        };
-
-        // Internal: Recursively traverses a parsed JSON object, invoking the
-        // `callback` function for each value. This is an implementation of the
-        // `Walk(holder, name)` operation defined in ES 5.1 section 15.12.2.
-        var walk = function (source, property, callback) {
-          var value = source[property], length;
-          if (typeof value == "object" && value) {
-            // `forOwn` can't be used to traverse an array in Opera <= 8.54
-            // because its `Object#hasOwnProperty` implementation returns `false`
-            // for array indices (e.g., `![1, 2, 3].hasOwnProperty("0")`).
-            if (getClass.call(value) == arrayClass) {
-              for (length = value.length; length--;) {
-                update(getClass, forOwn, value, length, callback);
-              }
-            } else {
-              forOwn(value, function (property) {
-                update(value, property, callback);
-              });
-            }
-          }
-          return callback.call(source, property, value);
-        };
-
-        // Public: `JSON.parse`. See ES 5.1 section 15.12.2.
-        exports.parse = function (source, callback) {
-          var result, value;
-          Index = 0;
-          Source = "" + source;
-          result = get(lex());
-          // If a JSON string contains multiple tokens, it is invalid.
-          if (lex() != "$") {
-            abort();
-          }
-          // Reset the parser state.
-          Index = Source = null;
-          return callback && getClass.call(callback) == functionClass ? walk((value = {}, value[""] = result, value), "", callback) : result;
-        };
-      }
-    }
-
-    exports.runInContext = runInContext;
-    return exports;
-  }
-
-  if (freeExports && !isLoader) {
-    // Export for CommonJS environments.
-    runInContext(root, freeExports);
-  } else {
-    // Export for web browsers and JavaScript engines.
-    var nativeJSON = root.JSON,
-        previousJSON = root.JSON3,
-        isRestored = false;
-
-    var JSON3 = runInContext(root, (root.JSON3 = {
-      // Public: Restores the original value of the global `JSON` object and
-      // returns a reference to the `JSON3` object.
-      "noConflict": function () {
-        if (!isRestored) {
-          isRestored = true;
-          root.JSON = nativeJSON;
-          root.JSON3 = previousJSON;
-          nativeJSON = previousJSON = null;
-        }
-        return JSON3;
-      }
-    }));
-
-    root.JSON = {
-      "parse": JSON3.parse,
-      "stringify": JSON3.stringify
-    };
-  }
-
-  // Export for asynchronous module loaders.
-  if (isLoader) {
-    !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-      return JSON3;
-    }).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  }
-}).call(this);
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(112)(module), __webpack_require__(65)))
-
-/***/ }),
-/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(28);
-/* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_date_object__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(32);
-/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
-
-
-
-
-
-
-
-var ZERO = 0;
-var ONE = 1;
-/* eslint-disable-next-line no-void */
-
-var UNDEFINED = void ZERO;
-var NUMBER = 'number';
-var STRING = 'string';
-var DEFAULT = 'default';
-/** @type {StringConstructor} */
-
-var StringCtr = STRING.constructor;
-/** @type {NumberConstructor} */
-
-var NumberCtr = ZERO.constructor;
-/* eslint-disable-next-line compat/compat */
-
-var symToPrimitive = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.toPrimitive;
-/* eslint-disable-next-line compat/compat */
-
-var symValueOf = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.prototype.valueOf;
-var toStringOrder = ['toString', 'valueOf'];
-var toNumberOrder = ['valueOf', 'toString'];
-var orderLength = 2;
-/**
- * @param {*} ordinary - The ordinary to convert.
- * @param {*} hint - The hint.
- * @returns {*} - The primitive.
- */
-
-var ordinaryToPrimitive = function _ordinaryToPrimitive(ordinary, hint) {
-  Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(ordinary);
-
-  if (typeof hint !== 'string' || hint !== NUMBER && hint !== STRING) {
-    throw new TypeError('hint must be "string" or "number"');
-  }
-
-  var methodNames = hint === STRING ? toStringOrder : toNumberOrder;
-  var method;
-  var result;
-
-  for (var i = ZERO; i < orderLength; i += ONE) {
-    method = ordinary[methodNames[i]];
-
-    if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(method)) {
-      result = method.call(ordinary);
-
-      if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(result)) {
-        return result;
-      }
-    }
-  }
-
-  throw new TypeError('No default value');
-};
-/**
- * @param {*} object - The object.
- * @param {*} property - The property.
- * @returns {undefined|Function} - The method.
- */
-
-
-var getMethod = function _getMethod(object, property) {
-  var func = object[property];
-
-  if (Object(is_nil_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(func) === false) {
-    if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(func) === false) {
-      throw new TypeError("".concat(func, " returned for property ").concat(property, " of object ").concat(object, " is not a function"));
-    }
-
-    return func;
-  }
-
-  return UNDEFINED;
-};
-/**
- * Get the hint.
- *
- * @param {*} value - The value to compare.
- * @param {boolean} supplied - Was a value supplied.
- * @returns {string} - The hint string.
- */
-
-
-var getHint = function getHint(value, supplied) {
-  if (supplied) {
-    if (value === StringCtr) {
-      return STRING;
-    }
-
-    if (value === NumberCtr) {
-      return NUMBER;
-    }
-  }
-
-  return DEFAULT;
-};
-/**
- * Get the primitive from the exotic.
- *
- * @param {*} value - The exotic.
- * @returns {*} - The primitive.
- */
-
-
-var getExoticToPrim = function getExoticToPrim(value) {
-  if (has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]) {
-    if (symToPrimitive) {
-      return getMethod(value, symToPrimitive);
-    }
-
-    if (is_symbol__WEBPACK_IMPORTED_MODULE_3___default()(value)) {
-      return symValueOf;
-    }
-  }
-
-  return UNDEFINED;
-};
-/**
- * This method converts a JavaScript object to a primitive value.
- * Note: When toPrimitive is called with no hint, then it generally behaves as
- * if the hint were Number. However, objects may over-ride this behaviour by
- * defining a @@toPrimitive method. Of the objects defined in this specification
- * only Date objects (see 20.3.4.45) and Symbol objects (see 19.4.3.4) over-ride
- * the default ToPrimitive behaviour. Date objects treat no hint as if the hint
- * were String.
- *
- * @param {*} input - The input to convert.
- * @param {NumberConstructor|StringConstructor} [preferredType] - The preferred type (String or Number).
- * @throws {TypeError} If unable to convert input to a primitive.
- * @returns {string|number} The converted input as a primitive.
- * @see {http://www.ecma-international.org/ecma-262/6.0/#sec-toprimitive}
- */
-
-
-var toPrimitive = function toPrimitive(input, preferredType) {
-  if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(input)) {
-    return input;
-  }
-
-  var hint = getHint(preferredType, arguments.length > ONE);
-  var exoticToPrim = getExoticToPrim(input);
-
-  if (typeof exoticToPrim !== 'undefined') {
-    var result = exoticToPrim.call(input, hint);
-
-    if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(result)) {
-      return result;
-    }
-
-    throw new TypeError('unable to convert exotic object to primitive');
-  }
-
-  var newHint = hint === DEFAULT && (is_date_object__WEBPACK_IMPORTED_MODULE_2___default()(input) || is_symbol__WEBPACK_IMPORTED_MODULE_3___default()(input)) ? STRING : hint;
-  return ordinaryToPrimitive(input, newHint === DEFAULT ? NUMBER : newHint);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (toPrimitive);
-
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_number_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(34);
- // eslint-disable jsdoc/check-param-names
-// noinspection JSCommentMatchesSignature
-
-/**
- * This method clamp a number to min and max limits inclusive.
- *
- * @param {number} value - The number to be clamped.
- * @param {number} [min=0] - The minimum number.
- * @param {number} max - The maximum number.
- * @throws {RangeError} If min > max.
- * @returns {number} The clamped number.
- */
-// eslint-enable jsdoc/check-param-names
-
-var clamp = function clamp(value) {
-  var number = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value);
-  var argsLength = arguments.length;
-
-  if (argsLength < 2) {
-    return number;
-  }
-  /* eslint-disable-next-line prefer-rest-params */
-
-
-  var min = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(arguments[1]);
-  var max;
-
-  if (argsLength < 3) {
-    max = min;
-    min = 0;
-  } else {
-    /* eslint-disable-next-line prefer-rest-params */
-    max = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(arguments[2]);
-  }
-
-  if (min > max) {
-    throw new RangeError('"min" must be less than "max"');
-  }
-
-  if (number < min) {
-    return min;
-  }
-
-  if (number > max) {
-    return max;
-  }
-
-  return number;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (clamp);
-
-
-
-/***/ }),
-/* 60 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export isError */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return create; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssertionErrorConstructor; });
-/* unused harmony export ErrorConstructor */
-/* unused harmony export EvalErrorConstructor */
-/* unused harmony export InternalErrorConstructor */
-/* unused harmony export RangeErrorConstructor */
-/* unused harmony export ReferenceErrorConstructor */
-/* unused harmony export supportsAllConstructors */
-/* unused harmony export SyntaxErrorConstructor */
-/* unused harmony export TypeErrorConstructor */
-/* unused harmony export URIErrorConstructor */
-/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
-/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(45);
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
-/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(79);
-/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(stackframe__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(98);
-/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(error_stack_parser__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
-/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
-/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(48);
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2);
-/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(43);
-/* harmony import */ var truncate_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(83);
-/* harmony import */ var is_error_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(39);
-/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(8);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(3);
-/* harmony import */ var object_create_x__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(63);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(4);
-/* harmony import */ var array_map_x__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(37);
-/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(23);
-/* harmony import */ var is_finite_x__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(38);
-/* harmony import */ var is_var_name__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(102);
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-/*
- * Want to create your own Error objects, this module will allow you to do
- * just that. It ships with all the standard Error objects already created
- * for you. Why? Well, these offer some improvements over the native versions.
- * - They have a `toJSON` method and so they can be serialised.
- * - They have a standardised `stack` property, using
- * [`error-stack-parser`](https://github.com/stacktracejs/error-stack-parser)
- * messages and stacks are parsed and then re-formatted.
- * - They have a `frames` property which is an array of the parsed `stack`
- * message, so you have easy access to the information.
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var isError = is_error_x__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"];
-var parse = error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default.a.parse;
-/**
- * @typedef {ErrorConstructor|TypeErrorConstructor|SyntaxErrorConstructor|URIErrorConstructor|ReferenceErrorConstructor|EvalErrorConstructor|RangeErrorConstructor} OfErrorConstructor
- */
-
-var EMPTY_STRING = '';
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
-/* eslint-disable-next-line compat/compat */
-
-var $toStringTag = has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.toStringTag;
-/** @type {ErrorConstructor} */
-
-var $Error = Error; // Capture the function (if any).
-
-var captureStackTrace = $Error.captureStackTrace,
-    prepareStackTrace = $Error.prepareStackTrace;
-/**
- * Tests for number as specified in StackTrace library.
- *
- * @private
- * @param {*} n - The value to test.
- * @returns {boolean} True if parsable, otherwise false.
- */
-
-var isNumber = function isNumber(n) {
-  return Object(is_nan_x__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"])(parseFloat(n)) === false && Object(is_finite_x__WEBPACK_IMPORTED_MODULE_18__[/* default */ "a"])(n);
-};
-
-var cV8 = castBoolean(captureStackTrace) && function getCV8() {
-  // Test to see if the function works.
-  try {
-    captureStackTrace(new $Error(), captureStackTrace);
-  } catch (ignore) {
-    return false;
-  }
-  /**
-   * Captures the V8 stack and converts it to an array of Stackframes.
-   *
-   * @private
-   * @function captureV8
-   * @param {!object} context - The Custom Error this object.
-   * @returns {!Array.<!object>} Array of StackFrames.
-   */
-
-
-  return function captureV8(context) {
-    var _this = this;
-
-    /**
-     * The stack preparation function for the V8 stack.
-     *
-     * @private
-     * @param {*} ignore - Unused argument.
-     * @param {!object} thisStack - The V8 stack.
-     * @returns {!object} The V8 stack.
-     */
-    $Error.prepareStackTrace = function _prepareStackTrace(ignore, thisStack) {
-      return thisStack;
-    };
-    /** @type {object} */
-
-
-    var error = new $Error();
-    captureStackTrace(error, context.constructor);
-    var frames = Object(array_map_x__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"])(error.stack, function (frame) {
-      _newArrowCheck(this, _this);
-
-      var opts = {
-        // args: void 0,
-        functionName: frame.getFunctionName(),
-        isConstructor: frame.isConstructor(),
-        isEval: frame.isEval(),
-        isNative: frame.isNative(),
-        isToplevel: frame.isToplevel(),
-        source: frame.toString()
-      };
-      var getFileName = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getFileName) && frame.getFileName();
-
-      if (getFileName) {
-        opts.getFileName = getFileName;
-      }
-
-      var columnNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getColumnNumber) && frame.getColumnNumber();
-
-      if (isNumber(columnNumber)) {
-        opts.columnNumber = columnNumber;
-      }
-
-      var lineNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getLineNumber) && frame.getLineNumber();
-
-      if (isNumber(lineNumber)) {
-        opts.lineNumber = lineNumber;
-      }
-
-      var evalOrigin = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getEvalOrigin) && frame.getEvalOrigin();
-
-      if (Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_15__[/* default */ "a"])(evalOrigin)) {
-        opts.evalOrigin = evalOrigin;
-      }
-
-      return new stackframe__WEBPACK_IMPORTED_MODULE_3___default.a(opts);
-    }.bind(this));
-
-    if (typeof prepareStackTrace === 'undefined') {
-      delete $Error.prepareStackTrace;
-    } else {
-      $Error.prepareStackTrace = prepareStackTrace;
-    }
-
-    return frames;
-  };
-}();
-
-var allCtrs = true;
-var STACK_NEWLINE = '\n    ';
-/**
- * Defines frames and stack on the Custom Error this object.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {!Array.<!object>} frames - Array of StackFrames.
- * @param {string} name - The name of the constructor.
- */
-
-var defContext = function defContext(context, frames, name) {
-  var _this2 = this;
-
-  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-    frames: {
-      value: frames
-    },
-    stack: {
-      value: "".concat(name).concat(STACK_NEWLINE).concat(Object(array_map_x__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"])(frames, function (frame) {
-        _newArrowCheck(this, _this2);
-
-        return frame.toString();
-      }.bind(this)).join(STACK_NEWLINE))
-    }
-  });
-};
-/**
- * Captures the other stacks and converts them to an array of Stackframes.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {!Error} err - The Error object to be parsed.
- * @param {string} name - The name of the constructor.
- * @returns {boolean} True if the Error object was parsed, otherwise false.
- */
-
-
-var errParse = function errParse(context, err, name) {
-  var _this3 = this;
-
-  var frames;
-
-  try {
-    frames = parse(err);
-  } catch (ignore) {
-    return false;
-  }
-
-  var start = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
-    _newArrowCheck(this, _this3);
-
-    var fName = typeof frame.functionName === 'string' ? frame.functionName : EMPTY_STRING;
-    return fName.indexOf(name) > -1;
-  }.bind(this));
-
-  if (start > -1) {
-    var item = frames[start];
-    frames = frames.slice(start + 1);
-    var end = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
-      _newArrowCheck(this, _this3);
-
-      return item.source === frame.source;
-    }.bind(this));
-
-    if (end > -1) {
-      frames = frames.slice(0, end);
-    }
-  }
-
-  defContext(context, frames, name);
-  return true;
-};
-/**
- * The main function for capturing and parsing stacks and setting properties
- * on Custom Error.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {string} name - The name of the constructor.
- */
-
-
-var parseStack = function parseStack(context, name) {
-  if (cV8) {
-    defContext(context, cV8(context), name);
-  } else {
-    /** @type {Error} */
-    var err;
-
-    try {
-      // Error must be thrown to get stack in IE
-      // noinspection ExceptionCaughtLocallyJS,JSValidateTypes
-      throw $Error();
-    } catch (e) {
-      err = e;
-    }
-
-    if (errParse(context, err, name) === false) {
-      var stack = EMPTY_STRING; // If `Error` has a non-standard `stack`, `stacktrace` or
-      // `opera#sourceloc` property that offers a trace of which functions
-      // were called, in what order, from which line and  file, and with what
-      // argument, then we will set it.
-
-      if (typeof err.stack !== 'undefined') {
-        /* eslint-disable-next-line prefer-destructuring */
-        stack = err.stack;
-      } else {
-        // noinspection JSUnresolvedVariable
-        if (
-        /* eslint-disable-line no-lonely-if */
-        typeof err.stacktrace !== 'undefined') {
-          // noinspection JSUnresolvedVariable
-          stack = err.stacktrace;
-        } else {
-          var sourceloc = err['opera#sourceloc'];
-
-          if (typeof sourceloc !== 'undefined') {
-            stack = sourceloc;
-          }
-        }
-      }
-
-      Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-        frames: {
-          value: []
-        },
-        stack: {
-          value: stack
-        }
-      });
-    }
-  }
-};
-/**
- * Test whether we have a valid Error constructor.
- *
- * @private
- * @param {*} ErrorCtr - Constructor to test it creates an Error.
- * @returns {boolean} True if ErrorCtr creates an Error, otherwise false.
- */
-
-
-var isErrorCtr = function isErrorCtr(ErrorCtr) {
-  if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(ErrorCtr)) {
-    try {
-      return isError(new ErrorCtr({}));
-    } catch (ignore) {// empty
-    }
-  }
-
-  return false;
-};
-/**
- * Detect whether we are creating an 'AssertionError' constructor.
- *
- * @private
- * @param {string} name - Name to test if it is 'AssertionError'.
- * @param {OfErrorConstructor} ErrorCtr - Constructor to test it creates ASSERTION$Error.
- * @returns {boolean} True if either arguments asserts, otherwise false.
- */
-
-
-var asAssertionError = function asAssertionError(name, ErrorCtr) {
-  if (name === 'AssertionError') {
-    return true;
-  }
-
-  if (isErrorCtr(ErrorCtr)) {
-    var err = new ErrorCtr({
-      actual: 'b',
-      expected: 'c',
-      message: 'a',
-      operator: 'd'
-    });
-    return typeof err.name === 'string' && err.message === 'a' && err.actual === 'b' && err.expected === 'c' && err.operator === 'd';
-  }
-
-  return false;
-};
-
-var MAX_MSG_LENGTH = 128;
-/**
- * Message generator for AssertionError.
- *
- * @private
- * @param {!object} message - The message object.
- * @returns {string} The generated message.
- */
-
-var getMessage = function getMessage(message) {
-  var opts = {
-    length: message.length ? Object(to_length_x__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(message.length) : MAX_MSG_LENGTH,
-    omission: message.omission ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message.omission) : EMPTY_STRING,
-    separator: message.separator ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message.separator) : EMPTY_STRING
-  };
-  return "".concat(Object(truncate_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(Object(inspect_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(message.actual), opts), " ").concat(message.operator, " ").concat(Object(truncate_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(Object(inspect_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(message.expected), opts));
-};
-/**
- * The toJSON method returns an object representation of the Error object.
- *
- * @private
- * @this {!Object} A custom error instance.
- * @returns {object} An object representation.
- */
-
-
-var toJSON = function toJSON() {
-  return {
-    frames: this.frames,
-    message: this.message,
-    name: this.name,
-    stack: this.stack
-  };
-};
-/**
- * Initialise a new instance of a custom error.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {object} message - Human-readable description of the error.
- * @param {string} name - The name for the custom Error.
- * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
- */
-
-
-var init = function init(context, message, name, ErrorCtr) {
-  if (asAssertionError(name, ErrorCtr)) {
-    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-      actual: {
-        value: message.actual
-      },
-      expected: {
-        value: message.expected
-      },
-      generatedMessage: {
-        value: castBoolean(message.message) === false
-      },
-      message: {
-        value: message.message || getMessage(message)
-      },
-      operator: {
-        value: message.operator
-      }
-    });
-  } else if (typeof message !== 'undefined') {
-    // Standard Errors. Only set `this.message` if the argument `message`
-    // was not `undefined`.
-    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-      message: {
-        value: Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message)
-      }
-    });
-  } // Parse and set the 'this' properties.
-
-
-  parseStack(context, name);
-}; // `init` is used in `eval`, don't delete.
-
-
-init({}, 'message', 'name', $Error);
-var CUSTOM_NAME = 'CustomError';
-/**
- * Creates a custom Error constructor. Will use `Error` if argument is not
- * a valid constructor.
- *
- * @function
- * @param {string} [name='Error'] - The name for the custom Error.
- * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
- * @returns {Function} The custom Error constructor.
- */
-
-var createErrorCtr = function createErrorCtr(name, ErrorCtr) {
-  var ECTR = allCtrs === false || isErrorCtr(ErrorCtr) === false ? $Error : ErrorCtr;
-  var initialName = Object(is_nil_x__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(name) ? CUSTOM_NAME : Object(trim_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(name));
-  var customName = initialName === CUSTOM_NAME || Object(is_var_name__WEBPACK_IMPORTED_MODULE_19__[/* default */ "a"])(initialName) ? initialName : CUSTOM_NAME;
-  /**
-   * Create a new object, that prototypally inherits from the `Error`
-   * constructor.
-   *
-   * @private
-   * @class CstmCtr
-   * @param {string} [message] - Human-readable description of the error.
-   */
-
-  var CstmCtr; // noinspection JSUnusedLocalSymbols
-
-  var f =
-  /* eslint-disable-line no-unused-vars */
-  function _f(context, message) {
-    var isInstCtr = context instanceof CstmCtr;
-
-    if (isInstCtr === false) {
-      return new CstmCtr(message);
-    }
-
-    init(context, message, customName, ErrorCtr);
-    return context;
-  };
-  /* eslint-disable-next-line no-eval */
-
-
-  CstmCtr = eval("(0,function ".concat(customName, "(message){return f(this,message)})")); // Inherit the prototype methods from `ECTR`.
-
-  CstmCtr.prototype = Object(object_create_x__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"])(ECTR.prototype); // noinspection JSValidateTypes
-
-  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(CstmCtr.prototype,
-  /** @lends CstmCtr.prototype */
-  {
-    /**
-     * Specifies the function that created an instance's prototype.
-     *
-     * @class
-     */
-    constructor: {
-      value: CstmCtr
-    },
-
-    /**
-     * The name property represents a name for the type of error.
-     *
-     * @default 'Error'
-     * @type {string}
-     */
-    name: {
-      value: customName
-    },
-
-    /**
-     * The toJSON method returns a string representation of the Error object.
-     *
-     * @returns {string} A JSON stringified representation.
-     */
-    toJSON: {
-      value: toJSON
-    }
-  });
-
-  if ($toStringTag) {
-    /**
-     * Name Symbol.toStringTag.
-     *
-     * @memberof CstmCtr.prototype
-     * @type {string}
-     */
-    Object(object_define_property_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CstmCtr.prototype, $toStringTag, {
-      value: '[object Error]'
-    });
-  }
-
-  return CstmCtr;
-};
-
-var create = createErrorCtr; // Test if we can use more than just the Error constructor.
-
-try {
-  allCtrs = createErrorCtr('X', SyntaxError)('x') instanceof SyntaxError;
-} catch (ignore) {
-  allCtrs = false;
-}
-/**
- * Error constructor for test and validation frameworks that implement the
- * standardized AssertionError specification.
- *
- * @class
- * @param {object} [message] - Need to document the properties.
- */
-
-
-var AssertionErrorConstructor = createErrorCtr('AssertionError', Error);
-/**
- * The Error constructor creates an error object.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var ErrorConstructor = createErrorCtr('Error', Error);
-/**
- * Creates an instance representing an error that occurs regarding the
- * global function eval().
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var EvalErrorConstructor = createErrorCtr('EvalError', EvalError); // noinspection JSUnusedGlobalSymbols
-
-/**
- * The InternalError object indicates an error that occurred internally in
- * the JavaScript engine. For example: "InternalError: too much recursion".
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var InternalErrorConstructor = createErrorCtr('InternalError', Error);
-/**
- * Creates an instance representing an error that occurs when a numeric
- * variable or parameter is outside of its valid range.
- *
- * @class
- * @param {string} - - [message] Human-readable description of the error.
- */
-
-var RangeErrorConstructor = createErrorCtr('RangeError', RangeError);
-/**
- * Creates an instance representing an error that occurs when de-referencing
- * an invalid reference.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var ReferenceErrorConstructor = createErrorCtr('ReferenceError', ReferenceError); // noinspection JSUnusedGlobalSymbols
-
-/**
- * Indicates if the Javascript engine supports subclassing of all Error
- * types. If `true` then all are supported, if `false` (only very old
- * browsers IE6) then only `Error` is supported.
- *
- * @type boolean
- * */
-
-var supportsAllConstructors = allCtrs;
-/**
- * Creates an instance representing a syntax error that occurs while parsing
- * code in eval().
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var SyntaxErrorConstructor = createErrorCtr('SyntaxError', SyntaxError);
-/**
- * Creates an instance representing an error that occurs when a variable or
- * parameter is not of a valid type.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var TypeErrorConstructor = createErrorCtr('TypeError', TypeError);
-/**
- * Creates an instance representing an error that occurs when encodeURI() or
- * decodeURI() are passed invalid parameters.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var URIErrorConstructor = createErrorCtr('URIError', URIError);
-
-
-
-/***/ }),
-/* 61 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(72);
-
-/**
- * This method determines whether two values are the same value.
- * SameValueZero differs from SameValue (`Object.is`) only in its treatment
- * of +0 and -0.
- *
- * @param {*} [x] - The first value to compare.
- * @param {*} [y] - The second value to compare.
- * @returns {boolean} A Boolean indicating whether or not the two arguments
- * are the same value.
- */
-
-var sameValueZero = function sameValueZero(x, y) {
-  return x === y || Object(same_value_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(x, y);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (sameValueZero);
-
-
-
-/***/ }),
-/* 62 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26);
-/* harmony import */ var is_array_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(50);
-
-
-
-
-
-var getMax = function getMax(a, b) {
-  return a >= b ? a : b;
-};
-/**
- * This method calculates a fromIndex of a given value for an array.
- *
- * @param {Array} array - * The array on which to calculate the starting index.
- * @throws {TypeError} If array is null or undefined.
- * @param {number} fromIndex - * The position in this array at which to begin. A
- *  negative value gives the index of array.length + fromIndex by asc.
- * @returns {number} The calculated fromIndex. Default is 0.
- */
-
-
-var calcFromIndex = function calcFromIndex(array, fromIndex) {
-  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(array);
-
-  if (Object(is_array_like_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object) === false) {
-    return 0;
-  }
-
-  var index = Object(to_integer_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(fromIndex);
-  return index >= 0 ? index : getMax(0, Object(to_length_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object.length) + index);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (calcFromIndex);
-
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-
-
-
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
-var nativeCreate = typeof Object.create === 'function' && Object.create;
-var isWorking;
-
-if (nativeCreate) {
-  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeCreate, null);
-  isWorking = res.threw === false && res.value && _typeof(res.value) === 'object';
-
-  if (isWorking) {
-    /* eslint-disable-next-line guard-for-in,no-restricted-syntax,no-unused-vars */
-    // noinspection LoopStatementThatDoesntLoopJS
-    for (var _ in res.value) {
-      isWorking = false;
-      break;
-    }
-  }
-
-  if (isWorking) {
-    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeCreate, null, {
-      test: {
-        value: true
-      }
-    });
-    isWorking = res.threw === false && res.value && _typeof(res.value) === 'object' && res.value.test === true;
-  }
-
-  if (isWorking) {
-    // Shape - superclass
-    var Shape = function Shape() {
-      // noinspection JSUnusedGlobalSymbols
-      this.x = 0; // noinspection JSUnusedGlobalSymbols
-
-      this.y = 0;
-    }; // superclass method
-
-
-    Shape.prototype.move = function move(x, y) {
-      // noinspection JSUnusedGlobalSymbols
-      this.x += x; // noinspection JSUnusedGlobalSymbols
-
-      this.y += y;
-      return 'Shape moved.';
-    }; // Rectangle - subclass
-
-
-    var Rectangle = function Rectangle() {
-      Shape.call(this); // call super constructor.
-    };
-
-    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeCreate, Shape.prototype);
-    isWorking = res.threw === false && res.value && _typeof(res.value) === 'object';
-
-    if (isWorking) {
-      // subclass extends superclass
-      Rectangle.prototype = res.value;
-      Rectangle.prototype.constructor = Rectangle;
-      var rect = new Rectangle();
-      isWorking = rect instanceof Rectangle;
-
-      if (isWorking) {
-        isWorking = rect instanceof Shape;
-      }
-
-      if (isWorking) {
-        isWorking = rect.move(1, 1) === 'Shape moved.';
-      }
-    }
-  }
-}
-/**
- * This method method creates a new object with the specified prototype object and properties.
- *
- * @param {*} prototype - The object which should be the prototype of the newly-created object.
- * @param {*} [properties] - If specified and not undefined, an object whose enumerable own properties
- * (that is, those properties defined upon itself and not enumerable properties along its prototype chain)
- * specify property descriptors to be added to the newly-created object, with the corresponding property names.
- * @throws {TypeError} If the properties parameter isn't null or an object.
- * @returns {boolean} A new object with the specified prototype object and properties.
- */
-
-
-var $create;
-
-if (isWorking) {
-  $create = nativeCreate;
-} else {
-  var doc = typeof document !== 'undefined' && document; // Contributed by Brandon Benvie, October, 2012
-
-  var createEmpty;
-  var supportsProto = {
-    __proto__: null
-  } instanceof Object === false; // the following produces false positives
-  // in Opera Mini => not a reliable check
-  // Object.prototype.__proto__ === null
-
-  if (supportsProto || castBoolean(doc) === false) {
-    createEmpty = function $createEmpty() {
-      return {
-        __proto__: null
-      };
-    };
-  } else {
-    // Check for document.domain and active x support
-    // No need to use active x approach when document.domain is not set
-    // see https://github.com/es-shims/es5-shim/issues/150
-    // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
-    var shouldUseActiveX = function _shouldUseActiveX() {
-      var _this = this;
-
-      // return early if document.domain not set
-      if (castBoolean(doc.domain) === false) {
-        return false;
-      }
-
-      var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function () {
-        _newArrowCheck(this, _this);
-
-        /* eslint-disable-next-line no-undef */
-        return new ActiveXObject('htmlfile');
-      }.bind(this));
-      return result.threw === false && Boolean(result.value);
-    }; // This supports IE8 when document.domain is used
-    // see https://github.com/es-shims/es5-shim/issues/150
-    // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
-
-
-    var getEmptyViaActiveX = function _getEmptyViaActiveX() {
-      /* eslint-disable-next-line no-undef */
-      var xDoc = new ActiveXObject('htmlfile');
-      xDoc.write('<script></script>');
-      xDoc.close(); // noinspection JSUnresolvedVariable
-
-      var empty = xDoc.parentWindow.Object.prototype;
-      xDoc = null;
-      return empty;
-    }; // The original implementation using an iframe
-    // before the activex approach was added
-    // see https://github.com/es-shims/es5-shim/issues/150
-
-
-    var getEmptyViaIFrame = function _getEmptyViaIFrame() {
-      var iframe = doc.createElement('iframe');
-      iframe.style.display = 'none';
-      /* eslint-disable-next-line no-script-url */
-
-      iframe.src = 'javascript:';
-      var parent = doc.body || doc.documentElement;
-      parent.appendChild(iframe);
-      var empty = iframe.contentWindow.Object.prototype;
-      parent.removeChild(iframe);
-      iframe = null;
-      return empty;
-    }; // In old IE __proto__ can't be used to manually set `null`, nor does
-    // any other method exist to make an object that inherits from nothing,
-    // aside from Object.prototype itself. Instead, create a new global
-    // object and *steal* its Object.prototype and strip it bare. This is
-    // used as the prototype to create nullary objects.
-
-
-    createEmpty = function $createEmpty() {
-      // Determine which approach to use
-      // see https://github.com/es-shims/es5-shim/issues/150
-      var empty = shouldUseActiveX() ? getEmptyViaActiveX() : getEmptyViaIFrame();
-      delete empty.constructor;
-      delete empty.hasOwnProperty;
-      delete empty.propertyIsEnumerable;
-      delete empty.isPrototypeOf;
-      delete empty.toLocaleString;
-      delete empty.toString;
-      delete empty.valueOf;
-      /* eslint-disable-next-line lodash/prefer-noop */
-
-      var E = function Empty() {};
-
-      E.prototype = empty; // short-circuit future calls
-
-      createEmpty = function $$createEmpty() {
-        return new E();
-      };
-
-      return new E();
-    };
-  }
-
-  $create = function create(prototype, properties) {
-    var object;
-    /* eslint-disable-next-line lodash/prefer-noop */
-
-    var T = function Type() {}; // An empty constructor.
-
-
-    if (prototype === null) {
-      object = createEmpty();
-    } else {
-      if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(prototype)) {
-        // In the native implementation `parent` can be `null`
-        // OR *any* `instanceof Object`  (Object|Function|Array|RegExp|etc)
-        // Use `typeof` tho, b/c in old IE, DOM elements are not `instanceof Object`
-        // like they are in modern browsers. Using `Object.create` on DOM elements
-        // is...err...probably inappropriate, but the native version allows for it.
-        throw new TypeError('Object prototype may only be an Object or null'); // same msg as Chrome
-      }
-
-      T.prototype = prototype;
-      object = new T(); // IE has no built-in implementation of `Object.getPrototypeOf`
-      // neither `__proto__`, but this manually setting `__proto__` will
-      // guarantee that `Object.getPrototypeOf` will work as expected with
-      // objects created using `Object.create`
-
-      /* eslint-disable-next-line no-proto */
-
-      object.__proto__ = prototype;
-    }
-
-    if (typeof properties !== 'undefined') {
-      Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object, properties);
-    }
-
-    return object;
-  };
-}
-
-var create = $create;
-/* harmony default export */ __webpack_exports__["a"] = (create);
-
-
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function isObject(x) {
-	return typeof x === "object" && x !== null;
-};
-
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var bind = __webpack_require__(76);
-
-module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
-
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var keys = __webpack_require__(68);
-var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
-
-var toStr = Object.prototype.toString;
-var concat = Array.prototype.concat;
-var origDefineProperty = Object.defineProperty;
-
-var isFunction = function (fn) {
-	return typeof fn === 'function' && toStr.call(fn) === '[object Function]';
-};
-
-var arePropertyDescriptorsSupported = function () {
-	var obj = {};
-	try {
-		origDefineProperty(obj, 'x', { enumerable: false, value: obj });
-		// eslint-disable-next-line no-unused-vars, no-restricted-syntax
-		for (var _ in obj) { // jscs:ignore disallowUnusedVariables
-			return false;
-		}
-		return obj.x === obj;
-	} catch (e) { /* this is IE 8. */
-		return false;
-	}
-};
-var supportsDescriptors = origDefineProperty && arePropertyDescriptorsSupported();
-
-var defineProperty = function (object, name, value, predicate) {
-	if (name in object && (!isFunction(predicate) || !predicate())) {
-		return;
-	}
-	if (supportsDescriptors) {
-		origDefineProperty(object, name, {
-			configurable: true,
-			enumerable: false,
-			value: value,
-			writable: true
-		});
-	} else {
-		object[name] = value;
-	}
-};
-
-var defineProperties = function (object, map) {
-	var predicates = arguments.length > 2 ? arguments[2] : {};
-	var props = keys(map);
-	if (hasSymbols) {
-		props = concat.call(props, Object.getOwnPropertySymbols(map));
-	}
-	for (var i = 0; i < props.length; i += 1) {
-		defineProperty(object, props[i], map[props[i]], predicates[props[i]]);
-	}
-};
-
-defineProperties.supportsDescriptors = !!supportsDescriptors;
-
-module.exports = defineProperties;
-
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var slice = Array.prototype.slice;
-var isArgs = __webpack_require__(86);
-
-var origKeys = Object.keys;
-var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(108);
-
-var originalKeys = Object.keys;
-
-keysShim.shim = function shimObjectKeys() {
-	if (Object.keys) {
-		var keysWorksWithArguments = (function () {
-			// Safari 5.0 bug
-			var args = Object.keys(arguments);
-			return args && args.length === arguments.length;
-		}(1, 2));
-		if (!keysWorksWithArguments) {
-			Object.keys = function keys(object) { // eslint-disable-line func-name-matching
-				if (isArgs(object)) {
-					return originalKeys(slice.call(object));
-				}
-				return originalKeys(object);
-			};
-		}
-	} else {
-		Object.keys = keysShim;
-	}
-	return Object.keys || keysShim;
-};
-
-module.exports = keysShim;
-
-
-/***/ }),
-/* 69 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var string = 'a';
-var boxedString = {}.constructor(string);
-/**
- * Check failure of by-index access of string characters (IE < 9)
- * and failure of `0 in boxedString` (Rhino).
- *
- * `true` if no failure; otherwise `false`.
- *
- * @type boolean
- */
-
-var hasBoxed = boxedString[0] === string && 0 in boxedString;
-/* harmony default export */ __webpack_exports__["a"] = (hasBoxed);
-
-
-
-/***/ }),
-/* 70 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(33);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-
-
-var propIsEnumerable = {}.propertyIsEnumerable;
-/**
- * This method returns a Boolean indicating whether the specified property is
- * enumerable. Does not attempt to fix bugs in IE<9 or old Opera, otherwise it
- * does ES6ify the method.
- *
- * @param {!object} object - The object on which to test the property.
- * @param {string|Symbol} property - The name of the property to test.
- * @throws {TypeError} If target is null or undefined.
- * @returns {boolean} A Boolean indicating whether the specified property is
- *  enumerable.
- */
-
-var propertyIsEnumerable = function propertyIsEnumerable(object, property) {
-  return propIsEnumerable.call(Object(to_object_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object), Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(property));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (propertyIsEnumerable);
-
-
-
-/***/ }),
-/* 71 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var array_filter_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
-/* harmony import */ var get_own_property_symbols_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(53);
-/* harmony import */ var property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(70);
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-/**
- * This method returns only the enumerable own property symbols of an object.
- *
- * @param {object} target - The target.
- * @throws {TypeError} - If target is null or undefined.
- * @returns {Array} The enumerable own property symbols.
- */
-
-var getOwnEnumerablePropertySymbols = function getOwnEnumerablePropertySymbols(target) {
-  var _this = this;
-
-  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(target);
-  return Object(array_filter_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(get_own_property_symbols_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object), function (symbol) {
-    _newArrowCheck(this, _this);
-
-    return Object(property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, symbol);
-  }.bind(this));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (getOwnEnumerablePropertySymbols);
-
-
-
-/***/ }),
-/* 72 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(23);
+/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(24);
 
 /**
  * This method is the comparison abstract operation SameValue(x, y), where x
@@ -9636,19 +6996,19 @@ var sameValue = function sameValue(value1, value2) {
 
 
 /***/ }),
-/* 73 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/has-own-property-x/dist/has-own-property-x.esm.js
-var has_own_property_x_esm = __webpack_require__(5);
+var has_own_property_x_esm = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js + 1 modules
 var is_function_x_esm = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(15);
+var object_define_property_x_esm = __webpack_require__(14);
 
 // EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
 var object_define_properties_x_esm = __webpack_require__(9);
@@ -9658,7 +7018,7 @@ var is_string = __webpack_require__(11);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-array-like-x/dist/is-array-like-x.esm.js
-var is_array_like_x_esm = __webpack_require__(50);
+var is_array_like_x_esm = __webpack_require__(52);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
 var is_primitive = __webpack_require__(6);
@@ -9718,7 +7078,7 @@ var index_of_x_esm = __webpack_require__(30);
 var assert_is_function_x_esm = __webpack_require__(12);
 
 // EXTERNAL MODULE: ./node_modules/assert-is-object-x/dist/assert-is-object-x.esm.js
-var assert_is_object_x_esm = __webpack_require__(17);
+var assert_is_object_x_esm = __webpack_require__(16);
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
 var array_slice_x_esm = __webpack_require__(7);
@@ -10057,19 +7417,19 @@ Object(object_define_properties_x_esm["a" /* default */])(big_counter_x_esm_BigC
 var is_nil_x_esm = __webpack_require__(8);
 
 // EXTERNAL MODULE: ./node_modules/is-map-x/dist/is-map-x.esm.js
-var is_map_x_esm = __webpack_require__(40);
+var is_map_x_esm = __webpack_require__(41);
 
 // EXTERNAL MODULE: ./node_modules/is-set-x/dist/is-set-x.esm.js
-var is_set_x_esm = __webpack_require__(42);
+var is_set_x_esm = __webpack_require__(43);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
-var is_object_like_x_esm = __webpack_require__(4);
+var is_object_like_x_esm = __webpack_require__(5);
 
 // EXTERNAL MODULE: ./node_modules/is-array-x/dist/is-array-x.esm.js
 var is_array_x_esm = __webpack_require__(21);
 
 // EXTERNAL MODULE: ./node_modules/is-boolean-object/index.js
-var is_boolean_object = __webpack_require__(56);
+var is_boolean_object = __webpack_require__(60);
 var is_boolean_object_default = /*#__PURE__*/__webpack_require__.n(is_boolean_object);
 
 // EXTERNAL MODULE: ./node_modules/array-some-x/dist/array-some-x.esm.js
@@ -10082,7 +7442,7 @@ var get_prototype_of_x_esm = __webpack_require__(29);
 var has_symbol_support_x_esm = __webpack_require__(13);
 
 // EXTERNAL MODULE: ./node_modules/object-create-x/dist/object-create-x.esm.js
-var object_create_x_esm = __webpack_require__(63);
+var object_create_x_esm = __webpack_require__(69);
 
 // CONCATENATED MODULE: ./node_modules/collections-x/dist/collections-x.esm.js
 /* unused harmony export symIt */
@@ -11317,7 +8677,2663 @@ var isSet = $$isSet;
 
 
 /***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
+var _this = undefined;
+
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+
+
+
+/** @type {ArrayConstructor} */
+
+var ArrayCtr = [].constructor;
+/** @type {ObjectConstructor} */
+
+var castObject = {}.constructor;
+/** @type {BooleanConstructor} */
+
+var castBoolean = true.constructor;
+var nativeForEach = typeof ArrayCtr.prototype.forEach === 'function' && ArrayCtr.prototype.forEach;
+var isWorking;
+
+if (nativeForEach) {
+  var spy = 0;
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1, 2], nativeForEach, function (item) {
+    _newArrowCheck(this, _this);
+
+    spy += item;
+  }.bind(undefined));
+  isWorking = res.threw === false && typeof res.value === 'undefined' && spy === 3;
+
+  if (isWorking) {
+    spy = '';
+    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(castObject('abc'), nativeForEach, function (item) {
+      _newArrowCheck(this, _this);
+
+      spy += item;
+    }.bind(undefined));
+    isWorking = res.threw === false && typeof res.value === 'undefined' && spy === 'abc';
+  }
+
+  if (isWorking) {
+    spy = 0;
+    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
+      /* eslint-disable-next-line prefer-rest-params */
+      return arguments;
+    }(1, 2, 3), nativeForEach, function (item) {
+      _newArrowCheck(this, _this);
+
+      spy += item;
+    }.bind(undefined));
+    isWorking = res.threw === false && typeof res.value === 'undefined' && spy === 6;
+  }
+
+  if (isWorking) {
+    spy = 0;
+    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({
+      0: 1,
+      1: 2,
+      3: 3,
+      4: 4,
+      length: 4
+    }, nativeForEach, function (item) {
+      _newArrowCheck(this, _this);
+
+      spy += item;
+    }.bind(undefined));
+    isWorking = res.threw === false && typeof res.value === 'undefined' && spy === 6;
+  }
+
+  if (isWorking) {
+    var doc = typeof document !== 'undefined' && document;
+
+    if (doc) {
+      spy = null;
+      var fragment = doc.createDocumentFragment();
+      var div = doc.createElement('div');
+      fragment.appendChild(div);
+      res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(fragment.childNodes, nativeForEach, function (item) {
+        _newArrowCheck(this, _this);
+
+        spy = item;
+      }.bind(undefined));
+      isWorking = res.threw === false && typeof res.value === 'undefined' && spy === div;
+    }
+  }
+
+  if (isWorking) {
+    var isStrict = function returnIsStrict() {
+      /* eslint-disable-next-line babel/no-invalid-this */
+      return castBoolean(this) === false;
+    }();
+
+    if (isStrict) {
+      spy = null;
+      res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1], nativeForEach, function () {
+        _newArrowCheck(this, _this);
+
+        /* eslint-disable-next-line babel/no-invalid-this */
+        spy = typeof this === 'string';
+      }.bind(undefined), 'x');
+      isWorking = res.threw === false && typeof res.value === 'undefined' && spy === true;
+    }
+  }
+
+  if (isWorking) {
+    spy = {};
+    var fn = ['return nativeForEach.call("foo", function (_, __, context) {', 'if (castBoolean(context) === false || typeof context !== "object") {', 'spy.value = true;}});'].join('');
+    /* eslint-disable-next-line no-new-func */
+
+    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Function('nativeForEach', 'spy', 'castBoolean', fn), nativeForEach, spy);
+    isWorking = res.threw === false && typeof res.value === 'undefined' && spy.value !== true;
+  }
+}
+/**
+ * This method executes a provided function once for each array element.
+ *
+ * @param {Array} array - The array to iterate over.
+ * @param {Function} callBack - Function to execute for each element.
+ * @param {*} [thisArg] - Value to use as this when executing callback.
+ * @throws {TypeError} If array is null or undefined.
+ * @throws {TypeError} If callBack is not a function.
+ */
+
+
+var $forEach;
+
+if (nativeForEach) {
+  $forEach = function forEach(array, callBack
+  /* , thisArg */
+  ) {
+    var args = [callBack];
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      args[1] = arguments[2];
+    }
+
+    return nativeForEach.apply(array, args);
+  };
+} else {
+  $forEach = function forEach(array, callBack
+  /* , thisArg */
+  ) {
+    var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(array); // If no callback function or if callback is not a callable function
+
+    Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack);
+    var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object);
+    var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
+    var thisArg;
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      thisArg = arguments[2];
+    }
+
+    var noThis = typeof thisArg === 'undefined';
+
+    for (var i = 0; i < length; i += 1) {
+      if (i in iterable) {
+        if (noThis) {
+          callBack(iterable[i], i, object);
+        } else {
+          callBack.call(thisArg, iterable[i], i, object);
+        }
+      }
+    }
+  };
+}
+
+var arrayForEach = $forEach;
+/* harmony default export */ __webpack_exports__["a"] = (arrayForEach);
+
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return trimLeft2016; });
+/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(42);
+/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
+
+
+var EMPTY_STRING = '';
+var RegExpCtr = /none/.constructor;
+var reLeft2016 = new RegExpCtr("^[".concat(white_space_x__WEBPACK_IMPORTED_MODULE_1__[/* string2016 */ "b"], "]+"));
+var reLeft = new RegExpCtr("^[".concat(white_space_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], "]+"));
+var replace = EMPTY_STRING.replace;
+/**
+ * This method removes whitespace from the left end of a string. (ES2016).
+ *
+ * @param {string} [string] - The string to trim the left end whitespace from.
+ * @throws {TypeError} If string is null or undefined or not coercible.
+ * @returns {string} The left trimmed string.
+ */
+
+function trimLeft2016(string) {
+  return replace.call(Object(require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(string), reLeft2016, EMPTY_STRING);
+}
+/**
+ * This method removes whitespace from the left end of a string. (ES2018).
+ *
+ * @param {string} [string] - The string to trim the left end whitespace from.
+ * @throws {TypeError} If string is null or undefined or not coercible.
+ * @returns {string} The left trimmed string.
+ */
+
+var trimLeft2018 = function trimLeft2018(string) {
+  return replace.call(Object(require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(string), reLeft, EMPTY_STRING);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (trimLeft2018);
+
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var boolToStr = Boolean.prototype.toString;
+
+var tryBooleanObject = function tryBooleanObject(value) {
+	try {
+		boolToStr.call(value);
+		return true;
+	} catch (e) {
+		return false;
+	}
+};
+var toStr = Object.prototype.toString;
+var boolClass = '[object Boolean]';
+var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
+
+module.exports = function isBoolean(value) {
+	if (typeof value === 'boolean') { return true; }
+	if (typeof value !== 'object') { return false; }
+	return hasToStringTag ? tryBooleanObject(value) : toStr.call(value) === boolClass;
+};
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! JSON v3.3.2 | https://bestiejs.github.io/json3 | Copyright 2012-2015, Kit Cambridge, Benjamin Tan | http://kit.mit-license.org */
+;(function () {
+  // Detect the `define` function exposed by asynchronous module loaders. The
+  // strict `define` check is necessary for compatibility with `r.js`.
+  var isLoader =  true && __webpack_require__(117);
+
+  // A set of types used to distinguish objects from primitives.
+  var objectTypes = {
+    "function": true,
+    "object": true
+  };
+
+  // Detect the `exports` object exposed by CommonJS implementations.
+  var freeExports = objectTypes[typeof exports] && exports && !exports.nodeType && exports;
+
+  // Use the `global` object exposed by Node (including Browserify via
+  // `insert-module-globals`), Narwhal, and Ringo as the default context,
+  // and the `window` object in browsers. Rhino exports a `global` function
+  // instead.
+  var root = objectTypes[typeof window] && window || this,
+      freeGlobal = freeExports && objectTypes[typeof module] && module && !module.nodeType && typeof global == "object" && global;
+
+  if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal || freeGlobal.self === freeGlobal)) {
+    root = freeGlobal;
+  }
+
+  // Public: Initializes JSON 3 using the given `context` object, attaching the
+  // `stringify` and `parse` functions to the specified `exports` object.
+  function runInContext(context, exports) {
+    context || (context = root.Object());
+    exports || (exports = root.Object());
+
+    // Native constructor aliases.
+    var Number = context.Number || root.Number,
+        String = context.String || root.String,
+        Object = context.Object || root.Object,
+        Date = context.Date || root.Date,
+        SyntaxError = context.SyntaxError || root.SyntaxError,
+        TypeError = context.TypeError || root.TypeError,
+        Math = context.Math || root.Math,
+        nativeJSON = context.JSON || root.JSON;
+
+    // Delegate to the native `stringify` and `parse` implementations.
+    if (typeof nativeJSON == "object" && nativeJSON) {
+      exports.stringify = nativeJSON.stringify;
+      exports.parse = nativeJSON.parse;
+    }
+
+    // Convenience aliases.
+    var objectProto = Object.prototype,
+        getClass = objectProto.toString,
+        isProperty = objectProto.hasOwnProperty,
+        undefined;
+
+    // Internal: Contains `try...catch` logic used by other functions.
+    // This prevents other functions from being deoptimized.
+    function attempt(func, errorFunc) {
+      try {
+        func();
+      } catch (exception) {
+        if (errorFunc) {
+          errorFunc();
+        }
+      }
+    }
+
+    // Test the `Date#getUTC*` methods. Based on work by @Yaffle.
+    var isExtended = new Date(-3509827334573292);
+    attempt(function () {
+      // The `getUTCFullYear`, `Month`, and `Date` methods return nonsensical
+      // results for certain dates in Opera >= 10.53.
+      isExtended = isExtended.getUTCFullYear() == -109252 && isExtended.getUTCMonth() === 0 && isExtended.getUTCDate() === 1 &&
+        isExtended.getUTCHours() == 10 && isExtended.getUTCMinutes() == 37 && isExtended.getUTCSeconds() == 6 && isExtended.getUTCMilliseconds() == 708;
+    });
+
+    // Internal: Determines whether the native `JSON.stringify` and `parse`
+    // implementations are spec-compliant. Based on work by Ken Snyder.
+    function has(name) {
+      if (has[name] != null) {
+        // Return cached feature test result.
+        return has[name];
+      }
+      var isSupported;
+      if (name == "bug-string-char-index") {
+        // IE <= 7 doesn't support accessing string characters using square
+        // bracket notation. IE 8 only supports this for primitives.
+        isSupported = "a"[0] != "a";
+      } else if (name == "json") {
+        // Indicates whether both `JSON.stringify` and `JSON.parse` are
+        // supported.
+        isSupported = has("json-stringify") && has("date-serialization") && has("json-parse");
+      } else if (name == "date-serialization") {
+        // Indicates whether `Date`s can be serialized accurately by `JSON.stringify`.
+        isSupported = has("json-stringify") && isExtended;
+        if (isSupported) {
+          var stringify = exports.stringify;
+          attempt(function () {
+            isSupported =
+              // JSON 2, Prototype <= 1.7, and older WebKit builds incorrectly
+              // serialize extended years.
+              stringify(new Date(-8.64e15)) == '"-271821-04-20T00:00:00.000Z"' &&
+              // The milliseconds are optional in ES 5, but required in 5.1.
+              stringify(new Date(8.64e15)) == '"+275760-09-13T00:00:00.000Z"' &&
+              // Firefox <= 11.0 incorrectly serializes years prior to 0 as negative
+              // four-digit years instead of six-digit years. Credits: @Yaffle.
+              stringify(new Date(-621987552e5)) == '"-000001-01-01T00:00:00.000Z"' &&
+              // Safari <= 5.1.5 and Opera >= 10.53 incorrectly serialize millisecond
+              // values less than 1000. Credits: @Yaffle.
+              stringify(new Date(-1)) == '"1969-12-31T23:59:59.999Z"';
+          });
+        }
+      } else {
+        var value, serialized = '{"a":[1,true,false,null,"\\u0000\\b\\n\\f\\r\\t"]}';
+        // Test `JSON.stringify`.
+        if (name == "json-stringify") {
+          var stringify = exports.stringify, stringifySupported = typeof stringify == "function";
+          if (stringifySupported) {
+            // A test function object with a custom `toJSON` method.
+            (value = function () {
+              return 1;
+            }).toJSON = value;
+            attempt(function () {
+              stringifySupported =
+                // Firefox 3.1b1 and b2 serialize string, number, and boolean
+                // primitives as object literals.
+                stringify(0) === "0" &&
+                // FF 3.1b1, b2, and JSON 2 serialize wrapped primitives as object
+                // literals.
+                stringify(new Number()) === "0" &&
+                stringify(new String()) == '""' &&
+                // FF 3.1b1, 2 throw an error if the value is `null`, `undefined`, or
+                // does not define a canonical JSON representation (this applies to
+                // objects with `toJSON` properties as well, *unless* they are nested
+                // within an object or array).
+                stringify(getClass) === undefined &&
+                // IE 8 serializes `undefined` as `"undefined"`. Safari <= 5.1.7 and
+                // FF 3.1b3 pass this test.
+                stringify(undefined) === undefined &&
+                // Safari <= 5.1.7 and FF 3.1b3 throw `Error`s and `TypeError`s,
+                // respectively, if the value is omitted entirely.
+                stringify() === undefined &&
+                // FF 3.1b1, 2 throw an error if the given value is not a number,
+                // string, array, object, Boolean, or `null` literal. This applies to
+                // objects with custom `toJSON` methods as well, unless they are nested
+                // inside object or array literals. YUI 3.0.0b1 ignores custom `toJSON`
+                // methods entirely.
+                stringify(value) === "1" &&
+                stringify([value]) == "[1]" &&
+                // Prototype <= 1.6.1 serializes `[undefined]` as `"[]"` instead of
+                // `"[null]"`.
+                stringify([undefined]) == "[null]" &&
+                // YUI 3.0.0b1 fails to serialize `null` literals.
+                stringify(null) == "null" &&
+                // FF 3.1b1, 2 halts serialization if an array contains a function:
+                // `[1, true, getClass, 1]` serializes as "[1,true,],". FF 3.1b3
+                // elides non-JSON values from objects and arrays, unless they
+                // define custom `toJSON` methods.
+                stringify([undefined, getClass, null]) == "[null,null,null]" &&
+                // Simple serialization test. FF 3.1b1 uses Unicode escape sequences
+                // where character escape codes are expected (e.g., `\b` => `\u0008`).
+                stringify({ "a": [value, true, false, null, "\x00\b\n\f\r\t"] }) == serialized &&
+                // FF 3.1b1 and b2 ignore the `filter` and `width` arguments.
+                stringify(null, value) === "1" &&
+                stringify([1, 2], null, 1) == "[\n 1,\n 2\n]";
+            }, function () {
+              stringifySupported = false;
+            });
+          }
+          isSupported = stringifySupported;
+        }
+        // Test `JSON.parse`.
+        if (name == "json-parse") {
+          var parse = exports.parse, parseSupported;
+          if (typeof parse == "function") {
+            attempt(function () {
+              // FF 3.1b1, b2 will throw an exception if a bare literal is provided.
+              // Conforming implementations should also coerce the initial argument to
+              // a string prior to parsing.
+              if (parse("0") === 0 && !parse(false)) {
+                // Simple parsing test.
+                value = parse(serialized);
+                parseSupported = value["a"].length == 5 && value["a"][0] === 1;
+                if (parseSupported) {
+                  attempt(function () {
+                    // Safari <= 5.1.2 and FF 3.1b1 allow unescaped tabs in strings.
+                    parseSupported = !parse('"\t"');
+                  });
+                  if (parseSupported) {
+                    attempt(function () {
+                      // FF 4.0 and 4.0.1 allow leading `+` signs and leading
+                      // decimal points. FF 4.0, 4.0.1, and IE 9-10 also allow
+                      // certain octal literals.
+                      parseSupported = parse("01") !== 1;
+                    });
+                  }
+                  if (parseSupported) {
+                    attempt(function () {
+                      // FF 4.0, 4.0.1, and Rhino 1.7R3-R4 allow trailing decimal
+                      // points. These environments, along with FF 3.1b1 and 2,
+                      // also allow trailing commas in JSON objects and arrays.
+                      parseSupported = parse("1.") !== 1;
+                    });
+                  }
+                }
+              }
+            }, function () {
+              parseSupported = false;
+            });
+          }
+          isSupported = parseSupported;
+        }
+      }
+      return has[name] = !!isSupported;
+    }
+    has["bug-string-char-index"] = has["date-serialization"] = has["json"] = has["json-stringify"] = has["json-parse"] = null;
+
+    if (!has("json")) {
+      // Common `[[Class]]` name aliases.
+      var functionClass = "[object Function]",
+          dateClass = "[object Date]",
+          numberClass = "[object Number]",
+          stringClass = "[object String]",
+          arrayClass = "[object Array]",
+          booleanClass = "[object Boolean]";
+
+      // Detect incomplete support for accessing string characters by index.
+      var charIndexBuggy = has("bug-string-char-index");
+
+      // Internal: Normalizes the `for...in` iteration algorithm across
+      // environments. Each enumerated key is yielded to a `callback` function.
+      var forOwn = function (object, callback) {
+        var size = 0, Properties, dontEnums, property;
+
+        // Tests for bugs in the current environment's `for...in` algorithm. The
+        // `valueOf` property inherits the non-enumerable flag from
+        // `Object.prototype` in older versions of IE, Netscape, and Mozilla.
+        (Properties = function () {
+          this.valueOf = 0;
+        }).prototype.valueOf = 0;
+
+        // Iterate over a new instance of the `Properties` class.
+        dontEnums = new Properties();
+        for (property in dontEnums) {
+          // Ignore all properties inherited from `Object.prototype`.
+          if (isProperty.call(dontEnums, property)) {
+            size++;
+          }
+        }
+        Properties = dontEnums = null;
+
+        // Normalize the iteration algorithm.
+        if (!size) {
+          // A list of non-enumerable properties inherited from `Object.prototype`.
+          dontEnums = ["valueOf", "toString", "toLocaleString", "propertyIsEnumerable", "isPrototypeOf", "hasOwnProperty", "constructor"];
+          // IE <= 8, Mozilla 1.0, and Netscape 6.2 ignore shadowed non-enumerable
+          // properties.
+          forOwn = function (object, callback) {
+            var isFunction = getClass.call(object) == functionClass, property, length;
+            var hasProperty = !isFunction && typeof object.constructor != "function" && objectTypes[typeof object.hasOwnProperty] && object.hasOwnProperty || isProperty;
+            for (property in object) {
+              // Gecko <= 1.0 enumerates the `prototype` property of functions under
+              // certain conditions; IE does not.
+              if (!(isFunction && property == "prototype") && hasProperty.call(object, property)) {
+                callback(property);
+              }
+            }
+            // Manually invoke the callback for each non-enumerable property.
+            for (length = dontEnums.length; property = dontEnums[--length];) {
+              if (hasProperty.call(object, property)) {
+                callback(property);
+              }
+            }
+          };
+        } else {
+          // No bugs detected; use the standard `for...in` algorithm.
+          forOwn = function (object, callback) {
+            var isFunction = getClass.call(object) == functionClass, property, isConstructor;
+            for (property in object) {
+              if (!(isFunction && property == "prototype") && isProperty.call(object, property) && !(isConstructor = property === "constructor")) {
+                callback(property);
+              }
+            }
+            // Manually invoke the callback for the `constructor` property due to
+            // cross-environment inconsistencies.
+            if (isConstructor || isProperty.call(object, (property = "constructor"))) {
+              callback(property);
+            }
+          };
+        }
+        return forOwn(object, callback);
+      };
+
+      // Public: Serializes a JavaScript `value` as a JSON string. The optional
+      // `filter` argument may specify either a function that alters how object and
+      // array members are serialized, or an array of strings and numbers that
+      // indicates which properties should be serialized. The optional `width`
+      // argument may be either a string or number that specifies the indentation
+      // level of the output.
+      if (!has("json-stringify") && !has("date-serialization")) {
+        // Internal: A map of control characters and their escaped equivalents.
+        var Escapes = {
+          92: "\\\\",
+          34: '\\"',
+          8: "\\b",
+          12: "\\f",
+          10: "\\n",
+          13: "\\r",
+          9: "\\t"
+        };
+
+        // Internal: Converts `value` into a zero-padded string such that its
+        // length is at least equal to `width`. The `width` must be <= 6.
+        var leadingZeroes = "000000";
+        var toPaddedString = function (width, value) {
+          // The `|| 0` expression is necessary to work around a bug in
+          // Opera <= 7.54u2 where `0 == -0`, but `String(-0) !== "0"`.
+          return (leadingZeroes + (value || 0)).slice(-width);
+        };
+
+        // Internal: Serializes a date object.
+        var serializeDate = function (value) {
+          var getData, year, month, date, time, hours, minutes, seconds, milliseconds;
+          // Define additional utility methods if the `Date` methods are buggy.
+          if (!isExtended) {
+            var floor = Math.floor;
+            // A mapping between the months of the year and the number of days between
+            // January 1st and the first of the respective month.
+            var Months = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+            // Internal: Calculates the number of days between the Unix epoch and the
+            // first day of the given month.
+            var getDay = function (year, month) {
+              return Months[month] + 365 * (year - 1970) + floor((year - 1969 + (month = +(month > 1))) / 4) - floor((year - 1901 + month) / 100) + floor((year - 1601 + month) / 400);
+            };
+            getData = function (value) {
+              // Manually compute the year, month, date, hours, minutes,
+              // seconds, and milliseconds if the `getUTC*` methods are
+              // buggy. Adapted from @Yaffle's `date-shim` project.
+              date = floor(value / 864e5);
+              for (year = floor(date / 365.2425) + 1970 - 1; getDay(year + 1, 0) <= date; year++);
+              for (month = floor((date - getDay(year, 0)) / 30.42); getDay(year, month + 1) <= date; month++);
+              date = 1 + date - getDay(year, month);
+              // The `time` value specifies the time within the day (see ES
+              // 5.1 section 15.9.1.2). The formula `(A % B + B) % B` is used
+              // to compute `A modulo B`, as the `%` operator does not
+              // correspond to the `modulo` operation for negative numbers.
+              time = (value % 864e5 + 864e5) % 864e5;
+              // The hours, minutes, seconds, and milliseconds are obtained by
+              // decomposing the time within the day. See section 15.9.1.10.
+              hours = floor(time / 36e5) % 24;
+              minutes = floor(time / 6e4) % 60;
+              seconds = floor(time / 1e3) % 60;
+              milliseconds = time % 1e3;
+            };
+          } else {
+            getData = function (value) {
+              year = value.getUTCFullYear();
+              month = value.getUTCMonth();
+              date = value.getUTCDate();
+              hours = value.getUTCHours();
+              minutes = value.getUTCMinutes();
+              seconds = value.getUTCSeconds();
+              milliseconds = value.getUTCMilliseconds();
+            };
+          }
+          serializeDate = function (value) {
+            if (value > -1 / 0 && value < 1 / 0) {
+              // Dates are serialized according to the `Date#toJSON` method
+              // specified in ES 5.1 section 15.9.5.44. See section 15.9.1.15
+              // for the ISO 8601 date time string format.
+              getData(value);
+              // Serialize extended years correctly.
+              value = (year <= 0 || year >= 1e4 ? (year < 0 ? "-" : "+") + toPaddedString(6, year < 0 ? -year : year) : toPaddedString(4, year)) +
+              "-" + toPaddedString(2, month + 1) + "-" + toPaddedString(2, date) +
+              // Months, dates, hours, minutes, and seconds should have two
+              // digits; milliseconds should have three.
+              "T" + toPaddedString(2, hours) + ":" + toPaddedString(2, minutes) + ":" + toPaddedString(2, seconds) +
+              // Milliseconds are optional in ES 5.0, but required in 5.1.
+              "." + toPaddedString(3, milliseconds) + "Z";
+              year = month = date = hours = minutes = seconds = milliseconds = null;
+            } else {
+              value = null;
+            }
+            return value;
+          };
+          return serializeDate(value);
+        };
+
+        // For environments with `JSON.stringify` but buggy date serialization,
+        // we override the native `Date#toJSON` implementation with a
+        // spec-compliant one.
+        if (has("json-stringify") && !has("date-serialization")) {
+          // Internal: the `Date#toJSON` implementation used to override the native one.
+          function dateToJSON (key) {
+            return serializeDate(this);
+          }
+
+          // Public: `JSON.stringify`. See ES 5.1 section 15.12.3.
+          var nativeStringify = exports.stringify;
+          exports.stringify = function (source, filter, width) {
+            var nativeToJSON = Date.prototype.toJSON;
+            Date.prototype.toJSON = dateToJSON;
+            var result = nativeStringify(source, filter, width);
+            Date.prototype.toJSON = nativeToJSON;
+            return result;
+          }
+        } else {
+          // Internal: Double-quotes a string `value`, replacing all ASCII control
+          // characters (characters with code unit values between 0 and 31) with
+          // their escaped equivalents. This is an implementation of the
+          // `Quote(value)` operation defined in ES 5.1 section 15.12.3.
+          var unicodePrefix = "\\u00";
+          var escapeChar = function (character) {
+            var charCode = character.charCodeAt(0), escaped = Escapes[charCode];
+            if (escaped) {
+              return escaped;
+            }
+            return unicodePrefix + toPaddedString(2, charCode.toString(16));
+          };
+          var reEscape = /[\x00-\x1f\x22\x5c]/g;
+          var quote = function (value) {
+            reEscape.lastIndex = 0;
+            return '"' +
+              (
+                reEscape.test(value)
+                  ? value.replace(reEscape, escapeChar)
+                  : value
+              ) +
+              '"';
+          };
+
+          // Internal: Recursively serializes an object. Implements the
+          // `Str(key, holder)`, `JO(value)`, and `JA(value)` operations.
+          var serialize = function (property, object, callback, properties, whitespace, indentation, stack) {
+            var value, type, className, results, element, index, length, prefix, result;
+            attempt(function () {
+              // Necessary for host object support.
+              value = object[property];
+            });
+            if (typeof value == "object" && value) {
+              if (value.getUTCFullYear && getClass.call(value) == dateClass && value.toJSON === Date.prototype.toJSON) {
+                value = serializeDate(value);
+              } else if (typeof value.toJSON == "function") {
+                value = value.toJSON(property);
+              }
+            }
+            if (callback) {
+              // If a replacement function was provided, call it to obtain the value
+              // for serialization.
+              value = callback.call(object, property, value);
+            }
+            // Exit early if value is `undefined` or `null`.
+            if (value == undefined) {
+              return value === undefined ? value : "null";
+            }
+            type = typeof value;
+            // Only call `getClass` if the value is an object.
+            if (type == "object") {
+              className = getClass.call(value);
+            }
+            switch (className || type) {
+              case "boolean":
+              case booleanClass:
+                // Booleans are represented literally.
+                return "" + value;
+              case "number":
+              case numberClass:
+                // JSON numbers must be finite. `Infinity` and `NaN` are serialized as
+                // `"null"`.
+                return value > -1 / 0 && value < 1 / 0 ? "" + value : "null";
+              case "string":
+              case stringClass:
+                // Strings are double-quoted and escaped.
+                return quote("" + value);
+            }
+            // Recursively serialize objects and arrays.
+            if (typeof value == "object") {
+              // Check for cyclic structures. This is a linear search; performance
+              // is inversely proportional to the number of unique nested objects.
+              for (length = stack.length; length--;) {
+                if (stack[length] === value) {
+                  // Cyclic structures cannot be serialized by `JSON.stringify`.
+                  throw TypeError();
+                }
+              }
+              // Add the object to the stack of traversed objects.
+              stack.push(value);
+              results = [];
+              // Save the current indentation level and indent one additional level.
+              prefix = indentation;
+              indentation += whitespace;
+              if (className == arrayClass) {
+                // Recursively serialize array elements.
+                for (index = 0, length = value.length; index < length; index++) {
+                  element = serialize(index, value, callback, properties, whitespace, indentation, stack);
+                  results.push(element === undefined ? "null" : element);
+                }
+                result = results.length ? (whitespace ? "[\n" + indentation + results.join(",\n" + indentation) + "\n" + prefix + "]" : ("[" + results.join(",") + "]")) : "[]";
+              } else {
+                // Recursively serialize object members. Members are selected from
+                // either a user-specified list of property names, or the object
+                // itself.
+                forOwn(properties || value, function (property) {
+                  var element = serialize(property, value, callback, properties, whitespace, indentation, stack);
+                  if (element !== undefined) {
+                    // According to ES 5.1 section 15.12.3: "If `gap` {whitespace}
+                    // is not the empty string, let `member` {quote(property) + ":"}
+                    // be the concatenation of `member` and the `space` character."
+                    // The "`space` character" refers to the literal space
+                    // character, not the `space` {width} argument provided to
+                    // `JSON.stringify`.
+                    results.push(quote(property) + ":" + (whitespace ? " " : "") + element);
+                  }
+                });
+                result = results.length ? (whitespace ? "{\n" + indentation + results.join(",\n" + indentation) + "\n" + prefix + "}" : ("{" + results.join(",") + "}")) : "{}";
+              }
+              // Remove the object from the traversed object stack.
+              stack.pop();
+              return result;
+            }
+          };
+
+          // Public: `JSON.stringify`. See ES 5.1 section 15.12.3.
+          exports.stringify = function (source, filter, width) {
+            var whitespace, callback, properties, className;
+            if (objectTypes[typeof filter] && filter) {
+              className = getClass.call(filter);
+              if (className == functionClass) {
+                callback = filter;
+              } else if (className == arrayClass) {
+                // Convert the property names array into a makeshift set.
+                properties = {};
+                for (var index = 0, length = filter.length, value; index < length;) {
+                  value = filter[index++];
+                  className = getClass.call(value);
+                  if (className == "[object String]" || className == "[object Number]") {
+                    properties[value] = 1;
+                  }
+                }
+              }
+            }
+            if (width) {
+              className = getClass.call(width);
+              if (className == numberClass) {
+                // Convert the `width` to an integer and create a string containing
+                // `width` number of space characters.
+                if ((width -= width % 1) > 0) {
+                  if (width > 10) {
+                    width = 10;
+                  }
+                  for (whitespace = ""; whitespace.length < width;) {
+                    whitespace += " ";
+                  }
+                }
+              } else if (className == stringClass) {
+                whitespace = width.length <= 10 ? width : width.slice(0, 10);
+              }
+            }
+            // Opera <= 7.54u2 discards the values associated with empty string keys
+            // (`""`) only if they are used directly within an object member list
+            // (e.g., `!("" in { "": 1})`).
+            return serialize("", (value = {}, value[""] = source, value), callback, properties, whitespace, "", []);
+          };
+        }
+      }
+
+      // Public: Parses a JSON source string.
+      if (!has("json-parse")) {
+        var fromCharCode = String.fromCharCode;
+
+        // Internal: A map of escaped control characters and their unescaped
+        // equivalents.
+        var Unescapes = {
+          92: "\\",
+          34: '"',
+          47: "/",
+          98: "\b",
+          116: "\t",
+          110: "\n",
+          102: "\f",
+          114: "\r"
+        };
+
+        // Internal: Stores the parser state.
+        var Index, Source;
+
+        // Internal: Resets the parser state and throws a `SyntaxError`.
+        var abort = function () {
+          Index = Source = null;
+          throw SyntaxError();
+        };
+
+        // Internal: Returns the next token, or `"$"` if the parser has reached
+        // the end of the source string. A token may be a string, number, `null`
+        // literal, or Boolean literal.
+        var lex = function () {
+          var source = Source, length = source.length, value, begin, position, isSigned, charCode;
+          while (Index < length) {
+            charCode = source.charCodeAt(Index);
+            switch (charCode) {
+              case 9: case 10: case 13: case 32:
+                // Skip whitespace tokens, including tabs, carriage returns, line
+                // feeds, and space characters.
+                Index++;
+                break;
+              case 123: case 125: case 91: case 93: case 58: case 44:
+                // Parse a punctuator token (`{`, `}`, `[`, `]`, `:`, or `,`) at
+                // the current position.
+                value = charIndexBuggy ? source.charAt(Index) : source[Index];
+                Index++;
+                return value;
+              case 34:
+                // `"` delimits a JSON string; advance to the next character and
+                // begin parsing the string. String tokens are prefixed with the
+                // sentinel `@` character to distinguish them from punctuators and
+                // end-of-string tokens.
+                for (value = "@", Index++; Index < length;) {
+                  charCode = source.charCodeAt(Index);
+                  if (charCode < 32) {
+                    // Unescaped ASCII control characters (those with a code unit
+                    // less than the space character) are not permitted.
+                    abort();
+                  } else if (charCode == 92) {
+                    // A reverse solidus (`\`) marks the beginning of an escaped
+                    // control character (including `"`, `\`, and `/`) or Unicode
+                    // escape sequence.
+                    charCode = source.charCodeAt(++Index);
+                    switch (charCode) {
+                      case 92: case 34: case 47: case 98: case 116: case 110: case 102: case 114:
+                        // Revive escaped control characters.
+                        value += Unescapes[charCode];
+                        Index++;
+                        break;
+                      case 117:
+                        // `\u` marks the beginning of a Unicode escape sequence.
+                        // Advance to the first character and validate the
+                        // four-digit code point.
+                        begin = ++Index;
+                        for (position = Index + 4; Index < position; Index++) {
+                          charCode = source.charCodeAt(Index);
+                          // A valid sequence comprises four hexdigits (case-
+                          // insensitive) that form a single hexadecimal value.
+                          if (!(charCode >= 48 && charCode <= 57 || charCode >= 97 && charCode <= 102 || charCode >= 65 && charCode <= 70)) {
+                            // Invalid Unicode escape sequence.
+                            abort();
+                          }
+                        }
+                        // Revive the escaped character.
+                        value += fromCharCode("0x" + source.slice(begin, Index));
+                        break;
+                      default:
+                        // Invalid escape sequence.
+                        abort();
+                    }
+                  } else {
+                    if (charCode == 34) {
+                      // An unescaped double-quote character marks the end of the
+                      // string.
+                      break;
+                    }
+                    charCode = source.charCodeAt(Index);
+                    begin = Index;
+                    // Optimize for the common case where a string is valid.
+                    while (charCode >= 32 && charCode != 92 && charCode != 34) {
+                      charCode = source.charCodeAt(++Index);
+                    }
+                    // Append the string as-is.
+                    value += source.slice(begin, Index);
+                  }
+                }
+                if (source.charCodeAt(Index) == 34) {
+                  // Advance to the next character and return the revived string.
+                  Index++;
+                  return value;
+                }
+                // Unterminated string.
+                abort();
+              default:
+                // Parse numbers and literals.
+                begin = Index;
+                // Advance past the negative sign, if one is specified.
+                if (charCode == 45) {
+                  isSigned = true;
+                  charCode = source.charCodeAt(++Index);
+                }
+                // Parse an integer or floating-point value.
+                if (charCode >= 48 && charCode <= 57) {
+                  // Leading zeroes are interpreted as octal literals.
+                  if (charCode == 48 && ((charCode = source.charCodeAt(Index + 1)), charCode >= 48 && charCode <= 57)) {
+                    // Illegal octal literal.
+                    abort();
+                  }
+                  isSigned = false;
+                  // Parse the integer component.
+                  for (; Index < length && ((charCode = source.charCodeAt(Index)), charCode >= 48 && charCode <= 57); Index++);
+                  // Floats cannot contain a leading decimal point; however, this
+                  // case is already accounted for by the parser.
+                  if (source.charCodeAt(Index) == 46) {
+                    position = ++Index;
+                    // Parse the decimal component.
+                    for (; position < length; position++) {
+                      charCode = source.charCodeAt(position);
+                      if (charCode < 48 || charCode > 57) {
+                        break;
+                      }
+                    }
+                    if (position == Index) {
+                      // Illegal trailing decimal.
+                      abort();
+                    }
+                    Index = position;
+                  }
+                  // Parse exponents. The `e` denoting the exponent is
+                  // case-insensitive.
+                  charCode = source.charCodeAt(Index);
+                  if (charCode == 101 || charCode == 69) {
+                    charCode = source.charCodeAt(++Index);
+                    // Skip past the sign following the exponent, if one is
+                    // specified.
+                    if (charCode == 43 || charCode == 45) {
+                      Index++;
+                    }
+                    // Parse the exponential component.
+                    for (position = Index; position < length; position++) {
+                      charCode = source.charCodeAt(position);
+                      if (charCode < 48 || charCode > 57) {
+                        break;
+                      }
+                    }
+                    if (position == Index) {
+                      // Illegal empty exponent.
+                      abort();
+                    }
+                    Index = position;
+                  }
+                  // Coerce the parsed value to a JavaScript number.
+                  return +source.slice(begin, Index);
+                }
+                // A negative sign may only precede numbers.
+                if (isSigned) {
+                  abort();
+                }
+                // `true`, `false`, and `null` literals.
+                var temp = source.slice(Index, Index + 4);
+                if (temp == "true") {
+                  Index += 4;
+                  return true;
+                } else if (temp == "fals" && source.charCodeAt(Index + 4 ) == 101) {
+                  Index += 5;
+                  return false;
+                } else if (temp == "null") {
+                  Index += 4;
+                  return null;
+                }
+                // Unrecognized token.
+                abort();
+            }
+          }
+          // Return the sentinel `$` character if the parser has reached the end
+          // of the source string.
+          return "$";
+        };
+
+        // Internal: Parses a JSON `value` token.
+        var get = function (value) {
+          var results, hasMembers;
+          if (value == "$") {
+            // Unexpected end of input.
+            abort();
+          }
+          if (typeof value == "string") {
+            if ((charIndexBuggy ? value.charAt(0) : value[0]) == "@") {
+              // Remove the sentinel `@` character.
+              return value.slice(1);
+            }
+            // Parse object and array literals.
+            if (value == "[") {
+              // Parses a JSON array, returning a new JavaScript array.
+              results = [];
+              for (;;) {
+                value = lex();
+                // A closing square bracket marks the end of the array literal.
+                if (value == "]") {
+                  break;
+                }
+                // If the array literal contains elements, the current token
+                // should be a comma separating the previous element from the
+                // next.
+                if (hasMembers) {
+                  if (value == ",") {
+                    value = lex();
+                    if (value == "]") {
+                      // Unexpected trailing `,` in array literal.
+                      abort();
+                    }
+                  } else {
+                    // A `,` must separate each array element.
+                    abort();
+                  }
+                } else {
+                  hasMembers = true;
+                }
+                // Elisions and leading commas are not permitted.
+                if (value == ",") {
+                  abort();
+                }
+                results.push(get(value));
+              }
+              return results;
+            } else if (value == "{") {
+              // Parses a JSON object, returning a new JavaScript object.
+              results = {};
+              for (;;) {
+                value = lex();
+                // A closing curly brace marks the end of the object literal.
+                if (value == "}") {
+                  break;
+                }
+                // If the object literal contains members, the current token
+                // should be a comma separator.
+                if (hasMembers) {
+                  if (value == ",") {
+                    value = lex();
+                    if (value == "}") {
+                      // Unexpected trailing `,` in object literal.
+                      abort();
+                    }
+                  } else {
+                    // A `,` must separate each object member.
+                    abort();
+                  }
+                } else {
+                  hasMembers = true;
+                }
+                // Leading commas are not permitted, object property names must be
+                // double-quoted strings, and a `:` must separate each property
+                // name and value.
+                if (value == "," || typeof value != "string" || (charIndexBuggy ? value.charAt(0) : value[0]) != "@" || lex() != ":") {
+                  abort();
+                }
+                results[value.slice(1)] = get(lex());
+              }
+              return results;
+            }
+            // Unexpected token encountered.
+            abort();
+          }
+          return value;
+        };
+
+        // Internal: Updates a traversed object member.
+        var update = function (source, property, callback) {
+          var element = walk(source, property, callback);
+          if (element === undefined) {
+            delete source[property];
+          } else {
+            source[property] = element;
+          }
+        };
+
+        // Internal: Recursively traverses a parsed JSON object, invoking the
+        // `callback` function for each value. This is an implementation of the
+        // `Walk(holder, name)` operation defined in ES 5.1 section 15.12.2.
+        var walk = function (source, property, callback) {
+          var value = source[property], length;
+          if (typeof value == "object" && value) {
+            // `forOwn` can't be used to traverse an array in Opera <= 8.54
+            // because its `Object#hasOwnProperty` implementation returns `false`
+            // for array indices (e.g., `![1, 2, 3].hasOwnProperty("0")`).
+            if (getClass.call(value) == arrayClass) {
+              for (length = value.length; length--;) {
+                update(getClass, forOwn, value, length, callback);
+              }
+            } else {
+              forOwn(value, function (property) {
+                update(value, property, callback);
+              });
+            }
+          }
+          return callback.call(source, property, value);
+        };
+
+        // Public: `JSON.parse`. See ES 5.1 section 15.12.2.
+        exports.parse = function (source, callback) {
+          var result, value;
+          Index = 0;
+          Source = "" + source;
+          result = get(lex());
+          // If a JSON string contains multiple tokens, it is invalid.
+          if (lex() != "$") {
+            abort();
+          }
+          // Reset the parser state.
+          Index = Source = null;
+          return callback && getClass.call(callback) == functionClass ? walk((value = {}, value[""] = result, value), "", callback) : result;
+        };
+      }
+    }
+
+    exports.runInContext = runInContext;
+    return exports;
+  }
+
+  if (freeExports && !isLoader) {
+    // Export for CommonJS environments.
+    runInContext(root, freeExports);
+  } else {
+    // Export for web browsers and JavaScript engines.
+    var nativeJSON = root.JSON,
+        previousJSON = root.JSON3,
+        isRestored = false;
+
+    var JSON3 = runInContext(root, (root.JSON3 = {
+      // Public: Restores the original value of the global `JSON` object and
+      // returns a reference to the `JSON3` object.
+      "noConflict": function () {
+        if (!isRestored) {
+          isRestored = true;
+          root.JSON = nativeJSON;
+          root.JSON3 = previousJSON;
+          nativeJSON = previousJSON = null;
+        }
+        return JSON3;
+      }
+    }));
+
+    root.JSON = {
+      "parse": JSON3.parse,
+      "stringify": JSON3.stringify
+    };
+  }
+
+  // Export for asynchronous module loaders.
+  if (isLoader) {
+    !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+      return JSON3;
+    }).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  }
+}).call(this);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(116)(module), __webpack_require__(62)))
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(28);
+/* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_date_object__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(17);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(32);
+/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
+
+
+
+
+
+
+
+var ZERO = 0;
+var ONE = 1;
+/* eslint-disable-next-line no-void */
+
+var UNDEFINED = void ZERO;
+var NUMBER = 'number';
+var STRING = 'string';
+var DEFAULT = 'default';
+/** @type {StringConstructor} */
+
+var StringCtr = STRING.constructor;
+/** @type {NumberConstructor} */
+
+var NumberCtr = ZERO.constructor;
+/* eslint-disable-next-line compat/compat */
+
+var symToPrimitive = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.toPrimitive;
+/* eslint-disable-next-line compat/compat */
+
+var symValueOf = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.prototype.valueOf;
+var toStringOrder = ['toString', 'valueOf'];
+var toNumberOrder = ['valueOf', 'toString'];
+var orderLength = 2;
+/**
+ * @param {*} ordinary - The ordinary to convert.
+ * @param {*} hint - The hint.
+ * @returns {*} - The primitive.
+ */
+
+var ordinaryToPrimitive = function _ordinaryToPrimitive(ordinary, hint) {
+  Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(ordinary);
+
+  if (typeof hint !== 'string' || hint !== NUMBER && hint !== STRING) {
+    throw new TypeError('hint must be "string" or "number"');
+  }
+
+  var methodNames = hint === STRING ? toStringOrder : toNumberOrder;
+  var method;
+  var result;
+
+  for (var i = ZERO; i < orderLength; i += ONE) {
+    method = ordinary[methodNames[i]];
+
+    if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(method)) {
+      result = method.call(ordinary);
+
+      if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(result)) {
+        return result;
+      }
+    }
+  }
+
+  throw new TypeError('No default value');
+};
+/**
+ * @param {*} object - The object.
+ * @param {*} property - The property.
+ * @returns {undefined|Function} - The method.
+ */
+
+
+var getMethod = function _getMethod(object, property) {
+  var func = object[property];
+
+  if (Object(is_nil_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(func) === false) {
+    if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(func) === false) {
+      throw new TypeError("".concat(func, " returned for property ").concat(property, " of object ").concat(object, " is not a function"));
+    }
+
+    return func;
+  }
+
+  return UNDEFINED;
+};
+/**
+ * Get the hint.
+ *
+ * @param {*} value - The value to compare.
+ * @param {boolean} supplied - Was a value supplied.
+ * @returns {string} - The hint string.
+ */
+
+
+var getHint = function getHint(value, supplied) {
+  if (supplied) {
+    if (value === StringCtr) {
+      return STRING;
+    }
+
+    if (value === NumberCtr) {
+      return NUMBER;
+    }
+  }
+
+  return DEFAULT;
+};
+/**
+ * Get the primitive from the exotic.
+ *
+ * @param {*} value - The exotic.
+ * @returns {*} - The primitive.
+ */
+
+
+var getExoticToPrim = function getExoticToPrim(value) {
+  if (has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]) {
+    if (symToPrimitive) {
+      return getMethod(value, symToPrimitive);
+    }
+
+    if (is_symbol__WEBPACK_IMPORTED_MODULE_3___default()(value)) {
+      return symValueOf;
+    }
+  }
+
+  return UNDEFINED;
+};
+/**
+ * This method converts a JavaScript object to a primitive value.
+ * Note: When toPrimitive is called with no hint, then it generally behaves as
+ * if the hint were Number. However, objects may over-ride this behaviour by
+ * defining a @@toPrimitive method. Of the objects defined in this specification
+ * only Date objects (see 20.3.4.45) and Symbol objects (see 19.4.3.4) over-ride
+ * the default ToPrimitive behaviour. Date objects treat no hint as if the hint
+ * were String.
+ *
+ * @param {*} input - The input to convert.
+ * @param {NumberConstructor|StringConstructor} [preferredType] - The preferred type (String or Number).
+ * @throws {TypeError} If unable to convert input to a primitive.
+ * @returns {string|number} The converted input as a primitive.
+ * @see {http://www.ecma-international.org/ecma-262/6.0/#sec-toprimitive}
+ */
+
+
+var toPrimitive = function toPrimitive(input, preferredType) {
+  if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(input)) {
+    return input;
+  }
+
+  var hint = getHint(preferredType, arguments.length > ONE);
+  var exoticToPrim = getExoticToPrim(input);
+
+  if (typeof exoticToPrim !== 'undefined') {
+    var result = exoticToPrim.call(input, hint);
+
+    if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(result)) {
+      return result;
+    }
+
+    throw new TypeError('unable to convert exotic object to primitive');
+  }
+
+  var newHint = hint === DEFAULT && (is_date_object__WEBPACK_IMPORTED_MODULE_2___default()(input) || is_symbol__WEBPACK_IMPORTED_MODULE_3___default()(input)) ? STRING : hint;
+  return ordinaryToPrimitive(input, newHint === DEFAULT ? NUMBER : newHint);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (toPrimitive);
+
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/**
+ * The constant NaN derived mathematically by 0 / 0.
+ *
+ * @type number
+ */
+/* harmony default export */ __webpack_exports__["a"] = (0 / 0);
+
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_number_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(33);
+ // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
+/**
+ * This method clamp a number to min and max limits inclusive.
+ *
+ * @param {number} value - The number to be clamped.
+ * @param {number} [min=0] - The minimum number.
+ * @param {number} max - The maximum number.
+ * @throws {RangeError} If min > max.
+ * @returns {number} The clamped number.
+ */
+// eslint-enable jsdoc/check-param-names
+
+var clamp = function clamp(value) {
+  var number = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value);
+  var argsLength = arguments.length;
+
+  if (argsLength < 2) {
+    return number;
+  }
+  /* eslint-disable-next-line prefer-rest-params */
+
+
+  var min = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(arguments[1]);
+  var max;
+
+  if (argsLength < 3) {
+    max = min;
+    min = 0;
+  } else {
+    /* eslint-disable-next-line prefer-rest-params */
+    max = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(arguments[2]);
+  }
+
+  if (min > max) {
+    throw new RangeError('"min" must be less than "max"');
+  }
+
+  if (number < min) {
+    return min;
+  }
+
+  if (number > max) {
+    return max;
+  }
+
+  return number;
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (clamp);
+
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export isError */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssertionErrorConstructor; });
+/* unused harmony export ErrorConstructor */
+/* unused harmony export EvalErrorConstructor */
+/* unused harmony export InternalErrorConstructor */
+/* unused harmony export RangeErrorConstructor */
+/* unused harmony export ReferenceErrorConstructor */
+/* unused harmony export supportsAllConstructors */
+/* unused harmony export SyntaxErrorConstructor */
+/* unused harmony export TypeErrorConstructor */
+/* unused harmony export URIErrorConstructor */
+/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
+/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(45);
+/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
+/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(82);
+/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(stackframe__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(102);
+/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(error_stack_parser__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(14);
+/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
+/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(48);
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2);
+/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(40);
+/* harmony import */ var truncate_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(86);
+/* harmony import */ var is_error_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(39);
+/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(8);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(3);
+/* harmony import */ var object_create_x__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(69);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(5);
+/* harmony import */ var array_map_x__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(37);
+/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(24);
+/* harmony import */ var is_finite_x__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(38);
+/* harmony import */ var is_var_name__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(106);
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+/*
+ * Want to create your own Error objects, this module will allow you to do
+ * just that. It ships with all the standard Error objects already created
+ * for you. Why? Well, these offer some improvements over the native versions.
+ * - They have a `toJSON` method and so they can be serialised.
+ * - They have a standardised `stack` property, using
+ * [`error-stack-parser`](https://github.com/stacktracejs/error-stack-parser)
+ * messages and stacks are parsed and then re-formatted.
+ * - They have a `frames` property which is an array of the parsed `stack`
+ * message, so you have easy access to the information.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var isError = is_error_x__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"];
+var parse = error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default.a.parse;
+/**
+ * @typedef {ErrorConstructor|TypeErrorConstructor|SyntaxErrorConstructor|URIErrorConstructor|ReferenceErrorConstructor|EvalErrorConstructor|RangeErrorConstructor} OfErrorConstructor
+ */
+
+var EMPTY_STRING = '';
+/** @type {BooleanConstructor} */
+
+var castBoolean = true.constructor;
+/* eslint-disable-next-line compat/compat */
+
+var $toStringTag = has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.toStringTag;
+/** @type {ErrorConstructor} */
+
+var $Error = Error; // Capture the function (if any).
+
+var captureStackTrace = $Error.captureStackTrace,
+    prepareStackTrace = $Error.prepareStackTrace;
+/**
+ * Tests for number as specified in StackTrace library.
+ *
+ * @private
+ * @param {*} n - The value to test.
+ * @returns {boolean} True if parsable, otherwise false.
+ */
+
+var isNumber = function isNumber(n) {
+  return Object(is_nan_x__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"])(parseFloat(n)) === false && Object(is_finite_x__WEBPACK_IMPORTED_MODULE_18__[/* default */ "a"])(n);
+};
+
+var cV8 = castBoolean(captureStackTrace) && function getCV8() {
+  // Test to see if the function works.
+  try {
+    captureStackTrace(new $Error(), captureStackTrace);
+  } catch (ignore) {
+    return false;
+  }
+  /**
+   * Captures the V8 stack and converts it to an array of Stackframes.
+   *
+   * @private
+   * @function captureV8
+   * @param {!object} context - The Custom Error this object.
+   * @returns {!Array.<!object>} Array of StackFrames.
+   */
+
+
+  return function captureV8(context) {
+    var _this = this;
+
+    /**
+     * The stack preparation function for the V8 stack.
+     *
+     * @private
+     * @param {*} ignore - Unused argument.
+     * @param {!object} thisStack - The V8 stack.
+     * @returns {!object} The V8 stack.
+     */
+    $Error.prepareStackTrace = function _prepareStackTrace(ignore, thisStack) {
+      return thisStack;
+    };
+    /** @type {object} */
+
+
+    var error = new $Error();
+    captureStackTrace(error, context.constructor);
+    var frames = Object(array_map_x__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"])(error.stack, function (frame) {
+      _newArrowCheck(this, _this);
+
+      var opts = {
+        // args: void 0,
+        functionName: frame.getFunctionName(),
+        isConstructor: frame.isConstructor(),
+        isEval: frame.isEval(),
+        isNative: frame.isNative(),
+        isToplevel: frame.isToplevel(),
+        source: frame.toString()
+      };
+      var getFileName = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getFileName) && frame.getFileName();
+
+      if (getFileName) {
+        opts.getFileName = getFileName;
+      }
+
+      var columnNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getColumnNumber) && frame.getColumnNumber();
+
+      if (isNumber(columnNumber)) {
+        opts.columnNumber = columnNumber;
+      }
+
+      var lineNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getLineNumber) && frame.getLineNumber();
+
+      if (isNumber(lineNumber)) {
+        opts.lineNumber = lineNumber;
+      }
+
+      var evalOrigin = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getEvalOrigin) && frame.getEvalOrigin();
+
+      if (Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_15__[/* default */ "a"])(evalOrigin)) {
+        opts.evalOrigin = evalOrigin;
+      }
+
+      return new stackframe__WEBPACK_IMPORTED_MODULE_3___default.a(opts);
+    }.bind(this));
+
+    if (typeof prepareStackTrace === 'undefined') {
+      delete $Error.prepareStackTrace;
+    } else {
+      $Error.prepareStackTrace = prepareStackTrace;
+    }
+
+    return frames;
+  };
+}();
+
+var allCtrs = true;
+var STACK_NEWLINE = '\n    ';
+/**
+ * Defines frames and stack on the Custom Error this object.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {!Array.<!object>} frames - Array of StackFrames.
+ * @param {string} name - The name of the constructor.
+ */
+
+var defContext = function defContext(context, frames, name) {
+  var _this2 = this;
+
+  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
+    frames: {
+      value: frames
+    },
+    stack: {
+      value: "".concat(name).concat(STACK_NEWLINE).concat(Object(array_map_x__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"])(frames, function (frame) {
+        _newArrowCheck(this, _this2);
+
+        return frame.toString();
+      }.bind(this)).join(STACK_NEWLINE))
+    }
+  });
+};
+/**
+ * Captures the other stacks and converts them to an array of Stackframes.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {!Error} err - The Error object to be parsed.
+ * @param {string} name - The name of the constructor.
+ * @returns {boolean} True if the Error object was parsed, otherwise false.
+ */
+
+
+var errParse = function errParse(context, err, name) {
+  var _this3 = this;
+
+  var frames;
+
+  try {
+    frames = parse(err);
+  } catch (ignore) {
+    return false;
+  }
+
+  var start = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
+    _newArrowCheck(this, _this3);
+
+    var fName = typeof frame.functionName === 'string' ? frame.functionName : EMPTY_STRING;
+    return fName.indexOf(name) > -1;
+  }.bind(this));
+
+  if (start > -1) {
+    var item = frames[start];
+    frames = frames.slice(start + 1);
+    var end = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
+      _newArrowCheck(this, _this3);
+
+      return item.source === frame.source;
+    }.bind(this));
+
+    if (end > -1) {
+      frames = frames.slice(0, end);
+    }
+  }
+
+  defContext(context, frames, name);
+  return true;
+};
+/**
+ * The main function for capturing and parsing stacks and setting properties
+ * on Custom Error.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {string} name - The name of the constructor.
+ */
+
+
+var parseStack = function parseStack(context, name) {
+  if (cV8) {
+    defContext(context, cV8(context), name);
+  } else {
+    /** @type {Error} */
+    var err;
+
+    try {
+      // Error must be thrown to get stack in IE
+      // noinspection ExceptionCaughtLocallyJS,JSValidateTypes
+      throw $Error();
+    } catch (e) {
+      err = e;
+    }
+
+    if (errParse(context, err, name) === false) {
+      var stack = EMPTY_STRING; // If `Error` has a non-standard `stack`, `stacktrace` or
+      // `opera#sourceloc` property that offers a trace of which functions
+      // were called, in what order, from which line and  file, and with what
+      // argument, then we will set it.
+
+      if (typeof err.stack !== 'undefined') {
+        /* eslint-disable-next-line prefer-destructuring */
+        stack = err.stack;
+      } else {
+        // noinspection JSUnresolvedVariable
+        if (
+        /* eslint-disable-line no-lonely-if */
+        typeof err.stacktrace !== 'undefined') {
+          // noinspection JSUnresolvedVariable
+          stack = err.stacktrace;
+        } else {
+          var sourceloc = err['opera#sourceloc'];
+
+          if (typeof sourceloc !== 'undefined') {
+            stack = sourceloc;
+          }
+        }
+      }
+
+      Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
+        frames: {
+          value: []
+        },
+        stack: {
+          value: stack
+        }
+      });
+    }
+  }
+};
+/**
+ * Test whether we have a valid Error constructor.
+ *
+ * @private
+ * @param {*} ErrorCtr - Constructor to test it creates an Error.
+ * @returns {boolean} True if ErrorCtr creates an Error, otherwise false.
+ */
+
+
+var isErrorCtr = function isErrorCtr(ErrorCtr) {
+  if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(ErrorCtr)) {
+    try {
+      return isError(new ErrorCtr({}));
+    } catch (ignore) {// empty
+    }
+  }
+
+  return false;
+};
+/**
+ * Detect whether we are creating an 'AssertionError' constructor.
+ *
+ * @private
+ * @param {string} name - Name to test if it is 'AssertionError'.
+ * @param {OfErrorConstructor} ErrorCtr - Constructor to test it creates ASSERTION$Error.
+ * @returns {boolean} True if either arguments asserts, otherwise false.
+ */
+
+
+var asAssertionError = function asAssertionError(name, ErrorCtr) {
+  if (name === 'AssertionError') {
+    return true;
+  }
+
+  if (isErrorCtr(ErrorCtr)) {
+    var err = new ErrorCtr({
+      actual: 'b',
+      expected: 'c',
+      message: 'a',
+      operator: 'd'
+    });
+    return typeof err.name === 'string' && err.message === 'a' && err.actual === 'b' && err.expected === 'c' && err.operator === 'd';
+  }
+
+  return false;
+};
+
+var MAX_MSG_LENGTH = 128;
+/**
+ * Message generator for AssertionError.
+ *
+ * @private
+ * @param {!object} message - The message object.
+ * @returns {string} The generated message.
+ */
+
+var getMessage = function getMessage(message) {
+  var opts = {
+    length: message.length ? Object(to_length_x__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(message.length) : MAX_MSG_LENGTH,
+    omission: message.omission ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message.omission) : EMPTY_STRING,
+    separator: message.separator ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message.separator) : EMPTY_STRING
+  };
+  return "".concat(Object(truncate_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(Object(inspect_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(message.actual), opts), " ").concat(message.operator, " ").concat(Object(truncate_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(Object(inspect_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(message.expected), opts));
+};
+/**
+ * The toJSON method returns an object representation of the Error object.
+ *
+ * @private
+ * @this {!Object} A custom error instance.
+ * @returns {object} An object representation.
+ */
+
+
+var toJSON = function toJSON() {
+  return {
+    frames: this.frames,
+    message: this.message,
+    name: this.name,
+    stack: this.stack
+  };
+};
+/**
+ * Initialise a new instance of a custom error.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {object} message - Human-readable description of the error.
+ * @param {string} name - The name for the custom Error.
+ * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
+ */
+
+
+var init = function init(context, message, name, ErrorCtr) {
+  if (asAssertionError(name, ErrorCtr)) {
+    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
+      actual: {
+        value: message.actual
+      },
+      expected: {
+        value: message.expected
+      },
+      generatedMessage: {
+        value: castBoolean(message.message) === false
+      },
+      message: {
+        value: message.message || getMessage(message)
+      },
+      operator: {
+        value: message.operator
+      }
+    });
+  } else if (typeof message !== 'undefined') {
+    // Standard Errors. Only set `this.message` if the argument `message`
+    // was not `undefined`.
+    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
+      message: {
+        value: Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message)
+      }
+    });
+  } // Parse and set the 'this' properties.
+
+
+  parseStack(context, name);
+}; // `init` is used in `eval`, don't delete.
+
+
+init({}, 'message', 'name', $Error);
+var CUSTOM_NAME = 'CustomError';
+/**
+ * Creates a custom Error constructor. Will use `Error` if argument is not
+ * a valid constructor.
+ *
+ * @function
+ * @param {string} [name='Error'] - The name for the custom Error.
+ * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
+ * @returns {Function} The custom Error constructor.
+ */
+
+var createErrorCtr = function createErrorCtr(name, ErrorCtr) {
+  var ECTR = allCtrs === false || isErrorCtr(ErrorCtr) === false ? $Error : ErrorCtr;
+  var initialName = Object(is_nil_x__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(name) ? CUSTOM_NAME : Object(trim_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(name));
+  var customName = initialName === CUSTOM_NAME || Object(is_var_name__WEBPACK_IMPORTED_MODULE_19__[/* default */ "a"])(initialName) ? initialName : CUSTOM_NAME;
+  /**
+   * Create a new object, that prototypally inherits from the `Error`
+   * constructor.
+   *
+   * @private
+   * @class CstmCtr
+   * @param {string} [message] - Human-readable description of the error.
+   */
+
+  var CstmCtr; // noinspection JSUnusedLocalSymbols
+
+  var f =
+  /* eslint-disable-line no-unused-vars */
+  function _f(context, message) {
+    var isInstCtr = context instanceof CstmCtr;
+
+    if (isInstCtr === false) {
+      return new CstmCtr(message);
+    }
+
+    init(context, message, customName, ErrorCtr);
+    return context;
+  };
+  /* eslint-disable-next-line no-eval */
+
+
+  CstmCtr = eval("(0,function ".concat(customName, "(message){return f(this,message)})")); // Inherit the prototype methods from `ECTR`.
+
+  CstmCtr.prototype = Object(object_create_x__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"])(ECTR.prototype); // noinspection JSValidateTypes
+
+  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(CstmCtr.prototype,
+  /** @lends CstmCtr.prototype */
+  {
+    /**
+     * Specifies the function that created an instance's prototype.
+     *
+     * @class
+     */
+    constructor: {
+      value: CstmCtr
+    },
+
+    /**
+     * The name property represents a name for the type of error.
+     *
+     * @default 'Error'
+     * @type {string}
+     */
+    name: {
+      value: customName
+    },
+
+    /**
+     * The toJSON method returns a string representation of the Error object.
+     *
+     * @returns {string} A JSON stringified representation.
+     */
+    toJSON: {
+      value: toJSON
+    }
+  });
+
+  if ($toStringTag) {
+    /**
+     * Name Symbol.toStringTag.
+     *
+     * @memberof CstmCtr.prototype
+     * @type {string}
+     */
+    Object(object_define_property_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CstmCtr.prototype, $toStringTag, {
+      value: '[object Error]'
+    });
+  }
+
+  return CstmCtr;
+};
+
+var create = createErrorCtr; // Test if we can use more than just the Error constructor.
+
+try {
+  allCtrs = createErrorCtr('X', SyntaxError)('x') instanceof SyntaxError;
+} catch (ignore) {
+  allCtrs = false;
+}
+/**
+ * Error constructor for test and validation frameworks that implement the
+ * standardized AssertionError specification.
+ *
+ * @class
+ * @param {object} [message] - Need to document the properties.
+ */
+
+
+var AssertionErrorConstructor = createErrorCtr('AssertionError', Error);
+/**
+ * The Error constructor creates an error object.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var ErrorConstructor = createErrorCtr('Error', Error);
+/**
+ * Creates an instance representing an error that occurs regarding the
+ * global function eval().
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var EvalErrorConstructor = createErrorCtr('EvalError', EvalError); // noinspection JSUnusedGlobalSymbols
+
+/**
+ * The InternalError object indicates an error that occurred internally in
+ * the JavaScript engine. For example: "InternalError: too much recursion".
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var InternalErrorConstructor = createErrorCtr('InternalError', Error);
+/**
+ * Creates an instance representing an error that occurs when a numeric
+ * variable or parameter is outside of its valid range.
+ *
+ * @class
+ * @param {string} - - [message] Human-readable description of the error.
+ */
+
+var RangeErrorConstructor = createErrorCtr('RangeError', RangeError);
+/**
+ * Creates an instance representing an error that occurs when de-referencing
+ * an invalid reference.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var ReferenceErrorConstructor = createErrorCtr('ReferenceError', ReferenceError); // noinspection JSUnusedGlobalSymbols
+
+/**
+ * Indicates if the Javascript engine supports subclassing of all Error
+ * types. If `true` then all are supported, if `false` (only very old
+ * browsers IE6) then only `Error` is supported.
+ *
+ * @type boolean
+ * */
+
+var supportsAllConstructors = allCtrs;
+/**
+ * Creates an instance representing a syntax error that occurs while parsing
+ * code in eval().
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var SyntaxErrorConstructor = createErrorCtr('SyntaxError', SyntaxError);
+/**
+ * Creates an instance representing an error that occurs when a variable or
+ * parameter is not of a valid type.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var TypeErrorConstructor = createErrorCtr('TypeError', TypeError);
+/**
+ * Creates an instance representing an error that occurs when encodeURI() or
+ * decodeURI() are passed invalid parameters.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var URIErrorConstructor = createErrorCtr('URIError', URIError);
+
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56);
+
+/**
+ * This method determines whether two values are the same value.
+ * SameValueZero differs from SameValue (`Object.is`) only in its treatment
+ * of +0 and -0.
+ *
+ * @param {*} [x] - The first value to compare.
+ * @param {*} [y] - The second value to compare.
+ * @returns {boolean} A Boolean indicating whether or not the two arguments
+ * are the same value.
+ */
+
+var sameValueZero = function sameValueZero(x, y) {
+  return x === y || Object(same_value_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(x, y);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (sameValueZero);
+
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26);
+/* harmony import */ var is_array_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(52);
+
+
+
+
+
+var getMax = function getMax(a, b) {
+  return a >= b ? a : b;
+};
+/**
+ * This method calculates a fromIndex of a given value for an array.
+ *
+ * @param {Array} array - * The array on which to calculate the starting index.
+ * @throws {TypeError} If array is null or undefined.
+ * @param {number} fromIndex - * The position in this array at which to begin. A
+ *  negative value gives the index of array.length + fromIndex by asc.
+ * @returns {number} The calculated fromIndex. Default is 0.
+ */
+
+
+var calcFromIndex = function calcFromIndex(array, fromIndex) {
+  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(array);
+
+  if (Object(is_array_like_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object) === false) {
+    return 0;
+  }
+
+  var index = Object(to_integer_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(fromIndex);
+  return index >= 0 ? index : getMax(0, Object(to_length_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object.length) + index);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (calcFromIndex);
+
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+
+/** @type {BooleanConstructor} */
+
+var castBoolean = true.constructor;
+var nativeCreate = typeof Object.create === 'function' && Object.create;
+var isWorking;
+
+if (nativeCreate) {
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeCreate, null);
+  isWorking = res.threw === false && res.value && _typeof(res.value) === 'object';
+
+  if (isWorking) {
+    /* eslint-disable-next-line guard-for-in,no-restricted-syntax,no-unused-vars */
+    // noinspection LoopStatementThatDoesntLoopJS
+    for (var _ in res.value) {
+      isWorking = false;
+      break;
+    }
+  }
+
+  if (isWorking) {
+    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeCreate, null, {
+      test: {
+        value: true
+      }
+    });
+    isWorking = res.threw === false && res.value && _typeof(res.value) === 'object' && res.value.test === true;
+  }
+
+  if (isWorking) {
+    // Shape - superclass
+    var Shape = function Shape() {
+      // noinspection JSUnusedGlobalSymbols
+      this.x = 0; // noinspection JSUnusedGlobalSymbols
+
+      this.y = 0;
+    }; // superclass method
+
+
+    Shape.prototype.move = function move(x, y) {
+      // noinspection JSUnusedGlobalSymbols
+      this.x += x; // noinspection JSUnusedGlobalSymbols
+
+      this.y += y;
+      return 'Shape moved.';
+    }; // Rectangle - subclass
+
+
+    var Rectangle = function Rectangle() {
+      Shape.call(this); // call super constructor.
+    };
+
+    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeCreate, Shape.prototype);
+    isWorking = res.threw === false && res.value && _typeof(res.value) === 'object';
+
+    if (isWorking) {
+      // subclass extends superclass
+      Rectangle.prototype = res.value;
+      Rectangle.prototype.constructor = Rectangle;
+      var rect = new Rectangle();
+      isWorking = rect instanceof Rectangle;
+
+      if (isWorking) {
+        isWorking = rect instanceof Shape;
+      }
+
+      if (isWorking) {
+        isWorking = rect.move(1, 1) === 'Shape moved.';
+      }
+    }
+  }
+}
+/**
+ * This method method creates a new object with the specified prototype object and properties.
+ *
+ * @param {*} prototype - The object which should be the prototype of the newly-created object.
+ * @param {*} [properties] - If specified and not undefined, an object whose enumerable own properties
+ * (that is, those properties defined upon itself and not enumerable properties along its prototype chain)
+ * specify property descriptors to be added to the newly-created object, with the corresponding property names.
+ * @throws {TypeError} If the properties parameter isn't null or an object.
+ * @returns {boolean} A new object with the specified prototype object and properties.
+ */
+
+
+var $create;
+
+if (isWorking) {
+  $create = nativeCreate;
+} else {
+  var doc = typeof document !== 'undefined' && document; // Contributed by Brandon Benvie, October, 2012
+
+  var createEmpty;
+  var supportsProto = {
+    __proto__: null
+  } instanceof Object === false; // the following produces false positives
+  // in Opera Mini => not a reliable check
+  // Object.prototype.__proto__ === null
+
+  if (supportsProto || castBoolean(doc) === false) {
+    createEmpty = function $createEmpty() {
+      return {
+        __proto__: null
+      };
+    };
+  } else {
+    // Check for document.domain and active x support
+    // No need to use active x approach when document.domain is not set
+    // see https://github.com/es-shims/es5-shim/issues/150
+    // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
+    var shouldUseActiveX = function _shouldUseActiveX() {
+      var _this = this;
+
+      // return early if document.domain not set
+      if (castBoolean(doc.domain) === false) {
+        return false;
+      }
+
+      var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function () {
+        _newArrowCheck(this, _this);
+
+        /* eslint-disable-next-line no-undef */
+        return new ActiveXObject('htmlfile');
+      }.bind(this));
+      return result.threw === false && Boolean(result.value);
+    }; // This supports IE8 when document.domain is used
+    // see https://github.com/es-shims/es5-shim/issues/150
+    // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
+
+
+    var getEmptyViaActiveX = function _getEmptyViaActiveX() {
+      /* eslint-disable-next-line no-undef */
+      var xDoc = new ActiveXObject('htmlfile');
+      xDoc.write('<script></script>');
+      xDoc.close(); // noinspection JSUnresolvedVariable
+
+      var empty = xDoc.parentWindow.Object.prototype;
+      xDoc = null;
+      return empty;
+    }; // The original implementation using an iframe
+    // before the activex approach was added
+    // see https://github.com/es-shims/es5-shim/issues/150
+
+
+    var getEmptyViaIFrame = function _getEmptyViaIFrame() {
+      var iframe = doc.createElement('iframe');
+      iframe.style.display = 'none';
+      /* eslint-disable-next-line no-script-url */
+
+      iframe.src = 'javascript:';
+      var parent = doc.body || doc.documentElement;
+      parent.appendChild(iframe);
+      var empty = iframe.contentWindow.Object.prototype;
+      parent.removeChild(iframe);
+      iframe = null;
+      return empty;
+    }; // In old IE __proto__ can't be used to manually set `null`, nor does
+    // any other method exist to make an object that inherits from nothing,
+    // aside from Object.prototype itself. Instead, create a new global
+    // object and *steal* its Object.prototype and strip it bare. This is
+    // used as the prototype to create nullary objects.
+
+
+    createEmpty = function $createEmpty() {
+      // Determine which approach to use
+      // see https://github.com/es-shims/es5-shim/issues/150
+      var empty = shouldUseActiveX() ? getEmptyViaActiveX() : getEmptyViaIFrame();
+      delete empty.constructor;
+      delete empty.hasOwnProperty;
+      delete empty.propertyIsEnumerable;
+      delete empty.isPrototypeOf;
+      delete empty.toLocaleString;
+      delete empty.toString;
+      delete empty.valueOf;
+      /* eslint-disable-next-line lodash/prefer-noop */
+
+      var E = function Empty() {};
+
+      E.prototype = empty; // short-circuit future calls
+
+      createEmpty = function $$createEmpty() {
+        return new E();
+      };
+
+      return new E();
+    };
+  }
+
+  $create = function create(prototype, properties) {
+    var object;
+    /* eslint-disable-next-line lodash/prefer-noop */
+
+    var T = function Type() {}; // An empty constructor.
+
+
+    if (prototype === null) {
+      object = createEmpty();
+    } else {
+      if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(prototype)) {
+        // In the native implementation `parent` can be `null`
+        // OR *any* `instanceof Object`  (Object|Function|Array|RegExp|etc)
+        // Use `typeof` tho, b/c in old IE, DOM elements are not `instanceof Object`
+        // like they are in modern browsers. Using `Object.create` on DOM elements
+        // is...err...probably inappropriate, but the native version allows for it.
+        throw new TypeError('Object prototype may only be an Object or null'); // same msg as Chrome
+      }
+
+      T.prototype = prototype;
+      object = new T(); // IE has no built-in implementation of `Object.getPrototypeOf`
+      // neither `__proto__`, but this manually setting `__proto__` will
+      // guarantee that `Object.getPrototypeOf` will work as expected with
+      // objects created using `Object.create`
+
+      /* eslint-disable-next-line no-proto */
+
+      object.__proto__ = prototype;
+    }
+
+    if (typeof properties !== 'undefined') {
+      Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object, properties);
+    }
+
+    return object;
+  };
+}
+
+var create = $create;
+/* harmony default export */ __webpack_exports__["a"] = (create);
+
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function isObject(x) {
+	return typeof x === "object" && x !== null;
+};
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var bind = __webpack_require__(79);
+
+module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var keys = __webpack_require__(73);
+var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
+
+var toStr = Object.prototype.toString;
+var concat = Array.prototype.concat;
+var origDefineProperty = Object.defineProperty;
+
+var isFunction = function (fn) {
+	return typeof fn === 'function' && toStr.call(fn) === '[object Function]';
+};
+
+var arePropertyDescriptorsSupported = function () {
+	var obj = {};
+	try {
+		origDefineProperty(obj, 'x', { enumerable: false, value: obj });
+		// eslint-disable-next-line no-unused-vars, no-restricted-syntax
+		for (var _ in obj) { // jscs:ignore disallowUnusedVariables
+			return false;
+		}
+		return obj.x === obj;
+	} catch (e) { /* this is IE 8. */
+		return false;
+	}
+};
+var supportsDescriptors = origDefineProperty && arePropertyDescriptorsSupported();
+
+var defineProperty = function (object, name, value, predicate) {
+	if (name in object && (!isFunction(predicate) || !predicate())) {
+		return;
+	}
+	if (supportsDescriptors) {
+		origDefineProperty(object, name, {
+			configurable: true,
+			enumerable: false,
+			value: value,
+			writable: true
+		});
+	} else {
+		object[name] = value;
+	}
+};
+
+var defineProperties = function (object, map) {
+	var predicates = arguments.length > 2 ? arguments[2] : {};
+	var props = keys(map);
+	if (hasSymbols) {
+		props = concat.call(props, Object.getOwnPropertySymbols(map));
+	}
+	for (var i = 0; i < props.length; i += 1) {
+		defineProperty(object, props[i], map[props[i]], predicates[props[i]]);
+	}
+};
+
+defineProperties.supportsDescriptors = !!supportsDescriptors;
+
+module.exports = defineProperties;
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var slice = Array.prototype.slice;
+var isArgs = __webpack_require__(90);
+
+var origKeys = Object.keys;
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(112);
+
+var originalKeys = Object.keys;
+
+keysShim.shim = function shimObjectKeys() {
+	if (Object.keys) {
+		var keysWorksWithArguments = (function () {
+			// Safari 5.0 bug
+			var args = Object.keys(arguments);
+			return args && args.length === arguments.length;
+		}(1, 2));
+		if (!keysWorksWithArguments) {
+			Object.keys = function keys(object) { // eslint-disable-line func-name-matching
+				if (isArgs(object)) {
+					return originalKeys(slice.call(object));
+				}
+				return originalKeys(object);
+			};
+		}
+	} else {
+		Object.keys = keysShim;
+	}
+	return Object.keys || keysShim;
+};
+
+module.exports = keysShim;
+
+
+/***/ }),
 /* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var string = 'a';
+var boxedString = {}.constructor(string);
+/**
+ * Check failure of by-index access of string characters (IE < 9)
+ * and failure of `0 in boxedString` (Rhino).
+ *
+ * `true` if no failure; otherwise `false`.
+ *
+ * @type boolean
+ */
+
+var hasBoxed = boxedString[0] === string && 0 in boxedString;
+/* harmony default export */ __webpack_exports__["a"] = (hasBoxed);
+
+
+
+/***/ }),
+/* 75 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(34);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+
+
+var propIsEnumerable = {}.propertyIsEnumerable;
+/**
+ * This method returns a Boolean indicating whether the specified property is
+ * enumerable. Does not attempt to fix bugs in IE<9 or old Opera, otherwise it
+ * does ES6ify the method.
+ *
+ * @param {!object} object - The object on which to test the property.
+ * @param {string|Symbol} property - The name of the property to test.
+ * @throws {TypeError} If target is null or undefined.
+ * @returns {boolean} A Boolean indicating whether the specified property is
+ *  enumerable.
+ */
+
+var propertyIsEnumerable = function propertyIsEnumerable(object, property) {
+  return propIsEnumerable.call(Object(to_object_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object), Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(property));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (propertyIsEnumerable);
+
+
+
+/***/ }),
+/* 76 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var array_filter_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(22);
+/* harmony import */ var get_own_property_symbols_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(55);
+/* harmony import */ var property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(75);
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+
+
+/**
+ * This method returns only the enumerable own property symbols of an object.
+ *
+ * @param {object} target - The target.
+ * @throws {TypeError} - If target is null or undefined.
+ * @returns {Array} The enumerable own property symbols.
+ */
+
+var getOwnEnumerablePropertySymbols = function getOwnEnumerablePropertySymbols(target) {
+  var _this = this;
+
+  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(target);
+  return Object(array_filter_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(get_own_property_symbols_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object), function (symbol) {
+    _newArrowCheck(this, _this);
+
+    return Object(property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, symbol);
+  }.bind(this));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (getOwnEnumerablePropertySymbols);
+
+
+
+/***/ }),
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11503,48 +11519,267 @@ var tis = $toISOString;
 
 
 /***/ }),
-/* 75 */
+/* 78 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
-/* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(57);
-/* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(json3__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
+/* WEBPACK VAR INJECTION */(function(global) {/* unused harmony export formatWithOptions */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return format; });
+/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(40);
+/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(56);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var parse_int_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(51);
+/* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(61);
+/* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(json3__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var collections_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(57);
+/* harmony import */ var array_filter_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(22);
+/* harmony import */ var get_own_property_names_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(50);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(17);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var is_bigint__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(89);
+/* harmony import */ var is_bigint__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(is_bigint__WEBPACK_IMPORTED_MODULE_9__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
 
 
-/** @type {ArrayConstructor} */
 
-var ArrayCtr = [].constructor;
+
+
+
+
+
+
 /** @type {NumberConstructor} */
 
 var castNumber = 0 .constructor;
+var RX_NAMES = /^([A-Z][a-z]+)+$/;
+var rxTest = RX_NAMES.test;
+var EMPTY_STRING = '';
+var stringSplit = EMPTY_STRING.split;
+var stringSlice = EMPTY_STRING.slice;
+var charCodeAt = EMPTY_STRING.charCodeAt;
+
+var firstErrorLine = function firstErrorLine(error) {
+  return stringSplit.call(error.message, '\n')[0];
+};
+
 var CIRCULAR_ERROR_MESSAGE;
 
-var tryStringify = function _tryStringify(arg) {
+var tryStringify = function tryStringify(arg) {
   try {
-    return Object(json3__WEBPACK_IMPORTED_MODULE_1__["stringify"])(arg);
+    return Object(json3__WEBPACK_IMPORTED_MODULE_4__["stringify"])(arg);
   } catch (err) {
     // Populate the circular error message lazily
     if (!CIRCULAR_ERROR_MESSAGE) {
       try {
         var a = {};
         a.a = a;
-        Object(json3__WEBPACK_IMPORTED_MODULE_1__["stringify"])(a);
+        Object(json3__WEBPACK_IMPORTED_MODULE_4__["stringify"])(a);
       } catch (e) {
         CIRCULAR_ERROR_MESSAGE = e.message;
       }
     }
 
-    if (err.name === 'TypeError' && err.message === CIRCULAR_ERROR_MESSAGE) {
+    if (err.name === 'TypeError' && firstErrorLine(err) === CIRCULAR_ERROR_MESSAGE) {
       return '[Circular]';
     }
 
     throw err;
   }
+};
+
+var matchNames = function matchNames(e) {
+  return rxTest.call(RX_NAMES, e);
+};
+
+var builtInObjects = new collections_x__WEBPACK_IMPORTED_MODULE_5__[/* SetConstructor */ "b"](Object(array_filter_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(Object(get_own_property_names_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(global), matchNames));
+
+var formatNumber = function formatNumber(fn, value) {
+  // Format -0 as '-0'. Checking `value === -0` won't distinguish 0 from -0.
+  return fn(Object(same_value_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(value, -0) ? '-0' : "".concat(value), 'number');
+};
+
+var stylizeNoColor = function stylizeNoColor(str) {
+  return str;
+};
+
+var formatWithOptions = function formatWithOptions(inspectOptions) {
+  var first = arguments.length <= 1 ? undefined : arguments[1];
+  var a = 0;
+  var str = EMPTY_STRING;
+  var join = EMPTY_STRING;
+
+  if (typeof first === 'string') {
+    if ((arguments.length <= 1 ? 0 : arguments.length - 1) === 1) {
+      return first;
+    }
+
+    var tempStr;
+    var lastPos = 0;
+
+    for (var i = 0; i < first.length - 1; i += 1) {
+      if (charCodeAt.call(first, i) === 37) {
+        // '%'
+        i += 1;
+        var nextChar = charCodeAt.call(first, i);
+
+        if (a + 1 !== (arguments.length <= 1 ? 0 : arguments.length - 1)) {
+          switch (nextChar) {
+            case 115:
+              // 's'
+              a += 1;
+              {
+                var tempArg = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+
+                if (typeof tempArg === 'number') {
+                  tempStr = formatNumber(stylizeNoColor, tempArg);
+                } else {
+                  /* eslint-disable-next-line valid-typeof,no-lonely-if */
+                  if (typeof tempArg === 'bigint') {
+                    tempStr = "".concat(tempArg, "n");
+                  } else {
+                    /* eslint-disable-next-line no-void */
+                    var constr = _typeof(tempArg) === 'object' && tempArg !== null ? tempArg.constructor : void 0; // noinspection JSObjectNullOrUndefined
+
+                    if (!constr || typeof tempArg.toString === 'function' && ( // A direct own property.
+                    Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(tempArg, 'toString') || // A direct own property on the constructor prototype in
+                    // case the constructor is not an built-in object.
+                    !builtInObjects.has(constr.name) && constr.prototype && Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(constr.prototype, 'toString'))) {
+                      tempStr = String(tempArg);
+                    } else {
+                      tempStr = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(tempArg, _objectSpread({}, inspectOptions, {
+                        compact: 3,
+                        colors: false,
+                        depth: 0
+                      }));
+                    }
+                  }
+                }
+              }
+              break;
+
+            case 106:
+              // 'j'
+              a += 1;
+              tempStr = tryStringify(a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1]);
+              break;
+
+            case 100:
+              // 'd'
+              a += 1;
+              {
+                var tempNum = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+
+                if (is_bigint__WEBPACK_IMPORTED_MODULE_9___default()(tempNum)) {
+                  tempStr = "".concat(tempNum, "n");
+                } else if (is_symbol__WEBPACK_IMPORTED_MODULE_8___default()(tempNum)) {
+                  tempStr = 'NaN';
+                } else {
+                  tempStr = formatNumber(stylizeNoColor, castNumber(tempNum));
+                }
+              }
+              break;
+
+            case 79:
+              // 'O'
+              a += 1;
+              tempStr = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1], inspectOptions);
+              break;
+
+            case 111:
+              // 'o'
+              a += 1;
+              tempStr = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1], _objectSpread({}, inspectOptions, {
+                showHidden: true,
+                showProxy: true,
+                depth: 4
+              }));
+              break;
+
+            case 105:
+              // 'i'
+              a += 1;
+              {
+                var tempInteger = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+
+                if (is_bigint__WEBPACK_IMPORTED_MODULE_9___default()(tempInteger)) {
+                  tempStr = "".concat(tempInteger, "n");
+                } else if (is_symbol__WEBPACK_IMPORTED_MODULE_8___default()(tempInteger)) {
+                  tempStr = 'NaN';
+                } else {
+                  tempStr = formatNumber(stylizeNoColor, Object(parse_int_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(tempInteger));
+                }
+              }
+              break;
+
+            case 102:
+              // 'f'
+              a += 1;
+              {
+                var tempFloat = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+
+                if (is_symbol__WEBPACK_IMPORTED_MODULE_8___default()(tempFloat)) {
+                  tempStr = 'NaN';
+                } else {
+                  tempStr = formatNumber(stylizeNoColor, parseFloat(tempFloat));
+                }
+              }
+              break;
+
+            case 37:
+              // '%'
+              str += stringSlice.call(first, lastPos, i);
+              lastPos = i + 1;
+              /* eslint-disable-next-line no-continue */
+
+              continue;
+
+            default:
+              // Any other character is not a correct placeholder
+
+              /* eslint-disable-next-line no-continue */
+              continue;
+          }
+
+          if (lastPos !== i - 1) {
+            str += stringSlice.call(first, lastPos, i - 1);
+          }
+
+          str += tempStr;
+          lastPos = i + 1;
+        } else if (nextChar === 37) {
+          str += stringSlice.call(first, lastPos, i);
+          lastPos = i + 1;
+        }
+      }
+    }
+
+    if (lastPos !== 0) {
+      a += 1;
+      join = ' ';
+
+      if (lastPos < first.length) {
+        str += stringSlice.call(first, lastPos);
+      }
+    }
+  }
+
+  while (a < (arguments.length <= 1 ? 0 : arguments.length - 1)) {
+    var value = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+    str += join;
+    str += typeof value !== 'string' ? Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value, inspectOptions) : value;
+    join = ' ';
+    a += 1;
+  }
+
+  return str;
 }; // eslint-disable jsdoc/check-param-names
 // noinspection JSCommentMatchesSignature
 
@@ -11554,14 +11789,7 @@ var tryStringify = function _tryStringify(arg) {
  *
  * The first argument is a string containing zero or more placeholder tokens.
  * Each placeholder token is replaced with the converted value from the
- * corresponding argument. Supported placeholders are as follows.
- *
- * %s - String.
- * %d - Number (integer or floating point value).
- * %i - Integer.
- * %f - Floating point value.
- * %j - JSON. Replaced with the string '[Circular]' if the argument contains circular references.
- * %% - Single percent sign ('%'). This does not consume an argument.
+ * corresponding argument.
  *
  * @param {string} f - Template.
  * @param {*} [...args] - Values.
@@ -11569,173 +11797,32 @@ var tryStringify = function _tryStringify(arg) {
  */
 // eslint-enable jsdoc/check-param-names
 
-
-var format = function _format(f) {
-  if (typeof f !== 'string') {
-    var objects = new ArrayCtr(arguments.length);
-
-    for (var index = 0; index < arguments.length; index += 1) {
-      /* eslint-disable-next-line prefer-rest-params */
-      objects[index] = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(arguments[index]);
-    }
-
-    return objects.join(' ');
+var format = function format() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
   }
 
-  if (arguments.length === 1) {
-    return f;
-  }
-
-  var str = '';
-  var a = 1;
-  var lastPos = 0;
-
-  for (var i = 0; i < f.length;) {
-    if (f.charCodeAt(i) === 37
-    /* '%' */
-    && i + 1 < f.length) {
-      if (f.charCodeAt(i + 1) !== 37
-      /* '%' */
-      && a >= arguments.length) {
-        i += 1;
-        /* eslint-disable-next-line no-continue */
-
-        continue;
-      }
-
-      switch (f.charCodeAt(i + 1)) {
-        case 100:
-          // 'd'
-          if (lastPos < i) {
-            str += f.slice(lastPos, i);
-          }
-          /* eslint-disable-next-line prefer-rest-params */
-
-
-          str += castNumber(arguments[a]);
-          a += 1;
-          break;
-
-        case 105:
-          // 'i'
-          if (lastPos < i) {
-            str += f.slice(lastPos, i);
-          }
-          /* eslint-disable-next-line prefer-rest-params */
-
-
-          str += parseInt(arguments[a], 10);
-          a += 1;
-          break;
-
-        case 102:
-          // 'f'
-          if (lastPos < i) {
-            str += f.slice(lastPos, i);
-          }
-          /* eslint-disable-next-line prefer-rest-params */
-
-
-          str += parseFloat(arguments[a]);
-          a += 1;
-          break;
-
-        case 106:
-          // 'j'
-          if (lastPos < i) {
-            str += f.slice(lastPos, i);
-          }
-          /* eslint-disable-next-line prefer-rest-params */
-
-
-          str += tryStringify(arguments[a]);
-          a += 1;
-          break;
-
-        case 115:
-          // 's'
-          if (lastPos < i) {
-            str += f.slice(lastPos, i);
-          }
-          /* eslint-disable-next-line prefer-rest-params */
-
-
-          str += Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(arguments[a]);
-          a += 1;
-          break;
-
-        case 37:
-          // '%'
-          if (lastPos < i) {
-            str += f.slice(lastPos, i);
-          }
-
-          str += '%';
-          break;
-
-        default:
-          // any other character is not a correct placeholder
-          if (lastPos < i) {
-            str += f.slice(lastPos, i);
-          }
-
-          str += '%';
-          i += 1;
-          lastPos = i;
-          /* eslint-disable-next-line no-continue */
-
-          continue;
-      }
-
-      i += 2;
-      lastPos = i;
-      /* eslint-disable-next-line no-continue */
-
-      continue;
-    }
-
-    i += 1;
-  }
-
-  if (lastPos === 0) {
-    str = f;
-  } else if (lastPos < f.length) {
-    str += f.slice(lastPos);
-  }
-
-  while (a < arguments.length) {
-    /* eslint-disable-next-line prefer-rest-params */
-    var x = arguments[a];
-    a += 1;
-
-    if (x === null || _typeof(x) !== 'object' && _typeof(x) !== 'symbol') {
-      str += " ".concat(x);
-    } else {
-      str += " ".concat(Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(x));
-    }
-  }
-
-  return str;
+  /* eslint-disable-next-line no-void */
+  return formatWithOptions.apply(void 0, [void 0].concat(args));
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (format);
 
-
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(62)))
 
 /***/ }),
-/* 76 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(109);
+var implementation = __webpack_require__(113);
 
 module.exports = Function.prototype.bind || implementation;
 
 
 /***/ }),
-/* 77 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11779,7 +11866,7 @@ module.exports = function isCallable(value) {
 
 
 /***/ }),
-/* 78 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11963,7 +12050,7 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 
 
 /***/ }),
-/* 79 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -12079,13 +12166,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 80 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var forEach = __webpack_require__(110);
+var forEach = __webpack_require__(114);
 
 var toStr = Object.prototype.toString;
 var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
@@ -12144,10 +12231,10 @@ module.exports = function isTypedArray(value) {
 	return tryTypedArrays(value);
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(65)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(62)))
 
 /***/ }),
-/* 81 */
+/* 84 */
 /***/ (function(module, exports) {
 
 module.exports = isPromise;
@@ -12158,7 +12245,7 @@ function isPromise(obj) {
 
 
 /***/ }),
-/* 82 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12185,15 +12272,15 @@ module.exports = function isNumberObject(value) {
 
 
 /***/ }),
-/* 83 */
+/* 86 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
 /* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
 
 
@@ -12376,7 +12463,7 @@ var truncate = function truncate(string, options) {
 
 
 /***/ }),
-/* 84 */
+/* 87 */
 /***/ (function(module, exports) {
 
 /*!
@@ -12393,7 +12480,7 @@ module.exports = function isBuffer (obj) {
 
 
 /***/ }),
-/* 85 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! stable.js 0.1.8, https://github.com/Two-Screen/stable
@@ -12507,7 +12594,50 @@ module.exports = function isBuffer (obj) {
 
 
 /***/ }),
-/* 86 */
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (typeof BigInt === 'function') {
+	var bigIntValueOf = BigInt.prototype.valueOf;
+	var tryBigInt = function tryBigIntObject(value) {
+		try {
+			bigIntValueOf.call(value);
+			return true;
+		} catch (e) {
+		}
+		return false;
+	};
+
+	module.exports = function isBigInt(value) {
+		if (
+			value === null
+			|| typeof value === 'undefined'
+			|| typeof value === 'boolean'
+			|| typeof value === 'string'
+			|| typeof value === 'number'
+			|| typeof value === 'symbol'
+			|| typeof value === 'function'
+		) {
+			return false;
+		}
+		if (typeof value === 'bigint') { // eslint-disable-line valid-typeof
+			return true;
+		}
+
+		return tryBigInt(value);
+	};
+} else {
+	module.exports = function isBigInt(value) {
+		return  false && false;
+	};
+}
+
+
+/***/ }),
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12531,7 +12661,7 @@ module.exports = function isArguments(value) {
 
 
 /***/ }),
-/* 87 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12545,13 +12675,13 @@ module.exports = function isNaN(value) {
 
 
 /***/ }),
-/* 88 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(87);
+var implementation = __webpack_require__(91);
 
 module.exports = function getPolyfill() {
 	if (Number.isNaN && Number.isNaN(NaN) && !Number.isNaN('a')) {
@@ -12562,17 +12692,17 @@ module.exports = function getPolyfill() {
 
 
 /***/ }),
-/* 89 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(114);
+module.exports = __webpack_require__(118);
 
 
 /***/ }),
-/* 90 */
+/* 94 */
 /***/ (function(module, exports) {
 
 module.exports = function isPrimitive(value) {
@@ -12581,18 +12711,18 @@ module.exports = function isPrimitive(value) {
 
 
 /***/ }),
-/* 91 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(78);
+var GetIntrinsic = __webpack_require__(81);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 var $SyntaxError = GetIntrinsic('%SyntaxError%');
 
-var has = __webpack_require__(66);
+var has = __webpack_require__(71);
 
 var predicates = {
   // https://ecma-international.org/ecma-262/6.0/#sec-property-descriptor-specification-type
@@ -12637,7 +12767,7 @@ module.exports = function assertRecord(ES, recordType, argumentName, value) {
 
 
 /***/ }),
-/* 92 */
+/* 96 */
 /***/ (function(module, exports) {
 
 module.exports = Number.isNaN || function isNaN(a) {
@@ -12646,7 +12776,7 @@ module.exports = Number.isNaN || function isNaN(a) {
 
 
 /***/ }),
-/* 93 */
+/* 97 */
 /***/ (function(module, exports) {
 
 var $isNaN = Number.isNaN || function (a) { return a !== a; };
@@ -12655,7 +12785,7 @@ module.exports = Number.isFinite || function (x) { return typeof x === 'number' 
 
 
 /***/ }),
-/* 94 */
+/* 98 */
 /***/ (function(module, exports) {
 
 module.exports = function sign(number) {
@@ -12664,7 +12794,7 @@ module.exports = function sign(number) {
 
 
 /***/ }),
-/* 95 */
+/* 99 */
 /***/ (function(module, exports) {
 
 module.exports = function mod(number, modulo) {
@@ -12674,13 +12804,13 @@ module.exports = function mod(number, modulo) {
 
 
 /***/ }),
-/* 96 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var ES = __webpack_require__(89);
+var ES = __webpack_require__(93);
 var $isNaN = Number.isNaN || function isNaN(a) {
 	return a !== a;
 };
@@ -12710,16 +12840,16 @@ module.exports = function includes(searchElement) {
 	return false;
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(65)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(62)))
 
 /***/ }),
-/* 97 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(96);
+var implementation = __webpack_require__(100);
 
 module.exports = function getPolyfill() {
 	return Array.prototype.includes || implementation;
@@ -12727,7 +12857,7 @@ module.exports = function getPolyfill() {
 
 
 /***/ }),
-/* 98 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -12736,7 +12866,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
     /* istanbul ignore next */
     if (true) {
-        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(79)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(82)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -12924,7 +13054,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 99 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12963,7 +13093,7 @@ module.exports = function isGeneratorFunction(fn) {
 
 
 /***/ }),
-/* 100 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12989,17 +13119,17 @@ module.exports = function is(a, b) {
 
 
 /***/ }),
-/* 101 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(67);
+var define = __webpack_require__(72);
 
-var implementation = __webpack_require__(87);
-var getPolyfill = __webpack_require__(88);
-var shim = __webpack_require__(111);
+var implementation = __webpack_require__(91);
+var getPolyfill = __webpack_require__(92);
+var shim = __webpack_require__(115);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -13013,7 +13143,7 @@ module.exports = implementation;
 
 
 /***/ }),
-/* 102 */
+/* 106 */
 /***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13042,19 +13172,19 @@ function isVarName(str) {
 
 
 /***/ }),
-/* 103 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(67);
-var ES = __webpack_require__(89);
+var define = __webpack_require__(72);
+var ES = __webpack_require__(93);
 
-var implementation = __webpack_require__(96);
-var getPolyfill = __webpack_require__(97);
+var implementation = __webpack_require__(100);
+var getPolyfill = __webpack_require__(101);
 var polyfill = getPolyfill();
-var shim = __webpack_require__(121);
+var shim = __webpack_require__(125);
 
 var slice = Array.prototype.slice;
 
@@ -13074,29 +13204,29 @@ module.exports = boundIncludesShim;
 
 
 /***/ }),
-/* 104 */
+/* 108 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/error-x/dist/error-x.esm.js
-var error_x_esm = __webpack_require__(60);
+var error_x_esm = __webpack_require__(66);
 
 // EXTERNAL MODULE: ./node_modules/is-regex/index.js
 var is_regex = __webpack_require__(49);
 var is_regex_default = /*#__PURE__*/__webpack_require__.n(is_regex);
 
 // EXTERNAL MODULE: ./node_modules/to-string-symbols-supported-x/dist/to-string-symbols-supported-x.esm.js
-var to_string_symbols_supported_x_esm = __webpack_require__(14);
+var to_string_symbols_supported_x_esm = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js + 1 modules
 var is_function_x_esm = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
-var is_object_like_x_esm = __webpack_require__(4);
+var is_object_like_x_esm = __webpack_require__(5);
 
 // EXTERNAL MODULE: ./node_modules/array-reduce-x/dist/array-reduce-x.esm.js
-var array_reduce_x_esm = __webpack_require__(22);
+var array_reduce_x_esm = __webpack_require__(23);
 
 // EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
 var object_define_properties_x_esm = __webpack_require__(9);
@@ -13114,11 +13244,11 @@ var is_primitive = __webpack_require__(6);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // EXTERNAL MODULE: ./node_modules/is-object/index.js
-var is_object = __webpack_require__(64);
+var is_object = __webpack_require__(70);
 var is_object_default = /*#__PURE__*/__webpack_require__.n(is_object);
 
 // EXTERNAL MODULE: ./node_modules/deep-equal-x/node_modules/is-buffer/index.js
-var is_buffer = __webpack_require__(84);
+var is_buffer = __webpack_require__(87);
 var is_buffer_default = /*#__PURE__*/__webpack_require__.n(is_buffer);
 
 // EXTERNAL MODULE: ./node_modules/is-string/index.js
@@ -13129,10 +13259,10 @@ var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 var is_error_x_esm = __webpack_require__(39);
 
 // EXTERNAL MODULE: ./node_modules/is-map-x/dist/is-map-x.esm.js
-var is_map_x_esm = __webpack_require__(40);
+var is_map_x_esm = __webpack_require__(41);
 
 // EXTERNAL MODULE: ./node_modules/is-set-x/dist/is-set-x.esm.js
-var is_set_x_esm = __webpack_require__(42);
+var is_set_x_esm = __webpack_require__(43);
 
 // EXTERNAL MODULE: ./node_modules/is-nil-x/dist/is-nil-x.esm.js
 var is_nil_x_esm = __webpack_require__(8);
@@ -13150,20 +13280,20 @@ var array_slice_x_esm = __webpack_require__(7);
 var array_some_x_esm = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/array-filter-x/dist/array-filter-x.esm.js
-var array_filter_x_esm = __webpack_require__(24);
+var array_filter_x_esm = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/stable/stable.js
-var stable = __webpack_require__(85);
+var stable = __webpack_require__(88);
 var stable_default = /*#__PURE__*/__webpack_require__.n(stable);
 
 // EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
-var object_keys_x_esm = __webpack_require__(16);
+var object_keys_x_esm = __webpack_require__(15);
 
 // EXTERNAL MODULE: ./node_modules/get-prototype-of-x/dist/get-prototype-of-x.esm.js
 var get_prototype_of_x_esm = __webpack_require__(29);
 
 // EXTERNAL MODULE: ./node_modules/has-boxed-string-x/dist/has-boxed-string-x.esm.js
-var has_boxed_string_x_esm = __webpack_require__(69);
+var has_boxed_string_x_esm = __webpack_require__(74);
 
 // CONCATENATED MODULE: ./node_modules/deep-equal-x/dist/deep-equal-x.esm.js
 
@@ -13870,29 +14000,37 @@ var assert = $assert;
 
 
 /***/ }),
-/* 105 */
+/* 109 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
-/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
+/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-/* harmony import */ var array_for_each_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(54);
-/* harmony import */ var assert_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(104);
-/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(43);
+/* harmony import */ var array_for_each_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(58);
+/* harmony import */ var assert_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(108);
+/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(40);
 /* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(7);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5);
-/* harmony import */ var util_format_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(75);
-/* harmony import */ var collections_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(73);
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(14);
-/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(16);
-/* harmony import */ var to_iso_string_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(74);
-/* harmony import */ var array_includes__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(103);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(4);
+/* harmony import */ var util_format_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(78);
+/* harmony import */ var collections_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(57);
+/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(19);
+/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(15);
+/* harmony import */ var to_iso_string_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(77);
+/* harmony import */ var array_includes__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(107);
 /* harmony import */ var array_includes__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(array_includes__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var error_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(60);
+/* harmony import */ var error_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(66);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 
 
 
@@ -13973,8 +14111,8 @@ var shams = Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_0__[/* de
       var expression = arguments[0];
 
       if (Boolean(expression) === false) {
-        /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-        assert_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"].ok(false, util_format_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"].apply(null, Object(array_slice_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(arguments, 1)));
+        /* eslint-disable-next-line prefer-rest-params */
+        assert_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"].ok(false, util_format_x__WEBPACK_IMPORTED_MODULE_9__[/* format */ "a"].apply(void 0, _toConsumableArray(Object(array_slice_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(arguments, 1))));
       }
     }
   },
@@ -14016,10 +14154,10 @@ var shams = Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_0__[/* de
       var type = arguments.length > 0 ? arguments[0] : null;
 
       if (array_includes__WEBPACK_IMPORTED_MODULE_14___default()(properties, type)) {
-        var stampStr = Object(util_format_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])('[%s] [%s]', Object(to_iso_string_x__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(new Date()), type);
-        /* eslint-disable-next-line prefer-rest-params,prefer-spread */
+        var stampStr = Object(util_format_x__WEBPACK_IMPORTED_MODULE_9__[/* format */ "a"])('[%s] [%s]', Object(to_iso_string_x__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(new Date()), type);
+        /* eslint-disable-next-line prefer-rest-params */
 
-        this[type].apply(this, [stampStr].concat(Object(array_slice_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(arguments, 1)));
+        this[type].apply(this, [stampStr].concat(_toConsumableArray(Object(array_slice_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(arguments, 1))));
       }
     }
   },
@@ -14052,8 +14190,8 @@ var shams = Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_0__[/* de
   trace: {
     enumerable: true,
     value: function trace() {
-      /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-      this.error(new Trace(util_format_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"].apply(null, Object(array_slice_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(arguments))));
+      /* eslint-disable-next-line prefer-rest-params */
+      this.error(new Trace(util_format_x__WEBPACK_IMPORTED_MODULE_9__[/* format */ "a"].apply(void 0, _toConsumableArray(Object(array_slice_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(arguments)))));
     }
   },
   warn: {
@@ -14084,14 +14222,14 @@ Object(array_for_each_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(propert
 
 
 /***/ }),
-/* 106 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
 var origSymbol = global.Symbol;
-var hasSymbolSham = __webpack_require__(107);
+var hasSymbolSham = __webpack_require__(111);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -14102,10 +14240,10 @@ module.exports = function hasNativeSymbols() {
 	return hasSymbolSham();
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(65)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(62)))
 
 /***/ }),
-/* 107 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14154,7 +14292,7 @@ module.exports = function hasSymbols() {
 
 
 /***/ }),
-/* 108 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14165,7 +14303,7 @@ if (!Object.keys) {
 	// modified from https://github.com/es-shims/es5-shim
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
-	var isArgs = __webpack_require__(86); // eslint-disable-line global-require
+	var isArgs = __webpack_require__(90); // eslint-disable-line global-require
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -14283,7 +14421,7 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 109 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14342,7 +14480,7 @@ module.exports = function bind(that) {
 
 
 /***/ }),
-/* 110 */
+/* 114 */
 /***/ (function(module, exports) {
 
 
@@ -14370,14 +14508,14 @@ module.exports = function forEach (obj, fn, ctx) {
 
 
 /***/ }),
-/* 111 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(67);
-var getPolyfill = __webpack_require__(88);
+var define = __webpack_require__(72);
+var getPolyfill = __webpack_require__(92);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -14389,7 +14527,7 @@ module.exports = function shimNumberIsNaN() {
 
 
 /***/ }),
-/* 112 */
+/* 116 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -14417,7 +14555,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 113 */
+/* 117 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -14426,17 +14564,17 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(this, {}))
 
 /***/ }),
-/* 114 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var has = __webpack_require__(66);
-var toPrimitive = __webpack_require__(115);
-var keys = __webpack_require__(68);
+var has = __webpack_require__(71);
+var toPrimitive = __webpack_require__(119);
+var keys = __webpack_require__(73);
 
-var GetIntrinsic = __webpack_require__(78);
+var GetIntrinsic = __webpack_require__(81);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 var $SyntaxError = GetIntrinsic('%SyntaxError%');
@@ -14449,17 +14587,17 @@ var $RegExp = GetIntrinsic('%RegExp%');
 
 var hasSymbols = !!$Symbol;
 
-var assertRecord = __webpack_require__(91);
-var $isNaN = __webpack_require__(92);
-var $isFinite = __webpack_require__(93);
+var assertRecord = __webpack_require__(95);
+var $isNaN = __webpack_require__(96);
+var $isFinite = __webpack_require__(97);
 var MAX_SAFE_INTEGER = $Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
 
-var assign = __webpack_require__(117);
-var sign = __webpack_require__(94);
-var mod = __webpack_require__(95);
-var isPrimitive = __webpack_require__(118);
+var assign = __webpack_require__(121);
+var sign = __webpack_require__(98);
+var mod = __webpack_require__(99);
+var isPrimitive = __webpack_require__(122);
 var parseInteger = parseInt;
-var bind = __webpack_require__(76);
+var bind = __webpack_require__(79);
 var arraySlice = bind.call(Function.call, $Array.prototype.slice);
 var strSlice = bind.call(Function.call, $String.prototype.slice);
 var isBinary = bind.call(Function.call, $RegExp.prototype.test, /^0b[01]+$/i);
@@ -14502,7 +14640,7 @@ var trim = function (value) {
 	return replace(value, trimRegex, '');
 };
 
-var ES5 = __webpack_require__(119);
+var ES5 = __webpack_require__(123);
 
 var hasRegExpMatcher = __webpack_require__(49);
 
@@ -15223,17 +15361,17 @@ module.exports = ES6;
 
 
 /***/ }),
-/* 115 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(116);
+module.exports = __webpack_require__(120);
 
 
 /***/ }),
-/* 116 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15241,10 +15379,10 @@ module.exports = __webpack_require__(116);
 
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
 
-var isPrimitive = __webpack_require__(90);
-var isCallable = __webpack_require__(77);
+var isPrimitive = __webpack_require__(94);
+var isCallable = __webpack_require__(80);
 var isDate = __webpack_require__(28);
-var isSymbol = __webpack_require__(19);
+var isSymbol = __webpack_require__(17);
 
 var ordinaryToPrimitive = function OrdinaryToPrimitive(O, hint) {
 	if (typeof O === 'undefined' || O === null) {
@@ -15315,10 +15453,10 @@ module.exports = function ToPrimitive(input) {
 
 
 /***/ }),
-/* 117 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var bind = __webpack_require__(76);
+var bind = __webpack_require__(79);
 var has = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
 var $assign = Object.assign;
@@ -15338,7 +15476,7 @@ module.exports = function assign(target, source) {
 
 
 /***/ }),
-/* 118 */
+/* 122 */
 /***/ (function(module, exports) {
 
 module.exports = function isPrimitive(value) {
@@ -15347,29 +15485,29 @@ module.exports = function isPrimitive(value) {
 
 
 /***/ }),
-/* 119 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(78);
+var GetIntrinsic = __webpack_require__(81);
 
 var $Object = GetIntrinsic('%Object%');
 var $TypeError = GetIntrinsic('%TypeError%');
 var $String = GetIntrinsic('%String%');
 
-var assertRecord = __webpack_require__(91);
-var $isNaN = __webpack_require__(92);
-var $isFinite = __webpack_require__(93);
+var assertRecord = __webpack_require__(95);
+var $isNaN = __webpack_require__(96);
+var $isFinite = __webpack_require__(97);
 
-var sign = __webpack_require__(94);
-var mod = __webpack_require__(95);
+var sign = __webpack_require__(98);
+var mod = __webpack_require__(99);
 
-var IsCallable = __webpack_require__(77);
-var toPrimitive = __webpack_require__(120);
+var IsCallable = __webpack_require__(80);
+var toPrimitive = __webpack_require__(124);
 
-var has = __webpack_require__(66);
+var has = __webpack_require__(71);
 
 // https://es5.github.io/#x9
 var ES5 = {
@@ -15589,7 +15727,7 @@ module.exports = ES5;
 
 
 /***/ }),
-/* 120 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15597,9 +15735,9 @@ module.exports = ES5;
 
 var toStr = Object.prototype.toString;
 
-var isPrimitive = __webpack_require__(90);
+var isPrimitive = __webpack_require__(94);
 
-var isCallable = __webpack_require__(77);
+var isCallable = __webpack_require__(80);
 
 // http://ecma-international.org/ecma-262/5.1/#sec-8.12.8
 var ES5internalSlots = {
@@ -15641,14 +15779,14 @@ module.exports = function ToPrimitive(input) {
 
 
 /***/ }),
-/* 121 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(67);
-var getPolyfill = __webpack_require__(97);
+var define = __webpack_require__(72);
+var getPolyfill = __webpack_require__(101);
 
 module.exports = function shimArrayPrototypeIncludes() {
 	var polyfill = getPolyfill();
