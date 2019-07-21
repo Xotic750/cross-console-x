@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-21T01:43:29.552Z",
+  "date": "2019-07-21T13:52:10.427Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
-  "hash": "1e2e793efdd1ce07d59b",
+  "hash": "756191c36e206d859c84",
   "license": "MIT",
-  "version": "4.0.3"
+  "version": "4.0.4"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -220,10 +220,10 @@ var is_primitive = __webpack_require__(8);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // EXTERNAL MODULE: ./node_modules/normalize-space-x/dist/normalize-space-x.esm.js
-var normalize_space_x_esm = __webpack_require__(61);
+var normalize_space_x_esm = __webpack_require__(62);
 
 // EXTERNAL MODULE: ./node_modules/replace-comments-x/dist/replace-comments-x.esm.js
-var replace_comments_x_esm = __webpack_require__(62);
+var replace_comments_x_esm = __webpack_require__(63);
 
 // CONCATENATED MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js
 var _this = undefined;
@@ -495,7 +495,7 @@ var slice = function slice(array, start, end) {
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/array-for-each-x/dist/array-for-each-x.esm.js
-var array_for_each_x_esm = __webpack_require__(63);
+var array_for_each_x_esm = __webpack_require__(64);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
 var object_define_property_x_esm = __webpack_require__(9);
@@ -2119,7 +2119,7 @@ var is_string = __webpack_require__(12);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-array-like-x/dist/is-array-like-x.esm.js
-var is_array_like_x_esm = __webpack_require__(58);
+var is_array_like_x_esm = __webpack_require__(59);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
 var is_primitive = __webpack_require__(8);
@@ -3925,10 +3925,10 @@ module.exports = function isDateObject(value) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return toNumber2016; });
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(66);
+/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(67);
 /* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(53);
 /* harmony import */ var parse_int_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(57);
-/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(67);
+/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(68);
 
 
 
@@ -4061,7 +4061,7 @@ var toNumber2018 = function toNumber2018(argument) {
 
 "use strict";
 /* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(66);
+/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(67);
 /* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -5086,10 +5086,10 @@ var to_string_tag_x_esm = __webpack_require__(18);
 var has_to_string_tag_x_esm = __webpack_require__(29);
 
 // EXTERNAL MODULE: ./node_modules/normalize-space-x/dist/normalize-space-x.esm.js
-var normalize_space_x_esm = __webpack_require__(61);
+var normalize_space_x_esm = __webpack_require__(62);
 
 // EXTERNAL MODULE: ./node_modules/replace-comments-x/dist/replace-comments-x.esm.js
-var replace_comments_x_esm = __webpack_require__(62);
+var replace_comments_x_esm = __webpack_require__(63);
 
 // EXTERNAL MODULE: ./node_modules/get-prototype-of-x/dist/get-prototype-of-x.esm.js
 var get_prototype_of_x_esm = __webpack_require__(27);
@@ -5581,7 +5581,7 @@ var rok = reflectOwnKeys;
 
 
 // EXTERNAL MODULE: ./node_modules/json3/lib/json3.js
-var json3 = __webpack_require__(65);
+var json3 = __webpack_require__(66);
 
 // EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
 var object_keys_x_esm = __webpack_require__(16);
@@ -5764,7 +5764,7 @@ var inc = $includes;
 
 
 // EXTERNAL MODULE: ./node_modules/object-assign-x/dist/object-assign-x.esm.js
-var object_assign_x_esm = __webpack_require__(59);
+var object_assign_x_esm = __webpack_require__(60);
 
 // EXTERNAL MODULE: ./node_modules/to-iso-string-x/dist/to-iso-string-x.esm.js + 1 modules
 var to_iso_string_x_esm = __webpack_require__(83);
@@ -5948,7 +5948,7 @@ var string_includes_x_esm_inc = string_includes_x_esm_$includes;
 
 
 // EXTERNAL MODULE: ./node_modules/math-clamp-x/dist/math-clamp-x.esm.js
-var math_clamp_x_esm = __webpack_require__(68);
+var math_clamp_x_esm = __webpack_require__(69);
 
 // EXTERNAL MODULE: ./node_modules/array-like-slice-x/dist/array-like-slice-x.esm.js
 var array_like_slice_x_esm = __webpack_require__(54);
@@ -7973,7 +7973,7 @@ var is_length_x_esm_isLength = function isLength(value) {
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/trim-left-x/dist/trim-left-x.esm.js
-var trim_left_x_esm = __webpack_require__(64);
+var trim_left_x_esm = __webpack_require__(65);
 
 // EXTERNAL MODULE: ./node_modules/require-coercible-to-string-x/dist/require-coercible-to-string-x.esm.js
 var require_coercible_to_string_x_esm = __webpack_require__(49);
@@ -8287,9 +8287,9 @@ module.exports = function isNumberObject(value) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return parseInt2016; });
-/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(67);
+/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(68);
 /* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
-/* harmony import */ var trim_left_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(64);
+/* harmony import */ var trim_left_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(65);
 
 
 
@@ -8361,6 +8361,658 @@ var parseInt2018 = function parseInt2018(string, radix) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return isError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssertionErrorConstructor; });
+/* unused harmony export ErrorConstructor */
+/* unused harmony export EvalErrorConstructor */
+/* unused harmony export InternalErrorConstructor */
+/* unused harmony export RangeErrorConstructor */
+/* unused harmony export ReferenceErrorConstructor */
+/* unused harmony export supportsAllConstructors */
+/* unused harmony export SyntaxErrorConstructor */
+/* unused harmony export TypeErrorConstructor */
+/* unused harmony export URIErrorConstructor */
+/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(29);
+/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(53);
+/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(20);
+/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(88);
+/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(stackframe__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(105);
+/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(error_stack_parser__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
+/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
+/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(55);
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2);
+/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(41);
+/* harmony import */ var truncate_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(90);
+/* harmony import */ var is_error_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(48);
+/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(14);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(4);
+/* harmony import */ var object_create_x__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(73);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(5);
+/* harmony import */ var array_map_x__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(38);
+/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(21);
+/* harmony import */ var is_finite_x__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(40);
+/* harmony import */ var is_var_name__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(109);
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+/*
+ * Want to create your own Error objects, this module will allow you to do
+ * just that. It ships with all the standard Error objects already created
+ * for you. Why? Well, these offer some improvements over the native versions.
+ * - They have a `toJSON` method and so they can be serialised.
+ * - They have a standardised `stack` property, using
+ * [`error-stack-parser`](https://github.com/stacktracejs/error-stack-parser)
+ * messages and stacks are parsed and then re-formatted.
+ * - They have a `frames` property which is an array of the parsed `stack`
+ * message, so you have easy access to the information.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var isError = is_error_x__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"];
+var parse = error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default.a.parse;
+/**
+ * @typedef {ErrorConstructor|TypeErrorConstructor|SyntaxErrorConstructor|URIErrorConstructor|ReferenceErrorConstructor|EvalErrorConstructor|RangeErrorConstructor} OfErrorConstructor
+ */
+
+var EMPTY_STRING = '';
+/** @type {BooleanConstructor} */
+
+var castBoolean = true.constructor;
+/* eslint-disable-next-line compat/compat */
+
+var $toStringTag = has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.toStringTag;
+/** @type {ErrorConstructor} */
+
+var $Error = Error; // Capture the function (if any).
+
+var captureStackTrace = $Error.captureStackTrace,
+    prepareStackTrace = $Error.prepareStackTrace;
+/**
+ * Tests for number as specified in StackTrace library.
+ *
+ * @private
+ * @param {*} n - The value to test.
+ * @returns {boolean} True if parsable, otherwise false.
+ */
+
+var isNumber = function isNumber(n) {
+  return Object(is_nan_x__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"])(parseFloat(n)) === false && Object(is_finite_x__WEBPACK_IMPORTED_MODULE_18__[/* default */ "a"])(n);
+};
+
+var cV8 = castBoolean(captureStackTrace) && function getCV8() {
+  // Test to see if the function works.
+  try {
+    captureStackTrace(new $Error(), captureStackTrace);
+  } catch (ignore) {
+    return false;
+  }
+  /**
+   * Captures the V8 stack and converts it to an array of Stackframes.
+   *
+   * @private
+   * @function captureV8
+   * @param {!object} context - The Custom Error this object.
+   * @returns {!Array.<!object>} Array of StackFrames.
+   */
+
+
+  return function captureV8(context) {
+    var _this = this;
+
+    /**
+     * The stack preparation function for the V8 stack.
+     *
+     * @private
+     * @param {*} ignore - Unused argument.
+     * @param {!object} thisStack - The V8 stack.
+     * @returns {!object} The V8 stack.
+     */
+    $Error.prepareStackTrace = function _prepareStackTrace(ignore, thisStack) {
+      return thisStack;
+    };
+    /** @type {object} */
+
+
+    var error = new $Error();
+    captureStackTrace(error, context.constructor);
+    var frames = Object(array_map_x__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"])(error.stack, function (frame) {
+      _newArrowCheck(this, _this);
+
+      var opts = {
+        // args: void 0,
+        functionName: frame.getFunctionName(),
+        isConstructor: frame.isConstructor(),
+        isEval: frame.isEval(),
+        isNative: frame.isNative(),
+        isToplevel: frame.isToplevel(),
+        source: frame.toString()
+      };
+      var getFileName = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getFileName) && frame.getFileName();
+
+      if (getFileName) {
+        opts.getFileName = getFileName;
+      }
+
+      var columnNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getColumnNumber) && frame.getColumnNumber();
+
+      if (isNumber(columnNumber)) {
+        opts.columnNumber = columnNumber;
+      }
+
+      var lineNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getLineNumber) && frame.getLineNumber();
+
+      if (isNumber(lineNumber)) {
+        opts.lineNumber = lineNumber;
+      }
+
+      var evalOrigin = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getEvalOrigin) && frame.getEvalOrigin();
+
+      if (Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_15__[/* default */ "a"])(evalOrigin)) {
+        opts.evalOrigin = evalOrigin;
+      }
+
+      return new stackframe__WEBPACK_IMPORTED_MODULE_3___default.a(opts);
+    }.bind(this));
+
+    if (typeof prepareStackTrace === 'undefined') {
+      delete $Error.prepareStackTrace;
+    } else {
+      $Error.prepareStackTrace = prepareStackTrace;
+    }
+
+    return frames;
+  };
+}();
+
+var allCtrs = true;
+var STACK_NEWLINE = '\n    ';
+/**
+ * Defines frames and stack on the Custom Error this object.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {!Array.<!object>} frames - Array of StackFrames.
+ * @param {string} name - The name of the constructor.
+ */
+
+var defContext = function defContext(context, frames, name) {
+  var _this2 = this;
+
+  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
+    frames: {
+      value: frames
+    },
+    stack: {
+      value: "".concat(name).concat(STACK_NEWLINE).concat(Object(array_map_x__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"])(frames, function (frame) {
+        _newArrowCheck(this, _this2);
+
+        return frame.toString();
+      }.bind(this)).join(STACK_NEWLINE))
+    }
+  });
+};
+/**
+ * Captures the other stacks and converts them to an array of Stackframes.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {!Error} err - The Error object to be parsed.
+ * @param {string} name - The name of the constructor.
+ * @returns {boolean} True if the Error object was parsed, otherwise false.
+ */
+
+
+var errParse = function errParse(context, err, name) {
+  var _this3 = this;
+
+  var frames;
+
+  try {
+    frames = parse(err);
+  } catch (ignore) {
+    return false;
+  }
+
+  var start = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
+    _newArrowCheck(this, _this3);
+
+    var fName = typeof frame.functionName === 'string' ? frame.functionName : EMPTY_STRING;
+    return fName.indexOf(name) > -1;
+  }.bind(this));
+
+  if (start > -1) {
+    var item = frames[start];
+    frames = frames.slice(start + 1);
+    var end = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
+      _newArrowCheck(this, _this3);
+
+      return item.source === frame.source;
+    }.bind(this));
+
+    if (end > -1) {
+      frames = frames.slice(0, end);
+    }
+  }
+
+  defContext(context, frames, name);
+  return true;
+};
+/**
+ * The main function for capturing and parsing stacks and setting properties
+ * on Custom Error.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {string} name - The name of the constructor.
+ */
+
+
+var parseStack = function parseStack(context, name) {
+  if (cV8) {
+    defContext(context, cV8(context), name);
+  } else {
+    /** @type {Error} */
+    var err;
+
+    try {
+      // Error must be thrown to get stack in IE
+      // noinspection ExceptionCaughtLocallyJS,JSValidateTypes
+      throw $Error();
+    } catch (e) {
+      err = e;
+    }
+
+    if (errParse(context, err, name) === false) {
+      var stack = EMPTY_STRING; // If `Error` has a non-standard `stack`, `stacktrace` or
+      // `opera#sourceloc` property that offers a trace of which functions
+      // were called, in what order, from which line and  file, and with what
+      // argument, then we will set it.
+
+      if (typeof err.stack !== 'undefined') {
+        /* eslint-disable-next-line prefer-destructuring */
+        stack = err.stack;
+      } else {
+        // noinspection JSUnresolvedVariable
+        if (
+        /* eslint-disable-line no-lonely-if */
+        typeof err.stacktrace !== 'undefined') {
+          // noinspection JSUnresolvedVariable
+          stack = err.stacktrace;
+        } else {
+          var sourceloc = err['opera#sourceloc'];
+
+          if (typeof sourceloc !== 'undefined') {
+            stack = sourceloc;
+          }
+        }
+      }
+
+      Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
+        frames: {
+          value: []
+        },
+        stack: {
+          value: stack
+        }
+      });
+    }
+  }
+};
+/**
+ * Test whether we have a valid Error constructor.
+ *
+ * @private
+ * @param {*} ErrorCtr - Constructor to test it creates an Error.
+ * @returns {boolean} True if ErrorCtr creates an Error, otherwise false.
+ */
+
+
+var isErrorCtr = function isErrorCtr(ErrorCtr) {
+  if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(ErrorCtr)) {
+    try {
+      return isError(new ErrorCtr({}));
+    } catch (ignore) {// empty
+    }
+  }
+
+  return false;
+};
+/**
+ * Detect whether we are creating an 'AssertionError' constructor.
+ *
+ * @private
+ * @param {string} name - Name to test if it is 'AssertionError'.
+ * @param {OfErrorConstructor} ErrorCtr - Constructor to test it creates ASSERTION$Error.
+ * @returns {boolean} True if either arguments asserts, otherwise false.
+ */
+
+
+var asAssertionError = function asAssertionError(name, ErrorCtr) {
+  if (name === 'AssertionError') {
+    return true;
+  }
+
+  if (isErrorCtr(ErrorCtr)) {
+    var err = new ErrorCtr({
+      actual: 'b',
+      expected: 'c',
+      message: 'a',
+      operator: 'd'
+    });
+    return typeof err.name === 'string' && err.message === 'a' && err.actual === 'b' && err.expected === 'c' && err.operator === 'd';
+  }
+
+  return false;
+};
+
+var MAX_MSG_LENGTH = 128;
+/**
+ * Message generator for AssertionError.
+ *
+ * @private
+ * @param {!object} message - The message object.
+ * @returns {string} The generated message.
+ */
+
+var getMessage = function getMessage(message) {
+  var opts = {
+    length: message.length ? Object(to_length_x__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(message.length) : MAX_MSG_LENGTH,
+    omission: message.omission ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message.omission) : EMPTY_STRING,
+    separator: message.separator ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message.separator) : EMPTY_STRING
+  };
+  return "".concat(Object(truncate_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(Object(inspect_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(message.actual), opts), " ").concat(message.operator, " ").concat(Object(truncate_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(Object(inspect_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(message.expected), opts));
+};
+/**
+ * The toJSON method returns an object representation of the Error object.
+ *
+ * @private
+ * @this {!Object} A custom error instance.
+ * @returns {object} An object representation.
+ */
+
+
+var toJSON = function toJSON() {
+  return {
+    frames: this.frames,
+    message: this.message,
+    name: this.name,
+    stack: this.stack
+  };
+};
+/**
+ * Initialise a new instance of a custom error.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {object} message - Human-readable description of the error.
+ * @param {string} name - The name for the custom Error.
+ * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
+ */
+
+
+var init = function init(context, message, name, ErrorCtr) {
+  if (asAssertionError(name, ErrorCtr)) {
+    var code = 'ERR_ASSERTION';
+    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
+      actual: {
+        value: message.actual
+      },
+      code: {
+        value: code
+      },
+      expected: {
+        value: message.expected
+      },
+      generatedMessage: {
+        value: castBoolean(message.message) === false
+      },
+      message: {
+        value: message.message || getMessage(message)
+      },
+      name: {
+        get: function get() {
+          return "".concat(this.constructor.name, " [").concat(code, "]");
+        }
+      },
+      operator: {
+        value: message.operator
+      }
+    });
+  } else if (typeof message !== 'undefined') {
+    // Standard Errors. Only set `this.message` if the argument `message`
+    // was not `undefined`.
+    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
+      message: {
+        value: Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message)
+      }
+    });
+  } // Parse and set the 'this' properties.
+
+
+  parseStack(context, name);
+}; // `init` is used in `eval`, don't delete.
+
+
+init({}, 'message', 'name', $Error);
+var CUSTOM_NAME = 'CustomError';
+/**
+ * Creates a custom Error constructor. Will use `Error` if argument is not
+ * a valid constructor.
+ *
+ * @function
+ * @param {string} [name='Error'] - The name for the custom Error.
+ * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
+ * @returns {Function} The custom Error constructor.
+ */
+
+var createErrorCtr = function createErrorCtr(name, ErrorCtr) {
+  var ECTR = allCtrs === false || isErrorCtr(ErrorCtr) === false ? $Error : ErrorCtr;
+  var initialName = Object(is_nil_x__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(name) ? CUSTOM_NAME : Object(trim_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(name));
+  var customName = initialName === CUSTOM_NAME || Object(is_var_name__WEBPACK_IMPORTED_MODULE_19__[/* default */ "a"])(initialName) ? initialName : CUSTOM_NAME;
+  /**
+   * Create a new object, that prototypically inherits from the `Error`
+   * constructor.
+   *
+   * @private
+   * @class CstmCtr
+   * @param {string} [message] - Human-readable description of the error.
+   */
+
+  var CstmCtr; // noinspection JSUnusedLocalSymbols
+
+  var f =
+  /* eslint-disable-line no-unused-vars */
+  function _f(context, message) {
+    var isInstCtr = context instanceof CstmCtr;
+
+    if (isInstCtr === false) {
+      return new CstmCtr(message);
+    }
+
+    init(context, message, customName, ErrorCtr);
+    return context;
+  };
+  /* eslint-disable-next-line no-eval */
+
+
+  CstmCtr = eval("(0,function ".concat(customName, "(message){return f(this,message)})")); // Inherit the prototype methods from `ECTR`.
+
+  CstmCtr.prototype = Object(object_create_x__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"])(ECTR.prototype); // noinspection JSValidateTypes
+
+  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(CstmCtr.prototype,
+  /** @lends CstmCtr.prototype */
+  {
+    /**
+     * Specifies the function that created an instance's prototype.
+     *
+     * @class
+     */
+    constructor: {
+      value: CstmCtr
+    },
+
+    /**
+     * The name property represents a name for the type of error.
+     *
+     * @default 'Error'
+     * @type {string}
+     */
+    name: {
+      value: customName
+    },
+
+    /**
+     * The toJSON method returns a string representation of the Error object.
+     *
+     * @returns {string} A JSON stringified representation.
+     */
+    toJSON: {
+      value: toJSON
+    }
+  });
+
+  if ($toStringTag) {
+    /**
+     * Name Symbol.toStringTag.
+     *
+     * @memberof CstmCtr.prototype
+     * @type {string}
+     */
+    Object(object_define_property_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CstmCtr.prototype, $toStringTag, {
+      value: '[object Error]'
+    });
+  }
+
+  return CstmCtr;
+};
+
+var create = createErrorCtr; // Test if we can use more than just the Error constructor.
+
+try {
+  allCtrs = createErrorCtr('X', SyntaxError)('x') instanceof SyntaxError;
+} catch (ignore) {
+  allCtrs = false;
+}
+/**
+ * Error constructor for test and validation frameworks that implement the
+ * standardized AssertionError specification.
+ *
+ * @class
+ * @param {object} [message] - Need to document the properties.
+ */
+
+
+var AssertionErrorConstructor = createErrorCtr('AssertionError', Error);
+/**
+ * The Error constructor creates an error object.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var ErrorConstructor = createErrorCtr('Error', Error);
+/**
+ * Creates an instance representing an error that occurs regarding the
+ * global function eval().
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var EvalErrorConstructor = createErrorCtr('EvalError', EvalError); // noinspection JSUnusedGlobalSymbols
+
+/**
+ * The InternalError object indicates an error that occurred internally in
+ * the JavaScript engine. For example: "InternalError: too much recursion".
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var InternalErrorConstructor = createErrorCtr('InternalError', Error);
+/**
+ * Creates an instance representing an error that occurs when a numeric
+ * variable or parameter is outside of its valid range.
+ *
+ * @class
+ * @param {string} - - [message] Human-readable description of the error.
+ */
+
+var RangeErrorConstructor = createErrorCtr('RangeError', RangeError);
+/**
+ * Creates an instance representing an error that occurs when de-referencing
+ * an invalid reference.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var ReferenceErrorConstructor = createErrorCtr('ReferenceError', ReferenceError); // noinspection JSUnusedGlobalSymbols
+
+/**
+ * Indicates if the Javascript engine supports subclassing of all Error
+ * types. If `true` then all are supported, if `false` (only very old
+ * browsers IE6) then only `Error` is supported.
+ *
+ * @type boolean
+ * */
+
+var supportsAllConstructors = allCtrs;
+/**
+ * Creates an instance representing a syntax error that occurs while parsing
+ * code in eval().
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var SyntaxErrorConstructor = createErrorCtr('SyntaxError', SyntaxError);
+/**
+ * Creates an instance representing an error that occurs when a variable or
+ * parameter is not of a valid type.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var TypeErrorConstructor = createErrorCtr('TypeError', TypeError);
+/**
+ * Creates an instance representing an error that occurs when encodeURI() or
+ * decodeURI() are passed invalid parameters.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var URIErrorConstructor = createErrorCtr('URIError', URIError);
+
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(52);
@@ -8384,7 +9036,7 @@ var isArrayLike = function isArrayLike(value) {
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8552,7 +9204,7 @@ var assign = $assign;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 var g;
@@ -8578,7 +9230,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8623,7 +9275,7 @@ var normalizeSpace2018 = function normalizeSpace2018(string) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8653,7 +9305,7 @@ var replaceComments = function replaceComments(string, replacement) {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8837,7 +9489,7 @@ var arrayForEach = $forEach;
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8879,7 +9531,7 @@ var trimLeft2018 = function trimLeft2018(string) {
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! JSON v3.3.2 | https://bestiejs.github.io/json3 | Copyright 2012-2015, Kit Cambridge, Benjamin Tan | http://kit.mit-license.org */
@@ -9822,10 +10474,10 @@ var trimLeft2018 = function trimLeft2018(string) {
   }
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(119)(module), __webpack_require__(60)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(119)(module), __webpack_require__(61)))
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10007,7 +10659,7 @@ var toPrimitive = function toPrimitive(input, preferredType) {
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10021,7 +10673,7 @@ var toPrimitive = function toPrimitive(input, preferredType) {
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10077,649 +10729,6 @@ var clamp = function clamp(value) {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (clamp);
-
-
-
-/***/ }),
-/* 69 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export isError */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return create; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssertionErrorConstructor; });
-/* unused harmony export ErrorConstructor */
-/* unused harmony export EvalErrorConstructor */
-/* unused harmony export InternalErrorConstructor */
-/* unused harmony export RangeErrorConstructor */
-/* unused harmony export ReferenceErrorConstructor */
-/* unused harmony export supportsAllConstructors */
-/* unused harmony export SyntaxErrorConstructor */
-/* unused harmony export TypeErrorConstructor */
-/* unused harmony export URIErrorConstructor */
-/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(29);
-/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(53);
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(20);
-/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(88);
-/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(stackframe__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(105);
-/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(error_stack_parser__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
-/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
-/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(55);
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2);
-/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(41);
-/* harmony import */ var truncate_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(90);
-/* harmony import */ var is_error_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(48);
-/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(14);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(4);
-/* harmony import */ var object_create_x__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(73);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(5);
-/* harmony import */ var array_map_x__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(38);
-/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(21);
-/* harmony import */ var is_finite_x__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(40);
-/* harmony import */ var is_var_name__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(109);
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-/*
- * Want to create your own Error objects, this module will allow you to do
- * just that. It ships with all the standard Error objects already created
- * for you. Why? Well, these offer some improvements over the native versions.
- * - They have a `toJSON` method and so they can be serialised.
- * - They have a standardised `stack` property, using
- * [`error-stack-parser`](https://github.com/stacktracejs/error-stack-parser)
- * messages and stacks are parsed and then re-formatted.
- * - They have a `frames` property which is an array of the parsed `stack`
- * message, so you have easy access to the information.
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var isError = is_error_x__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"];
-var parse = error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default.a.parse;
-/**
- * @typedef {ErrorConstructor|TypeErrorConstructor|SyntaxErrorConstructor|URIErrorConstructor|ReferenceErrorConstructor|EvalErrorConstructor|RangeErrorConstructor} OfErrorConstructor
- */
-
-var EMPTY_STRING = '';
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
-/* eslint-disable-next-line compat/compat */
-
-var $toStringTag = has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.toStringTag;
-/** @type {ErrorConstructor} */
-
-var $Error = Error; // Capture the function (if any).
-
-var captureStackTrace = $Error.captureStackTrace,
-    prepareStackTrace = $Error.prepareStackTrace;
-/**
- * Tests for number as specified in StackTrace library.
- *
- * @private
- * @param {*} n - The value to test.
- * @returns {boolean} True if parsable, otherwise false.
- */
-
-var isNumber = function isNumber(n) {
-  return Object(is_nan_x__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"])(parseFloat(n)) === false && Object(is_finite_x__WEBPACK_IMPORTED_MODULE_18__[/* default */ "a"])(n);
-};
-
-var cV8 = castBoolean(captureStackTrace) && function getCV8() {
-  // Test to see if the function works.
-  try {
-    captureStackTrace(new $Error(), captureStackTrace);
-  } catch (ignore) {
-    return false;
-  }
-  /**
-   * Captures the V8 stack and converts it to an array of Stackframes.
-   *
-   * @private
-   * @function captureV8
-   * @param {!object} context - The Custom Error this object.
-   * @returns {!Array.<!object>} Array of StackFrames.
-   */
-
-
-  return function captureV8(context) {
-    var _this = this;
-
-    /**
-     * The stack preparation function for the V8 stack.
-     *
-     * @private
-     * @param {*} ignore - Unused argument.
-     * @param {!object} thisStack - The V8 stack.
-     * @returns {!object} The V8 stack.
-     */
-    $Error.prepareStackTrace = function _prepareStackTrace(ignore, thisStack) {
-      return thisStack;
-    };
-    /** @type {object} */
-
-
-    var error = new $Error();
-    captureStackTrace(error, context.constructor);
-    var frames = Object(array_map_x__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"])(error.stack, function (frame) {
-      _newArrowCheck(this, _this);
-
-      var opts = {
-        // args: void 0,
-        functionName: frame.getFunctionName(),
-        isConstructor: frame.isConstructor(),
-        isEval: frame.isEval(),
-        isNative: frame.isNative(),
-        isToplevel: frame.isToplevel(),
-        source: frame.toString()
-      };
-      var getFileName = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getFileName) && frame.getFileName();
-
-      if (getFileName) {
-        opts.getFileName = getFileName;
-      }
-
-      var columnNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getColumnNumber) && frame.getColumnNumber();
-
-      if (isNumber(columnNumber)) {
-        opts.columnNumber = columnNumber;
-      }
-
-      var lineNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getLineNumber) && frame.getLineNumber();
-
-      if (isNumber(lineNumber)) {
-        opts.lineNumber = lineNumber;
-      }
-
-      var evalOrigin = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getEvalOrigin) && frame.getEvalOrigin();
-
-      if (Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_15__[/* default */ "a"])(evalOrigin)) {
-        opts.evalOrigin = evalOrigin;
-      }
-
-      return new stackframe__WEBPACK_IMPORTED_MODULE_3___default.a(opts);
-    }.bind(this));
-
-    if (typeof prepareStackTrace === 'undefined') {
-      delete $Error.prepareStackTrace;
-    } else {
-      $Error.prepareStackTrace = prepareStackTrace;
-    }
-
-    return frames;
-  };
-}();
-
-var allCtrs = true;
-var STACK_NEWLINE = '\n    ';
-/**
- * Defines frames and stack on the Custom Error this object.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {!Array.<!object>} frames - Array of StackFrames.
- * @param {string} name - The name of the constructor.
- */
-
-var defContext = function defContext(context, frames, name) {
-  var _this2 = this;
-
-  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-    frames: {
-      value: frames
-    },
-    stack: {
-      value: "".concat(name).concat(STACK_NEWLINE).concat(Object(array_map_x__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"])(frames, function (frame) {
-        _newArrowCheck(this, _this2);
-
-        return frame.toString();
-      }.bind(this)).join(STACK_NEWLINE))
-    }
-  });
-};
-/**
- * Captures the other stacks and converts them to an array of Stackframes.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {!Error} err - The Error object to be parsed.
- * @param {string} name - The name of the constructor.
- * @returns {boolean} True if the Error object was parsed, otherwise false.
- */
-
-
-var errParse = function errParse(context, err, name) {
-  var _this3 = this;
-
-  var frames;
-
-  try {
-    frames = parse(err);
-  } catch (ignore) {
-    return false;
-  }
-
-  var start = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
-    _newArrowCheck(this, _this3);
-
-    var fName = typeof frame.functionName === 'string' ? frame.functionName : EMPTY_STRING;
-    return fName.indexOf(name) > -1;
-  }.bind(this));
-
-  if (start > -1) {
-    var item = frames[start];
-    frames = frames.slice(start + 1);
-    var end = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
-      _newArrowCheck(this, _this3);
-
-      return item.source === frame.source;
-    }.bind(this));
-
-    if (end > -1) {
-      frames = frames.slice(0, end);
-    }
-  }
-
-  defContext(context, frames, name);
-  return true;
-};
-/**
- * The main function for capturing and parsing stacks and setting properties
- * on Custom Error.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {string} name - The name of the constructor.
- */
-
-
-var parseStack = function parseStack(context, name) {
-  if (cV8) {
-    defContext(context, cV8(context), name);
-  } else {
-    /** @type {Error} */
-    var err;
-
-    try {
-      // Error must be thrown to get stack in IE
-      // noinspection ExceptionCaughtLocallyJS,JSValidateTypes
-      throw $Error();
-    } catch (e) {
-      err = e;
-    }
-
-    if (errParse(context, err, name) === false) {
-      var stack = EMPTY_STRING; // If `Error` has a non-standard `stack`, `stacktrace` or
-      // `opera#sourceloc` property that offers a trace of which functions
-      // were called, in what order, from which line and  file, and with what
-      // argument, then we will set it.
-
-      if (typeof err.stack !== 'undefined') {
-        /* eslint-disable-next-line prefer-destructuring */
-        stack = err.stack;
-      } else {
-        // noinspection JSUnresolvedVariable
-        if (
-        /* eslint-disable-line no-lonely-if */
-        typeof err.stacktrace !== 'undefined') {
-          // noinspection JSUnresolvedVariable
-          stack = err.stacktrace;
-        } else {
-          var sourceloc = err['opera#sourceloc'];
-
-          if (typeof sourceloc !== 'undefined') {
-            stack = sourceloc;
-          }
-        }
-      }
-
-      Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-        frames: {
-          value: []
-        },
-        stack: {
-          value: stack
-        }
-      });
-    }
-  }
-};
-/**
- * Test whether we have a valid Error constructor.
- *
- * @private
- * @param {*} ErrorCtr - Constructor to test it creates an Error.
- * @returns {boolean} True if ErrorCtr creates an Error, otherwise false.
- */
-
-
-var isErrorCtr = function isErrorCtr(ErrorCtr) {
-  if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(ErrorCtr)) {
-    try {
-      return isError(new ErrorCtr({}));
-    } catch (ignore) {// empty
-    }
-  }
-
-  return false;
-};
-/**
- * Detect whether we are creating an 'AssertionError' constructor.
- *
- * @private
- * @param {string} name - Name to test if it is 'AssertionError'.
- * @param {OfErrorConstructor} ErrorCtr - Constructor to test it creates ASSERTION$Error.
- * @returns {boolean} True if either arguments asserts, otherwise false.
- */
-
-
-var asAssertionError = function asAssertionError(name, ErrorCtr) {
-  if (name === 'AssertionError') {
-    return true;
-  }
-
-  if (isErrorCtr(ErrorCtr)) {
-    var err = new ErrorCtr({
-      actual: 'b',
-      expected: 'c',
-      message: 'a',
-      operator: 'd'
-    });
-    return typeof err.name === 'string' && err.message === 'a' && err.actual === 'b' && err.expected === 'c' && err.operator === 'd';
-  }
-
-  return false;
-};
-
-var MAX_MSG_LENGTH = 128;
-/**
- * Message generator for AssertionError.
- *
- * @private
- * @param {!object} message - The message object.
- * @returns {string} The generated message.
- */
-
-var getMessage = function getMessage(message) {
-  var opts = {
-    length: message.length ? Object(to_length_x__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(message.length) : MAX_MSG_LENGTH,
-    omission: message.omission ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message.omission) : EMPTY_STRING,
-    separator: message.separator ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message.separator) : EMPTY_STRING
-  };
-  return "".concat(Object(truncate_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(Object(inspect_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(message.actual), opts), " ").concat(message.operator, " ").concat(Object(truncate_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(Object(inspect_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(message.expected), opts));
-};
-/**
- * The toJSON method returns an object representation of the Error object.
- *
- * @private
- * @this {!Object} A custom error instance.
- * @returns {object} An object representation.
- */
-
-
-var toJSON = function toJSON() {
-  return {
-    frames: this.frames,
-    message: this.message,
-    name: this.name,
-    stack: this.stack
-  };
-};
-/**
- * Initialise a new instance of a custom error.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {object} message - Human-readable description of the error.
- * @param {string} name - The name for the custom Error.
- * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
- */
-
-
-var init = function init(context, message, name, ErrorCtr) {
-  if (asAssertionError(name, ErrorCtr)) {
-    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-      actual: {
-        value: message.actual
-      },
-      expected: {
-        value: message.expected
-      },
-      generatedMessage: {
-        value: castBoolean(message.message) === false
-      },
-      message: {
-        value: message.message || getMessage(message)
-      },
-      operator: {
-        value: message.operator
-      }
-    });
-  } else if (typeof message !== 'undefined') {
-    // Standard Errors. Only set `this.message` if the argument `message`
-    // was not `undefined`.
-    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-      message: {
-        value: Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message)
-      }
-    });
-  } // Parse and set the 'this' properties.
-
-
-  parseStack(context, name);
-}; // `init` is used in `eval`, don't delete.
-
-
-init({}, 'message', 'name', $Error);
-var CUSTOM_NAME = 'CustomError';
-/**
- * Creates a custom Error constructor. Will use `Error` if argument is not
- * a valid constructor.
- *
- * @function
- * @param {string} [name='Error'] - The name for the custom Error.
- * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
- * @returns {Function} The custom Error constructor.
- */
-
-var createErrorCtr = function createErrorCtr(name, ErrorCtr) {
-  var ECTR = allCtrs === false || isErrorCtr(ErrorCtr) === false ? $Error : ErrorCtr;
-  var initialName = Object(is_nil_x__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(name) ? CUSTOM_NAME : Object(trim_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(name));
-  var customName = initialName === CUSTOM_NAME || Object(is_var_name__WEBPACK_IMPORTED_MODULE_19__[/* default */ "a"])(initialName) ? initialName : CUSTOM_NAME;
-  /**
-   * Create a new object, that prototypally inherits from the `Error`
-   * constructor.
-   *
-   * @private
-   * @class CstmCtr
-   * @param {string} [message] - Human-readable description of the error.
-   */
-
-  var CstmCtr; // noinspection JSUnusedLocalSymbols
-
-  var f =
-  /* eslint-disable-line no-unused-vars */
-  function _f(context, message) {
-    var isInstCtr = context instanceof CstmCtr;
-
-    if (isInstCtr === false) {
-      return new CstmCtr(message);
-    }
-
-    init(context, message, customName, ErrorCtr);
-    return context;
-  };
-  /* eslint-disable-next-line no-eval */
-
-
-  CstmCtr = eval("(0,function ".concat(customName, "(message){return f(this,message)})")); // Inherit the prototype methods from `ECTR`.
-
-  CstmCtr.prototype = Object(object_create_x__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"])(ECTR.prototype); // noinspection JSValidateTypes
-
-  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(CstmCtr.prototype,
-  /** @lends CstmCtr.prototype */
-  {
-    /**
-     * Specifies the function that created an instance's prototype.
-     *
-     * @class
-     */
-    constructor: {
-      value: CstmCtr
-    },
-
-    /**
-     * The name property represents a name for the type of error.
-     *
-     * @default 'Error'
-     * @type {string}
-     */
-    name: {
-      value: customName
-    },
-
-    /**
-     * The toJSON method returns a string representation of the Error object.
-     *
-     * @returns {string} A JSON stringified representation.
-     */
-    toJSON: {
-      value: toJSON
-    }
-  });
-
-  if ($toStringTag) {
-    /**
-     * Name Symbol.toStringTag.
-     *
-     * @memberof CstmCtr.prototype
-     * @type {string}
-     */
-    Object(object_define_property_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CstmCtr.prototype, $toStringTag, {
-      value: '[object Error]'
-    });
-  }
-
-  return CstmCtr;
-};
-
-var create = createErrorCtr; // Test if we can use more than just the Error constructor.
-
-try {
-  allCtrs = createErrorCtr('X', SyntaxError)('x') instanceof SyntaxError;
-} catch (ignore) {
-  allCtrs = false;
-}
-/**
- * Error constructor for test and validation frameworks that implement the
- * standardized AssertionError specification.
- *
- * @class
- * @param {object} [message] - Need to document the properties.
- */
-
-
-var AssertionErrorConstructor = createErrorCtr('AssertionError', Error);
-/**
- * The Error constructor creates an error object.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var ErrorConstructor = createErrorCtr('Error', Error);
-/**
- * Creates an instance representing an error that occurs regarding the
- * global function eval().
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var EvalErrorConstructor = createErrorCtr('EvalError', EvalError); // noinspection JSUnusedGlobalSymbols
-
-/**
- * The InternalError object indicates an error that occurred internally in
- * the JavaScript engine. For example: "InternalError: too much recursion".
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var InternalErrorConstructor = createErrorCtr('InternalError', Error);
-/**
- * Creates an instance representing an error that occurs when a numeric
- * variable or parameter is outside of its valid range.
- *
- * @class
- * @param {string} - - [message] Human-readable description of the error.
- */
-
-var RangeErrorConstructor = createErrorCtr('RangeError', RangeError);
-/**
- * Creates an instance representing an error that occurs when de-referencing
- * an invalid reference.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var ReferenceErrorConstructor = createErrorCtr('ReferenceError', ReferenceError); // noinspection JSUnusedGlobalSymbols
-
-/**
- * Indicates if the Javascript engine supports subclassing of all Error
- * types. If `true` then all are supported, if `false` (only very old
- * browsers IE6) then only `Error` is supported.
- *
- * @type boolean
- * */
-
-var supportsAllConstructors = allCtrs;
-/**
- * Creates an instance representing a syntax error that occurs while parsing
- * code in eval().
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var SyntaxErrorConstructor = createErrorCtr('SyntaxError', SyntaxError);
-/**
- * Creates an instance representing an error that occurs when a variable or
- * parameter is not of a valid type.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var TypeErrorConstructor = createErrorCtr('TypeError', TypeError);
-/**
- * Creates an instance representing an error that occurs when encodeURI() or
- * decodeURI() are passed invalid parameters.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var URIErrorConstructor = createErrorCtr('URIError', URIError);
 
 
 
@@ -10803,7 +10812,7 @@ var sameValueZero = function sameValueZero(x, y) {
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(25);
-/* harmony import */ var is_array_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(58);
+/* harmony import */ var is_array_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(59);
 
 
 
@@ -11259,7 +11268,7 @@ module.exports = supportsStandardArguments ? isStandardArguments : isLegacyArgum
 /* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
 /* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
 /* harmony import */ var to_number_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
-/* harmony import */ var math_clamp_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(68);
+/* harmony import */ var math_clamp_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(69);
 
 
 
@@ -11403,7 +11412,7 @@ module.exports = function isTypedArray(value) {
 	return tryTypedArrays(value);
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(60)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(61)))
 
 /***/ }),
 /* 82 */
@@ -11749,7 +11758,7 @@ module.exports = function whichTypedArray(value) {
 	return tryTypedArrays(value);
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(60)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(61)))
 
 /***/ }),
 /* 85 */
@@ -11762,7 +11771,7 @@ module.exports = function whichTypedArray(value) {
 /* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(44);
 /* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 /* harmony import */ var parse_int_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(57);
-/* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(65);
+/* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(66);
 /* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(json3__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var collections_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(28);
 /* harmony import */ var array_filter_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(23);
@@ -12040,7 +12049,7 @@ var format = function format() {
 };
 
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(60)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(61)))
 
 /***/ }),
 /* 86 */
@@ -12847,7 +12856,7 @@ module.exports = function includes(searchElement) {
 	return false;
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(60)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(61)))
 
 /***/ }),
 /* 104 */
@@ -13239,7 +13248,7 @@ module.exports = boundIncludesShim;
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/error-x/dist/error-x.esm.js
-var error_x_esm = __webpack_require__(69);
+var error_x_esm = __webpack_require__(58);
 
 // EXTERNAL MODULE: ./node_modules/is-regexp-x/dist/is-regexp-x.esm.js
 var is_regexp_x_esm = __webpack_require__(31);
@@ -14106,7 +14115,7 @@ function isDeepStrictEqual(val1, val2) {
 
 
 // EXTERNAL MODULE: ./node_modules/object-assign-x/dist/object-assign-x.esm.js
-var object_assign_x_esm = __webpack_require__(59);
+var object_assign_x_esm = __webpack_require__(60);
 
 // CONCATENATED MODULE: ./node_modules/assert-x/dist/assert-x.esm.js
 /* unused harmony export strict */
@@ -14247,7 +14256,9 @@ var assert_x_esm_baseThrows = function baseThrows(shouldThrow, block, expected, 
 
   var wasExceptionExpected = assert_x_esm_expectedException(actual, xpd);
   clause1 = xpd && isStringType(xpd.name) && xpd.name;
-  msg = (clause1 ? " (".concat(xpd.name, ").") : '.') + (msg ? " ".concat(msg) : '.');
+  var part1 = clause1 ? " (".concat(xpd.name, ").") : '.';
+  var part2 = msg ? " ".concat(msg) : '.';
+  msg = (part1 === '.' ? '' : part1) + part2;
 
   if (shouldThrow && castBoolean(actual) === false) {
     assert_x_esm_baseFail(actual, xpd, "Missing expected exception".concat(msg), '');
@@ -14383,7 +14394,25 @@ var assertMethods = {
    * @throws {Error} Throws an `AssertionError`.
    */
   fail: {
-    value: assert_x_esm_baseFail
+    value: function fail(actual, expected, message) {
+      var operator = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '!=';
+
+      if (arguments.length < 2) {
+        if (Object(error_x_esm["c" /* isError */])(actual)) {
+          throw actual;
+        }
+        /* eslint-disable-next-line no-void */
+
+
+        assert_x_esm_baseFail(actual, void 0, arguments.length ? actual : 'Failed', 'fail');
+      } else {
+        if (Object(error_x_esm["c" /* isError */])(message)) {
+          throw message;
+        }
+
+        assert_x_esm_baseFail(actual, expected, message, operator);
+      }
+    }
   },
 
   /**
@@ -14556,7 +14585,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-/* harmony import */ var array_for_each_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(63);
+/* harmony import */ var array_for_each_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(64);
 /* harmony import */ var assert_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(112);
 /* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(41);
 /* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(6);
@@ -14568,7 +14597,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var to_iso_string_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(83);
 /* harmony import */ var array_includes__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(111);
 /* harmony import */ var array_includes__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(array_includes__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var error_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(69);
+/* harmony import */ var error_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(58);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -14786,7 +14815,7 @@ module.exports = function hasNativeSymbols() {
 	return hasSymbolSham();
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(60)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(61)))
 
 /***/ }),
 /* 115 */
