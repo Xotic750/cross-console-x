@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-22T17:45:32.836Z",
+  "date": "2019-07-22T21:34:29.197Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
-  "hash": "3f3ca4e8336df2cd9be2",
+  "hash": "313ec23df66eb4abd1fe",
   "license": "MIT",
-  "version": "4.0.8"
+  "version": "4.0.9"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -12832,11 +12832,11 @@ if (nativeEndsWith) {
 
   if (isWorking) {
     res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call('abc', nativeEndsWith, 'c', -1 / 0);
-    isWorking = res.threw === false && res.value === true;
+    isWorking = res.threw === false && res.value === false;
   }
 
   if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(123, nativeEndsWith, '1');
+    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(123, nativeEndsWith, '3');
     isWorking = res.threw === false && res.value === true;
   }
 
@@ -13558,8 +13558,7 @@ var $repeat;
 
 if (hasNative) {
   $repeat = function repeat(value, count) {
-    var result = nativeRepeat.call(Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(value), count);
-    return typeof result === 'string' ? result : EMPTY_STRING;
+    return nativeRepeat.call(Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(value), count) || EMPTY_STRING;
   };
 } else {
   $repeat = function repeat(value, count) {
