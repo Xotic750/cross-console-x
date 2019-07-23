@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-23T18:58:32.828Z",
+  "date": "2019-07-23T19:32:48.572Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
-  "hash": "21e2d11377dd37e31629",
+  "hash": "e9458bb2d20776c81e29",
   "license": "MIT",
-  "version": "4.0.12"
+  "version": "4.0.13"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -8496,7 +8496,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 var isError = is_error_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"];
 var mathMax = Math.max;
-var parse = error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default.a.parse;
 /**
  * @typedef {ErrorConstructor|TypeErrorConstructor|SyntaxErrorConstructor|URIErrorConstructor|ReferenceErrorConstructor|EvalErrorConstructor|RangeErrorConstructor} OfErrorConstructor
  */
@@ -8973,9 +8972,9 @@ var errParse = function errParse(context, err, name) {
   var frames;
 
   try {
-    frames = parse(err);
+    frames = error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default.a.parse(err);
   } catch (ignore) {
-    return [];
+    return false;
   }
 
   var start = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
