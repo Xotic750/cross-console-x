@@ -20,7 +20,7 @@ import { MapConstructor } from 'collections-x';
 import safeToString from 'to-string-symbols-supported-x';
 import objectKeys from 'object-keys-x';
 import toISOString from 'to-iso-string-x';
-import includes from 'array-includes';
+import includes from 'array-includes-x';
 import { create } from 'error-x';
 var properties = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
 var Trace = create('Trace');

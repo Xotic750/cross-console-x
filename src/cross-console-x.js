@@ -12,7 +12,7 @@ import {MapConstructor} from 'collections-x';
 import safeToString from 'to-string-symbols-supported-x';
 import objectKeys from 'object-keys-x';
 import toISOString from 'to-iso-string-x';
-import includes from 'array-includes';
+import includes from 'array-includes-x';
 import {create} from 'error-x';
 
 const properties = [
