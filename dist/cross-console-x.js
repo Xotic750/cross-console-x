@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-23T19:32:48.572Z",
+  "date": "2019-07-23T20:18:24.787Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
-  "hash": "e9458bb2d20776c81e29",
+  "hash": "26c54ca9b4022883a37b",
   "license": "MIT",
-  "version": "4.0.13"
+  "version": "4.0.14"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -120,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 114);
+/******/ 	return __webpack_require__(__webpack_require__.s = 111);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -807,7 +807,7 @@ var splitIfBoxedBug = function splitIfBoxedBug(value) {
 
 
 var toStr = Object.prototype.toString;
-var hasSymbols = __webpack_require__(115)();
+var hasSymbols = __webpack_require__(112)();
 
 if (hasSymbols) {
 	var symToStr = Symbol.prototype.toString;
@@ -2209,7 +2209,7 @@ var is_string = __webpack_require__(12);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-array-like-x/dist/is-array-like-x.esm.js
-var is_array_like_x_esm = __webpack_require__(60);
+var is_array_like_x_esm = __webpack_require__(59);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
 var is_primitive = __webpack_require__(8);
@@ -5637,7 +5637,7 @@ var libBind = $bind;
 var is_function_x_esm = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./node_modules/is-generator-function/index.js
-var is_generator_function = __webpack_require__(106);
+var is_generator_function = __webpack_require__(105);
 var is_generator_function_default = /*#__PURE__*/__webpack_require__.n(is_generator_function);
 
 // EXTERNAL MODULE: ./node_modules/to-string-tag-x/dist/to-string-tag-x.esm.js
@@ -5765,7 +5765,7 @@ var is_boolean_object = __webpack_require__(40);
 var is_boolean_object_default = /*#__PURE__*/__webpack_require__.n(is_boolean_object);
 
 // EXTERNAL MODULE: ./node_modules/object-is/index.js
-var object_is = __webpack_require__(107);
+var object_is = __webpack_require__(106);
 var object_is_default = /*#__PURE__*/__webpack_require__.n(object_is);
 
 // EXTERNAL MODULE: ./node_modules/is-symbol/index.js
@@ -5776,7 +5776,7 @@ var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
 var is_array_x_esm = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/is-nan/index.js
-var is_nan = __webpack_require__(108);
+var is_nan = __webpack_require__(107);
 var is_nan_default = /*#__PURE__*/__webpack_require__.n(is_nan);
 
 // EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
@@ -6325,7 +6325,7 @@ var inc = $includes;
 
 
 // EXTERNAL MODULE: ./node_modules/object-assign-x/dist/object-assign-x.esm.js
-var object_assign_x_esm = __webpack_require__(61);
+var object_assign_x_esm = __webpack_require__(60);
 
 // EXTERNAL MODULE: ./node_modules/to-iso-string-x/dist/to-iso-string-x.esm.js + 1 modules
 var to_iso_string_x_esm = __webpack_require__(83);
@@ -8425,1049 +8425,6 @@ var parseInt2018 = function parseInt2018(string, radix) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return isError; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return create; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssertionErrorConstructor; });
-/* unused harmony export ErrorConstructor */
-/* unused harmony export EvalErrorConstructor */
-/* unused harmony export InternalErrorConstructor */
-/* unused harmony export RangeErrorConstructor */
-/* unused harmony export ReferenceErrorConstructor */
-/* unused harmony export supportsAllConstructors */
-/* unused harmony export SyntaxErrorConstructor */
-/* unused harmony export TypeErrorConstructor */
-/* unused harmony export URIErrorConstructor */
-/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
-/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(53);
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26);
-/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(88);
-/* harmony import */ var stackframe__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(stackframe__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(105);
-/* harmony import */ var error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(error_stack_parser__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
-/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
-/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(56);
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2);
-/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(48);
-/* harmony import */ var is_error_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(47);
-/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(15);
-/* harmony import */ var object_create_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(73);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(5);
-/* harmony import */ var array_map_x__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(39);
-/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(19);
-/* harmony import */ var is_finite_x__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(33);
-/* harmony import */ var is_var_name__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(109);
-/* harmony import */ var string_repeat_x__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(110);
-/* harmony import */ var string_ends_with_x__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(90);
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-/*
- * Want to create your own Error objects, this module will allow you to do
- * just that. It ships with all the standard Error objects already created
- * for you. Why? Well, these offer some improvements over the native versions.
- * - They have a `toJSON` method and so they can be serialised.
- * - They have a standardised `stack` property, using
- * [`error-stack-parser`](https://github.com/stacktracejs/error-stack-parser)
- * messages and stacks are parsed and then re-formatted.
- * - They have a `frames` property which is an array of the parsed `stack`
- * message, so you have easy access to the information.
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var isError = is_error_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"];
-var mathMax = Math.max;
-/**
- * @typedef {ErrorConstructor|TypeErrorConstructor|SyntaxErrorConstructor|URIErrorConstructor|ReferenceErrorConstructor|EvalErrorConstructor|RangeErrorConstructor} OfErrorConstructor
- */
-
-var EMPTY_STRING = '';
-var stringSplit = EMPTY_STRING.split,
-    stringIndexOf = EMPTY_STRING.indexOf,
-    stringSlice = EMPTY_STRING.slice;
-var _ref = [],
-    pop = _ref.pop,
-    join = _ref.join,
-    arraySlice = _ref.slice;
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
-/* eslint-disable-next-line compat/compat */
-
-var $toStringTag = has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.toStringTag;
-/** @type {ErrorConstructor} */
-
-var $Error = Error; // Capture the function (if any).
-
-var captureStackTrace = $Error.captureStackTrace,
-    prepareStackTrace = $Error.prepareStackTrace;
-var kReadableOperator = {
-  deepStrictEqual: 'Expected values to be strictly deep-equal:',
-  strictEqual: 'Expected values to be strictly equal:',
-  strictEqualObject: 'Expected "actual" to be reference-equal to "expected":',
-  deepEqual: 'Expected values to be loosely deep-equal:',
-  notDeepStrictEqual: 'Expected "actual" not to be strictly deep-equal to:',
-  notStrictEqual: 'Expected "actual" to be strictly unequal to:',
-  notStrictEqualObject: 'Expected "actual" not to be reference-equal to "expected":',
-  notDeepEqual: 'Expected "actual" not to be loosely deep-equal to:',
-  notIdentical: 'Values identical but not reference-equal:',
-  notDeepEqualUnequal: 'Expected values not to be loosely deep-equal:'
-};
-/* Comparing short primitives should just show === / !== instead of using the diff. */
-
-var kMaxShortLength = 12;
-
-function inspectValue(val) {
-  /*
-   *The util.inspect default values could be changed. This makes sure the
-   * error messages contain the necessary information nevertheless.
-   */
-  return Object(inspect_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(val, {
-    compact: false,
-    customInspect: false,
-    depth: 1000,
-    maxArrayLength: Infinity,
-
-    /* Assert compares only enumerable properties (with a few exceptions). */
-    showHidden: false,
-
-    /* Assert does not detect proxies currently. */
-    showProxy: false,
-    sorted: true,
-
-    /* Inspect getters as we also check them when comparing entries. */
-    getters: true
-  });
-}
-
-function createErrDiff(actual, expected, $operator) {
-  var operator = $operator;
-  var other = EMPTY_STRING;
-  var res = EMPTY_STRING;
-  var end = EMPTY_STRING;
-  var skipped = false;
-  var actualInspected = inspectValue(actual);
-  var actualLines = stringSplit.call(actualInspected, '\n');
-  var expectedLines = stringSplit.call(inspectValue(expected), '\n');
-  var i = 0;
-  var indicator = EMPTY_STRING;
-  /*
-   * In case both values are objects or functions explicitly mark them as not
-   * reference equal for the `strictEqual` operator.
-   */
-
-  if (operator === 'strictEqual' && (_typeof(actual) === 'object' && actual !== null && _typeof(expected) === 'object' && expected !== null || typeof actual === 'function' && typeof expected === 'function')) {
-    operator = 'strictEqualObject';
-  }
-  /*
-   * If "actual" and "expected" fit on a single line and they are not strictly
-   * equal, check further special handling.
-   */
-
-
-  if (actualLines.length === 1 && expectedLines.length === 1 && actualLines[0] !== expectedLines[0]) {
-    var inputLength = actualLines[0].length + expectedLines[0].length;
-    /*
-     * If the character length of "actual" and "expected" together is less than
-     * kMaxShortLength and if neither is an object and at least one of them is
-     *not `zero`, use the strict equal comparison to visualize the output.
-     */
-
-    if (inputLength <= kMaxShortLength) {
-      if ((_typeof(actual) !== 'object' || actual === null) && (_typeof(expected) !== 'object' || expected === null) && (actual !== 0 || expected !== 0)) {
-        /* -0 === +0 */
-        return "".concat(kReadableOperator[operator], "\n\n").concat(actualLines[0], " !== ").concat(expectedLines[0], "\n");
-      }
-    } else if (operator !== 'strictEqualObject') {
-      /*
-       * If the stderr is a tty and the input length is lower than the current
-       * columns per line, add a mismatch indicator below the output. If it is
-       * not a tty, use a default value of 80 characters.
-       */
-      var _maxLength = 80;
-
-      if (inputLength < _maxLength) {
-        while (actualLines[0][i] === expectedLines[0][i]) {
-          i += 1;
-        }
-        /* Ignore the first characters. */
-
-
-        if (i > 2) {
-          /*
-           * Add position indicator for the first mismatch in case it is a
-           * single line and the input length is less than the column length.
-           */
-          indicator = "\n  ".concat(Object(string_repeat_x__WEBPACK_IMPORTED_MODULE_18__[/* default */ "a"])(' ', i), "^");
-          i = 0;
-        }
-      }
-    }
-  }
-  /*
-   * Remove all ending lines that match (this optimizes the output for
-   * readability by reducing the number of total changed lines).
-   */
-
-
-  var a = actualLines[actualLines.length - 1];
-  var b = expectedLines[expectedLines.length - 1];
-
-  while (a === b) {
-    if (i < 3) {
-      end = "\n  ".concat(a).concat(end);
-    } else {
-      other = a;
-    }
-
-    i += 1;
-    pop.call(actualLines);
-    pop.call(expectedLines);
-
-    if (actualLines.length === 0 || expectedLines.length === 0) {
-      break;
-    }
-
-    a = actualLines[actualLines.length - 1];
-    b = expectedLines[expectedLines.length - 1];
-  }
-
-  var maxLines = mathMax(actualLines.length, expectedLines.length);
-  /*
-   * Strict equal with identical objects that are not identical by reference.
-   * E.g., assert.deepStrictEqual({ a: Symbol() }, { a: Symbol() })
-   */
-
-  if (maxLines === 0) {
-    /* We have to get the result again. The lines were all removed before. */
-    var aLines = actualInspected.split('\n');
-    /* Only remove lines in case it makes sense to collapse those. */
-
-    /* TODO: Accept env to always show the full error. */
-
-    if (aLines.length > 50) {
-      aLines[46] = '...';
-
-      while (aLines.length > 47) {
-        pop.call(aLines);
-      }
-    }
-
-    return "".concat(kReadableOperator.notIdentical, "\n\n").concat(join.call(aLines, '\n'), "\n");
-  }
-  /* There were at least five identical lines at the end. Mark a couple of skipped. */
-
-
-  if (i >= 5) {
-    end = "\n...".concat(end);
-    skipped = true;
-  }
-
-  if (other !== EMPTY_STRING) {
-    end = "\n  ".concat(other).concat(end);
-    other = EMPTY_STRING;
-  }
-
-  var printedLines = 0;
-  var identical = 0;
-  var msg = "".concat(kReadableOperator[operator], "\n+ actual - expected");
-  var skippedMsg = ' ... Lines skipped';
-  var lines = actualLines;
-  var plusMinus = '+';
-  var maxLength = expectedLines.length;
-
-  if (actualLines.length < maxLines) {
-    lines = expectedLines;
-    plusMinus = '-';
-    maxLength = actualLines.length;
-  }
-
-  for (i = 0; i < maxLines; i += 1) {
-    if (maxLength < i + 1) {
-      /*
-       * If more than two former lines are identical, print them. Collapse them
-       * in case more than five lines were identical.
-       */
-      if (identical > 2) {
-        if (identical > 3) {
-          if (identical > 4) {
-            if (identical === 5) {
-              res += "\n  ".concat(lines[i - 3]);
-              printedLines += 1;
-            } else {
-              res += '\n...';
-              skipped = true;
-            }
-          }
-
-          res += "\n  ".concat(lines[i - 2]);
-          printedLines += 1;
-        }
-
-        res += "\n  ".concat(lines[i - 1]);
-        printedLines += 1;
-      }
-      /* No identical lines before. */
-
-
-      identical = 0;
-      /* Add the expected line to the cache. */
-
-      if (lines === actualLines) {
-        res += "\n".concat(plusMinus, " ").concat(lines[i]);
-      } else {
-        other += "\n".concat(plusMinus, " ").concat(lines[i]);
-      }
-
-      printedLines += 1;
-      /* Only extra actual lines exist */
-
-      /* Lines diverge */
-    } else {
-      var expectedLine = expectedLines[i];
-      var actualLine = actualLines[i];
-      /*
-       * If the lines diverge, specifically check for lines that only diverge by
-       * a trailing comma. In that case it is actually identical and we should
-       * mark it as such.
-       */
-
-      var divergingLines = actualLine !== expectedLine && (!Object(string_ends_with_x__WEBPACK_IMPORTED_MODULE_19__[/* default */ "a"])(actualLine, ',') || stringSlice.call(actualLine, 0, -1) !== expectedLine);
-      /*
-       * If the expected line has a trailing comma but is otherwise identical,
-       * add a comma at the end of the actual line. Otherwise the output could
-       * look weird as in:
-       *
-       * [
-       *   1         // No comma at the end!
-       * +   2
-       * ]
-       */
-
-      if (divergingLines && Object(string_ends_with_x__WEBPACK_IMPORTED_MODULE_19__[/* default */ "a"])(expectedLine, ',') && stringSlice.call(expectedLine, 0, -1) === actualLine) {
-        divergingLines = false;
-        actualLine += ',';
-      }
-
-      if (divergingLines) {
-        /*
-         * If more than two former lines are identical, print them. Collapse
-         * them in case more than five lines were identical.
-         */
-        if (identical > 2) {
-          if (identical > 3) {
-            if (identical > 4) {
-              if (identical === 5) {
-                res += "\n  ".concat(actualLines[i - 3]);
-                printedLines += 1;
-              } else {
-                res += '\n...';
-                skipped = true;
-              }
-            }
-
-            res += "\n  ".concat(actualLines[i - 2]);
-            printedLines += 1;
-          }
-
-          res += "\n  ".concat(actualLines[i - 1]);
-          printedLines += 1;
-        }
-        /* No identical lines before. */
-
-
-        identical = 0;
-        /*
-         * Add the actual line to the result and cache the expected diverging
-         * line so consecutive diverging lines show up as +++--- and not +-+-+-.
-         */
-
-        res += "\n+ ".concat(actualLine);
-        other += "\n- ".concat(expectedLine);
-        printedLines += 2;
-        /* Lines are identical */
-      } else {
-        /* Add all cached information to the result before adding other things and reset the cache. */
-        res += other;
-        other = EMPTY_STRING;
-        identical += 1;
-        /* The very first identical line since the last diverging line is be added to the result. */
-
-        if (identical <= 2) {
-          res += "\n  ".concat(actualLine);
-          printedLines += 1;
-        }
-      }
-    }
-    /* Inspected object to big (Show ~50 rows max) */
-
-
-    if (printedLines > 50 && i < maxLines - 2) {
-      return "".concat(msg).concat(skippedMsg, "\n").concat(res, "\n...").concat(other, "\n...");
-    }
-  }
-
-  return "".concat(msg).concat(skipped ? skippedMsg : EMPTY_STRING, "\n").concat(res).concat(other).concat(end).concat(indicator);
-}
-/**
- * Tests for number as specified in StackTrace library.
- *
- * @private
- * @param {*} n - The value to test.
- * @returns {boolean} True if parsable, otherwise false.
- */
-
-
-var isNumber = function isNumber(n) {
-  return Object(is_nan_x__WEBPACK_IMPORTED_MODULE_15__[/* default */ "a"])(parseFloat(n)) === false && Object(is_finite_x__WEBPACK_IMPORTED_MODULE_16__[/* default */ "a"])(n);
-};
-/**
- * The stack preparation function for the V8 stack.
- *
- * @private
- * @param {*} ignore - Unused argument.
- * @param {!object} thisStack - The V8 stack.
- * @returns {!object} The V8 stack.
- */
-
-
-var tempPrepareStackTrace = function _prepareStackTrace(ignore, thisStack) {
-  return thisStack;
-};
-
-var cV8 = castBoolean(captureStackTrace) && function getCV8() {
-  // Test to see if the function works.
-  try {
-    captureStackTrace(new $Error(), captureStackTrace);
-  } catch (ignore) {
-    return false;
-  }
-  /**
-   * Captures the V8 stack and converts it to an array of Stackframes.
-   *
-   * @private
-   * @function captureV8
-   * @param {!object} context - The Custom Error this object.
-   * @returns {!Array.<!object>} Array of StackFrames.
-   */
-
-
-  return function captureV8(context) {
-    var _this = this;
-
-    $Error.prepareStackTrace = tempPrepareStackTrace;
-    /** @type {object} */
-
-    var error = new $Error();
-    captureStackTrace(error, context.constructor);
-    var frames = Object(array_map_x__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"])(error.stack, function (frame) {
-      _newArrowCheck(this, _this);
-
-      var opts = {
-        // args: void 0,
-        functionName: frame.getFunctionName(),
-        isConstructor: frame.isConstructor(),
-        isEval: frame.isEval(),
-        isNative: frame.isNative(),
-        isToplevel: frame.isToplevel(),
-        source: frame.toString()
-      };
-      var getFileName = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getFileName) && frame.getFileName();
-
-      if (getFileName) {
-        opts.getFileName = getFileName;
-      }
-
-      var columnNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getColumnNumber) && frame.getColumnNumber();
-
-      if (isNumber(columnNumber)) {
-        opts.columnNumber = columnNumber;
-      }
-
-      var lineNumber = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getLineNumber) && frame.getLineNumber();
-
-      if (isNumber(lineNumber)) {
-        opts.lineNumber = lineNumber;
-      }
-
-      var evalOrigin = Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(frame.getEvalOrigin) && frame.getEvalOrigin();
-
-      if (Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])(evalOrigin)) {
-        opts.evalOrigin = evalOrigin;
-      }
-
-      return new stackframe__WEBPACK_IMPORTED_MODULE_3___default.a(opts);
-    }.bind(this));
-
-    if (typeof prepareStackTrace === 'undefined') {
-      delete $Error.prepareStackTrace;
-    } else {
-      $Error.prepareStackTrace = prepareStackTrace;
-    }
-
-    return frames;
-  };
-}();
-
-var allCtrs = true;
-var STACK_NEWLINE = '\n    ';
-/**
- * Defines frames and stack on the Custom Error this object.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {!Array.<!object>} frames - Array of StackFrames.
- * @param {string} name - The name of the constructor.
- */
-
-var defContext = function defContext(context, frames, name) {
-  var _this2 = this;
-
-  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-    frames: {
-      value: frames
-    },
-    stack: {
-      value: "".concat(name).concat(STACK_NEWLINE).concat(join.call(Object(array_map_x__WEBPACK_IMPORTED_MODULE_14__[/* default */ "a"])(frames, function (frame) {
-        _newArrowCheck(this, _this2);
-
-        return frame.toString();
-      }.bind(this)), STACK_NEWLINE))
-    }
-  });
-};
-/**
- * Captures the other stacks and converts them to an array of Stackframes.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {!Error} err - The Error object to be parsed.
- * @param {string} name - The name of the constructor.
- * @returns {boolean} True if the Error object was parsed, otherwise false.
- */
-
-
-var errParse = function errParse(context, err, name) {
-  var _this3 = this;
-
-  var frames;
-
-  try {
-    frames = error_stack_parser__WEBPACK_IMPORTED_MODULE_4___default.a.parse(err);
-  } catch (ignore) {
-    return false;
-  }
-
-  var start = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
-    _newArrowCheck(this, _this3);
-
-    var fName = typeof frame.functionName === 'string' ? frame.functionName : EMPTY_STRING;
-    return stringIndexOf.call(fName, name) > -1;
-  }.bind(this));
-
-  if (start > -1) {
-    var item = frames[start];
-    frames = arraySlice.call(frames, start + 1);
-    var end = Object(find_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(frames, function (frame) {
-      _newArrowCheck(this, _this3);
-
-      return item.source === frame.source;
-    }.bind(this));
-
-    if (end > -1) {
-      frames = arraySlice.call(frames, 0, end);
-    }
-  }
-
-  defContext(context, frames, name);
-  return true;
-};
-/**
- * The main function for capturing and parsing stacks and setting properties
- * on Custom Error.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {string} name - The name of the constructor.
- */
-
-
-var parseStack = function parseStack(context, name) {
-  if (cV8) {
-    defContext(context, cV8(context), name);
-  } else {
-    /** @type {Error} */
-    var err;
-
-    try {
-      // Error must be thrown to get stack in IE
-      // noinspection ExceptionCaughtLocallyJS,JSValidateTypes
-      throw $Error();
-    } catch (e) {
-      err = e;
-    }
-
-    if (errParse(context, err, name) === false) {
-      var stack = EMPTY_STRING; // If `Error` has a non-standard `stack`, `stacktrace` or
-      // `opera#sourceloc` property that offers a trace of which functions
-      // were called, in what order, from which line and  file, and with what
-      // argument, then we will set it.
-
-      if (typeof err.stack !== 'undefined') {
-        /* eslint-disable-next-line prefer-destructuring */
-        stack = err.stack;
-      } else {
-        // noinspection JSUnresolvedVariable
-        if (
-        /* eslint-disable-line no-lonely-if */
-        typeof err.stacktrace !== 'undefined') {
-          // noinspection JSUnresolvedVariable
-          stack = err.stacktrace;
-        } else {
-          var sourceloc = err['opera#sourceloc'];
-
-          if (typeof sourceloc !== 'undefined') {
-            stack = sourceloc;
-          }
-        }
-      }
-
-      Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-        frames: {
-          value: []
-        },
-        stack: {
-          value: stack
-        }
-      });
-    }
-  }
-};
-/**
- * Test whether we have a valid Error constructor.
- *
- * @private
- * @param {*} ErrorCtr - Constructor to test it creates an Error.
- * @returns {boolean} True if ErrorCtr creates an Error, otherwise false.
- */
-
-
-var isErrorCtr = function isErrorCtr(ErrorCtr) {
-  if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(ErrorCtr)) {
-    try {
-      return isError(new ErrorCtr({}));
-    } catch (ignore) {// empty
-    }
-  }
-
-  return false;
-};
-/**
- * Detect whether we are creating an 'AssertionError' constructor.
- *
- * @private
- * @param {string} name - Name to test if it is 'AssertionError'.
- * @param {OfErrorConstructor} ErrorCtr - Constructor to test it creates ASSERTION$Error.
- * @returns {boolean} True if either arguments asserts, otherwise false.
- */
-
-
-var asAssertionError = function asAssertionError(name, ErrorCtr) {
-  if (name === 'AssertionError') {
-    return true;
-  }
-
-  if (isErrorCtr(ErrorCtr)) {
-    var err = new ErrorCtr({
-      actual: 'b',
-      expected: 'c',
-      message: 'a',
-      operator: 'd'
-    });
-    return typeof err.name === 'string' && err.message === 'a' && err.actual === 'b' && err.expected === 'c' && err.operator === 'd';
-  }
-
-  return false;
-};
-/**
- * Message generator for AssertionError.
- *
- * @private
- * @param {!object} message - The message object.
- * @returns {string} The generated message.
- */
-
-
-var getMessage = function getMessage(message) {
-  if (message.operator === 'deepStrictEqual' || message.operator === 'strictEqual') {
-    return createErrDiff(message.actual, message.expected, message.operator);
-  }
-
-  if (message.operator === 'notDeepStrictEqual' || message.operator === 'notStrictEqual') {
-    // In case the objects are equal but the operator requires unequal, show
-    // the first object and say A equals B
-    var base = kReadableOperator[message.operator];
-
-    var _res = inspectValue(message.actual).split('\n'); // In case "actual" is an object or a function, it should not be
-    // reference equal.
-
-
-    if (message.operator === 'notStrictEqual' && (_typeof(message.actual) === 'object' && message.actual !== null || typeof actual === 'function')) {
-      base = kReadableOperator.notStrictEqualObject;
-    } // Only remove lines in case it makes sense to collapse those.
-    // TODO: Accept env to always show the full error.
-
-
-    if (_res.length > 50) {
-      _res[46] = '...';
-
-      while (_res.length > 47) {
-        pop.call(_res);
-      }
-    } // Only print a single input.
-
-
-    if (_res.length === 1) {
-      return "".concat(base).concat(_res[0].length > 5 ? '\n\n' : ' ').concat(_res[0]);
-    }
-
-    return "".concat(base, "\n\n").concat(join.call(_res, '\n'), "\n");
-  }
-
-  var res = inspectValue(message.actual);
-  var other = inspectValue(message.expected);
-  var knownOperator = kReadableOperator[message.operator];
-
-  if (message.operator === 'notDeepEqual' && res === other) {
-    res = "".concat(knownOperator, "\n\n").concat(res);
-
-    if (res.length > 1024) {
-      res = "".concat(stringSlice.call(res, 0, 1021), "...");
-    }
-
-    return res;
-  }
-
-  if (res.length > 512) {
-    res = "".concat(stringSlice.call(res, 0, 509), "...");
-  }
-
-  if (other.length > 512) {
-    other = "".concat(stringSlice.call(other, 0, 509), "...");
-  }
-
-  if (message.operator === 'deepEqual') {
-    res = "".concat(knownOperator, "\n\n").concat(res, "\n\nshould loosely deep-equal\n\n");
-  } else {
-    var newOp = kReadableOperator["".concat(message.operator, "Unequal")];
-
-    if (newOp) {
-      res = "".concat(newOp, "\n\n").concat(res, "\n\nshould not loosely deep-equal\n\n");
-    } else {
-      other = " ".concat(message.operator, " ").concat(other);
-    }
-  }
-
-  return "".concat(res).concat(other);
-};
-/**
- * The toJSON method returns an object representation of the Error object.
- *
- * @private
- * @this {!Object} A custom error instance.
- * @returns {object} An object representation.
- */
-
-
-var toJSON = function toJSON() {
-  return {
-    frames: this.frames,
-    message: this.message,
-    name: this.name,
-    stack: this.stack
-  };
-};
-/**
- * Initialise a new instance of a custom error.
- *
- * @private
- * @param {!object} context - The Custom Error this object.
- * @param {object} message - Human-readable description of the error.
- * @param {string} name - The name for the custom Error.
- * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
- */
-
-
-var init = function init(context, message, name, ErrorCtr) {
-  if (asAssertionError(name, ErrorCtr)) {
-    if (_typeof(message) !== 'object' || message === null) {
-      throw new TypeError("The \"options\" argument must be of type Object. Received type ".concat(_typeof(message)));
-    }
-
-    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-      actual: {
-        value: message.actual
-      },
-      code: {
-        value: 'ERR_ASSERTION'
-      },
-      expected: {
-        value: message.expected
-      },
-      generatedMessage: {
-        value: castBoolean(message.message) === false
-      },
-      message: {
-        value: message.message || getMessage(message)
-      },
-      operator: {
-        value: message.operator
-      }
-    });
-  } else if (typeof message !== 'undefined') {
-    // Standard Errors. Only set `this.message` if the argument `message`
-    // was not `undefined`.
-    Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(context, {
-      message: {
-        value: Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(message)
-      }
-    });
-  } // Parse and set the 'this' properties.
-
-
-  parseStack(context, name);
-}; // `init` is used in `eval`, don't delete.
-
-
-init({}, 'message', 'name', $Error);
-/* eslint-disable-next-line no-void */
-
-var AssertionError = void 0;
-var CUSTOM_NAME = 'CustomError';
-/**
- * Creates a custom Error constructor. Will use `Error` if argument is not
- * a valid constructor.
- *
- * @function
- * @param {string} [name='Error'] - The name for the custom Error.
- * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
- * @returns {Function} The custom Error constructor.
- */
-
-var createErrorCtr = function createErrorCtr(name, ErrorCtr) {
-  var ECTR = allCtrs === false || isErrorCtr(ErrorCtr) === false ? $Error : ErrorCtr;
-  var initialName = Object(is_nil_x__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"])(name) ? CUSTOM_NAME : Object(trim_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(name));
-  var customName = initialName === CUSTOM_NAME || Object(is_var_name__WEBPACK_IMPORTED_MODULE_17__[/* default */ "a"])(initialName) ? initialName : CUSTOM_NAME;
-  var nativeToString = ECTR.prototype.toString;
-  /**
-   * Create a new object, that prototypically inherits from the `Error`
-   * constructor.
-   *
-   * @private
-   * @class CstmCtr
-   * @param {string} [message] - Human-readable description of the error.
-   */
-
-  var CstmCtr; // noinspection JSUnusedLocalSymbols
-
-  var f =
-  /* eslint-disable-line no-unused-vars */
-  function f(context, message) {
-    var isInstCtr = context instanceof CstmCtr;
-
-    if (isInstCtr === false) {
-      return new CstmCtr(message);
-    }
-
-    init(context, message, customName, ErrorCtr);
-    return context;
-  };
-  /* eslint-disable-next-line no-eval */
-
-
-  CstmCtr = eval("(0,function ".concat(customName, "(message){return f(this,message)})")); // Inherit the prototype methods from `ECTR`.
-
-  CstmCtr.prototype = Object(object_create_x__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(ECTR.prototype); // noinspection JSValidateTypes
-
-  Object(object_define_properties_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(CstmCtr.prototype,
-  /** @lends CstmCtr.prototype */
-  {
-    /**
-     * Specifies the function that created an instance's prototype.
-     *
-     * @class
-     */
-    constructor: {
-      value: CstmCtr
-    },
-
-    /**
-     * The name property represents a name for the type of error.
-     *
-     * @default 'Error'
-     * @type {string}
-     */
-    name: {
-      value: customName
-    },
-
-    /**
-     * The toJSON method returns a string representation of the Error object.
-     *
-     * @returns {string} A JSON stringified representation.
-     */
-    toJSON: {
-      value: toJSON
-    },
-    toString: {
-      value: function $toString() {
-        return this instanceof AssertionError ? "".concat(this.name, " [").concat(this.code, "]: ").concat(this.message) : nativeToString.call(this);
-      }
-    }
-  });
-
-  if ($toStringTag) {
-    /**
-     * Name Symbol.toStringTag.
-     *
-     * @memberof CstmCtr.prototype
-     * @type {string}
-     */
-    Object(object_define_property_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(CstmCtr.prototype, $toStringTag, {
-      value: '[object Error]'
-    });
-  }
-
-  return CstmCtr;
-};
-
-var create = createErrorCtr; // Test if we can use more than just the Error constructor.
-
-try {
-  allCtrs = createErrorCtr('X', SyntaxError)('x') instanceof SyntaxError;
-} catch (ignore) {
-  allCtrs = false;
-}
-/**
- * Error constructor for test and validation frameworks that implement the
- * standardized AssertionError specification.
- *
- * @class
- * @param {object} [message] - Need to document the properties.
- */
-
-
-var AssertionErrorConstructor = createErrorCtr('AssertionError', Error);
-AssertionError = AssertionErrorConstructor;
-/**
- * The Error constructor creates an error object.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var ErrorConstructor = createErrorCtr('Error', Error);
-/**
- * Creates an instance representing an error that occurs regarding the
- * global function eval().
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var EvalErrorConstructor = createErrorCtr('EvalError', EvalError); // noinspection JSUnusedGlobalSymbols
-
-/**
- * The InternalError object indicates an error that occurred internally in
- * the JavaScript engine. For example: "InternalError: too much recursion".
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var InternalErrorConstructor = createErrorCtr('InternalError', Error);
-/**
- * Creates an instance representing an error that occurs when a numeric
- * variable or parameter is outside of its valid range.
- *
- * @class
- * @param {string} - - [message] Human-readable description of the error.
- */
-
-var RangeErrorConstructor = createErrorCtr('RangeError', RangeError);
-/**
- * Creates an instance representing an error that occurs when de-referencing
- * an invalid reference.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var ReferenceErrorConstructor = createErrorCtr('ReferenceError', ReferenceError); // noinspection JSUnusedGlobalSymbols
-
-/**
- * Indicates if the Javascript engine supports subclassing of all Error
- * types. If `true` then all are supported, if `false` (only very old
- * browsers IE6) then only `Error` is supported.
- *
- * @type boolean
- * */
-
-var supportsAllConstructors = allCtrs;
-/**
- * Creates an instance representing a syntax error that occurs while parsing
- * code in eval().
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var SyntaxErrorConstructor = createErrorCtr('SyntaxError', SyntaxError);
-/**
- * Creates an instance representing an error that occurs when a variable or
- * parameter is not of a valid type.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var TypeErrorConstructor = createErrorCtr('TypeError', TypeError);
-/**
- * Creates an instance representing an error that occurs when encodeURI() or
- * decodeURI() are passed invalid parameters.
- *
- * @class
- * @param {string} [message] - Human-readable description of the error.
- */
-
-var URIErrorConstructor = createErrorCtr('URIError', URIError);
-
-
-
-/***/ }),
-/* 60 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(52);
@@ -9491,7 +8448,7 @@ var isArrayLike = function isArrayLike(value) {
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9655,6 +8612,1302 @@ if (shouldImplement) {
 
 var assign = $assign;
 /* harmony default export */ __webpack_exports__["a"] = (assign);
+
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXTERNAL MODULE: ./node_modules/has-to-string-tag-x/dist/has-to-string-tag-x.esm.js
+var has_to_string_tag_x_esm = __webpack_require__(31);
+
+// EXTERNAL MODULE: ./node_modules/trim-x/dist/trim-x.esm.js + 1 modules
+var trim_x_esm = __webpack_require__(53);
+
+// EXTERNAL MODULE: ./node_modules/to-string-symbols-supported-x/dist/to-string-symbols-supported-x.esm.js
+var to_string_symbols_supported_x_esm = __webpack_require__(26);
+
+// EXTERNAL MODULE: ./node_modules/stackframe/stackframe.js
+var stackframe = __webpack_require__(88);
+var stackframe_default = /*#__PURE__*/__webpack_require__.n(stackframe);
+
+// EXTERNAL MODULE: ./node_modules/error-stack-parser/error-stack-parser.js
+var error_stack_parser = __webpack_require__(104);
+var error_stack_parser_default = /*#__PURE__*/__webpack_require__.n(error_stack_parser);
+
+// EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
+var object_define_property_x_esm = __webpack_require__(9);
+
+// EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
+var object_define_properties_x_esm = __webpack_require__(7);
+
+// EXTERNAL MODULE: ./node_modules/find-index-x/dist/find-index-x.esm.js
+var find_index_x_esm = __webpack_require__(56);
+
+// EXTERNAL MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js + 1 modules
+var is_function_x_esm = __webpack_require__(2);
+
+// EXTERNAL MODULE: ./node_modules/inspect-x/dist/inspect-x.esm.js + 12 modules
+var inspect_x_esm = __webpack_require__(48);
+
+// EXTERNAL MODULE: ./node_modules/is-error-x/dist/is-error-x.esm.js
+var is_error_x_esm = __webpack_require__(47);
+
+// EXTERNAL MODULE: ./node_modules/is-nil-x/dist/is-nil-x.esm.js
+var is_nil_x_esm = __webpack_require__(15);
+
+// EXTERNAL MODULE: ./node_modules/object-create-x/dist/object-create-x.esm.js
+var object_create_x_esm = __webpack_require__(73);
+
+// EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
+var is_object_like_x_esm = __webpack_require__(5);
+
+// EXTERNAL MODULE: ./node_modules/array-map-x/dist/array-map-x.esm.js
+var array_map_x_esm = __webpack_require__(39);
+
+// EXTERNAL MODULE: ./node_modules/is-nan-x/dist/is-nan-x.esm.js
+var is_nan_x_esm = __webpack_require__(19);
+
+// EXTERNAL MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js + 1 modules
+var is_finite_x_esm = __webpack_require__(33);
+
+// CONCATENATED MODULE: ./node_modules/is-var-name/index.mjs
+/*!
+ * is-var-name | ISC (c) Shinnosuke Watanabe
+ * https://github.com/shinnn/is-var-name
+*/
+function isVarName(str) {
+	if (typeof str !== 'string') {
+		return false;
+	}
+
+	if (str.trim() !== str) {
+		return false;
+	}
+
+	try {
+		new Function(str, 'var ' + str);
+	} catch (e) {
+		return false;
+	}
+
+	return true;
+}
+
+// EXTERNAL MODULE: ./node_modules/to-integer-x/dist/to-integer-x.esm.js + 1 modules
+var to_integer_x_esm = __webpack_require__(23);
+
+// EXTERNAL MODULE: ./node_modules/require-object-coercible-x/dist/require-object-coercible-x.esm.js
+var require_object_coercible_x_esm = __webpack_require__(21);
+
+// EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
+var to_string_x_esm = __webpack_require__(6);
+
+// EXTERNAL MODULE: ./node_modules/attempt-x/dist/attempt-x.esm.js
+var attempt_x_esm = __webpack_require__(0);
+
+// CONCATENATED MODULE: ./node_modules/string-repeat-x/dist/string-repeat-x.esm.js
+var string_repeat_x_esm_this = undefined;
+
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+
+
+
+var EMPTY_STRING = '';
+var nativeRepeat = EMPTY_STRING.repeat;
+var hasNative = Object(attempt_x_esm["a" /* default */])(function () {
+  _newArrowCheck(this, string_repeat_x_esm_this);
+
+  return nativeRepeat.call('a', 5);
+}.bind(undefined)).value === 'aaaaa';
+/**
+ * Repeat the given string the specified number of times.
+ *
+ * @param {string} value - The string to repeat.
+ * @param {(number|string)} count - The number of times to repeat the string.
+ * @returns {string} Repeated string.
+ */
+
+var $repeat;
+
+if (hasNative) {
+  $repeat = function repeat(value, count) {
+    return nativeRepeat.call(Object(require_object_coercible_x_esm["a" /* default */])(value), count) || EMPTY_STRING;
+  };
+} else {
+  $repeat = function repeat(value, count) {
+    var string = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(value));
+    var n = Object(to_integer_x_esm["a" /* default */])(count); // Account for out-of-bounds indices
+
+    if (n < 0 || !Object(is_finite_x_esm["a" /* default */])(n)) {
+      throw new RangeError('Invalid count value');
+    }
+
+    var result = EMPTY_STRING;
+
+    while (n) {
+      if (n % 2 === 1) {
+        result += string;
+      }
+
+      if (n > 1) {
+        string += string;
+      }
+      /* eslint-disable-next-line no-bitwise */
+
+
+      n >>= 1;
+    }
+
+    return result;
+  };
+}
+
+var r = $repeat;
+/* harmony default export */ var string_repeat_x_esm = (r);
+
+
+// EXTERNAL MODULE: ./node_modules/is-regexp-x/dist/is-regexp-x.esm.js
+var is_regexp_x_esm = __webpack_require__(27);
+
+// EXTERNAL MODULE: ./node_modules/math-clamp-x/dist/math-clamp-x.esm.js
+var math_clamp_x_esm = __webpack_require__(55);
+
+// CONCATENATED MODULE: ./node_modules/string-ends-with-x/dist/string-ends-with-x.esm.js
+
+
+
+
+
+
+
+var ERR_MSG = 'Cannot call method "endsWith" with a regex';
+var ew = ERR_MSG.endsWith,
+    charCodeAt = ERR_MSG.charCodeAt;
+var nativeEndsWith = typeof ew === 'function' && ew;
+var isWorking;
+
+if (nativeEndsWith) {
+  var string_ends_with_x_esm_res = attempt_x_esm["a" /* default */].call('/a/', nativeEndsWith, /a/);
+  isWorking = string_ends_with_x_esm_res.threw;
+
+  if (isWorking) {
+    string_ends_with_x_esm_res = attempt_x_esm["a" /* default */].call('abc', nativeEndsWith, 'c', -1 / 0);
+    isWorking = string_ends_with_x_esm_res.threw === false && string_ends_with_x_esm_res.value === false;
+  }
+
+  if (isWorking) {
+    string_ends_with_x_esm_res = attempt_x_esm["a" /* default */].call(123, nativeEndsWith, '3');
+    isWorking = string_ends_with_x_esm_res.threw === false && string_ends_with_x_esm_res.value === true;
+  }
+
+  if (isWorking) {
+    string_ends_with_x_esm_res = attempt_x_esm["a" /* default */].call(null, nativeEndsWith, 'n');
+    isWorking = string_ends_with_x_esm_res.threw;
+  }
+}
+/**
+ * The endsWith method determines whether a string ends with the characters of a specified string, returning true or
+ * false as appropriate.
+ *
+ * @param {string} string - The string to search.
+ * @throws {TypeError} If string is null or undefined.
+ * @param {string} searchString - The characters to be searched for at the end of this string.
+ * @throws {TypeError} If searchString is a RegExp.
+ * @param {number} [length] - If provided it is used as the length of string. If omitted, the default value is the string length.
+ * @returns {boolean} - `true` if the given characters are found at the end of the string; otherwise, `false`.
+ */
+
+
+var $endsWith;
+
+if (isWorking) {
+  $endsWith = function endsWith(string, searchString) {
+    var str = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(string));
+
+    if (Object(is_regexp_x_esm["a" /* default */])(searchString)) {
+      throw new TypeError(ERR_MSG);
+    }
+
+    var args = [searchString];
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      args[1] = arguments[2];
+    }
+
+    return nativeEndsWith.apply(str, args);
+  };
+} else {
+  // Firefox (< 37?) and IE 11 TP have a noncompliant startsWith implementation
+  $endsWith = function endsWith(string, searchString) {
+    var str = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(string));
+
+    if (Object(is_regexp_x_esm["a" /* default */])(searchString)) {
+      throw new TypeError(ERR_MSG);
+    }
+
+    var stringLength = str.length;
+    var searchStr = Object(to_string_x_esm["a" /* default */])(searchString);
+    var searchLength = searchStr.length;
+    var length = stringLength;
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params */
+      var position = arguments[2];
+
+      if (typeof position !== 'undefined') {
+        length = Object(to_integer_x_esm["a" /* default */])(position);
+
+        if (Object(is_nan_x_esm["a" /* default */])(length)) {
+          length = 0;
+        }
+      }
+    }
+
+    var end = Object(math_clamp_x_esm["a" /* default */])(length, 0, stringLength);
+    var start = end - searchLength;
+
+    if (start < 0) {
+      return false;
+    }
+
+    var index = 0;
+
+    while (index < searchLength) {
+      if (charCodeAt.call(str, start + index) !== charCodeAt.call(searchStr, index)) {
+        return false;
+      }
+
+      index += 1;
+    }
+
+    return true;
+  };
+}
+
+var sew = $endsWith;
+/* harmony default export */ var string_ends_with_x_esm = (sew);
+
+
+// CONCATENATED MODULE: ./node_modules/error-x/dist/error-x.esm.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return isError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssertionErrorConstructor; });
+/* unused harmony export ErrorConstructor */
+/* unused harmony export EvalErrorConstructor */
+/* unused harmony export InternalErrorConstructor */
+/* unused harmony export RangeErrorConstructor */
+/* unused harmony export ReferenceErrorConstructor */
+/* unused harmony export supportsAllConstructors */
+/* unused harmony export SyntaxErrorConstructor */
+/* unused harmony export TypeErrorConstructor */
+/* unused harmony export URIErrorConstructor */
+function error_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/*
+ * Want to create your own Error objects, this module will allow you to do
+ * just that. It ships with all the standard Error objects already created
+ * for you. Why? Well, these offer some improvements over the native versions.
+ * - They have a `toJSON` method and so they can be serialised.
+ * - They have a standardised `stack` property, using
+ * [`error-stack-parser`](https://github.com/stacktracejs/error-stack-parser)
+ * messages and stacks are parsed and then re-formatted.
+ * - They have a `frames` property which is an array of the parsed `stack`
+ * message, so you have easy access to the information.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var isError = is_error_x_esm["a" /* default */];
+var mathMax = Math.max;
+/**
+ * @typedef {ErrorConstructor|TypeErrorConstructor|SyntaxErrorConstructor|URIErrorConstructor|ReferenceErrorConstructor|EvalErrorConstructor|RangeErrorConstructor} OfErrorConstructor
+ */
+
+var error_x_esm_EMPTY_STRING = '';
+var stringSplit = error_x_esm_EMPTY_STRING.split,
+    stringIndexOf = error_x_esm_EMPTY_STRING.indexOf,
+    stringSlice = error_x_esm_EMPTY_STRING.slice;
+var _ref = [],
+    pop = _ref.pop,
+    join = _ref.join,
+    arraySlice = _ref.slice;
+/** @type {BooleanConstructor} */
+
+var castBoolean = true.constructor;
+/* eslint-disable-next-line compat/compat */
+
+var $toStringTag = has_to_string_tag_x_esm["a" /* default */] && Symbol.toStringTag;
+/** @type {ErrorConstructor} */
+
+var $Error = Error; // Capture the function (if any).
+
+var captureStackTrace = $Error.captureStackTrace,
+    prepareStackTrace = $Error.prepareStackTrace;
+var kReadableOperator = {
+  deepStrictEqual: 'Expected values to be strictly deep-equal:',
+  strictEqual: 'Expected values to be strictly equal:',
+  strictEqualObject: 'Expected "actual" to be reference-equal to "expected":',
+  deepEqual: 'Expected values to be loosely deep-equal:',
+  notDeepStrictEqual: 'Expected "actual" not to be strictly deep-equal to:',
+  notStrictEqual: 'Expected "actual" to be strictly unequal to:',
+  notStrictEqualObject: 'Expected "actual" not to be reference-equal to "expected":',
+  notDeepEqual: 'Expected "actual" not to be loosely deep-equal to:',
+  notIdentical: 'Values identical but not reference-equal:',
+  notDeepEqualUnequal: 'Expected values not to be loosely deep-equal:'
+};
+/* Comparing short primitives should just show === / !== instead of using the diff. */
+
+var kMaxShortLength = 12;
+
+function inspectValue(val) {
+  /*
+   *The util.inspect default values could be changed. This makes sure the
+   * error messages contain the necessary information nevertheless.
+   */
+  return Object(inspect_x_esm["a" /* default */])(val, {
+    compact: false,
+    customInspect: false,
+    depth: 1000,
+    maxArrayLength: Infinity,
+
+    /* Assert compares only enumerable properties (with a few exceptions). */
+    showHidden: false,
+
+    /* Assert does not detect proxies currently. */
+    showProxy: false,
+    sorted: true,
+
+    /* Inspect getters as we also check them when comparing entries. */
+    getters: true
+  });
+}
+
+function createErrDiff(actual, expected, $operator) {
+  var operator = $operator;
+  var other = error_x_esm_EMPTY_STRING;
+  var res = error_x_esm_EMPTY_STRING;
+  var end = error_x_esm_EMPTY_STRING;
+  var skipped = false;
+  var actualInspected = inspectValue(actual);
+  var actualLines = stringSplit.call(actualInspected, '\n');
+  var expectedLines = stringSplit.call(inspectValue(expected), '\n');
+  var i = 0;
+  var indicator = error_x_esm_EMPTY_STRING;
+  /*
+   * In case both values are objects or functions explicitly mark them as not
+   * reference equal for the `strictEqual` operator.
+   */
+
+  if (operator === 'strictEqual' && (_typeof(actual) === 'object' && actual !== null && _typeof(expected) === 'object' && expected !== null || typeof actual === 'function' && typeof expected === 'function')) {
+    operator = 'strictEqualObject';
+  }
+  /*
+   * If "actual" and "expected" fit on a single line and they are not strictly
+   * equal, check further special handling.
+   */
+
+
+  if (actualLines.length === 1 && expectedLines.length === 1 && actualLines[0] !== expectedLines[0]) {
+    var inputLength = actualLines[0].length + expectedLines[0].length;
+    /*
+     * If the character length of "actual" and "expected" together is less than
+     * kMaxShortLength and if neither is an object and at least one of them is
+     *not `zero`, use the strict equal comparison to visualize the output.
+     */
+
+    if (inputLength <= kMaxShortLength) {
+      if ((_typeof(actual) !== 'object' || actual === null) && (_typeof(expected) !== 'object' || expected === null) && (actual !== 0 || expected !== 0)) {
+        /* -0 === +0 */
+        return "".concat(kReadableOperator[operator], "\n\n").concat(actualLines[0], " !== ").concat(expectedLines[0], "\n");
+      }
+    } else if (operator !== 'strictEqualObject') {
+      /*
+       * If the stderr is a tty and the input length is lower than the current
+       * columns per line, add a mismatch indicator below the output. If it is
+       * not a tty, use a default value of 80 characters.
+       */
+      var _maxLength = 80;
+
+      if (inputLength < _maxLength) {
+        while (actualLines[0][i] === expectedLines[0][i]) {
+          i += 1;
+        }
+        /* Ignore the first characters. */
+
+
+        if (i > 2) {
+          /*
+           * Add position indicator for the first mismatch in case it is a
+           * single line and the input length is less than the column length.
+           */
+          indicator = "\n  ".concat(string_repeat_x_esm(' ', i), "^");
+          i = 0;
+        }
+      }
+    }
+  }
+  /*
+   * Remove all ending lines that match (this optimizes the output for
+   * readability by reducing the number of total changed lines).
+   */
+
+
+  var a = actualLines[actualLines.length - 1];
+  var b = expectedLines[expectedLines.length - 1];
+
+  while (a === b) {
+    if (i < 3) {
+      end = "\n  ".concat(a).concat(end);
+    } else {
+      other = a;
+    }
+
+    i += 1;
+    pop.call(actualLines);
+    pop.call(expectedLines);
+
+    if (actualLines.length === 0 || expectedLines.length === 0) {
+      break;
+    }
+
+    a = actualLines[actualLines.length - 1];
+    b = expectedLines[expectedLines.length - 1];
+  }
+
+  var maxLines = mathMax(actualLines.length, expectedLines.length);
+  /*
+   * Strict equal with identical objects that are not identical by reference.
+   * E.g., assert.deepStrictEqual({ a: Symbol() }, { a: Symbol() })
+   */
+
+  if (maxLines === 0) {
+    /* We have to get the result again. The lines were all removed before. */
+    var aLines = actualInspected.split('\n');
+    /* Only remove lines in case it makes sense to collapse those. */
+
+    /* TODO: Accept env to always show the full error. */
+
+    if (aLines.length > 50) {
+      aLines[46] = '...';
+
+      while (aLines.length > 47) {
+        pop.call(aLines);
+      }
+    }
+
+    return "".concat(kReadableOperator.notIdentical, "\n\n").concat(join.call(aLines, '\n'), "\n");
+  }
+  /* There were at least five identical lines at the end. Mark a couple of skipped. */
+
+
+  if (i >= 5) {
+    end = "\n...".concat(end);
+    skipped = true;
+  }
+
+  if (other !== error_x_esm_EMPTY_STRING) {
+    end = "\n  ".concat(other).concat(end);
+    other = error_x_esm_EMPTY_STRING;
+  }
+
+  var printedLines = 0;
+  var identical = 0;
+  var msg = "".concat(kReadableOperator[operator], "\n+ actual - expected");
+  var skippedMsg = ' ... Lines skipped';
+  var lines = actualLines;
+  var plusMinus = '+';
+  var maxLength = expectedLines.length;
+
+  if (actualLines.length < maxLines) {
+    lines = expectedLines;
+    plusMinus = '-';
+    maxLength = actualLines.length;
+  }
+
+  for (i = 0; i < maxLines; i += 1) {
+    if (maxLength < i + 1) {
+      /*
+       * If more than two former lines are identical, print them. Collapse them
+       * in case more than five lines were identical.
+       */
+      if (identical > 2) {
+        if (identical > 3) {
+          if (identical > 4) {
+            if (identical === 5) {
+              res += "\n  ".concat(lines[i - 3]);
+              printedLines += 1;
+            } else {
+              res += '\n...';
+              skipped = true;
+            }
+          }
+
+          res += "\n  ".concat(lines[i - 2]);
+          printedLines += 1;
+        }
+
+        res += "\n  ".concat(lines[i - 1]);
+        printedLines += 1;
+      }
+      /* No identical lines before. */
+
+
+      identical = 0;
+      /* Add the expected line to the cache. */
+
+      if (lines === actualLines) {
+        res += "\n".concat(plusMinus, " ").concat(lines[i]);
+      } else {
+        other += "\n".concat(plusMinus, " ").concat(lines[i]);
+      }
+
+      printedLines += 1;
+      /* Only extra actual lines exist */
+
+      /* Lines diverge */
+    } else {
+      var expectedLine = expectedLines[i];
+      var actualLine = actualLines[i];
+      /*
+       * If the lines diverge, specifically check for lines that only diverge by
+       * a trailing comma. In that case it is actually identical and we should
+       * mark it as such.
+       */
+
+      var divergingLines = actualLine !== expectedLine && (!string_ends_with_x_esm(actualLine, ',') || stringSlice.call(actualLine, 0, -1) !== expectedLine);
+      /*
+       * If the expected line has a trailing comma but is otherwise identical,
+       * add a comma at the end of the actual line. Otherwise the output could
+       * look weird as in:
+       *
+       * [
+       *   1         // No comma at the end!
+       * +   2
+       * ]
+       */
+
+      if (divergingLines && string_ends_with_x_esm(expectedLine, ',') && stringSlice.call(expectedLine, 0, -1) === actualLine) {
+        divergingLines = false;
+        actualLine += ',';
+      }
+
+      if (divergingLines) {
+        /*
+         * If more than two former lines are identical, print them. Collapse
+         * them in case more than five lines were identical.
+         */
+        if (identical > 2) {
+          if (identical > 3) {
+            if (identical > 4) {
+              if (identical === 5) {
+                res += "\n  ".concat(actualLines[i - 3]);
+                printedLines += 1;
+              } else {
+                res += '\n...';
+                skipped = true;
+              }
+            }
+
+            res += "\n  ".concat(actualLines[i - 2]);
+            printedLines += 1;
+          }
+
+          res += "\n  ".concat(actualLines[i - 1]);
+          printedLines += 1;
+        }
+        /* No identical lines before. */
+
+
+        identical = 0;
+        /*
+         * Add the actual line to the result and cache the expected diverging
+         * line so consecutive diverging lines show up as +++--- and not +-+-+-.
+         */
+
+        res += "\n+ ".concat(actualLine);
+        other += "\n- ".concat(expectedLine);
+        printedLines += 2;
+        /* Lines are identical */
+      } else {
+        /* Add all cached information to the result before adding other things and reset the cache. */
+        res += other;
+        other = error_x_esm_EMPTY_STRING;
+        identical += 1;
+        /* The very first identical line since the last diverging line is be added to the result. */
+
+        if (identical <= 2) {
+          res += "\n  ".concat(actualLine);
+          printedLines += 1;
+        }
+      }
+    }
+    /* Inspected object to big (Show ~50 rows max) */
+
+
+    if (printedLines > 50 && i < maxLines - 2) {
+      return "".concat(msg).concat(skippedMsg, "\n").concat(res, "\n...").concat(other, "\n...");
+    }
+  }
+
+  return "".concat(msg).concat(skipped ? skippedMsg : error_x_esm_EMPTY_STRING, "\n").concat(res).concat(other).concat(end).concat(indicator);
+}
+/**
+ * Tests for number as specified in StackTrace library.
+ *
+ * @private
+ * @param {*} n - The value to test.
+ * @returns {boolean} True if parsable, otherwise false.
+ */
+
+
+var error_x_esm_isNumber = function isNumber(n) {
+  return Object(is_nan_x_esm["a" /* default */])(parseFloat(n)) === false && Object(is_finite_x_esm["a" /* default */])(n);
+};
+/**
+ * The stack preparation function for the V8 stack.
+ *
+ * @private
+ * @param {*} ignore - Unused argument.
+ * @param {!object} thisStack - The V8 stack.
+ * @returns {!object} The V8 stack.
+ */
+
+
+var tempPrepareStackTrace = function _prepareStackTrace(ignore, thisStack) {
+  return thisStack;
+};
+
+var cV8 = castBoolean(captureStackTrace) && function getCV8() {
+  // Test to see if the function works.
+  try {
+    captureStackTrace(new $Error(), captureStackTrace);
+  } catch (ignore) {
+    return false;
+  }
+  /**
+   * Captures the V8 stack and converts it to an array of Stackframes.
+   *
+   * @private
+   * @function captureV8
+   * @param {!object} context - The Custom Error this object.
+   * @returns {!Array.<!object>} Array of StackFrames.
+   */
+
+
+  return function captureV8(context) {
+    var _this = this;
+
+    $Error.prepareStackTrace = tempPrepareStackTrace;
+    /** @type {object} */
+
+    var error = new $Error();
+    captureStackTrace(error, context.constructor);
+    var frames = Object(array_map_x_esm["a" /* default */])(error.stack, function (frame) {
+      error_x_esm_newArrowCheck(this, _this);
+
+      var opts = {
+        // args: void 0,
+        functionName: frame.getFunctionName(),
+        isConstructor: frame.isConstructor(),
+        isEval: frame.isEval(),
+        isNative: frame.isNative(),
+        isToplevel: frame.isToplevel(),
+        source: frame.toString()
+      };
+      var getFileName = Object(is_function_x_esm["a" /* default */])(frame.getFileName) && frame.getFileName();
+
+      if (getFileName) {
+        opts.getFileName = getFileName;
+      }
+
+      var columnNumber = Object(is_function_x_esm["a" /* default */])(frame.getColumnNumber) && frame.getColumnNumber();
+
+      if (error_x_esm_isNumber(columnNumber)) {
+        opts.columnNumber = columnNumber;
+      }
+
+      var lineNumber = Object(is_function_x_esm["a" /* default */])(frame.getLineNumber) && frame.getLineNumber();
+
+      if (error_x_esm_isNumber(lineNumber)) {
+        opts.lineNumber = lineNumber;
+      }
+
+      var evalOrigin = Object(is_function_x_esm["a" /* default */])(frame.getEvalOrigin) && frame.getEvalOrigin();
+
+      if (Object(is_object_like_x_esm["a" /* default */])(evalOrigin)) {
+        opts.evalOrigin = evalOrigin;
+      }
+
+      return new stackframe_default.a(opts);
+    }.bind(this));
+
+    if (typeof prepareStackTrace === 'undefined') {
+      delete $Error.prepareStackTrace;
+    } else {
+      $Error.prepareStackTrace = prepareStackTrace;
+    }
+
+    return frames;
+  };
+}();
+
+var allCtrs = true;
+var STACK_NEWLINE = '\n    ';
+/**
+ * Defines frames and stack on the Custom Error this object.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {!Array.<!object>} frames - Array of StackFrames.
+ * @param {string} name - The name of the constructor.
+ */
+
+var error_x_esm_defContext = function defContext(context, frames, name) {
+  var _this2 = this;
+
+  Object(object_define_properties_x_esm["a" /* default */])(context, {
+    frames: {
+      value: frames
+    },
+    stack: {
+      value: "".concat(name).concat(STACK_NEWLINE).concat(join.call(Object(array_map_x_esm["a" /* default */])(frames, function (frame) {
+        error_x_esm_newArrowCheck(this, _this2);
+
+        return frame.toString();
+      }.bind(this)), STACK_NEWLINE))
+    }
+  });
+};
+/**
+ * Captures the other stacks and converts them to an array of Stackframes.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {!Error} err - The Error object to be parsed.
+ * @param {string} name - The name of the constructor.
+ * @returns {boolean} True if the Error object was parsed, otherwise false.
+ */
+
+
+var error_x_esm_errParse = function errParse(context, err, name) {
+  var _this3 = this;
+
+  var frames;
+
+  try {
+    frames = error_stack_parser_default.a.parse(err);
+  } catch (ignore) {
+    return false;
+  }
+
+  var start = Object(find_index_x_esm["a" /* default */])(frames, function (frame) {
+    error_x_esm_newArrowCheck(this, _this3);
+
+    var fName = typeof frame.functionName === 'string' ? frame.functionName : error_x_esm_EMPTY_STRING;
+    return stringIndexOf.call(fName, name) > -1;
+  }.bind(this));
+
+  if (start > -1) {
+    var item = frames[start];
+    frames = arraySlice.call(frames, start + 1);
+    var end = Object(find_index_x_esm["a" /* default */])(frames, function (frame) {
+      error_x_esm_newArrowCheck(this, _this3);
+
+      return item.source === frame.source;
+    }.bind(this));
+
+    if (end > -1) {
+      frames = arraySlice.call(frames, 0, end);
+    }
+  }
+
+  error_x_esm_defContext(context, frames, name);
+  return true;
+};
+/**
+ * The main function for capturing and parsing stacks and setting properties
+ * on Custom Error.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {string} name - The name of the constructor.
+ */
+
+
+var error_x_esm_parseStack = function parseStack(context, name) {
+  if (cV8) {
+    error_x_esm_defContext(context, cV8(context), name);
+  } else {
+    /** @type {Error} */
+    var err;
+
+    try {
+      // Error must be thrown to get stack in IE
+      // noinspection ExceptionCaughtLocallyJS,JSValidateTypes
+      throw $Error();
+    } catch (e) {
+      err = e;
+    }
+
+    if (error_x_esm_errParse(context, err, name) === false) {
+      var stack = error_x_esm_EMPTY_STRING; // If `Error` has a non-standard `stack`, `stacktrace` or
+      // `opera#sourceloc` property that offers a trace of which functions
+      // were called, in what order, from which line and  file, and with what
+      // argument, then we will set it.
+
+      if (typeof err.stack !== 'undefined') {
+        /* eslint-disable-next-line prefer-destructuring */
+        stack = err.stack;
+      } else {
+        // noinspection JSUnresolvedVariable
+        if (
+        /* eslint-disable-line no-lonely-if */
+        typeof err.stacktrace !== 'undefined') {
+          // noinspection JSUnresolvedVariable
+          stack = err.stacktrace;
+        } else {
+          var sourceloc = err['opera#sourceloc'];
+
+          if (typeof sourceloc !== 'undefined') {
+            stack = sourceloc;
+          }
+        }
+      }
+
+      Object(object_define_properties_x_esm["a" /* default */])(context, {
+        frames: {
+          value: []
+        },
+        stack: {
+          value: stack
+        }
+      });
+    }
+  }
+};
+/**
+ * Test whether we have a valid Error constructor.
+ *
+ * @private
+ * @param {*} ErrorCtr - Constructor to test it creates an Error.
+ * @returns {boolean} True if ErrorCtr creates an Error, otherwise false.
+ */
+
+
+var error_x_esm_isErrorCtr = function isErrorCtr(ErrorCtr) {
+  if (Object(is_function_x_esm["a" /* default */])(ErrorCtr)) {
+    try {
+      return isError(new ErrorCtr({}));
+    } catch (ignore) {// empty
+    }
+  }
+
+  return false;
+};
+/**
+ * Detect whether we are creating an 'AssertionError' constructor.
+ *
+ * @private
+ * @param {string} name - Name to test if it is 'AssertionError'.
+ * @param {OfErrorConstructor} ErrorCtr - Constructor to test it creates ASSERTION$Error.
+ * @returns {boolean} True if either arguments asserts, otherwise false.
+ */
+
+
+var asAssertionError = function asAssertionError(name, ErrorCtr) {
+  if (name === 'AssertionError') {
+    return true;
+  }
+
+  if (error_x_esm_isErrorCtr(ErrorCtr)) {
+    var err = new ErrorCtr({
+      actual: 'b',
+      expected: 'c',
+      message: 'a',
+      operator: 'd'
+    });
+    return typeof err.name === 'string' && err.message === 'a' && err.actual === 'b' && err.expected === 'c' && err.operator === 'd';
+  }
+
+  return false;
+};
+/**
+ * Message generator for AssertionError.
+ *
+ * @private
+ * @param {!object} message - The message object.
+ * @returns {string} The generated message.
+ */
+
+
+var getMessage = function getMessage(message) {
+  if (message.operator === 'deepStrictEqual' || message.operator === 'strictEqual') {
+    return createErrDiff(message.actual, message.expected, message.operator);
+  }
+
+  if (message.operator === 'notDeepStrictEqual' || message.operator === 'notStrictEqual') {
+    // In case the objects are equal but the operator requires unequal, show
+    // the first object and say A equals B
+    var base = kReadableOperator[message.operator];
+
+    var _res = inspectValue(message.actual).split('\n'); // In case "actual" is an object or a function, it should not be
+    // reference equal.
+
+
+    if (message.operator === 'notStrictEqual' && (_typeof(message.actual) === 'object' && message.actual !== null || typeof actual === 'function')) {
+      base = kReadableOperator.notStrictEqualObject;
+    } // Only remove lines in case it makes sense to collapse those.
+    // TODO: Accept env to always show the full error.
+
+
+    if (_res.length > 50) {
+      _res[46] = '...';
+
+      while (_res.length > 47) {
+        pop.call(_res);
+      }
+    } // Only print a single input.
+
+
+    if (_res.length === 1) {
+      return "".concat(base).concat(_res[0].length > 5 ? '\n\n' : ' ').concat(_res[0]);
+    }
+
+    return "".concat(base, "\n\n").concat(join.call(_res, '\n'), "\n");
+  }
+
+  var res = inspectValue(message.actual);
+  var other = inspectValue(message.expected);
+  var knownOperator = kReadableOperator[message.operator];
+
+  if (message.operator === 'notDeepEqual' && res === other) {
+    res = "".concat(knownOperator, "\n\n").concat(res);
+
+    if (res.length > 1024) {
+      res = "".concat(stringSlice.call(res, 0, 1021), "...");
+    }
+
+    return res;
+  }
+
+  if (res.length > 512) {
+    res = "".concat(stringSlice.call(res, 0, 509), "...");
+  }
+
+  if (other.length > 512) {
+    other = "".concat(stringSlice.call(other, 0, 509), "...");
+  }
+
+  if (message.operator === 'deepEqual') {
+    res = "".concat(knownOperator, "\n\n").concat(res, "\n\nshould loosely deep-equal\n\n");
+  } else {
+    var newOp = kReadableOperator["".concat(message.operator, "Unequal")];
+
+    if (newOp) {
+      res = "".concat(newOp, "\n\n").concat(res, "\n\nshould not loosely deep-equal\n\n");
+    } else {
+      other = " ".concat(message.operator, " ").concat(other);
+    }
+  }
+
+  return "".concat(res).concat(other);
+};
+/**
+ * The toJSON method returns an object representation of the Error object.
+ *
+ * @private
+ * @this {!Object} A custom error instance.
+ * @returns {object} An object representation.
+ */
+
+
+var toJSON = function toJSON() {
+  return {
+    frames: this.frames,
+    message: this.message,
+    name: this.name,
+    stack: this.stack
+  };
+};
+/**
+ * Initialise a new instance of a custom error.
+ *
+ * @private
+ * @param {!object} context - The Custom Error this object.
+ * @param {object} message - Human-readable description of the error.
+ * @param {string} name - The name for the custom Error.
+ * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
+ */
+
+
+var error_x_esm_init = function init(context, message, name, ErrorCtr) {
+  if (asAssertionError(name, ErrorCtr)) {
+    if (_typeof(message) !== 'object' || message === null) {
+      throw new TypeError("The \"options\" argument must be of type Object. Received type ".concat(_typeof(message)));
+    }
+
+    Object(object_define_properties_x_esm["a" /* default */])(context, {
+      actual: {
+        value: message.actual
+      },
+      code: {
+        value: 'ERR_ASSERTION'
+      },
+      expected: {
+        value: message.expected
+      },
+      generatedMessage: {
+        value: castBoolean(message.message) === false
+      },
+      message: {
+        value: message.message || getMessage(message)
+      },
+      operator: {
+        value: message.operator
+      }
+    });
+  } else if (typeof message !== 'undefined') {
+    // Standard Errors. Only set `this.message` if the argument `message`
+    // was not `undefined`.
+    Object(object_define_properties_x_esm["a" /* default */])(context, {
+      message: {
+        value: Object(to_string_symbols_supported_x_esm["a" /* default */])(message)
+      }
+    });
+  } // Parse and set the 'this' properties.
+
+
+  error_x_esm_parseStack(context, name);
+}; // `init` is used in `eval`, don't delete.
+
+
+error_x_esm_init({}, 'message', 'name', $Error);
+/* eslint-disable-next-line no-void */
+
+var AssertionError = void 0;
+var CUSTOM_NAME = 'CustomError';
+/**
+ * Creates a custom Error constructor. Will use `Error` if argument is not
+ * a valid constructor.
+ *
+ * @function
+ * @param {string} [name='Error'] - The name for the custom Error.
+ * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
+ * @returns {Function} The custom Error constructor.
+ */
+
+var error_x_esm_createErrorCtr = function createErrorCtr(name, ErrorCtr) {
+  var ECTR = allCtrs === false || error_x_esm_isErrorCtr(ErrorCtr) === false ? $Error : ErrorCtr;
+  var initialName = Object(is_nil_x_esm["a" /* default */])(name) ? CUSTOM_NAME : Object(trim_x_esm["a" /* default */])(Object(to_string_symbols_supported_x_esm["a" /* default */])(name));
+  var customName = initialName === CUSTOM_NAME || isVarName(initialName) ? initialName : CUSTOM_NAME;
+  var nativeToString = ECTR.prototype.toString;
+  /**
+   * Create a new object, that prototypically inherits from the `Error`
+   * constructor.
+   *
+   * @private
+   * @class CstmCtr
+   * @param {string} [message] - Human-readable description of the error.
+   */
+
+  var CstmCtr; // noinspection JSUnusedLocalSymbols
+
+  var f = function f(context, message) {
+    var isInstCtr = context instanceof CstmCtr;
+
+    if (isInstCtr === false) {
+      return new CstmCtr(message);
+    }
+
+    error_x_esm_init(context, message, customName, ErrorCtr);
+    return context;
+  };
+  /* eslint-disable-next-line no-new-func */
+
+
+  CstmCtr = Function('f', "return function ".concat(customName, "(message){return f(this,message)}"))(f); // Inherit the prototype methods from `ECTR`.
+
+  CstmCtr.prototype = Object(object_create_x_esm["a" /* default */])(ECTR.prototype); // noinspection JSValidateTypes
+
+  Object(object_define_properties_x_esm["a" /* default */])(CstmCtr.prototype,
+  /** @lends CstmCtr.prototype */
+  {
+    /**
+     * Specifies the function that created an instance's prototype.
+     *
+     * @class
+     */
+    constructor: {
+      value: CstmCtr
+    },
+
+    /**
+     * The name property represents a name for the type of error.
+     *
+     * @default 'Error'
+     * @type {string}
+     */
+    name: {
+      value: customName
+    },
+
+    /**
+     * The toJSON method returns a string representation of the Error object.
+     *
+     * @returns {string} A JSON stringified representation.
+     */
+    toJSON: {
+      value: toJSON
+    },
+    toString: {
+      value: function $toString() {
+        return this instanceof AssertionError ? "".concat(this.name, " [").concat(this.code, "]: ").concat(this.message) : nativeToString.call(this);
+      }
+    }
+  });
+
+  if ($toStringTag) {
+    /**
+     * Name Symbol.toStringTag.
+     *
+     * @memberof CstmCtr.prototype
+     * @type {string}
+     */
+    Object(object_define_property_x_esm["a" /* default */])(CstmCtr.prototype, $toStringTag, {
+      value: '[object Error]'
+    });
+  }
+
+  return CstmCtr;
+};
+
+var create = error_x_esm_createErrorCtr; // Test if we can use more than just the Error constructor.
+
+try {
+  allCtrs = error_x_esm_createErrorCtr('X', SyntaxError)('x') instanceof SyntaxError;
+} catch (ignore) {
+  allCtrs = false;
+}
+/**
+ * Error constructor for test and validation frameworks that implement the
+ * standardized AssertionError specification.
+ *
+ * @class
+ * @param {object} [message] - Need to document the properties.
+ */
+
+
+var AssertionErrorConstructor = error_x_esm_createErrorCtr('AssertionError', Error);
+AssertionError = AssertionErrorConstructor;
+/**
+ * The Error constructor creates an error object.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var ErrorConstructor = error_x_esm_createErrorCtr('Error', Error);
+/**
+ * Creates an instance representing an error that occurs regarding the
+ * global function eval().
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var EvalErrorConstructor = error_x_esm_createErrorCtr('EvalError', EvalError); // noinspection JSUnusedGlobalSymbols
+
+/**
+ * The InternalError object indicates an error that occurred internally in
+ * the JavaScript engine. For example: "InternalError: too much recursion".
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var InternalErrorConstructor = error_x_esm_createErrorCtr('InternalError', Error);
+/**
+ * Creates an instance representing an error that occurs when a numeric
+ * variable or parameter is outside of its valid range.
+ *
+ * @class
+ * @param {string} - - [message] Human-readable description of the error.
+ */
+
+var RangeErrorConstructor = error_x_esm_createErrorCtr('RangeError', RangeError);
+/**
+ * Creates an instance representing an error that occurs when de-referencing
+ * an invalid reference.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var ReferenceErrorConstructor = error_x_esm_createErrorCtr('ReferenceError', ReferenceError); // noinspection JSUnusedGlobalSymbols
+
+/**
+ * Indicates if the Javascript engine supports subclassing of all Error
+ * types. If `true` then all are supported, if `false` (only very old
+ * browsers IE6) then only `Error` is supported.
+ *
+ * @type boolean
+ * */
+
+var supportsAllConstructors = allCtrs;
+/**
+ * Creates an instance representing a syntax error that occurs while parsing
+ * code in eval().
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var SyntaxErrorConstructor = error_x_esm_createErrorCtr('SyntaxError', SyntaxError);
+/**
+ * Creates an instance representing an error that occurs when a variable or
+ * parameter is not of a valid type.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var TypeErrorConstructor = error_x_esm_createErrorCtr('TypeError', TypeError);
+/**
+ * Creates an instance representing an error that occurs when encodeURI() or
+ * decodeURI() are passed invalid parameters.
+ *
+ * @class
+ * @param {string} [message] - Human-readable description of the error.
+ */
+
+var URIErrorConstructor = error_x_esm_createErrorCtr('URIError', URIError);
 
 
 
@@ -9993,7 +10246,7 @@ var trimLeft2018 = function trimLeft2018(string) {
 ;(function () {
   // Detect the `define` function exposed by asynchronous module loaders. The
   // strict `define` check is necessary for compatibility with `r.js`.
-  var isLoader =  true && __webpack_require__(121);
+  var isLoader =  true && __webpack_require__(118);
 
   // A set of types used to distinguish objects from primitives.
   var objectTypes = {
@@ -10929,7 +11182,7 @@ var trimLeft2018 = function trimLeft2018(string) {
   }
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(120)(module), __webpack_require__(62)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(117)(module), __webpack_require__(62)))
 
 /***/ }),
 /* 68 */
@@ -11207,7 +11460,7 @@ var sameValueZero = function sameValueZero(x, y) {
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
-/* harmony import */ var is_array_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(60);
+/* harmony import */ var is_array_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(59);
 
 
 
@@ -11508,7 +11761,7 @@ module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 "use strict";
 
 
-var implementation = __webpack_require__(118);
+var implementation = __webpack_require__(115);
 
 module.exports = Function.prototype.bind || implementation;
 
@@ -11586,10 +11839,10 @@ module.exports = defineProperties;
 
 
 var slice = Array.prototype.slice;
-var isArgs = __webpack_require__(92);
+var isArgs = __webpack_require__(91);
 
 var origKeys = Object.keys;
-var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(117);
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(114);
 
 var originalKeys = Object.keys;
 
@@ -11748,7 +12001,7 @@ var getOwnEnumerablePropertySymbols = function getOwnEnumerablePropertySymbols(t
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var forEach = __webpack_require__(93);
+var forEach = __webpack_require__(92);
 
 var toStr = Object.prototype.toString;
 var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
@@ -12089,7 +12342,7 @@ var tis = $toISOString;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var forEach = __webpack_require__(93);
+var forEach = __webpack_require__(92);
 var bind = __webpack_require__(75);
 
 var toStr = bind.call(Function.call, Object.prototype.toString);
@@ -12803,135 +13056,6 @@ function isPromise(obj) {
 
 /***/ }),
 /* 90 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23);
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
-/* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(27);
-/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(19);
-/* harmony import */ var math_clamp_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(55);
-
-
-
-
-
-
-
-var ERR_MSG = 'Cannot call method "endsWith" with a regex';
-var ew = ERR_MSG.endsWith,
-    charCodeAt = ERR_MSG.charCodeAt;
-var nativeEndsWith = typeof ew === 'function' && ew;
-var isWorking;
-
-if (nativeEndsWith) {
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call('/a/', nativeEndsWith, /a/);
-  isWorking = res.threw;
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call('abc', nativeEndsWith, 'c', -1 / 0);
-    isWorking = res.threw === false && res.value === false;
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(123, nativeEndsWith, '3');
-    isWorking = res.threw === false && res.value === true;
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(null, nativeEndsWith, 'n');
-    isWorking = res.threw;
-  }
-}
-/**
- * The endsWith method determines whether a string ends with the characters of a specified string, returning true or
- * false as appropriate.
- *
- * @param {string} string - The string to search.
- * @throws {TypeError} If string is null or undefined.
- * @param {string} searchString - The characters to be searched for at the end of this string.
- * @throws {TypeError} If searchString is a RegExp.
- * @param {number} [length] - If provided it is used as the length of string. If omitted, the default value is the string length.
- * @returns {boolean} - `true` if the given characters are found at the end of the string; otherwise, `false`.
- */
-
-
-var $endsWith;
-
-if (isWorking) {
-  $endsWith = function endsWith(string, searchString) {
-    var str = Object(to_string_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(string));
-
-    if (Object(is_regexp_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(searchString)) {
-      throw new TypeError(ERR_MSG);
-    }
-
-    var args = [searchString];
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      args[1] = arguments[2];
-    }
-
-    return nativeEndsWith.apply(str, args);
-  };
-} else {
-  // Firefox (< 37?) and IE 11 TP have a noncompliant startsWith implementation
-  $endsWith = function endsWith(string, searchString) {
-    var str = Object(to_string_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(string));
-
-    if (Object(is_regexp_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(searchString)) {
-      throw new TypeError(ERR_MSG);
-    }
-
-    var stringLength = str.length;
-    var searchStr = Object(to_string_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(searchString);
-    var searchLength = searchStr.length;
-    var length = stringLength;
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params */
-      var position = arguments[2];
-
-      if (typeof position !== 'undefined') {
-        length = Object(to_integer_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(position);
-
-        if (Object(is_nan_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(length)) {
-          length = 0;
-        }
-      }
-    }
-
-    var end = Object(math_clamp_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(length, 0, stringLength);
-    var start = end - searchLength;
-
-    if (start < 0) {
-      return false;
-    }
-
-    var index = 0;
-
-    while (index < searchLength) {
-      if (charCodeAt.call(str, start + index) !== charCodeAt.call(searchStr, index)) {
-        return false;
-      }
-
-      index += 1;
-    }
-
-    return true;
-  };
-}
-
-var sew = $endsWith;
-/* harmony default export */ __webpack_exports__["a"] = (sew);
-
-
-
-/***/ }),
-/* 91 */
 /***/ (function(module, exports) {
 
 module.exports = function arraybufferEqual (buf1, buf2) {
@@ -12958,7 +13082,7 @@ module.exports = function arraybufferEqual (buf1, buf2) {
 
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12982,7 +13106,7 @@ module.exports = function isArguments(value) {
 
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports) {
 
 
@@ -13010,7 +13134,7 @@ module.exports = function forEach (obj, fn, ctx) {
 
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13024,13 +13148,13 @@ module.exports = function isNaN(value) {
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(94);
+var implementation = __webpack_require__(93);
 
 module.exports = function getPolyfill() {
 	if (Number.isNaN && Number.isNaN(NaN) && !Number.isNaN('a')) {
@@ -13041,17 +13165,17 @@ module.exports = function getPolyfill() {
 
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(122);
+module.exports = __webpack_require__(119);
 
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports) {
 
 module.exports = function isPrimitive(value) {
@@ -13060,7 +13184,7 @@ module.exports = function isPrimitive(value) {
 
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13116,7 +13240,7 @@ module.exports = function assertRecord(ES, recordType, argumentName, value) {
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports) {
 
 module.exports = Number.isNaN || function isNaN(a) {
@@ -13125,7 +13249,7 @@ module.exports = Number.isNaN || function isNaN(a) {
 
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports) {
 
 var $isNaN = Number.isNaN || function (a) { return a !== a; };
@@ -13134,7 +13258,7 @@ module.exports = Number.isFinite || function (x) { return typeof x === 'number' 
 
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports) {
 
 module.exports = function sign(number) {
@@ -13143,7 +13267,7 @@ module.exports = function sign(number) {
 
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports) {
 
 module.exports = function mod(number, modulo) {
@@ -13153,13 +13277,13 @@ module.exports = function mod(number, modulo) {
 
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var ES = __webpack_require__(96);
+var ES = __webpack_require__(95);
 var $isNaN = Number.isNaN || function isNaN(a) {
 	return a !== a;
 };
@@ -13192,13 +13316,13 @@ module.exports = function includes(searchElement) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(62)))
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(103);
+var implementation = __webpack_require__(102);
 
 module.exports = function getPolyfill() {
 	return Array.prototype.includes || implementation;
@@ -13206,7 +13330,7 @@ module.exports = function getPolyfill() {
 
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -13403,7 +13527,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13442,7 +13566,7 @@ module.exports = function isGeneratorFunction(fn) {
 
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13468,7 +13592,7 @@ module.exports = function is(a, b) {
 
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13476,9 +13600,9 @@ module.exports = function is(a, b) {
 
 var define = __webpack_require__(76);
 
-var implementation = __webpack_require__(94);
-var getPolyfill = __webpack_require__(95);
-var shim = __webpack_require__(119);
+var implementation = __webpack_require__(93);
+var getPolyfill = __webpack_require__(94);
+var shim = __webpack_require__(116);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -13492,110 +13616,7 @@ module.exports = implementation;
 
 
 /***/ }),
-/* 109 */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isVarName; });
-/*!
- * is-var-name | ISC (c) Shinnosuke Watanabe
- * https://github.com/shinnn/is-var-name
-*/
-function isVarName(str) {
-	if (typeof str !== 'string') {
-		return false;
-	}
-
-	if (str.trim() !== str) {
-		return false;
-	}
-
-	try {
-		new Function(str, 'var ' + str);
-	} catch (e) {
-		return false;
-	}
-
-	return true;
-}
-
-
-/***/ }),
-/* 110 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var is_finite_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(33);
-/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23);
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(0);
-var _this = undefined;
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-
-var EMPTY_STRING = '';
-var nativeRepeat = EMPTY_STRING.repeat;
-var hasNative = Object(attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(function () {
-  _newArrowCheck(this, _this);
-
-  return nativeRepeat.call('a', 5);
-}.bind(undefined)).value === 'aaaaa';
-/**
- * Repeat the given string the specified number of times.
- *
- * @param {string} value - The string to repeat.
- * @param {(number|string)} count - The number of times to repeat the string.
- * @returns {string} Repeated string.
- */
-
-var $repeat;
-
-if (hasNative) {
-  $repeat = function repeat(value, count) {
-    return nativeRepeat.call(Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(value), count) || EMPTY_STRING;
-  };
-} else {
-  $repeat = function repeat(value, count) {
-    var string = Object(to_string_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(value));
-    var n = Object(to_integer_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(count); // Account for out-of-bounds indices
-
-    if (n < 0 || !Object(is_finite_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(n)) {
-      throw new RangeError('Invalid count value');
-    }
-
-    var result = EMPTY_STRING;
-
-    while (n) {
-      if (n % 2 === 1) {
-        result += string;
-      }
-
-      if (n > 1) {
-        string += string;
-      }
-      /* eslint-disable-next-line no-bitwise */
-
-
-      n >>= 1;
-    }
-
-    return result;
-  };
-}
-
-var r = $repeat;
-/* harmony default export */ __webpack_exports__["a"] = (r);
-
-
-
-/***/ }),
-/* 111 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13617,19 +13638,19 @@ module.exports = function isBoxedPrimitive(value) {
 
 
 /***/ }),
-/* 112 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var define = __webpack_require__(76);
-var ES = __webpack_require__(96);
+var ES = __webpack_require__(95);
 
-var implementation = __webpack_require__(103);
-var getPolyfill = __webpack_require__(104);
+var implementation = __webpack_require__(102);
+var getPolyfill = __webpack_require__(103);
 var polyfill = getPolyfill();
-var shim = __webpack_require__(129);
+var shim = __webpack_require__(126);
 
 var slice = Array.prototype.slice;
 
@@ -13649,13 +13670,13 @@ module.exports = boundIncludesShim;
 
 
 /***/ }),
-/* 113 */
+/* 110 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
-// EXTERNAL MODULE: ./node_modules/error-x/dist/error-x.esm.js
-var error_x_esm = __webpack_require__(59);
+// EXTERNAL MODULE: ./node_modules/error-x/dist/error-x.esm.js + 3 modules
+var error_x_esm = __webpack_require__(61);
 
 // EXTERNAL MODULE: ./node_modules/is-regexp-x/dist/is-regexp-x.esm.js
 var is_regexp_x_esm = __webpack_require__(27);
@@ -13717,7 +13738,7 @@ var is_array_buffer_x_esm = __webpack_require__(45);
 var is_error_x_esm = __webpack_require__(47);
 
 // EXTERNAL MODULE: ./node_modules/is-boxed-primitive/implementation.js
-var implementation = __webpack_require__(111);
+var implementation = __webpack_require__(108);
 var implementation_default = /*#__PURE__*/__webpack_require__.n(implementation);
 
 // EXTERNAL MODULE: ./node_modules/is-bigint/index.js
@@ -13762,7 +13783,7 @@ var is_index_x_esm = __webpack_require__(79);
 var collections_x_esm = __webpack_require__(30);
 
 // EXTERNAL MODULE: ./node_modules/arraybuffer-equal/index.js
-var arraybuffer_equal = __webpack_require__(91);
+var arraybuffer_equal = __webpack_require__(90);
 var arraybuffer_equal_default = /*#__PURE__*/__webpack_require__.n(arraybuffer_equal);
 
 // EXTERNAL MODULE: ./node_modules/is-data-view-x/dist/is-data-view-x.esm.js
@@ -14522,7 +14543,7 @@ function isDeepStrictEqual(val1, val2) {
 
 
 // EXTERNAL MODULE: ./node_modules/object-assign-x/dist/object-assign-x.esm.js
-var object_assign_x_esm = __webpack_require__(61);
+var object_assign_x_esm = __webpack_require__(60);
 
 // CONCATENATED MODULE: ./node_modules/assert-x/dist/assert-x.esm.js
 /* unused harmony export strict */
@@ -14984,7 +15005,7 @@ Object(object_define_property_x_esm["a" /* default */])(assert_x_esm_strict, 'tr
 
 
 /***/ }),
-/* 114 */
+/* 111 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14995,7 +15016,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
 /* harmony import */ var array_for_each_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(65);
-/* harmony import */ var assert_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(113);
+/* harmony import */ var assert_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(110);
 /* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(48);
 /* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(14);
 /* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(3);
@@ -15004,9 +15025,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(26);
 /* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(17);
 /* harmony import */ var to_iso_string_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(83);
-/* harmony import */ var array_includes__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(112);
+/* harmony import */ var array_includes__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(109);
 /* harmony import */ var array_includes__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(array_includes__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var error_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(59);
+/* harmony import */ var error_x__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(61);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -15206,14 +15227,14 @@ Object(array_for_each_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(propert
 
 
 /***/ }),
-/* 115 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
 var origSymbol = global.Symbol;
-var hasSymbolSham = __webpack_require__(116);
+var hasSymbolSham = __webpack_require__(113);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -15227,7 +15248,7 @@ module.exports = function hasNativeSymbols() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(62)))
 
 /***/ }),
-/* 116 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15276,7 +15297,7 @@ module.exports = function hasSymbols() {
 
 
 /***/ }),
-/* 117 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15287,7 +15308,7 @@ if (!Object.keys) {
 	// modified from https://github.com/es-shims/es5-shim
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
-	var isArgs = __webpack_require__(92); // eslint-disable-line global-require
+	var isArgs = __webpack_require__(91); // eslint-disable-line global-require
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -15405,7 +15426,7 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 118 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15464,14 +15485,14 @@ module.exports = function bind(that) {
 
 
 /***/ }),
-/* 119 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var define = __webpack_require__(76);
-var getPolyfill = __webpack_require__(95);
+var getPolyfill = __webpack_require__(94);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -15483,7 +15504,7 @@ module.exports = function shimNumberIsNaN() {
 
 
 /***/ }),
-/* 120 */
+/* 117 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -15511,7 +15532,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 121 */
+/* 118 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -15520,14 +15541,14 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(this, {}))
 
 /***/ }),
-/* 122 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var has = __webpack_require__(74);
-var toPrimitive = __webpack_require__(123);
+var toPrimitive = __webpack_require__(120);
 var keys = __webpack_require__(77);
 
 var GetIntrinsic = __webpack_require__(87);
@@ -15543,15 +15564,15 @@ var $RegExp = GetIntrinsic('%RegExp%');
 
 var hasSymbols = !!$Symbol;
 
-var assertRecord = __webpack_require__(98);
-var $isNaN = __webpack_require__(99);
-var $isFinite = __webpack_require__(100);
+var assertRecord = __webpack_require__(97);
+var $isNaN = __webpack_require__(98);
+var $isFinite = __webpack_require__(99);
 var MAX_SAFE_INTEGER = $Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
 
-var assign = __webpack_require__(125);
-var sign = __webpack_require__(101);
-var mod = __webpack_require__(102);
-var isPrimitive = __webpack_require__(126);
+var assign = __webpack_require__(122);
+var sign = __webpack_require__(100);
+var mod = __webpack_require__(101);
+var isPrimitive = __webpack_require__(123);
 var parseInteger = parseInt;
 var bind = __webpack_require__(75);
 var arraySlice = bind.call(Function.call, $Array.prototype.slice);
@@ -15596,7 +15617,7 @@ var trim = function (value) {
 	return replace(value, trimRegex, '');
 };
 
-var ES5 = __webpack_require__(127);
+var ES5 = __webpack_require__(124);
 
 var hasRegExpMatcher = __webpack_require__(70);
 
@@ -16317,17 +16338,17 @@ module.exports = ES6;
 
 
 /***/ }),
-/* 123 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(124);
+module.exports = __webpack_require__(121);
 
 
 /***/ }),
-/* 124 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16335,7 +16356,7 @@ module.exports = __webpack_require__(124);
 
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
 
-var isPrimitive = __webpack_require__(97);
+var isPrimitive = __webpack_require__(96);
 var isCallable = __webpack_require__(86);
 var isDate = __webpack_require__(32);
 var isSymbol = __webpack_require__(11);
@@ -16409,7 +16430,7 @@ module.exports = function ToPrimitive(input) {
 
 
 /***/ }),
-/* 125 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var bind = __webpack_require__(75);
@@ -16432,7 +16453,7 @@ module.exports = function assign(target, source) {
 
 
 /***/ }),
-/* 126 */
+/* 123 */
 /***/ (function(module, exports) {
 
 module.exports = function isPrimitive(value) {
@@ -16441,7 +16462,7 @@ module.exports = function isPrimitive(value) {
 
 
 /***/ }),
-/* 127 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16453,15 +16474,15 @@ var $Object = GetIntrinsic('%Object%');
 var $TypeError = GetIntrinsic('%TypeError%');
 var $String = GetIntrinsic('%String%');
 
-var assertRecord = __webpack_require__(98);
-var $isNaN = __webpack_require__(99);
-var $isFinite = __webpack_require__(100);
+var assertRecord = __webpack_require__(97);
+var $isNaN = __webpack_require__(98);
+var $isFinite = __webpack_require__(99);
 
-var sign = __webpack_require__(101);
-var mod = __webpack_require__(102);
+var sign = __webpack_require__(100);
+var mod = __webpack_require__(101);
 
 var IsCallable = __webpack_require__(86);
-var toPrimitive = __webpack_require__(128);
+var toPrimitive = __webpack_require__(125);
 
 var has = __webpack_require__(74);
 
@@ -16683,7 +16704,7 @@ module.exports = ES5;
 
 
 /***/ }),
-/* 128 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16691,7 +16712,7 @@ module.exports = ES5;
 
 var toStr = Object.prototype.toString;
 
-var isPrimitive = __webpack_require__(97);
+var isPrimitive = __webpack_require__(96);
 
 var isCallable = __webpack_require__(86);
 
@@ -16735,14 +16756,14 @@ module.exports = function ToPrimitive(input) {
 
 
 /***/ }),
-/* 129 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var define = __webpack_require__(76);
-var getPolyfill = __webpack_require__(104);
+var getPolyfill = __webpack_require__(103);
 
 module.exports = function shimArrayPrototypeIncludes() {
 	var polyfill = getPolyfill();
