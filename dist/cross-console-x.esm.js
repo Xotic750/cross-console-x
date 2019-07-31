@@ -22,8 +22,33 @@ import objectKeys from 'object-keys-x';
 import toISOString from 'to-iso-string-x';
 import includes from 'array-includes-x';
 import { create } from 'error-x';
+import attempt from 'attempt-x';
+import toBoolean from 'to-boolean-x';
+var DateCtr = Date;
+var getTime = DateCtr.prototype.getTime;
+var apply = attempt.prototype.apply;
+/* eslint-disable-next-line no-void */
+
+var UNDEFINED = void 0;
 var properties = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
 var Trace = create('Trace');
+
+var getFn = function getFn(method, property) {
+  if (isPrimitive(method) === false) {
+    var f = function f(context, args) {
+      var res = attempt(function attemptee() {
+        return apply.call(method, context, slice(args));
+      });
+      return res.threw ? UNDEFINED : res.value;
+    };
+    /* eslint-disable-next-line no-new-func */
+
+
+    return Function('f', "return function ".concat(property, "(){return f(this,arguments)}"))(f);
+  }
+
+  return UNDEFINED;
+};
 /**
  * The cross-console-x object provides access to the browser's debugging console
  * (e.g., the Web Console in Firefox). The specifics of how it works vary from
@@ -39,34 +64,15 @@ var Trace = create('Trace');
  * @see {@link https://developer.mozilla.org/en/docs/Web/API/console}
  */
 
+
 var con = {};
 
 if (typeof console !== 'undefined' && isPrimitive(console) === false) {
-  var apply = Function.prototype.apply;
   forEach(properties, function assigner1(property) {
     if (hasOwn(console, property)) {
+      /* eslint-disable-next-line no-console */
       var method = console[property];
-      var fn;
-
-      if (isPrimitive(method) === false) {
-        // noinspection JSUnusedLocalSymbols
-        var f
-        /* eslint-disable-line no-unused-vars */
-        = function _f(context, args) {
-          try {
-            return apply.call(method, context, slice(args));
-          } catch (ignore) {} // empty
-
-          /* eslint-disable-next-line no-void */
-
-
-          return void 0;
-        };
-        /* eslint-disable-next-line no-eval */
-
-
-        fn = eval("(0,function ".concat(property, "(){return f(this,arguments);})"));
-      }
+      var fn = getFn(method, property);
 
       if (isFunction(fn)) {
         defineProperty(con, property, {
@@ -77,6 +83,10 @@ if (typeof console !== 'undefined' && isPrimitive(console) === false) {
   });
 }
 
+var _MapConstructor$proto = MapConstructor.prototype,
+    get = _MapConstructor$proto.get,
+    set = _MapConstructor$proto.set,
+    has = _MapConstructor$proto.has;
 var times = new MapConstructor();
 var shams = defineProperties({}, {
   consoleAssert: {
@@ -85,7 +95,7 @@ var shams = defineProperties({}, {
       /* eslint-disable-next-line prefer-rest-params */
       var expression = arguments[0];
 
-      if (Boolean(expression) === false) {
+      if (toBoolean(expression) === false) {
         /* eslint-disable-next-line prefer-rest-params */
         assert.ok(false, format.apply(void 0, _toConsumableArray(slice(arguments, 1))));
       }
@@ -129,7 +139,7 @@ var shams = defineProperties({}, {
       var type = arguments.length > 0 ? arguments[0] : null;
 
       if (includes(properties, type)) {
-        var stampStr = format('[%s] [%s]', toISOString(new Date()), type);
+        var stampStr = format('[%s] [%s]', toISOString(new DateCtr()), type);
         /* eslint-disable-next-line prefer-rest-params */
 
         this[type].apply(this, [stampStr].concat(_toConsumableArray(slice(arguments, 1))));
@@ -141,7 +151,7 @@ var shams = defineProperties({}, {
     value: function time() {
       /* eslint-disable-next-line prefer-rest-params */
       var label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
-      times.set(label, new Date().getTime());
+      set.call(times, label, getTime.call(new DateCtr()));
     }
   },
   timeEnd: {
@@ -151,8 +161,8 @@ var shams = defineProperties({}, {
       var label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
       var duration;
 
-      if (times.has(label)) {
-        duration = new Date().getTime() - times.get(label);
+      if (has.call(times, label)) {
+        duration = getTime.call(new DateCtr()) - get.call(times, label);
         var key = 'delete';
         times[key](label);
       } else {

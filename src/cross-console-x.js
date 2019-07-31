@@ -14,7 +14,14 @@ import objectKeys from 'object-keys-x';
 import toISOString from 'to-iso-string-x';
 import includes from 'array-includes-x';
 import {create} from 'error-x';
+import attempt from 'attempt-x';
+import toBoolean from 'to-boolean-x';
 
+const DateCtr = Date;
+const {getTime} = DateCtr.prototype;
+const {apply} = attempt.prototype;
+/* eslint-disable-next-line no-void */
+const UNDEFINED = void 0;
 const properties = [
   'assert',
   'clear',
@@ -42,6 +49,23 @@ const properties = [
 
 const Trace = create('Trace');
 
+const getFn = function getFn(method, property) {
+  if (isPrimitive(method) === false) {
+    const f = function f(context, args) {
+      const res = attempt(function attemptee() {
+        return apply.call(method, context, slice(args));
+      });
+
+      return res.threw ? UNDEFINED : res.value;
+    };
+
+    /* eslint-disable-next-line no-new-func */
+    return Function('f', `return function ${property}(){return f(this,arguments)}`)(f);
+  }
+
+  return UNDEFINED;
+};
+
 /**
  * The cross-console-x object provides access to the browser's debugging console
  * (e.g., the Web Console in Firefox). The specifics of how it works vary from
@@ -59,28 +83,11 @@ const Trace = create('Trace');
 const con = {};
 
 if (typeof console !== 'undefined' && isPrimitive(console) === false) {
-  const {apply} = Function.prototype;
   forEach(properties, function assigner1(property) {
     if (hasOwn(console, property)) {
+      /* eslint-disable-next-line no-console */
       const method = console[property];
-      let fn;
-
-      if (isPrimitive(method) === false) {
-        // noinspection JSUnusedLocalSymbols
-        const f /* eslint-disable-line no-unused-vars */ = function _f(context, args) {
-          try {
-            return apply.call(method, context, slice(args));
-          } catch (ignore) {
-            // empty
-          }
-
-          /* eslint-disable-next-line no-void */
-          return void 0;
-        };
-
-        /* eslint-disable-next-line no-eval */
-        fn = eval(`(0,function ${property}(){return f(this,arguments);})`);
-      }
+      const fn = getFn(method, property);
 
       if (isFunction(fn)) {
         defineProperty(con, property, {
@@ -91,6 +98,7 @@ if (typeof console !== 'undefined' && isPrimitive(console) === false) {
   });
 }
 
+const {get, set, has} = MapConstructor.prototype;
 const times = new MapConstructor();
 const shams = defineProperties(
   {},
@@ -101,7 +109,7 @@ const shams = defineProperties(
         /* eslint-disable-next-line prefer-rest-params */
         const expression = arguments[0];
 
-        if (Boolean(expression) === false) {
+        if (toBoolean(expression) === false) {
           /* eslint-disable-next-line prefer-rest-params */
           assert.ok(false, format(...slice(arguments, 1)));
         }
@@ -149,7 +157,7 @@ const shams = defineProperties(
         const type = arguments.length > 0 ? arguments[0] : null;
 
         if (includes(properties, type)) {
-          const stampStr = format('[%s] [%s]', toISOString(new Date()), type);
+          const stampStr = format('[%s] [%s]', toISOString(new DateCtr()), type);
           /* eslint-disable-next-line prefer-rest-params */
           this[type].apply(this, [stampStr, ...slice(arguments, 1)]);
         }
@@ -161,7 +169,7 @@ const shams = defineProperties(
       value: function time() {
         /* eslint-disable-next-line prefer-rest-params */
         const label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
-        times.set(label, new Date().getTime());
+        set.call(times, label, getTime.call(new DateCtr()));
       },
     },
 
@@ -172,8 +180,8 @@ const shams = defineProperties(
         const label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
         let duration;
 
-        if (times.has(label)) {
-          duration = new Date().getTime() - times.get(label);
+        if (has.call(times, label)) {
+          duration = getTime.call(new DateCtr()) - get.call(times, label);
           const key = 'delete';
           times[key](label);
         } else {
