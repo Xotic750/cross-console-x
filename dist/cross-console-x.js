@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-31T20:49:12.691Z",
+  "date": "2019-07-31T23:27:06.141Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
-  "hash": "d12368341f539940a584",
+  "hash": "e22307baa8b23c90d2df",
   "license": "MIT",
-  "version": "4.0.21"
+  "version": "4.0.22"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -120,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 106);
+/******/ 	return __webpack_require__(__webpack_require__.s = 107);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -166,7 +166,26 @@ var attempt = function attempt(fn) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/**
+ * The abstract operation ToBoolean converts argument to a value of type Boolean.
+ *
+ * @param {*} [value] - The value to be converted.
+ * @returns {boolean} 'true' if value is truthy; otherwise 'false'.
+ */
+var toBoolean = function toBoolean(value) {
+  return !!value;
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (toBoolean);
+
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 
 var castObject = {}.constructor;
 /**
@@ -187,22 +206,18 @@ var toObject = function toObject(value) {
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(71);
-/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(20);
-/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(32);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
+/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(33);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var normalize_space_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(59);
-/* harmony import */ var replace_comments_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(61);
-var _this = undefined;
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
+/* harmony import */ var normalize_space_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(61);
+/* harmony import */ var replace_comments_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(63);
 
 
 
@@ -211,7 +226,6 @@ function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { t
 
 
 var FunctionCtr = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].constructor;
-var castBoolean = true.constructor;
 var SPACE = ' ';
 var fToString = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].toString;
 var funcTag = '[object Function]';
@@ -219,19 +233,17 @@ var genTag = '[object GeneratorFunction]';
 var asyncTag = '[object AsyncFunction]';
 var ctrRx = /^class /;
 var test = ctrRx.test;
-var hasNativeClass = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function () {
-  _newArrowCheck(this, _this);
-
+var hasNativeClass = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function attemptee() {
   /* eslint-disable-next-line babel/new-cap */
   return FunctionCtr('"use strict"; return class My {};')();
-}.bind(undefined)).threw === false;
+}).threw === false;
 
-var testClassstring = function _testClassstring(value) {
+var testClassString = function testClassString(value) {
   return test.call(ctrRx, Object(normalize_space_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(Object(replace_comments_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(fToString.call(value), SPACE)));
 };
 
 var isES6ClassFn = function isES6ClassFunc(value) {
-  var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(testClassstring, value);
+  var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(testClassString, value);
   return result.threw === false && result.value;
 };
 /**
@@ -252,6 +264,11 @@ var tryFuncToString = function funcToString(value, allowClass) {
 
   return attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(value, fToString).threw === false;
 };
+
+var compareTags = function compareTags(value) {
+  var strTag = Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(value);
+  return strTag === funcTag || strTag === genTag || strTag === asyncTag;
+};
 /**
  * Checks if `value` is classified as a `Function` object.
  *
@@ -271,12 +288,11 @@ var isFunction = function isFunction(value, allowClass) {
     return tryFuncToString(value, Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(allowClass));
   }
 
-  if (hasNativeClass && castBoolean(allowClass) === false && isES6ClassFn(value)) {
+  if (hasNativeClass && Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(allowClass) === false && isES6ClassFn(value)) {
     return false;
   }
 
-  var strTag = Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(value);
-  return strTag === funcTag || strTag === genTag || strTag === asyncTag;
+  return compareTags(value);
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (isFunction);
@@ -284,12 +300,40 @@ var isFunction = function isFunction(value, allowClass) {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
+/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19);
+
+/**
+ * The abstract operation RequireObjectCoercible throws an error if argument
+ * is a value that cannot be converted to an Object using ToObject.
+ *
+ * @param {*} [value] - The `value` to check.
+ * @throws {TypeError} If `value` is a `null` or `undefined`.
+ * @returns {string} The `value`.
+ */
+
+var requireObjectCoercible = function requireObjectCoercible(value) {
+  if (Object(is_nil_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value)) {
+    throw new TypeError("Cannot call method on ".concat(value));
+  }
+
+  return value;
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (requireObjectCoercible);
+
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
 
 
 var hop = {}.hasOwnProperty;
@@ -300,7 +344,7 @@ var hop = {}.hasOwnProperty;
  *
  * @param {!object} object - The object to test.
  * @throws {TypeError} If object is null or undefined.
- * @param {string|number|Symbol} property - The name or Symbol of the property to test.
+ * @param {string|number|symbol} property - The name or Symbol of the property to test.
  * @returns {boolean} `true` if the property is set on `object`, else `false`.
  */
 
@@ -313,11 +357,11 @@ var hasOwnProperty = function hasOwnProperty(object, property) {
 
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(25);
+/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
 
 var MAX_SAFE_INTEGER = 9007199254740991;
 /**
@@ -347,41 +391,13 @@ var toLength = function toLength(value) {
 
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
-
-/**
- * The abstract operation RequireObjectCoercible throws an error if argument
- * is a value that cannot be converted to an Object using ToObject.
- *
- * @param {*} [value] - The `value` to check.
- * @throws {TypeError} If `value` is a `null` or `undefined`.
- * @returns {string} The `value`.
- */
-
-var requireObjectCoercible = function requireObjectCoercible(value) {
-  if (Object(is_nil_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value)) {
-    throw new TypeError("Cannot call method on ".concat(value));
-  }
-
-  return value;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (requireObjectCoercible);
-
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(27);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_2__);
 
 
@@ -409,12 +425,12 @@ var assertIsFunction = function assertIsFunction(callback) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -435,7 +451,7 @@ var isObjectLike = function isObjectLike(value) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -457,11 +473,11 @@ module.exports = function isPrimitive(val) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_0__);
 
 var ERROR_MESSAGE = 'Cannot convert a Symbol value to a string';
@@ -487,28 +503,28 @@ var ToString = function ToString(value) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/array-for-each-x/dist/array-for-each-x.esm.js
-var array_for_each_x_esm = __webpack_require__(63);
+var array_for_each_x_esm = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(15);
+var object_define_property_x_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/to-object-x/dist/to-object-x.esm.js
-var to_object_x_esm = __webpack_require__(1);
+var to_object_x_esm = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./node_modules/assert-is-object-x/dist/assert-is-object-x.esm.js
-var assert_is_object_x_esm = __webpack_require__(19);
+var assert_is_object_x_esm = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
-var object_keys_x_esm = __webpack_require__(18);
+var object_keys_x_esm = __webpack_require__(15);
 
 // EXTERNAL MODULE: ./node_modules/get-own-enumerable-property-symbols-x/dist/get-own-enumerable-property-symbols-x.esm.js
-var get_own_enumerable_property_symbols_x_esm = __webpack_require__(76);
+var get_own_enumerable_property_symbols_x_esm = __webpack_require__(75);
 
 // CONCATENATED MODULE: ./node_modules/get-own-enumerable-keys-x/dist/get-own-enumerable-keys-x.esm.js
 
@@ -566,7 +582,7 @@ var object_define_properties_x_esm_defineProperties = function defineProperties(
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -588,7 +604,7 @@ var hasBoxed = boxedString[0] === string && 0 in boxedString;
 
 
 // EXTERNAL MODULE: ./node_modules/is-string/index.js
-var is_string = __webpack_require__(12);
+var is_string = __webpack_require__(13);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // CONCATENATED MODULE: ./node_modules/split-if-boxed-bug-x/dist/split-if-boxed-bug-x.esm.js
@@ -615,7 +631,7 @@ var splitIfBoxedBug = function splitIfBoxedBug(value) {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -642,12 +658,12 @@ module.exports = function isString(value) {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(16);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_1__);
 var _this = undefined;
 
@@ -673,339 +689,22 @@ var hasSymbolSupport = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default 
 
 
 /***/ }),
-/* 14 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(74);
-/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_arguments__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(22);
-/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(53);
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(0);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(12);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-
-
-
-var nativeSlice = [].slice;
-var resultArray = nativeSlice ? attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call([1, 2, 3], nativeSlice, 1, 2) : null;
-var failArray = resultArray ? resultArray.threw || Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(resultArray.value) === false || resultArray.value.length !== 1 || resultArray.value[0] !== 2 : false;
-var resultString = nativeSlice ? attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call('abc', nativeSlice, 1, 2) : null;
-var failString = resultString ? resultString.threw || Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(resultString.value) === false || resultString.value.length !== 1 || resultString.value[0] !== 'b' : false;
-var doc = typeof document !== 'undefined' && document;
-var resultDocElement = nativeSlice && doc ? attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call(doc.documentElement, nativeSlice).threw : null;
-var failDOM = resultDocElement ? resultDocElement.threw : false;
-/**
- * The slice() method returns a shallow copy of a portion of an array into a new
- * array object selected from begin to end (end not included). The original
- * array will not be modified.
- *
- * @param {Array|object} array - The array to slice.
- * @param {number} [start] - Zero-based index at which to begin extraction.
- *  A negative index can be used, indicating an offset from the end of the
- *  sequence. Running slice(-2) extracts the last two elements in the sequence.
- *  If begin is undefined, slice begins from index 0.
- * @param {number} [end] - Zero-based index before which to end extraction.
- *  Slice extracts up to but not including end. For example, slice(1,4)
- *  extracts the second element through the fourth element (elements indexed
- *  1, 2, and 3).
- *  A negative index can be used, indicating an offset from the end of the
- *  sequence. Running slice(2,-1) extracts the third element through the second-to-last
- *  element in the sequence.
- *  If end is omitted, slice extracts through the end of the
- *  sequence (arr.length).
- *  If end is greater than the length of the sequence, slice extracts through
- *  the end of the sequence (arr.length).
- * @returns {Array} A new array containing the extracted elements.
- */
-
-var slice = function slice(array, start, end) {
-  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(array);
-
-  if (failArray || failDOM && Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false || failString && is_string__WEBPACK_IMPORTED_MODULE_5___default()(object) || is_arguments__WEBPACK_IMPORTED_MODULE_1___default()(object)) {
-    return Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, start, end);
-  }
-  /* eslint-disable-next-line prefer-rest-params */
-
-
-  return nativeSlice.apply(object, Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(arguments, 1));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (slice);
-
-
-
-/***/ }),
 /* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
-/* harmony import */ var assert_is_object_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(19);
-
-
-
-
-
-
-var ObjectCtr = {}.constructor;
-var castBoolean = true.constructor;
-var nd = ObjectCtr.defineProperty;
-var nativeDefProp = typeof nd === 'function' && nd;
-var definePropertyFallback;
-
-var toPropertyDescriptor = function _toPropertyDescriptor(desc) {
-  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(desc);
-  var descriptor = {};
-
-  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'enumerable')) {
-    descriptor.enumerable = castBoolean(object.enumerable);
-  }
-
-  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'configurable')) {
-    descriptor.configurable = castBoolean(object.configurable);
-  }
-
-  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'value')) {
-    descriptor.value = object.value;
-  }
-
-  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'writable')) {
-    descriptor.writable = castBoolean(object.writable);
-  }
-
-  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'get')) {
-    var getter = object.get;
-
-    if (typeof getter !== 'undefined' && Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(getter) === false) {
-      throw new TypeError('getter must be a function');
-    }
-
-    descriptor.get = getter;
-  }
-
-  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'set')) {
-    var setter = object.set;
-
-    if (typeof setter !== 'undefined' && Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(setter) === false) {
-      throw new TypeError('setter must be a function');
-    }
-
-    descriptor.set = setter;
-  }
-
-  if ((Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(descriptor, 'get') || Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(descriptor, 'set')) && (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(descriptor, 'value') || Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(descriptor, 'writable'))) {
-    throw new TypeError('Invalid property descriptor. Cannot both specify accessors and a value or writable attribute');
-  }
-
-  return descriptor;
-}; // ES5 15.2.3.6
-// http://es5.github.com/#x15.2.3.6
-// Patch for WebKit and IE8 standard mode
-// Designed by hax <hax.github.com>
-// related issue: https://github.com/es-shims/es5-shim/issues#issue/5
-// IE8 Reference:
-//     http://msdn.microsoft.com/en-us/library/dd282900.aspx
-//     http://msdn.microsoft.com/en-us/library/dd229916.aspx
-// WebKit Bugs:
-//     https://bugs.webkit.org/show_bug.cgi?id=36423
-
-/**
- * This method defines a new property directly on an object, or modifies an
- * existing property on an object, and returns the object.
- *
- * @param {object} object - The object on which to define the property.
- * @param {string} property - The name of the property to be defined or modified.
- * @param {object} descriptor - The descriptor for the property being defined or modified.
- * @returns {object} The object that was passed to the function.
- * });.
- */
-
-
-var $defineProperty; // check whether defineProperty works if it's given. Otherwise, shim partially.
-
-if (nativeDefProp) {
-  var testWorksWith = function _testWorksWith(object) {
-    var testResult = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeDefProp, object, 'sentinel', {});
-    return testResult.threw === false && testResult.value === object && 'sentinel' in object;
-  };
-
-  var doc = typeof document !== 'undefined' && document;
-
-  if (testWorksWith({}) && (castBoolean(doc) === false || testWorksWith(doc.createElement('div')))) {
-    $defineProperty = function defineProperty(object, property, descriptor) {
-      return nativeDefProp(Object(assert_is_object_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(object), Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(property), toPropertyDescriptor(descriptor));
-    };
-  } else {
-    definePropertyFallback = nativeDefProp;
-  }
-}
-
-if (castBoolean(nativeDefProp) === false || definePropertyFallback) {
-  var prototypeOfObject = ObjectCtr.prototype; // If JS engine supports accessors creating shortcuts.
-
-  var supportsAccessors = Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(prototypeOfObject, '__defineGetter__');
-  /* eslint-disable-next-line no-underscore-dangle */
-
-  var defineGetter = supportsAccessors && prototypeOfObject.__defineGetter_;
-  /* eslint-disable-next-line no-underscore-dangle,no-restricted-properties */
-
-  var defineSetter = supportsAccessors && prototypeOfObject.__defineSetter__;
-  /* eslint-disable-next-line no-underscore-dangle */
-
-  var lookupGetter = supportsAccessors && prototypeOfObject.__lookupGetter__;
-  /* eslint-disable-next-line no-underscore-dangle */
-
-  var lookupSetter = supportsAccessors && prototypeOfObject.__lookupSetter__;
-
-  $defineProperty = function defineProperty(object, property, descriptor) {
-    Object(assert_is_object_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(object);
-    var propKey = Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(property);
-    var propDesc = toPropertyDescriptor(descriptor); // make a valiant attempt to use the real defineProperty for IE8's DOM elements.
-
-    if (definePropertyFallback) {
-      var result = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(ObjectCtr, definePropertyFallback, object, propKey, propDesc);
-
-      if (result.threw === false) {
-        return result.value;
-      } // try the shim if the real one doesn't work
-
-    } // If it's a data property.
-
-
-    if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(propDesc, 'value')) {
-      // fail silently if 'writable', 'enumerable', or 'configurable' are requested but not supported
-      if (supportsAccessors && (lookupGetter.call(object, propKey) || lookupSetter.call(object, propKey))) {
-        // As accessors are supported only on engines implementing
-        // `__proto__` we can safely override `__proto__` while defining
-        // a property to make sure that we don't hit an inherited accessor.
-
-        /* eslint-disable-next-line no-proto */
-        var prototype = object.__proto__;
-        /* eslint-disable-next-line no-proto */
-
-        object.__proto__ = prototypeOfObject; // Deleting a property anyway since getter / setter may be defined on object itself.
-
-        delete object[propKey];
-        object[propKey] = propDesc.value; // Setting original `__proto__` back now.
-
-        /* eslint-disable-next-line no-proto */
-
-        object.__proto__ = prototype;
-      } else {
-        object[propKey] = propDesc.value;
-      }
-    } else {
-      if (supportsAccessors === false && (propDesc.get || propDesc.set)) {
-        throw new TypeError('getters & setters can not be defined on this javascript engine');
-      } // If we got that far then getters and setters can be defined !!
-
-
-      if (propDesc.get) {
-        defineGetter.call(object, propKey, propDesc.get);
-      }
-
-      if (propDesc.set) {
-        defineSetter.call(object, propKey, propDesc.set);
-      }
-    }
-
-    return object;
-  };
-}
-
-var defProp = $defineProperty;
-/* harmony default export */ __webpack_exports__["a"] = (defProp);
-
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var toStr = Object.prototype.toString;
-var hasSymbols = __webpack_require__(98)();
-
-if (hasSymbols) {
-	var symToStr = Symbol.prototype.toString;
-	var symStringRegex = /^Symbol\(.*\)$/;
-	var isSymbolObject = function isRealSymbolObject(value) {
-		if (typeof value.valueOf() !== 'symbol') {
-			return false;
-		}
-		return symStringRegex.test(symToStr.call(value));
-	};
-
-	module.exports = function isSymbol(value) {
-		if (typeof value === 'symbol') {
-			return true;
-		}
-		if (toStr.call(value) !== '[object Symbol]') {
-			return false;
-		}
-		try {
-			return isSymbolObject(value);
-		} catch (e) {
-			return false;
-		}
-	};
-} else {
-
-	module.exports = function isSymbol(value) {
-		// this environment does not support Symbols.
-		return  false && false;
-	};
-}
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/**
- * Checks if `value` is `null` or `undefined`.
- *
- * @param {*} [value] - The value to check.
- * @returns {boolean} Returns `true` if `value` is nullish, else `false`.
- */
-var isNil = function isNil(value) {
-  /* eslint-disable-next-line lodash/prefer-is-nil */
-  return value === null || typeof value === 'undefined';
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (isNil);
-
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(22);
-/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(74);
+/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
+/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(73);
 /* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(is_arguments__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(53);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(12);
+/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(56);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(12);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(28);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(3);
-/* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(83);
+/* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(29);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5);
+/* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(84);
 /* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(object_keys__WEBPACK_IMPORTED_MODULE_9__);
 
 
@@ -1116,12 +815,343 @@ var ok = objectKeys;
 
 
 /***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(73);
+/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_arguments__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
+/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(56);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(0);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(13);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+var nativeSlice = [].slice;
+
+var testArray = function testArray() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call([1, 2, 3], nativeSlice, 1, 2);
+  return res.threw || Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value) === false || res.value.length !== 1 || res.value[0] !== 2;
+};
+
+var testString = function testString() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call('abc', nativeSlice, 1, 2);
+  return res.threw || Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value) === false || res.value.length !== 1 || res.value[0] !== 'b';
+};
+
+var testDOM = function testDOM() {
+  var doc = typeof document !== 'undefined' && document;
+  var resultDocElement = doc ? attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call(doc.documentElement, nativeSlice).threw : false;
+  return resultDocElement ? resultDocElement.threw : false;
+};
+
+var failArray = testArray();
+var failString = testString();
+var failDOM = testDOM();
+/**
+ * The slice() method returns a shallow copy of a portion of an array into a new
+ * array object selected from begin to end (end not included). The original
+ * array will not be modified.
+ *
+ * @param {Array|object} array - The array to slice.
+ * @param {number} [start] - Zero-based index at which to begin extraction.
+ *  A negative index can be used, indicating an offset from the end of the
+ *  sequence. Running slice(-2) extracts the last two elements in the sequence.
+ *  If begin is undefined, slice begins from index 0.
+ * @param {number} [end] - Zero-based index before which to end extraction.
+ *  Slice extracts up to but not including end. For example, slice(1,4)
+ *  extracts the second element through the fourth element (elements indexed
+ *  1, 2, and 3).
+ *  A negative index can be used, indicating an offset from the end of the
+ *  sequence. Running slice(2,-1) extracts the third element through the second-to-last
+ *  element in the sequence.
+ *  If end is omitted, slice extracts through the end of the
+ *  sequence (arr.length).
+ *  If end is greater than the length of the sequence, slice extracts through
+ *  the end of the sequence (arr.length).
+ * @returns {Array} A new array containing the extracted elements.
+ */
+
+var slice = function slice(array, start, end) {
+  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(array);
+
+  if (failArray || failDOM && Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false || failString && is_string__WEBPACK_IMPORTED_MODULE_5___default()(object) || is_arguments__WEBPACK_IMPORTED_MODULE_1___default()(object)) {
+    return Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, start, end);
+  }
+  /* eslint-disable-next-line prefer-rest-params */
+
+
+  return nativeSlice.apply(object, Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(arguments, 1));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (slice);
+
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(35);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
+/* harmony import */ var assert_is_object_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(20);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1);
+
+
+
+
+
+
+
+var ObjectCtr = {}.constructor;
+var nd = ObjectCtr.defineProperty;
+var nativeDefProp = typeof nd === 'function' && nd;
+var definePropertyFallback;
+
+var toPropertyDescriptor = function toPropertyDescriptor(desc) {
+  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(desc);
+  var descriptor = {};
+
+  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'enumerable')) {
+    descriptor.enumerable = Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(object.enumerable);
+  }
+
+  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'configurable')) {
+    descriptor.configurable = Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(object.configurable);
+  }
+
+  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'value')) {
+    descriptor.value = object.value;
+  }
+
+  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'writable')) {
+    descriptor.writable = Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(object.writable);
+  }
+
+  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'get')) {
+    var getter = object.get;
+
+    if (typeof getter !== 'undefined' && Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(getter) === false) {
+      throw new TypeError('getter must be a function');
+    }
+
+    descriptor.get = getter;
+  }
+
+  if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, 'set')) {
+    var setter = object.set;
+
+    if (typeof setter !== 'undefined' && Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(setter) === false) {
+      throw new TypeError('setter must be a function');
+    }
+
+    descriptor.set = setter;
+  }
+
+  if ((Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(descriptor, 'get') || Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(descriptor, 'set')) && (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(descriptor, 'value') || Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(descriptor, 'writable'))) {
+    throw new TypeError('Invalid property descriptor. Cannot both specify accessors and a value or writable attribute');
+  }
+
+  return descriptor;
+}; // ES5 15.2.3.6
+// http://es5.github.com/#x15.2.3.6
+// Patch for WebKit and IE8 standard mode
+// Designed by hax <hax.github.com>
+// related issue: https://github.com/es-shims/es5-shim/issues#issue/5
+// IE8 Reference:
+//     http://msdn.microsoft.com/en-us/library/dd282900.aspx
+//     http://msdn.microsoft.com/en-us/library/dd229916.aspx
+// WebKit Bugs:
+//     https://bugs.webkit.org/show_bug.cgi?id=36423
+
+/**
+ * This method defines a new property directly on an object, or modifies an
+ * existing property on an object, and returns the object.
+ *
+ * @param {object} object - The object on which to define the property.
+ * @param {string} property - The name of the property to be defined or modified.
+ * @param {object} descriptor - The descriptor for the property being defined or modified.
+ * @returns {object} The object that was passed to the function.
+ * });.
+ */
+
+
+var $defineProperty; // check whether defineProperty works if it's given. Otherwise, shim partially.
+
+if (nativeDefProp) {
+  var testWorksWith = function testWorksWith(object) {
+    var testResult = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeDefProp, object, 'sentinel', {});
+    return testResult.threw === false && testResult.value === object && 'sentinel' in object;
+  };
+
+  var doc = typeof document !== 'undefined' && document;
+
+  if (testWorksWith({}) && (Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(doc) === false || testWorksWith(doc.createElement('div')))) {
+    $defineProperty = function defineProperty(object, property, descriptor) {
+      return nativeDefProp(Object(assert_is_object_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(object), Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(property), toPropertyDescriptor(descriptor));
+    };
+  } else {
+    definePropertyFallback = nativeDefProp;
+  }
+}
+
+if (Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(nativeDefProp) === false || definePropertyFallback) {
+  var prototypeOfObject = ObjectCtr.prototype; // If JS engine supports accessors creating shortcuts.
+
+  var supportsAccessors = Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(prototypeOfObject, '__defineGetter__');
+  /* eslint-disable-next-line no-underscore-dangle */
+
+  var defineGetter = supportsAccessors && prototypeOfObject.__defineGetter_;
+  /* eslint-disable-next-line no-underscore-dangle,no-restricted-properties */
+
+  var defineSetter = supportsAccessors && prototypeOfObject.__defineSetter__;
+  /* eslint-disable-next-line no-underscore-dangle */
+
+  var lookupGetter = supportsAccessors && prototypeOfObject.__lookupGetter__;
+  /* eslint-disable-next-line no-underscore-dangle */
+
+  var lookupSetter = supportsAccessors && prototypeOfObject.__lookupSetter__;
+
+  $defineProperty = function defineProperty(object, property, descriptor) {
+    Object(assert_is_object_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(object);
+    var propKey = Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(property);
+    var propDesc = toPropertyDescriptor(descriptor); // make a valiant attempt to use the real defineProperty for IE8's DOM elements.
+
+    if (definePropertyFallback) {
+      var result = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(ObjectCtr, definePropertyFallback, object, propKey, propDesc);
+
+      if (result.threw === false) {
+        return result.value;
+      } // try the shim if the real one doesn't work
+
+    } // If it's a data property.
+
+
+    if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(propDesc, 'value')) {
+      // fail silently if 'writable', 'enumerable', or 'configurable' are requested but not supported
+      if (supportsAccessors && (lookupGetter.call(object, propKey) || lookupSetter.call(object, propKey))) {
+        // As accessors are supported only on engines implementing
+        // `__proto__` we can safely override `__proto__` while defining
+        // a property to make sure that we don't hit an inherited accessor.
+
+        /* eslint-disable-next-line no-proto */
+        var prototype = object.__proto__;
+        /* eslint-disable-next-line no-proto */
+
+        object.__proto__ = prototypeOfObject; // Deleting a property anyway since getter / setter may be defined on object itself.
+
+        delete object[propKey];
+        object[propKey] = propDesc.value; // Setting original `__proto__` back now.
+
+        /* eslint-disable-next-line no-proto */
+
+        object.__proto__ = prototype;
+      } else {
+        object[propKey] = propDesc.value;
+      }
+    } else {
+      if (supportsAccessors === false && (propDesc.get || propDesc.set)) {
+        throw new TypeError('getters & setters can not be defined on this javascript engine');
+      } // If we got that far then getters and setters can be defined !!
+
+
+      if (propDesc.get) {
+        defineGetter.call(object, propKey, propDesc.get);
+      }
+
+      if (propDesc.set) {
+        defineSetter.call(object, propKey, propDesc.set);
+      }
+    }
+
+    return object;
+  };
+}
+
+var defProp = $defineProperty;
+/* harmony default export */ __webpack_exports__["a"] = (defProp);
+
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var toStr = Object.prototype.toString;
+var hasSymbols = __webpack_require__(99)();
+
+if (hasSymbols) {
+	var symToStr = Symbol.prototype.toString;
+	var symStringRegex = /^Symbol\(.*\)$/;
+	var isSymbolObject = function isRealSymbolObject(value) {
+		if (typeof value.valueOf() !== 'symbol') {
+			return false;
+		}
+		return symStringRegex.test(symToStr.call(value));
+	};
+
+	module.exports = function isSymbol(value) {
+		if (typeof value === 'symbol') {
+			return true;
+		}
+		if (toStr.call(value) !== '[object Symbol]') {
+			return false;
+		}
+		try {
+			return isSymbolObject(value);
+		} catch (e) {
+			return false;
+		}
+	};
+} else {
+
+	module.exports = function isSymbol(value) {
+		// this environment does not support Symbols.
+		return  false && false;
+	};
+}
+
+
+/***/ }),
 /* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/**
+ * Checks if `value` is `null` or `undefined`.
+ *
+ * @param {*} [value] - The value to check.
+ * @returns {boolean} Returns `true` if `value` is nullish, else `false`.
+ */
+var isNil = function isNil(value) {
+  /* eslint-disable-next-line lodash/prefer-is-nil */
+  return value === null || typeof value === 'undefined';
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (isNil);
+
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -1147,7 +1177,7 @@ var assertIsObject = function assertIsObject(value) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1177,7 +1207,7 @@ var toStringTag = function toStringTag(value) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1199,12 +1229,12 @@ var isNaN = function isNaN(value) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20);
+/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
 var _this = undefined;
 
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -1244,16 +1274,17 @@ var isArrayFn = function iife() {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 
 
 
@@ -1411,25 +1442,27 @@ var implementation = function implementation() {
  * @returns {Array} A new array with the elements that pass the test.
  */
 
-
 var $filter = isWorking ? patchedFilter() : implementation();
 /* harmony default export */ __webpack_exports__["a"] = ($filter);
 
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var same_value_zero_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
-/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(55);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
-/* harmony import */ var index_of_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(41);
+/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(58);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(12);
+/* harmony import */ var index_of_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(42);
 /* harmony import */ var calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(68);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(4);
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
 
 
@@ -1440,78 +1473,72 @@ function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { t
 
 
 
-var nativeIncludes = typeof Array.prototype.includes === 'function' && Array.prototype.includes;
-var isWorking;
-
-if (nativeIncludes) {
-  var arr;
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(null, nativeIncludes, 'a');
-  isWorking = res.threw;
-
-  if (isWorking) {
-    arr = {
-      1: 'a',
-      2: NaN,
-      3: -0,
-      length: 5
-    };
-    /* eslint-disable-next-line no-void */
-
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(arr, nativeIncludes, void 0, -1);
-    isWorking = res.threw === false && res.value === true;
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(arr, nativeIncludes, NaN);
-    isWorking = res.threw === false && res.value === true;
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(arr, nativeIncludes, 0);
-    isWorking = res.threw === false && res.value === true;
-  }
-
-  if (isWorking) {
-    var testArr = [];
-    testArr.length = 2;
-    testArr[1] = null;
-    /* eslint-disable-next-line no-void */
-
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(testArr, nativeIncludes, void 0);
-    isWorking = res.threw === false && res.value === true;
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call('abc', nativeIncludes, 'c');
-    isWorking = res.threw === false && res.value === true;
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
-      /* eslint-disable-next-line prefer-rest-params */
-      return arguments;
-    }('a', 'b', 'c'), nativeIncludes, 'c');
-    isWorking = res.threw === false && res.value === true;
-  }
-}
-/**
- * This method determines whether an array includes a certain element,
- * returning true or false as appropriate.
- *
- * @param {Array} array - The array to search.
- * @throws {TypeError} If `array` is `null` or `undefined`.
- * @param {*} searchElement - Element to locate in the `array`.
- * @param {number} [fromIndex] - The position in this array at which to begin
- *  searching for searchElement. A negative value searches from the index of
- *  array.length + fromIndex by asc. Defaults to 0.
- * @returns {boolean} `true` if searched element is included; otherwise `false`.
- */
 
 
-var $includes;
+var ni = [].includes;
+var nativeIncludes = typeof ni === 'function' && ni;
 
-if (isWorking) {
-  $includes = function includes(array, searchElement) {
+var getArrayLike = function getArrayLike() {
+  return {
+    1: 'a',
+    2: NaN,
+    3: -0,
+    length: 5
+  };
+};
+
+var test1 = function test1() {
+  return attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(null, nativeIncludes, 'a').threw;
+};
+
+var test2 = function test2() {
+  var arr = getArrayLike();
+  /* eslint-disable-next-line no-void */
+
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(arr, nativeIncludes, void 0, -1);
+  return res.threw === false && res.value === true;
+};
+
+var test3 = function test3() {
+  var arr = getArrayLike();
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(arr, nativeIncludes, NaN);
+  return res.threw === false && res.value === true;
+};
+
+var test4 = function test4() {
+  var arr = getArrayLike();
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(arr, nativeIncludes, 0);
+  return res.threw === false && res.value === true;
+};
+
+var test5 = function test5() {
+  var testArr = [];
+  testArr.length = 2;
+  testArr[1] = null;
+  /* eslint-disable-next-line no-void */
+
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(testArr, nativeIncludes, void 0);
+  return res.threw === false && res.value === true;
+};
+
+var test6 = function test6() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call('abc', nativeIncludes, 'c');
+  return res.threw === false && res.value === true;
+};
+
+var test7 = function test7() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
+    /* eslint-disable-next-line prefer-rest-params */
+    return arguments;
+  }('a', 'b', 'c'), nativeIncludes, 'c');
+  return res.threw === false && res.value === true;
+};
+
+var isWorking = Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(nativeIncludes) && test1() && test2() && test3() && test4() && test5() && test6() && test7();
+
+var patchedReduce = function patchedReduce() {
+  return function includes(array, searchElement) {
+    Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(array);
     var args = [searchElement];
 
     if (arguments.length > 2) {
@@ -1521,8 +1548,10 @@ if (isWorking) {
 
     return nativeIncludes.apply(array, args);
   };
-} else {
-  /*
+};
+
+var implementation = function implementation() {
+  /**
    * This method returns an index in the array, if an element in the array
    * satisfies the provided testing function. Otherwise -1 is returned.
    *
@@ -1547,9 +1576,35 @@ if (isWorking) {
     return -1;
   };
 
-  $includes = function includes(array, searchElement) {
+  var runFindIndex = function runFindIndex(obj) {
     var _this = this;
 
+    var iterable = obj.iterable,
+        args = obj.args,
+        length = obj.length,
+        searchElement = obj.searchElement;
+    var fromIndex = Object(calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(iterable, args[2]);
+
+    if (fromIndex >= length) {
+      return -1;
+    }
+
+    if (fromIndex < 0) {
+      fromIndex = 0;
+    }
+
+    if (fromIndex > 0) {
+      return findIdxFrom(iterable, searchElement, fromIndex) > -1;
+    }
+
+    return Object(find_index_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(iterable, function (element) {
+      _newArrowCheck(this, _this);
+
+      return Object(same_value_zero_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(searchElement, element);
+    }.bind(this)) > -1;
+  };
+
+  return function includes(array, searchElement) {
     var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(array);
     var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(object);
     var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
@@ -1560,52 +1615,51 @@ if (isWorking) {
 
     if (typeof searchElement === 'undefined') {
       /* eslint-disable-next-line prefer-rest-params */
-      var fromIndex = Object(calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(iterable, arguments[2]);
-
-      if (fromIndex >= length) {
-        return -1;
-      }
-
-      if (fromIndex < 0) {
-        fromIndex = 0;
-      }
-
-      if (fromIndex > 0) {
-        return findIdxFrom(iterable, searchElement, fromIndex) > -1;
-      }
-
-      return Object(find_index_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(iterable, function (element) {
-        _newArrowCheck(this, _this);
-
-        return Object(same_value_zero_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(searchElement, element);
-      }.bind(this)) > -1;
+      return runFindIndex({
+        iterable: iterable,
+        args: arguments,
+        length: length,
+        searchElement: searchElement
+      });
     }
     /* eslint-disable-next-line prefer-rest-params */
 
 
     return Object(index_of_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(iterable, searchElement, arguments[2], 'samevaluezero') > -1;
   };
-}
+};
+/**
+ * This method determines whether an array includes a certain element,
+ * returning true or false as appropriate.
+ *
+ * @param {Array} array - The array to search.
+ * @throws {TypeError} If `array` is `null` or `undefined`.
+ * @param {*} searchElement - Element to locate in the `array`.
+ * @param {number} [fromIndex] - The position in this array at which to begin
+ *  searching for searchElement. A negative value searches from the index of
+ *  array.length + fromIndex by asc. Defaults to 0.
+ * @returns {boolean} `true` if searched element is included; otherwise `false`.
+ */
 
-var inc = $includes;
-/* harmony default export */ __webpack_exports__["a"] = (inc);
+var $includes = isWorking ? patchedReduce() : implementation();
+/* harmony default export */ __webpack_exports__["a"] = ($includes);
 
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/to-number-x/dist/to-number-x.esm.js
-var to_number_x_esm = __webpack_require__(39);
+var to_number_x_esm = __webpack_require__(34);
 
 // EXTERNAL MODULE: ./node_modules/is-nan-x/dist/is-nan-x.esm.js
-var is_nan_x_esm = __webpack_require__(21);
+var is_nan_x_esm = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js + 1 modules
-var is_finite_x_esm = __webpack_require__(35);
+var is_finite_x_esm = __webpack_require__(53);
 
 // CONCATENATED MODULE: ./node_modules/math-sign-x/dist/math-sign-x.esm.js
 
@@ -1666,200 +1720,12 @@ var to_integer_x_esm_toInteger = function toInteger(value) {
 
 
 /***/ }),
-/* 26 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-var _this = undefined;
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-
-var natRed = [].reduce;
-var castObject = {}.constructor;
-var nativeReduce = typeof natRed === 'function' && natRed; // ES5 15.4.4.21
-// http://es5.github.com/#x15.4.4.21
-// https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduce
-
-var isWorking;
-
-if (nativeReduce) {
-  isWorking = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([], nativeReduce, function (acc) {
-    _newArrowCheck(this, _this);
-
-    return acc;
-  }.bind(undefined)).threw;
-  var res;
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(castObject('abc'), nativeReduce, function (acc, c) {
-      _newArrowCheck(this, _this);
-
-      return acc + c;
-    }.bind(undefined), 'x');
-    isWorking = res.threw === false && res.value === 'xabc';
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
-      /* eslint-disable-next-line prefer-rest-params */
-      return arguments;
-    }(1, 2, 3), nativeReduce, function (acc, arg) {
-      _newArrowCheck(this, _this);
-
-      return acc + arg;
-    }.bind(undefined), 1);
-    isWorking = res.threw === false && res.value === 7;
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({
-      0: 1,
-      1: 2,
-      3: 3,
-      4: 4,
-      length: 4
-    }, nativeReduce, function (acc, arg) {
-      _newArrowCheck(this, _this);
-
-      return acc + arg;
-    }.bind(undefined), 2);
-    isWorking = res.threw === false && res.value === 8;
-  }
-
-  if (isWorking) {
-    var doc = typeof document !== 'undefined' && document;
-
-    if (doc) {
-      var fragment = doc.createDocumentFragment();
-      var div = doc.createElement('div');
-      fragment.appendChild(div);
-      res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(fragment.childNodes, nativeReduce, function (acc, node) {
-        _newArrowCheck(this, _this);
-
-        acc[acc.length] = node;
-        return acc;
-      }.bind(undefined), []);
-      isWorking = res.threw === false && res.value.length === 1 && res.value[0] === div;
-    }
-  }
-
-  if (isWorking) {
-    res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call('ab', nativeReduce, function (_, __, ___, list) {
-      _newArrowCheck(this, _this);
-
-      return list;
-    }.bind(undefined));
-    isWorking = res.threw === false && _typeof(res.value) === 'object';
-  }
-}
-/**
- * This method applies a function against an accumulator and each element in the
- * array (from left to right) to reduce it to a single value.
- *
- * @param {Array} array - The array to iterate over.
- * @param {Function} callBack - Function to execute for each element.
- * @param {*} [initialValue] - Value to use as the first argument to the first
- *  call of the callback. If no initial value is supplied, the first element in
- *  the array will be used. Calling reduce on an empty array without an initial
- *  value is an error.
- * @throws {TypeError} If array is null or undefined.
- * @throws {TypeError} If callBack is not a function.
- * @throws {TypeError} If called on an empty array without an initial value.
- * @returns {*} The value that results from the reduction.
- */
-
-
-var $reduce;
-
-if (nativeReduce && isWorking) {
-  $reduce = function reduce(array, callBack
-  /* , initialValue */
-  ) {
-    var args = [callBack];
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      args[1] = arguments[2];
-    }
-
-    return nativeReduce.apply(array, args);
-  };
-} else {
-  $reduce = function reduce(array, callBack
-  /* , initialValue */
-  ) {
-    var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(array); // If no callback function or if callback is not a callable function
-
-    Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack);
-    var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object);
-    var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
-    var argsLength = arguments.length; // no value to return if no initial value and an empty array
-
-    if (length === 0 && argsLength < 3) {
-      throw new TypeError('reduce of empty array with no initial value');
-    }
-
-    var i = 0;
-    var result;
-
-    if (argsLength > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      result = arguments[2];
-    } else {
-      do {
-        if (i in iterable) {
-          result = iterable[i];
-          i += 1;
-          break;
-        } // if array contains no values, no initial value to return
-
-
-        i += 1;
-
-        if (i >= length) {
-          throw new TypeError('reduce of empty array with no initial value');
-        }
-      } while (true);
-      /* eslint-disable-line no-constant-condition */
-
-    }
-
-    while (i < length) {
-      if (i in iterable) {
-        result = callBack(result, iterable[i], i, object);
-      }
-
-      i += 1;
-    }
-
-    return result;
-  };
-}
-
-var red = $reduce;
-/* harmony default export */ __webpack_exports__["a"] = (red);
-
-
-
-/***/ }),
 /* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(16);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -1893,12 +1759,191 @@ var toStringSymbolsSupported = function toStringSymbolsSupported(value) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
-/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(32);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
-/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(15);
-/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(20);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+
+
+
+
+
+var natRed = [].reduce;
+var castObject = {}.constructor;
+var nativeReduce = typeof natRed === 'function' && natRed;
+
+var test1 = function test1() {
+  return attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([], nativeReduce, function attemptee(acc) {
+    return acc;
+  }).threw;
+};
+
+var test2 = function test2() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(castObject('abc'), nativeReduce, function attemptee(acc, c) {
+    return acc + c;
+  }, 'x');
+  return res.threw === false && res.value === 'xabc';
+};
+
+var test3 = function test3() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
+    /* eslint-disable-next-line prefer-rest-params */
+    return arguments;
+  }(1, 2, 3), nativeReduce, function attempte(acc, arg) {
+    return acc + arg;
+  }, 1);
+  return res.threw === false && res.value === 7;
+};
+
+var test4 = function test4() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({
+    0: 1,
+    1: 2,
+    3: 3,
+    4: 4,
+    length: 4
+  }, nativeReduce, function attempte(acc, arg) {
+    return acc + arg;
+  }, 2);
+  return res.threw === false && res.value === 8;
+};
+
+var test5 = function test5() {
+  var doc = typeof document !== 'undefined' && document;
+
+  if (doc) {
+    var fragment = doc.createDocumentFragment();
+    var div = doc.createElement('div');
+    fragment.appendChild(div);
+    var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(fragment.childNodes, nativeReduce, function attempte(acc, node) {
+      acc[acc.length] = node;
+      return acc;
+    }, []);
+    return res.threw === false && res.value.length === 1 && res.value[0] === div;
+  }
+
+  return true;
+};
+
+var test6 = function test6() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call('ab', nativeReduce, function attempte(_, __, ___, list) {
+    return list;
+  });
+  return res.threw === false && _typeof(res.value) === 'object';
+}; // ES5 15.4.4.21
+// http://es5.github.com/#x15.4.4.21
+// https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduce
+
+
+var isWorking = Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(nativeReduce) && test1() && test2() && test3() && test4() && test5() && test6();
+
+var patchedReduce = function patchedReduce() {
+  return function reduce(array, callBack
+  /* , initialValue */
+  ) {
+    Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(array);
+    var args = [Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack)];
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      args[1] = arguments[2];
+    }
+
+    return nativeReduce.apply(array, args);
+  };
+};
+
+var implementation = function implementation() {
+  return function reduce(array, callBack
+  /* , initialValue */
+  ) {
+    var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(array); // If no callback function or if callback is not a callable function
+
+    Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack);
+    var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object);
+    var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
+    var argsLength = arguments.length; // no value to return if no initial value and an empty array
+
+    if (length === 0 && argsLength < 3) {
+      throw new TypeError('Reduce of empty array with no initial value');
+    }
+
+    var i = 0;
+    var result;
+
+    if (argsLength > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      result = arguments[2];
+    } else {
+      do {
+        if (i in iterable) {
+          result = iterable[i];
+          i += 1;
+          break;
+        } // if array contains no values, no initial value to return
+
+
+        i += 1;
+
+        if (i >= length) {
+          throw new TypeError('Reduce of empty array with no initial value');
+        }
+      } while (true);
+      /* eslint-disable-line no-constant-condition */
+
+    }
+
+    while (i < length) {
+      if (i in iterable) {
+        result = callBack(result, iterable[i], i, object);
+      }
+
+      i += 1;
+    }
+
+    return result;
+  };
+};
+/*
+ * This method applies a function against an accumulator and each element in the
+ * array (from left to right) to reduce it to a single value.
+ *
+ * @param {Array} array - The array to iterate over.
+ * @param {Function} callBack - Function to execute for each element.
+ * @param {*} [initialValue] - Value to use as the first argument to the first
+ *  call of the callback. If no initial value is supplied, the first element in
+ *  the array will be used. Calling reduce on an empty array without an initial
+ *  value is an error.
+ * @throws {TypeError} If array is null or undefined.
+ * @throws {TypeError} If callBack is not a function.
+ * @throws {TypeError} If called on an empty array without an initial value.
+ * @returns {*} The value that results from the reduction.
+ */
+
+
+var $reduce = isWorking ? patchedReduce() : implementation();
+/* harmony default export */ __webpack_exports__["a"] = ($reduce);
+
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
+/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(17);
+/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(21);
 
 
 
@@ -1951,38 +1996,78 @@ var isRegex = function isRegex(value) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/has-own-property-x/dist/has-own-property-x.esm.js
-var has_own_property_x_esm = __webpack_require__(3);
+var has_own_property_x_esm = __webpack_require__(5);
 
 // EXTERNAL MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js
-var is_function_x_esm = __webpack_require__(2);
+var is_function_x_esm = __webpack_require__(3);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(15);
+var object_define_property_x_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
-var object_define_properties_x_esm = __webpack_require__(10);
+var object_define_properties_x_esm = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/is-string/index.js
-var is_string = __webpack_require__(12);
+var is_string = __webpack_require__(13);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-array-like-x/dist/is-array-like-x.esm.js
-var is_array_like_x_esm = __webpack_require__(57);
+var is_array_like_x_esm = __webpack_require__(60);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
-var is_primitive = __webpack_require__(8);
+var is_primitive = __webpack_require__(9);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // CONCATENATED MODULE: ./node_modules/is-surrogate-pair-x/dist/is-surrogate-pair-x.esm.js
 
 var _ref = '',
     charCodeAt = _ref.charCodeAt;
+
+var is_surrogate_pair_x_esm_checkPair1 = function checkPair1(char1) {
+  return is_string_default()(char1) && char1.length === 2;
+};
+
+var is_surrogate_pair_x_esm_checkPair2 = function checkPair2(char1, char2) {
+  return is_string_default()(char1) && char1.length === 1 && is_string_default()(char2) && char2.length === 1;
+};
+
+var getPair1 = function getPair1(char1) {
+  if (is_surrogate_pair_x_esm_checkPair1(char1)) {
+    return {
+      first: charCodeAt.call(char1, 0),
+      second: charCodeAt.call(char1, 1)
+    };
+  }
+
+  return false;
+};
+
+var getPair2 = function getPair2(char1, char2) {
+  if (is_surrogate_pair_x_esm_checkPair2(char1, char2)) {
+    return {
+      first: charCodeAt.call(char1, 0),
+      second: charCodeAt.call(char2, 0)
+    };
+  }
+
+  return false;
+};
+
+var isPair = function isPair(result) {
+  if (result === false) {
+    return false;
+  }
+
+  var first = result.first,
+      second = result.second;
+  return first >= 0xd800 && first <= 0xdbff && second >= 0xdc00 && second <= 0xdfff;
+};
 /**
  * Tests if the two character arguments combined are a valid UTF-16
  * surrogate pair.
@@ -1994,176 +2079,143 @@ var _ref = '',
  *  'UTF-16' surrogate pair; otherwise false.
  */
 
-var is_surrogate_pair_x_esm_isSurrogatePair = function isSurrogatePair(char1, char2) {
+
+var isSurrogatePair = function isSurrogatePair(char1, char2) {
   var argsLength = arguments.length;
 
   if (argsLength < 1) {
     return false;
   }
 
-  var first;
-  var second;
+  var result;
 
   if (argsLength === 1) {
-    if (is_string_default()(char1) && char1.length === 2) {
-      first = charCodeAt.call(char1, 0);
-      second = charCodeAt.call(char1, 1);
-    } else {
-      return false;
-    }
+    result = getPair1(char1);
   } else if (argsLength > 1) {
-    if (is_string_default()(char1) === false || char1.length !== 1 || is_string_default()(char2) === false || char2.length !== 1) {
-      return false;
-    }
-
-    first = charCodeAt.call(char1, 0);
-    second = charCodeAt.call(char2, 0);
+    result = getPair2(char1, char2);
   }
 
-  return first >= 0xd800 && first <= 0xdbff && second >= 0xdc00 && second <= 0xdfff;
+  return isPair(result);
 };
 
-/* harmony default export */ var is_surrogate_pair_x_esm = (is_surrogate_pair_x_esm_isSurrogatePair);
+/* harmony default export */ var is_surrogate_pair_x_esm = (isSurrogatePair);
 
 
 // EXTERNAL MODULE: ./node_modules/index-of-x/dist/index-of-x.esm.js
-var index_of_x_esm = __webpack_require__(41);
+var index_of_x_esm = __webpack_require__(42);
 
 // EXTERNAL MODULE: ./node_modules/assert-is-function-x/dist/assert-is-function-x.esm.js
-var assert_is_function_x_esm = __webpack_require__(6);
+var assert_is_function_x_esm = __webpack_require__(7);
 
 // EXTERNAL MODULE: ./node_modules/assert-is-object-x/dist/assert-is-object-x.esm.js
-var assert_is_object_x_esm = __webpack_require__(19);
+var assert_is_object_x_esm = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
-var array_slice_x_esm = __webpack_require__(14);
+var array_slice_x_esm = __webpack_require__(16);
 
 // EXTERNAL MODULE: ./node_modules/attempt-x/dist/attempt-x.esm.js
 var attempt_x_esm = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./node_modules/split-if-boxed-bug-x/dist/split-if-boxed-bug-x.esm.js + 1 modules
-var split_if_boxed_bug_x_esm = __webpack_require__(11);
+var split_if_boxed_bug_x_esm = __webpack_require__(12);
 
 // EXTERNAL MODULE: ./node_modules/to-length-x/dist/to-length-x.esm.js
-var to_length_x_esm = __webpack_require__(4);
+var to_length_x_esm = __webpack_require__(6);
 
 // EXTERNAL MODULE: ./node_modules/to-object-x/dist/to-object-x.esm.js
-var to_object_x_esm = __webpack_require__(1);
+var to_object_x_esm = __webpack_require__(2);
+
+// EXTERNAL MODULE: ./node_modules/to-boolean-x/dist/to-boolean-x.esm.js
+var to_boolean_x_esm = __webpack_require__(1);
+
+// EXTERNAL MODULE: ./node_modules/require-object-coercible-x/dist/require-object-coercible-x.esm.js
+var require_object_coercible_x_esm = __webpack_require__(4);
 
 // CONCATENATED MODULE: ./node_modules/array-reduce-right-x/dist/array-reduce-right-x.esm.js
-var _this = undefined;
-
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
 
 
 
 
 
 
-var ArrayCtr = [].constructor;
+
 var castObject = {}.constructor;
-var nativeReduceR = typeof ArrayCtr.prototype.reduceRight === 'function' && ArrayCtr.prototype.reduceRight; // ES5 15.4.4.22
+var rr = [].reduceRight;
+var nativeReduceR = typeof rr === 'function' && rr;
+
+var array_reduce_right_x_esm_test1 = function test1() {
+  return attempt_x_esm["a" /* default */].call([], nativeReduceR, function attemptee(acc) {
+    return acc;
+  }).threw;
+};
+
+var array_reduce_right_x_esm_test2 = function test2() {
+  var res = attempt_x_esm["a" /* default */].call(castObject('abc'), nativeReduceR, function attemptee(acc, c) {
+    return acc + c;
+  }, 'x');
+  return res.threw === false && res.value === 'xcba';
+};
+
+var array_reduce_right_x_esm_test3 = function test3() {
+  var res = attempt_x_esm["a" /* default */].call(function getArgs() {
+    /* eslint-disable-next-line prefer-rest-params */
+    return arguments;
+  }(1, 2, 3), nativeReduceR, function attemptee(acc, arg) {
+    return acc + arg;
+  }, 1);
+  return res.threw === false && res.value === 7;
+};
+
+var array_reduce_right_x_esm_test4 = function test4() {
+  var res = attempt_x_esm["a" /* default */].call({
+    0: 1,
+    1: 2,
+    3: 3,
+    4: 4,
+    length: 4
+  }, nativeReduceR, function attemptee(acc, arg) {
+    return acc + arg;
+  }, 2);
+  return res.threw === false && res.value === 8;
+};
+
+var array_reduce_right_x_esm_test5 = function test5() {
+  var doc = typeof document !== 'undefined' && document;
+
+  if (doc) {
+    var fragment = doc.createDocumentFragment();
+    var div = doc.createElement('div');
+    fragment.appendChild(div);
+    var res = attempt_x_esm["a" /* default */].call(fragment.childNodes, nativeReduceR, function attemptee(acc, node) {
+      acc[acc.length] = node;
+      return acc;
+    }, []);
+    return res.threw === false && res.value.length === 1 && res.value[0] === div;
+  }
+
+  return true;
+};
+
+var array_reduce_right_x_esm_test6 = function test6() {
+  var res = attempt_x_esm["a" /* default */].call('ab', nativeReduceR, function attemptee(_, __, ___, list) {
+    return list;
+  });
+  return res.threw === false && _typeof(res.value) === 'object';
+}; // ES5 15.4.4.22
 // http://es5.github.com/#x15.4.4.22
 // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduceRight
 
-var isWorking;
 
-if (nativeReduceR) {
-  isWorking = attempt_x_esm["a" /* default */].call([], nativeReduceR, function (acc) {
-    _newArrowCheck(this, _this);
+var isWorking = Object(to_boolean_x_esm["a" /* default */])(nativeReduceR) && array_reduce_right_x_esm_test1() && array_reduce_right_x_esm_test2() && array_reduce_right_x_esm_test3() && array_reduce_right_x_esm_test4() && array_reduce_right_x_esm_test5() && array_reduce_right_x_esm_test6();
 
-    return acc;
-  }.bind(undefined)).threw;
-  var res;
-
-  if (isWorking) {
-    res = attempt_x_esm["a" /* default */].call(castObject('abc'), nativeReduceR, function (acc, c) {
-      _newArrowCheck(this, _this);
-
-      return acc + c;
-    }.bind(undefined), 'x');
-    isWorking = res.threw === false && res.value === 'xcba';
-  }
-
-  if (isWorking) {
-    res = attempt_x_esm["a" /* default */].call(function getArgs() {
-      /* eslint-disable-next-line prefer-rest-params */
-      return arguments;
-    }(1, 2, 3), nativeReduceR, function (acc, arg) {
-      _newArrowCheck(this, _this);
-
-      return acc + arg;
-    }.bind(undefined), 1);
-    isWorking = res.threw === false && res.value === 7;
-  }
-
-  if (isWorking) {
-    res = attempt_x_esm["a" /* default */].call({
-      0: 1,
-      1: 2,
-      3: 3,
-      4: 4,
-      length: 4
-    }, nativeReduceR, function (acc, arg) {
-      _newArrowCheck(this, _this);
-
-      return acc + arg;
-    }.bind(undefined), 2);
-    isWorking = res.threw === false && res.value === 8;
-  }
-
-  if (isWorking) {
-    var doc = typeof document !== 'undefined' && document;
-
-    if (doc) {
-      var fragment = doc.createDocumentFragment();
-      var div = doc.createElement('div');
-      fragment.appendChild(div);
-      res = attempt_x_esm["a" /* default */].call(fragment.childNodes, nativeReduceR, function (acc, node) {
-        _newArrowCheck(this, _this);
-
-        acc[acc.length] = node;
-        return acc;
-      }.bind(undefined), []);
-      isWorking = res.threw === false && res.value.length === 1 && res.value[0] === div;
-    }
-  }
-
-  if (isWorking) {
-    res = attempt_x_esm["a" /* default */].call('ab', nativeReduceR, function (_, __, ___, list) {
-      _newArrowCheck(this, _this);
-
-      return list;
-    }.bind(undefined));
-    isWorking = res.threw === false && _typeof(res.value) === 'object';
-  }
-}
-/**
- * This method applies a function against an accumulator and each value of the
- * array (from right-to-left) to reduce it to a single value..
- *
- * @param {Array} array - The array to iterate over.
- * @param {Function} callBack - Function to execute for each element.
- * @param {*} [initialValue] - Value to use as the first argument to the first
- *  call of the callback. If no initial value is supplied, the first element in
- *  the array will be used. Calling reduceRight on an empty array without an initial
- *  value is an error.
- * @throws {TypeError} If array is null or undefined.
- * @throws {TypeError} If callBack is not a function.
- * @throws {TypeError} If called on an empty array without an initial value.
- * @returns {*} The value that results from the reduction.
- */
-
-
-var $reduceRight;
-
-if (nativeReduceR && isWorking) {
-  $reduceRight = function reduceRight(array, callBack
+var array_reduce_right_x_esm_patchedReduceRight = function patchedReduceRight() {
+  return function reduceRight(array, callBack
   /* , initialValue */
   ) {
-    var args = [callBack];
+    Object(require_object_coercible_x_esm["a" /* default */])(array);
+    var args = [Object(assert_is_function_x_esm["a" /* default */])(callBack)];
 
     if (arguments.length > 2) {
       /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
@@ -2172,8 +2224,10 @@ if (nativeReduceR && isWorking) {
 
     return nativeReduceR.apply(array, args);
   };
-} else {
-  $reduceRight = function reduceRight(array, callBack
+};
+
+var array_reduce_right_x_esm_implementation = function implementation() {
+  return function reduceRight(array, callBack
   /* , initialValue */
   ) {
     var object = Object(to_object_x_esm["a" /* default */])(array); // If no callback function or if callback is not a callable function
@@ -2184,7 +2238,7 @@ if (nativeReduceR && isWorking) {
     var argsLength = arguments.length; // no value to return if no initial value, empty array
 
     if (length === 0 && argsLength < 3) {
-      throw new TypeError('reduceRight of empty array with no initial value');
+      throw new TypeError('Reduce of empty array with no initial value');
     }
 
     var result;
@@ -2205,7 +2259,7 @@ if (nativeReduceR && isWorking) {
         i -= 1;
 
         if (i < 0) {
-          throw new TypeError('reduceRight of empty array with no initial value');
+          throw new TypeError('Reduce of empty array with no initial value');
         }
       } while (true);
       /* eslint-disable-line no-constant-condition */
@@ -2222,19 +2276,33 @@ if (nativeReduceR && isWorking) {
 
     return result;
   };
-}
+};
+/**
+ * This method applies a function against an accumulator and each value of the
+ * array (from right-to-left) to reduce it to a single value..
+ *
+ * @param {Array} array - The array to iterate over.
+ * @param {Function} callBack - Function to execute for each element.
+ * @param {*} [initialValue] - Value to use as the first argument to the first
+ *  call of the callback. If no initial value is supplied, the first element in
+ *  the array will be used. Calling reduceRight on an empty array without an initial
+ *  value is an error.
+ * @throws {TypeError} If array is null or undefined.
+ * @throws {TypeError} If callBack is not a function.
+ * @throws {TypeError} If called on an empty array without an initial value.
+ * @returns {*} The value that results from the reduction.
+ */
 
-var rr = $reduceRight;
-/* harmony default export */ var array_reduce_right_x_esm = (rr);
+
+var $reduceRight = isWorking ? array_reduce_right_x_esm_patchedReduceRight() : array_reduce_right_x_esm_implementation();
+/* harmony default export */ var array_reduce_right_x_esm = ($reduceRight);
 
 
 // CONCATENATED MODULE: ./node_modules/big-counter-x/dist/big-counter-x.esm.js
 
 
 
-/** @type {BooleanConstructor} */
 
-var castBoolean = true.constructor;
 
 var reducer = function _reducer(acc, digit) {
   return acc + digit;
@@ -2270,7 +2338,7 @@ var counterToString = function ToString() {
 
 
 var big_counter_x_esm_BigCounter = function BigCounter() {
-  if (castBoolean(this) === false || this instanceof BigCounter === false) {
+  if (Object(to_boolean_x_esm["a" /* default */])(this) === false || !(this instanceof BigCounter)) {
     throw new TypeError('Constructor BigCounter requires "new"');
   }
 
@@ -2369,45 +2437,60 @@ Object(object_define_properties_x_esm["a" /* default */])(big_counter_x_esm_BigC
 
 
 // EXTERNAL MODULE: ./node_modules/is-nil-x/dist/is-nil-x.esm.js
-var is_nil_x_esm = __webpack_require__(17);
+var is_nil_x_esm = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/is-map-x/dist/is-map-x.esm.js
-var is_map_x_esm = __webpack_require__(46);
+var is_map_x_esm = __webpack_require__(49);
 
 // EXTERNAL MODULE: ./node_modules/is-set-x/dist/is-set-x.esm.js
-var is_set_x_esm = __webpack_require__(50);
+var is_set_x_esm = __webpack_require__(48);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
-var is_object_like_x_esm = __webpack_require__(7);
+var is_object_like_x_esm = __webpack_require__(8);
 
 // EXTERNAL MODULE: ./node_modules/is-array-x/dist/is-array-x.esm.js
-var is_array_x_esm = __webpack_require__(22);
+var is_array_x_esm = __webpack_require__(23);
 
 // EXTERNAL MODULE: ./node_modules/is-boolean-object/index.js
 var is_boolean_object = __webpack_require__(40);
 var is_boolean_object_default = /*#__PURE__*/__webpack_require__.n(is_boolean_object);
 
 // EXTERNAL MODULE: ./node_modules/array-some-x/dist/array-some-x.esm.js
-var array_some_x_esm = __webpack_require__(34);
+var array_some_x_esm = __webpack_require__(36);
 
 // EXTERNAL MODULE: ./node_modules/get-prototype-of-x/dist/get-prototype-of-x.esm.js
-var get_prototype_of_x_esm = __webpack_require__(31);
+var get_prototype_of_x_esm = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/has-symbol-support-x/dist/has-symbol-support-x.esm.js
-var has_symbol_support_x_esm = __webpack_require__(13);
+var has_symbol_support_x_esm = __webpack_require__(14);
 
 // EXTERNAL MODULE: ./node_modules/object-create-x/dist/object-create-x.esm.js
-var object_create_x_esm = __webpack_require__(69);
+var object_create_x_esm = __webpack_require__(79);
+
+// EXTERNAL MODULE: ./node_modules/array-for-each-x/dist/array-for-each-x.esm.js
+var array_for_each_x_esm = __webpack_require__(45);
 
 // CONCATENATED MODULE: ./node_modules/collections-x/dist/collections-x.esm.js
 /* unused harmony export symIt */
+/* unused harmony export SetImplementation */
+/* unused harmony export MapImplementation */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapConstructor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SetConstructor; });
+/* unused harmony export isMapImplementation */
 /* unused harmony export isMap */
+/* unused harmony export isSetImplementation */
 /* unused harmony export isSet */
-var collections_x_esm_this = undefined;
+var _sizeDescriptor;
 
-function collections_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function collections_x_esm_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { collections_x_esm_typeof = function _typeof(obj) { return typeof obj; }; } else { collections_x_esm_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return collections_x_esm_typeof(obj); }
 
@@ -2433,11 +2516,43 @@ function collections_x_esm_typeof(obj) { if (typeof Symbol === "function" && typ
 
 
 
-/** @type {BooleanConstructor} */
 
-var collections_x_esm_castBoolean = true.constructor;
-/** @type {Function} */
 
+
+/* eslint-disable-next-line no-void */
+
+var UNDEFINED = void 0;
+var SIZE = 'size';
+var NEXT = 'next';
+var KEY = 'key';
+var VALUE = 'value';
+var DONE = 'done';
+var WRITABLE = 'writable';
+var MAP = 'map';
+var SET = 'set';
+var PROP_CHANGED = '[[changed]]';
+var PROP_CHANGE = '[[change]]';
+var PROP_ID = '[[id]]';
+var PROP_KEY = "[[".concat(KEY, "]]");
+var PROP_ORDER = '[[order]]';
+var PROP_VALUE = "[[".concat(VALUE, "]]");
+var PROP_ITERATORHASMORE = '[[IteratorHasMore]]';
+var PROP_MAP = '[[Map]]';
+var PROP_MAPITERATIONKIND = '[[MapIterationKind]]';
+var PROP_MAPNEXTINDEX = '[[MapNextIndex]]';
+var PROP_SET = '[[Set]]';
+var PROP_SETITERATIONKIND = '[[SetIterationKind]]';
+var PROP_SETNEXTINDEX = '[[SetNextIndex]]';
+var KIND_VALUE = VALUE;
+var KIND_KEY = KEY;
+var KIND_KEY_VALUE = "".concat(KIND_KEY, "+").concat(KIND_VALUE);
+var SAMEVALUEZERO = 'SameValueZero';
+var ES6_SHIM_ITERATOR = '_es6-shim iterator_';
+var AT_AT_ITERATOR = '@@iterator';
+var collections_x_esm_ref = [],
+    push = collections_x_esm_ref.push,
+    splice = collections_x_esm_ref.splice;
+var charAt = KEY.charAt;
 var setPrototypeOf = {}.constructor.setPrototypeOf;
 /* eslint-disable-next-line compat/compat */
 
@@ -2445,238 +2560,355 @@ var hasRealSymbolIterator = has_symbol_support_x_esm["a" /* default */] && colle
 /* eslint-disable-next-line compat/compat */
 
 var hasFakeSymbolIterator = (typeof Symbol === "undefined" ? "undefined" : collections_x_esm_typeof(Symbol)) === 'object' && typeof Symbol.iterator === 'string';
+var hasSymbolIterator = hasRealSymbolIterator || hasFakeSymbolIterator;
+
+var getOtherSymbolIterator = function getOtherSymbolIterator(iterable) {
+  if (iterable[ES6_SHIM_ITERATOR]) {
+    return ES6_SHIM_ITERATOR;
+  }
+
+  if (iterable[AT_AT_ITERATOR]) {
+    return AT_AT_ITERATOR;
+  }
+
+  return null;
+};
+
+var collections_x_esm_getSymIt = function getSymIt() {
+  if (hasSymbolIterator) {
+    /* eslint-disable-next-line compat/compat */
+    return Symbol.iterator;
+  }
+
+  var result = getOtherSymbolIterator([]);
+
+  if (typeof result === 'string' && Object(is_function_x_esm["a" /* default */])([][result])) {
+    return result;
+  }
+
+  return AT_AT_ITERATOR;
+};
 /**
  * The iterator identifier that is in use.
  *
  * Type {Symbol|string}.
  */
 
-var $symIt;
 
-if (hasRealSymbolIterator || hasFakeSymbolIterator) {
-  /* eslint-disable-next-line compat/compat */
-  $symIt = Symbol.iterator;
-  /* eslint-disable-next-line no-use-extend-native/no-use-extend-native */
-} else if (Object(is_function_x_esm["a" /* default */])([]['_es6-shim iterator_'])) {
-  $symIt = '_es6-shim iterator_';
-} else {
-  $symIt = '@@iterator';
-}
-
-var symIt = $symIt;
-
-var isNumberType = function isNumberType(value) {
-  return typeof value === 'number';
-};
+var symIt = collections_x_esm_getSymIt();
 /**
  * Detect an iterator function.
  *
  * @private
  * @param {*} iterable - Value to detect iterator function.
- * @returns {Symbol|string|undefined} The iterator property identifier.
+ * @returns {symbol|string|undefined} The iterator property identifier.
  */
-
 
 var collections_x_esm_getSymbolIterator = function getSymbolIterator(iterable) {
   if (Object(is_nil_x_esm["a" /* default */])(iterable) === false) {
-    if ((hasRealSymbolIterator || hasFakeSymbolIterator) && iterable[$symIt]) {
-      return $symIt;
+    if (hasSymbolIterator && iterable[symIt]) {
+      return symIt;
     }
 
-    if (iterable['_es6-shim iterator_']) {
-      return '_es6-shim iterator_';
-    }
+    var result = getOtherSymbolIterator(iterable);
 
-    if (iterable['@@iterator']) {
-      return '@@iterator';
+    if (typeof result === 'string') {
+      return result;
     }
   }
-  /* eslint-disable-next-line no-void */
 
-
-  return void 0;
+  return UNDEFINED;
 };
+
+var collections_x_esm_assertIterableEntryObject = function assertIterableEntryObject(kind, next) {
+  if (kind === MAP) {
+    if (Object(is_array_like_x_esm["a" /* default */])(next[VALUE]) === false || next[VALUE].length < 2) {
+      throw new TypeError("Iterator value ".concat(Object(is_array_like_x_esm["a" /* default */])(next[VALUE]), " is not an entry object"));
+    }
+  }
+};
+
+var collections_x_esm_setPropsIterable = function setPropsIterable(args) {
+  var _args = _slicedToArray(args, 3),
+      kind = _args[0],
+      context = _args[1],
+      next = _args[2];
+
+  var key = kind === MAP ? next[VALUE][0] : next[VALUE];
+  var indexof = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)[PROP_KEY], key, SAMEVALUEZERO);
+
+  if (indexof < 0) {
+    if (kind === MAP) {
+      push.call(context[PROP_VALUE], next[VALUE][1]);
+    }
+
+    push.call(context[PROP_KEY], key);
+    push.call(context[PROP_ORDER], context[PROP_ID].get());
+    context[PROP_ID][NEXT]();
+  } else if (kind === MAP) {
+    /* eslint-disable-next-line prefer-destructuring */
+    context[PROP_VALUE][indexof] = next[VALUE][1];
+  }
+};
+
+var parseIterable = function parseIterable(args) {
+  var _args2 = _slicedToArray(args, 4),
+      kind = _args2[0],
+      iterable = _args2[1],
+      context = _args2[2],
+      symbolIterator = _args2[3];
+
+  var iterator = iterable[symbolIterator]();
+  var next = iterator[NEXT]();
+  collections_x_esm_assertIterableEntryObject(kind, next);
+
+  while (next[DONE] === false) {
+    collections_x_esm_setPropsIterable([kind, context, next]);
+    next = iterator[NEXT]();
+  }
+};
+
+var assertStringEntryObject = function assertStringEntryObject(kind, iterable) {
+  if (kind === MAP) {
+    throw new TypeError("Iterator value ".concat(charAt.call(iterable, 0), " is not an entry object"));
+  }
+};
+
+var getCharsString = function getCharsString(iterable, next) {
+  return {
+    char1: charAt.call(iterable, next),
+    char2: charAt.call(iterable, next + 1)
+  };
+};
+
+var collections_x_esm_setContextString = function setContextString(context, key) {
+  var indexof = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)[PROP_KEY], key, SAMEVALUEZERO);
+
+  if (indexof < 0) {
+    push.call(context[PROP_KEY], key);
+    push.call(context[PROP_ORDER], context[PROP_ID].get());
+    context[PROP_ID][NEXT]();
+  }
+};
+
+var collections_x_esm_getNextKey = function getNextKey(iterable, next) {
+  var _getCharsString = getCharsString(iterable, next),
+      char1 = _getCharsString.char1,
+      char2 = _getCharsString.char2;
+
+  if (is_surrogate_pair_x_esm(char1, char2)) {
+    return {
+      key: char1 + char2,
+      nxt: next + 1
+    };
+  }
+
+  return {
+    key: char1,
+    nxt: next
+  };
+};
+
+var parseString = function parseString(args) {
+  var _args3 = _slicedToArray(args, 3),
+      kind = _args3[0],
+      iterable = _args3[1],
+      context = _args3[2];
+
+  assertStringEntryObject(kind, iterable);
+  var next = 0;
+
+  while (next < iterable.length) {
+    var nextKey = collections_x_esm_getNextKey(iterable, next);
+    next = nextKey.nxt;
+    collections_x_esm_setContextString(context, nextKey.key);
+    next += 1;
+  }
+};
+
+var collections_x_esm_assertArrayLikeIterable = function assertArrayLikeIterable(iterable, next) {
+  if (is_primitive_default()(iterable[next])) {
+    throw new TypeError("Iterator value ".concat(Object(is_array_like_x_esm["a" /* default */])(next[VALUE]), " is not an entry object"));
+  }
+};
+
+var collections_x_esm_setContextArrayLike = function setContextArrayLike(args) {
+  var _args4 = _slicedToArray(args, 5),
+      kind = _args4[0],
+      context = _args4[1],
+      key = _args4[2],
+      iterable = _args4[3],
+      next = _args4[4];
+
+  var indexof = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)[PROP_KEY], key, SAMEVALUEZERO);
+
+  if (indexof < 0) {
+    if (kind === MAP) {
+      push.call(context[PROP_VALUE], iterable[next][1]);
+    }
+
+    push.call(context[PROP_KEY], key);
+    push.call(context[PROP_ORDER], context[PROP_ID].get());
+    context[PROP_ID][NEXT]();
+  } else if (kind === MAP) {
+    /* eslint-disable-next-line prefer-destructuring */
+    context[PROP_VALUE][indexof] = iterable[next][1];
+  }
+};
+
+var parseArrayLike = function parseArrayLike(args) {
+  var _args5 = _slicedToArray(args, 3),
+      kind = _args5[0],
+      iterable = _args5[1],
+      context = _args5[2];
+
+  var next = 0;
+
+  while (next < iterable.length) {
+    var key = void 0;
+
+    if (kind === MAP) {
+      collections_x_esm_assertArrayLikeIterable(iterable, next);
+      /* eslint-disable-next-line prefer-destructuring */
+
+      key = iterable[next][0];
+    } else {
+      key = iterable[next];
+    }
+
+    collections_x_esm_setContextArrayLike([kind, context, key, iterable, next]);
+    next += 1;
+  }
+};
+
+var collections_x_esm_defineDefaultProps = function defineDefaultProps(context) {
+  var _defineProperties;
+
+  Object(object_define_properties_x_esm["a" /* default */])(context, (_defineProperties = {}, _defineProperty(_defineProperties, PROP_CHANGED, _defineProperty({}, VALUE, false)), _defineProperty(_defineProperties, PROP_ID, _defineProperty({}, VALUE, new big_counter_x_esm())), _defineProperty(_defineProperties, PROP_KEY, _defineProperty({}, VALUE, [])), _defineProperty(_defineProperties, PROP_ORDER, _defineProperty({}, VALUE, [])), _defineProperties));
+};
+
+var collections_x_esm_performParsing = function performParsing(args) {
+  var _args6 = _slicedToArray(args, 4),
+      iterable = _args6[1],
+      symbolIterator = _args6[3];
+
+  if (iterable && Object(is_function_x_esm["a" /* default */])(iterable[symbolIterator])) {
+    parseIterable(args);
+  } else if (is_string_default()(iterable)) {
+    parseString(args);
+  } else if (Object(is_array_like_x_esm["a" /* default */])(iterable)) {
+    parseArrayLike(args);
+  }
+}; // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
 /**
  * If an iterable object is passed, all of its elements will be added to the
  * new Map/Set, null is treated as undefined.
  *
  * @private
- * @param {string} kind - Either 'map' or 'set'.
+ * @param {string} kind - Either MAP or SET.
  * @param {object} context - The Map/Set object.
  * @param {*} iterable - Value to parsed.
  */
+// eslint-enable jsdoc/check-param-names
 
 
-var collections_x_esm_parseIterable = function parseIterable(kind, context, iterable) {
+var collections_x_esm_parse = function parse(args) {
+  var _defineProperty3;
+
+  var _args7 = _slicedToArray(args, 3),
+      kind = _args7[0],
+      context = _args7[1],
+      iterable = _args7[2];
+
   var symbolIterator = collections_x_esm_getSymbolIterator(iterable);
 
-  if (kind === 'map') {
-    Object(object_define_property_x_esm["a" /* default */])(context, '[[value]]', {
-      value: []
-    });
+  if (kind === MAP) {
+    Object(object_define_property_x_esm["a" /* default */])(context, PROP_VALUE, _defineProperty({}, VALUE, []));
   }
 
-  Object(object_define_properties_x_esm["a" /* default */])(context, {
-    '[[changed]]': {
-      value: false
-    },
-    '[[id]]': {
-      value: new big_counter_x_esm()
-    },
-    '[[key]]': {
-      value: []
-    },
-    '[[order]]': {
-      value: []
-    }
-  });
-  var next;
-  var key;
-  var indexof;
+  collections_x_esm_defineDefaultProps(context);
+  collections_x_esm_performParsing([kind, iterable, context, symbolIterator]);
+  Object(object_define_property_x_esm["a" /* default */])(context, SIZE, (_defineProperty3 = {}, _defineProperty(_defineProperty3, VALUE, context[PROP_KEY].length), _defineProperty(_defineProperty3, WRITABLE, true), _defineProperty3));
+};
 
-  if (iterable && Object(is_function_x_esm["a" /* default */])(iterable[symbolIterator])) {
-    var iterator = iterable[symbolIterator]();
-    next = iterator.next();
-
-    if (kind === 'map') {
-      if (Object(is_array_like_x_esm["a" /* default */])(next.value) === false || next.value.length < 2) {
-        throw new TypeError("Iterator value ".concat(Object(is_array_like_x_esm["a" /* default */])(next.value), " is not an entry object"));
-      }
-    }
-
-    while (next.done === false) {
-      key = kind === 'map' ? next.value[0] : next.value;
-      indexof = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)['[[key]]'], key, 'SameValueZero');
-
-      if (indexof < 0) {
-        if (kind === 'map') {
-          context['[[value]]'].push(next.value[1]);
-        }
-
-        context['[[key]]'].push(key);
-        context['[[order]]'].push(context['[[id]]'].get());
-        context['[[id]]'].next();
-      } else if (kind === 'map') {
-        /* eslint-disable-next-line prefer-destructuring */
-        context['[[value]]'][indexof] = next.value[1];
-      }
-
-      next = iterator.next();
-    }
-  }
-
-  if (is_string_default()(iterable)) {
-    if (kind === 'map') {
-      throw new TypeError("Iterator value ".concat(iterable.charAt(0), " is not an entry object"));
-    }
-
-    next = 0;
-
-    while (next < iterable.length) {
-      var char1 = iterable.charAt(next);
-      var char2 = iterable.charAt(next + 1);
-
-      if (is_surrogate_pair_x_esm(char1, char2)) {
-        key = char1 + char2;
-        next += 1;
-      } else {
-        key = char1;
-      }
-
-      indexof = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)['[[key]]'], key, 'SameValueZero');
-
-      if (indexof < 0) {
-        context['[[key]]'].push(key);
-        context['[[order]]'].push(context['[[id]]'].get());
-        context['[[id]]'].next();
-      }
-
-      next += 1;
-    }
-  } else if (Object(is_array_like_x_esm["a" /* default */])(iterable)) {
-    next = 0;
-
-    while (next < iterable.length) {
-      if (kind === 'map') {
-        if (is_primitive_default()(iterable[next])) {
-          throw new TypeError("Iterator value ".concat(Object(is_array_like_x_esm["a" /* default */])(next.value), " is not an entry object"));
-        }
-        /* eslint-disable-next-line prefer-destructuring */
-
-
-        key = iterable[next][0];
-      } else {
-        key = iterable[next];
-      }
-
-      key = kind === 'map' ? iterable[next][0] : iterable[next];
-      indexof = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)['[[key]]'], key, 'SameValueZero');
-
-      if (indexof < 0) {
-        if (kind === 'map') {
-          context['[[value]]'].push(iterable[next][1]);
-        }
-
-        context['[[key]]'].push(key);
-        context['[[order]]'].push(context['[[id]]'].get());
-        context['[[id]]'].next();
-      } else if (kind === 'map') {
-        /* eslint-disable-next-line prefer-destructuring */
-        context['[[value]]'][indexof] = iterable[next][1];
-      }
-
-      next += 1;
-    }
-  }
-
-  Object(object_define_property_x_esm["a" /* default */])(context, 'size', {
-    value: context['[[key]]'].length,
-    writable: true
+var collections_x_esm_updatePointerIndexes = function updatePointerIndexes(context, pointers) {
+  Object(array_some_x_esm["a" /* default */])(context[PROP_ORDER], function predicate(id, count) {
+    pointers.index = count;
+    return id > pointers.order;
   });
 };
+
+var updateBaseForEach = function updateBaseForEach(args) {
+  var _args8 = _slicedToArray(args, 3),
+      context = _args8[0],
+      pointers = _args8[1],
+      length = _args8[2];
+
+  var len = length;
+
+  if (context[PROP_CHANGE]) {
+    collections_x_esm_updatePointerIndexes(context, pointers);
+    context[PROP_CHANGE] = false;
+    len = context[PROP_KEY].length;
+  } else {
+    pointers.index += 1;
+  }
+
+  pointers.order = context[PROP_ORDER][pointers.index];
+  return len;
+};
+
+var collections_x_esm_doCallback = function doCallback(args) {
+  var _args9 = _slicedToArray(args, 5),
+      kind = _args9[0],
+      context = _args9[1],
+      pointers = _args9[2],
+      callback = _args9[3],
+      thisArg = _args9[4];
+
+  if (Object(has_own_property_x_esm["a" /* default */])(context[PROP_KEY], pointers.index)) {
+    var key = context[PROP_KEY][pointers.index];
+    var value = kind === MAP ? context[PROP_VALUE][pointers.index] : key;
+    callback.call(thisArg, value, key, context);
+  }
+}; // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
 /**
  * The base forEach method executes a provided function once per each value
  * in the Map/Set object, in insertion order.
  *
  * @private
- * @param {string} kind - Either 'map' or 'set'.
+ * @param {string} kind - Either MAP or SET.
  * @param {object} context - The Map/Set object.
  * @param {Function} callback - Function to execute for each element.
  * @param {*} [thisArg] - Value to use as this when executing callback.
  * @returns {object} The Map/Set object.
  */
+// eslint-enable jsdoc/check-param-names
 
 
-var collections_x_esm_baseForEach = function baseForEach(kind, context, callback, thisArg) {
+var collections_x_esm_baseForEach = function baseForEach(args) {
+  var _args10 = _slicedToArray(args, 4),
+      kind = _args10[0],
+      context = _args10[1],
+      callback = _args10[2],
+      thisArg = _args10[3];
+
   Object(assert_is_object_x_esm["a" /* default */])(context);
   Object(assert_is_function_x_esm["a" /* default */])(callback);
+  context[PROP_CHANGE] = false;
   var pointers = {
     index: 0,
-    order: context['[[order]]'][0]
+    order: context[PROP_ORDER][0]
   };
-  context['[[change]]'] = false;
-  var length = context['[[key]]'].length;
+  var length = context[PROP_KEY].length;
 
   while (pointers.index < length) {
-    if (Object(has_own_property_x_esm["a" /* default */])(context['[[key]]'], pointers.index)) {
-      var key = context['[[key]]'][pointers.index];
-      var value = kind === 'map' ? context['[[value]]'][pointers.index] : key;
-      callback.call(thisArg, value, key, context);
-    }
-
-    if (context['[[change]]']) {
-      /* eslint-disable-next-line prefer-destructuring */
-      length = context['[[key]]'].length;
-      Object(array_some_x_esm["a" /* default */])(context['[[order]]'], function _some1(id, count) {
-        pointers.index = count;
-        return id > pointers.order;
-      });
-      context['[[change]]'] = false;
-    } else {
-      pointers.index += 1;
-    }
-
-    pointers.order = context['[[order]]'][pointers.index];
+    collections_x_esm_doCallback([kind, context, pointers, callback, thisArg]);
+    length = updateBaseForEach([context, pointers, length]);
   }
 
   return context;
@@ -2694,13 +2926,13 @@ var collections_x_esm_baseForEach = function baseForEach(kind, context, callback
 
 var baseHas = function has(key) {
   /* eslint-disable-next-line babel/no-invalid-this */
-  return Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(this)['[[key]]'], key, 'SameValueZero') > -1;
+  return Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(this)[PROP_KEY], key, SAMEVALUEZERO) > -1;
 };
 /**
  * The base clear method removes all elements from a Map/Set object.
  *
  * @private
- * @param {string} kind - Either 'map' or 'set'.
+ * @param {string} kind - Either MAP or SET.
  * @param {object} context - The Map/Set object.
  * @returns {object} The Map/Set object.
  */
@@ -2708,80 +2940,114 @@ var baseHas = function has(key) {
 
 var collections_x_esm_baseClear = function baseClear(kind, context) {
   Object(assert_is_object_x_esm["a" /* default */])(context);
-  context['[[id]]'].reset();
-  context['[[change]]'] = true;
-  context.size = 0;
-  context['[[order]]'].length = 0;
-  context['[[key]]'].length = 0;
+  context[PROP_ID].reset();
+  context[PROP_CHANGE] = true;
+  context[SIZE] = 0;
+  context[PROP_ORDER].length = 0;
+  context[PROP_KEY].length = 0;
 
-  if (kind === 'map') {
-    context['[[value]]'].length = 0;
+  if (kind === MAP) {
+    context[PROP_VALUE].length = 0;
   }
 
   return context;
 };
+
+var setContextFoundBaseDelete = function setContextFoundBaseDelete(args) {
+  var _args11 = _slicedToArray(args, 3),
+      kind = _args11[0],
+      context = _args11[1],
+      indexof = _args11[2];
+
+  if (kind === MAP) {
+    splice.call(context[PROP_VALUE], indexof, 1);
+  }
+
+  splice.call(context[PROP_KEY], indexof, 1);
+  splice.call(context[PROP_ORDER], indexof, 1);
+  context[PROP_CHANGE] = true;
+  context[SIZE] = context[PROP_KEY].length;
+  return true;
+}; // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
 /**
  * The base delete method removes the specified element from a Map/Set object.
  *
  * @private
- * @param {string} kind - Either 'map' or 'set'.
+ * @param {string} kind - Either MAP or SET.
  * @param {object} context - The Map/Set object.
  * @param {*} key - The key/value of the element to remove from Map/Set object.
  * @returns {object} The Map/Set object.
  */
+// eslint-enable jsdoc/check-param-names
 
 
-var collections_x_esm_baseDelete = function baseDelete(kind, context, key) {
-  var indexof = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)['[[key]]'], key, 'SameValueZero');
-  var result = false;
+var collections_x_esm_baseDelete = function baseDelete(args) {
+  var _args12 = _slicedToArray(args, 3),
+      kind = _args12[0],
+      context = _args12[1],
+      key = _args12[2];
 
-  if (indexof > -1) {
-    if (kind === 'map') {
-      context['[[value]]'].splice(indexof, 1);
-    }
+  var indexof = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)[PROP_KEY], key, SAMEVALUEZERO);
+  return indexof > -1 && setContextFoundBaseDelete([kind, context, indexof]);
+};
 
-    context['[[key]]'].splice(indexof, 1);
-    context['[[order]]'].splice(indexof, 1);
-    context['[[change]]'] = true;
-    context.size = context['[[key]]'].length;
-    result = true;
+var setContextFoundBaseAddSet = function setContextFoundBaseAddSet(args) {
+  var _args13 = _slicedToArray(args, 4),
+      kind = _args13[0],
+      context = _args13[1],
+      key = _args13[2],
+      value = _args13[3];
+
+  if (kind === MAP) {
+    push.call(context[PROP_VALUE], value);
   }
 
-  return result;
-};
+  push.call(context[PROP_KEY], key);
+  push.call(context[PROP_ORDER], context[PROP_ID].get());
+  context[PROP_ID][NEXT]();
+  context[PROP_CHANGE] = true;
+  context[SIZE] = context[PROP_KEY].length;
+}; // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
 /**
  * The base set and add method.
  *
  * @private
- * @param {string} kind - Either 'map' or 'set'.
+ * @param {string} kind - Either MAP or SET.
  * @param {object} context - The Map/Set object.
  * @param {*} key - The key or value of the element to add/set on the object.
  * @param {*} [value] - The value of the element to add to the Map object.
  * @returns {object} The Map/Set object.
  */
+// eslint-enable jsdoc/check-param-names
 
 
-var baseAddSet = function _baseAddSet(kind, context, key, value) {
-  var index = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)['[[key]]'], key, 'SameValueZero');
+var collections_x_esm_baseAddSet = function baseAddSet(args) {
+  var _args14 = _slicedToArray(args, 4),
+      kind = _args14[0],
+      context = _args14[1],
+      key = _args14[2],
+      value = _args14[3];
+
+  var index = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(context)[PROP_KEY], key, SAMEVALUEZERO);
 
   if (index > -1) {
-    if (kind === 'map') {
-      context['[[value]]'][index] = value;
+    if (kind === MAP) {
+      context[PROP_VALUE][index] = value;
     }
   } else {
-    if (kind === 'map') {
-      context['[[value]]'].push(value);
-    }
-
-    context['[[key]]'].push(key);
-    context['[[order]]'].push(context['[[id]]'].get());
-    context['[[id]]'].next();
-    context['[[change]]'] = true;
-    context.size = context['[[key]]'].length;
+    setContextFoundBaseAddSet([kind, context, key, value]);
   }
 
   return context;
 };
+
+var thisIteratorDescriptor = _defineProperty({}, VALUE, function iterator() {
+  return this;
+});
 /**
  * An object is an iterator when it knows how to access items from a
  * collection one at a time, while keeping track of its current position
@@ -2798,22 +3064,20 @@ var baseAddSet = function _baseAddSet(kind, context, key, value) {
 
 
 var SetIt = function SetIterator(context, iteratorKind) {
-  Object(object_define_properties_x_esm["a" /* default */])(this, {
-    '[[IteratorHasMore]]': {
-      value: true,
-      writable: true
-    },
-    '[[Set]]': {
-      value: Object(assert_is_object_x_esm["a" /* default */])(context)
-    },
-    '[[SetIterationKind]]': {
-      value: iteratorKind || 'value'
-    },
-    '[[SetNextIndex]]': {
-      value: 0,
-      writable: true
-    }
-  });
+  var _PROP_ITERATORHASMORE, _PROP_SETNEXTINDEX, _defineProperties2;
+
+  Object(object_define_properties_x_esm["a" /* default */])(this, (_defineProperties2 = {}, _defineProperty(_defineProperties2, PROP_ITERATORHASMORE, (_PROP_ITERATORHASMORE = {}, _defineProperty(_PROP_ITERATORHASMORE, VALUE, true), _defineProperty(_PROP_ITERATORHASMORE, WRITABLE, true), _PROP_ITERATORHASMORE)), _defineProperty(_defineProperties2, PROP_SET, _defineProperty({}, VALUE, Object(assert_is_object_x_esm["a" /* default */])(context))), _defineProperty(_defineProperties2, PROP_SETITERATIONKIND, _defineProperty({}, VALUE, iteratorKind || KIND_VALUE)), _defineProperty(_defineProperties2, PROP_SETNEXTINDEX, (_PROP_SETNEXTINDEX = {}, _defineProperty(_PROP_SETNEXTINDEX, VALUE, 0), _defineProperty(_PROP_SETNEXTINDEX, WRITABLE, true), _PROP_SETNEXTINDEX)), _defineProperties2));
+};
+
+var getSetNextObject = function getSetNextObject(args) {
+  var _ref2;
+
+  var _args15 = _slicedToArray(args, 3),
+      iteratorKind = _args15[0],
+      context = _args15[1],
+      index = _args15[2];
+
+  return _ref2 = {}, _defineProperty(_ref2, DONE, false), _defineProperty(_ref2, VALUE, iteratorKind === KIND_KEY_VALUE ? [context[PROP_KEY][index], context[PROP_KEY][index]] : context[PROP_KEY][index]), _ref2;
 };
 /**
  * Once initialized, the next() method can be called to access key-value
@@ -2825,39 +3089,22 @@ var SetIt = function SetIterator(context, iteratorKind) {
  */
 
 
-Object(object_define_property_x_esm["a" /* default */])(SetIt.prototype, 'next', {
-  value: function next() {
-    var context = Object(assert_is_object_x_esm["a" /* default */])(this['[[Set]]']);
-    var index = this['[[SetNextIndex]]'];
-    var iteratorKind = this['[[SetIterationKind]]'];
-    var more = this['[[IteratorHasMore]]'];
-    var object;
+Object(object_define_property_x_esm["a" /* default */])(SetIt.prototype, NEXT, _defineProperty({}, VALUE, function next() {
+  var _ref3;
 
-    if (index < context['[[key]]'].length && more) {
-      object = {
-        done: false
-      };
+  var context = Object(assert_is_object_x_esm["a" /* default */])(this[PROP_SET]);
+  var index = this[PROP_SETNEXTINDEX];
+  var iteratorKind = this[PROP_SETITERATIONKIND];
+  var more = this[PROP_ITERATORHASMORE];
 
-      if (iteratorKind === 'key+value') {
-        object.value = [context['[[key]]'][index], context['[[key]]'][index]];
-      } else {
-        object.value = context['[[key]]'][index];
-      }
-
-      this['[[SetNextIndex]]'] += 1;
-    } else {
-      this['[[IteratorHasMore]]'] = false;
-      object = {
-        done: true,
-
-        /* eslint-disable-next-line no-void */
-        value: void 0
-      };
-    }
-
-    return object;
+  if (index < context[PROP_KEY].length && more) {
+    this[PROP_SETNEXTINDEX] += 1;
+    return getSetNextObject([iteratorKind, context, index]);
   }
-});
+
+  this[PROP_ITERATORHASMORE] = false;
+  return _ref3 = {}, _defineProperty(_ref3, DONE, true), _defineProperty(_ref3, VALUE, UNDEFINED), _ref3;
+}));
 /**
  * The @@iterator property is the same Iterator object.
  *
@@ -2867,11 +3114,11 @@ Object(object_define_property_x_esm["a" /* default */])(SetIt.prototype, 'next',
  * @returns {object} This Iterator object.
  */
 
-Object(object_define_property_x_esm["a" /* default */])(SetIt.prototype, $symIt, {
-  value: function iterator() {
-    return this;
-  }
-});
+Object(object_define_property_x_esm["a" /* default */])(SetIt.prototype, symIt, thisIteratorDescriptor);
+
+var hasDescriptor = _defineProperty({}, VALUE, baseHas);
+
+var sizeDescriptor = (_sizeDescriptor = {}, _defineProperty(_sizeDescriptor, VALUE, 0), _defineProperty(_sizeDescriptor, WRITABLE, true), _sizeDescriptor);
 /**
  * This method returns a new Iterator object that contains the
  * values for each element in the Set object in insertion order.
@@ -2898,19 +3145,18 @@ var setValuesIterator = function values() {
 // eslint-enable jsdoc/check-param-names
 
 
-var $SetObject = function Set() {
-  if (collections_x_esm_castBoolean(this) === false || this instanceof $SetObject === false) {
+var SetImplementation = function Set() {
+  if (Object(to_boolean_x_esm["a" /* default */])(this) === false || !(this instanceof SetImplementation)) {
     throw new TypeError("Constructor Set requires 'new'");
   }
-  /* eslint-disable-next-line prefer-rest-params,no-void */
+  /* eslint-disable-next-line prefer-rest-params */
 
 
-  collections_x_esm_parseIterable('set', this, arguments.length ? arguments[0] : void 0);
+  collections_x_esm_parse([SET, this, arguments.length ? arguments[0] : UNDEFINED]);
 }; // noinspection JSValidateTypes
 
-
-Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
-/** @lends $SetObject.prototype */
+Object(object_define_properties_x_esm["a" /* default */])(SetImplementation.prototype,
+/** @lends SetImplementation.prototype */
 {
   /**
    * The add() method appends a new element with a specified value to the end
@@ -2920,22 +3166,18 @@ Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
    *  object.
    * @returns {object} The Set object.
    */
-  add: {
-    value: function add(value) {
-      return baseAddSet('set', this, value);
-    }
-  },
+  add: _defineProperty({}, VALUE, function add(value) {
+    return collections_x_esm_baseAddSet([SET, this, value]);
+  }),
 
   /**
    * The clear() method removes all elements from a Set object.
    *
    * @returns {object} The Set object.
    */
-  clear: {
-    value: function clear() {
-      return collections_x_esm_baseClear('set', this);
-    }
-  },
+  clear: _defineProperty({}, VALUE, function clear() {
+    return collections_x_esm_baseClear(SET, this);
+  }),
 
   /**
    * The delete() method removes the specified element from a Set object.
@@ -2944,11 +3186,9 @@ Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
    * @returns {boolean} Returns true if an element in the Set object has been
    *  removed successfully; otherwise false.
    */
-  delete: {
-    value: function de1ete(value) {
-      return collections_x_esm_baseDelete('set', this, value);
-    }
-  },
+  delete: _defineProperty({}, VALUE, function de1ete(value) {
+    return collections_x_esm_baseDelete([SET, this, value]);
+  }),
 
   /**
    * The entries() method returns a new Iterator object that contains an
@@ -2961,11 +3201,9 @@ Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
    * @function
    * @returns {object} A new Iterator object.
    */
-  entries: {
-    value: function entries() {
-      return new SetIt(this, 'key+value');
-    }
-  },
+  entries: _defineProperty({}, VALUE, function entries() {
+    return new SetIt(this, KIND_KEY_VALUE);
+  }),
 
   /**
    * The forEach() method executes a provided function once per each value
@@ -2975,11 +3213,9 @@ Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
    * @param {*} [thisArg] - Value to use as this when executing callback.
    * @returns {object} The Set object.
    */
-  forEach: {
-    value: function forEach(callback, thisArg) {
-      return collections_x_esm_baseForEach('set', this, callback, thisArg);
-    }
-  },
+  forEach: _defineProperty({}, VALUE, function forEach(callback, thisArg) {
+    return collections_x_esm_baseForEach([SET, this, callback, thisArg]);
+  }),
 
   /**
    * The has() method returns a boolean indicating whether an element with the
@@ -2990,9 +3226,7 @@ Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
    * @returns {boolean} Returns true if an element with the specified value
    *  exists in the Set object; otherwise false.
    */
-  has: {
-    value: baseHas
-  },
+  has: hasDescriptor,
 
   /**
    * The keys() method is an alias for the `values` method (for similarity
@@ -3001,9 +3235,7 @@ Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
    * @function
    * @returns {object} A new Iterator object.
    */
-  keys: {
-    value: setValuesIterator
-  },
+  keys: _defineProperty({}, VALUE, setValuesIterator),
 
   /**
    * The value of size is an integer representing how many entries the Set
@@ -3014,10 +3246,7 @@ Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
    * @instance
    * @type {number}
    */
-  size: {
-    value: 0,
-    writable: true
-  },
+  size: sizeDescriptor,
 
   /**
    * The values() method returns a new Iterator object that contains the
@@ -3026,9 +3255,7 @@ Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
    * @function
    * @returns {object} A new Iterator object.
    */
-  values: {
-    value: setValuesIterator
-  }
+  values: _defineProperty({}, VALUE, setValuesIterator)
 });
 /**
  * The initial value of the @@iterator property is the same function object
@@ -3039,9 +3266,7 @@ Object(object_define_properties_x_esm["a" /* default */])($SetObject.prototype,
  * @returns {object} A new Iterator object.
  */
 
-Object(object_define_property_x_esm["a" /* default */])($SetObject.prototype, $symIt, {
-  value: setValuesIterator
-});
+Object(object_define_property_x_esm["a" /* default */])(SetImplementation.prototype, symIt, _defineProperty({}, VALUE, setValuesIterator));
 /**
  * An object is an iterator when it knows how to access items from a
  * collection one at a time, while keeping track of its current position
@@ -3057,22 +3282,20 @@ Object(object_define_property_x_esm["a" /* default */])($SetObject.prototype, $s
  */
 
 var MapIt = function MapIterator(context, iteratorKind) {
-  Object(object_define_properties_x_esm["a" /* default */])(this, {
-    '[[IteratorHasMore]]': {
-      value: true,
-      writable: true
-    },
-    '[[Map]]': {
-      value: Object(assert_is_object_x_esm["a" /* default */])(context)
-    },
-    '[[MapIterationKind]]': {
-      value: iteratorKind
-    },
-    '[[MapNextIndex]]': {
-      value: 0,
-      writable: true
-    }
-  });
+  var _PROP_ITERATORHASMORE2, _PROP_MAPNEXTINDEX, _defineProperties3;
+
+  Object(object_define_properties_x_esm["a" /* default */])(this, (_defineProperties3 = {}, _defineProperty(_defineProperties3, PROP_ITERATORHASMORE, (_PROP_ITERATORHASMORE2 = {}, _defineProperty(_PROP_ITERATORHASMORE2, VALUE, true), _defineProperty(_PROP_ITERATORHASMORE2, WRITABLE, true), _PROP_ITERATORHASMORE2)), _defineProperty(_defineProperties3, PROP_MAP, _defineProperty({}, VALUE, Object(assert_is_object_x_esm["a" /* default */])(context))), _defineProperty(_defineProperties3, PROP_MAPITERATIONKIND, _defineProperty({}, VALUE, iteratorKind)), _defineProperty(_defineProperties3, PROP_MAPNEXTINDEX, (_PROP_MAPNEXTINDEX = {}, _defineProperty(_PROP_MAPNEXTINDEX, VALUE, 0), _defineProperty(_PROP_MAPNEXTINDEX, WRITABLE, true), _PROP_MAPNEXTINDEX)), _defineProperties3));
+};
+
+var getMapNextObject = function getMapNextObject(args) {
+  var _ref4;
+
+  var _args16 = _slicedToArray(args, 3),
+      iteratorKind = _args16[0],
+      context = _args16[1],
+      index = _args16[2];
+
+  return _ref4 = {}, _defineProperty(_ref4, DONE, false), _defineProperty(_ref4, VALUE, iteratorKind === KIND_KEY_VALUE ? [context[PROP_KEY][index], context[PROP_VALUE][index]] : context["[[".concat(iteratorKind, "]]")][index]), _ref4;
 };
 /**
  * Once initialized, the next() method can be called to access key-value
@@ -3084,40 +3307,22 @@ var MapIt = function MapIterator(context, iteratorKind) {
  */
 
 
-Object(object_define_property_x_esm["a" /* default */])(MapIt.prototype, 'next', {
-  value: function next() {
-    var context = Object(assert_is_object_x_esm["a" /* default */])(this['[[Map]]']);
-    var index = this['[[MapNextIndex]]'];
-    var iteratorKind = this['[[MapIterationKind]]'];
-    var more = this['[[IteratorHasMore]]'];
-    var object;
-    Object(assert_is_object_x_esm["a" /* default */])(context);
+Object(object_define_property_x_esm["a" /* default */])(MapIt.prototype, NEXT, _defineProperty({}, VALUE, function next() {
+  var _ref5;
 
-    if (index < context['[[key]]'].length && more) {
-      object = {
-        done: false
-      };
+  var context = Object(assert_is_object_x_esm["a" /* default */])(this[PROP_MAP]);
+  var index = this[PROP_MAPNEXTINDEX];
+  var iteratorKind = this[PROP_MAPITERATIONKIND];
+  var more = this[PROP_ITERATORHASMORE];
 
-      if (iteratorKind === 'key+value') {
-        object.value = [context['[[key]]'][index], context['[[value]]'][index]];
-      } else {
-        object.value = context["[[".concat(iteratorKind, "]]")][index];
-      }
-
-      this['[[MapNextIndex]]'] += 1;
-    } else {
-      this['[[IteratorHasMore]]'] = false;
-      object = {
-        done: true,
-
-        /* eslint-disable-next-line no-void */
-        value: void 0
-      };
-    }
-
-    return object;
+  if (index < context[PROP_KEY].length && more) {
+    this[PROP_MAPNEXTINDEX] += 1;
+    return getMapNextObject([iteratorKind, context, index]);
   }
-});
+
+  this[PROP_ITERATORHASMORE] = false;
+  return _ref5 = {}, _defineProperty(_ref5, DONE, true), _defineProperty(_ref5, VALUE, UNDEFINED), _ref5;
+}));
 /**
  * The @@iterator property is the same Iterator object.
  *
@@ -3127,11 +3332,7 @@ Object(object_define_property_x_esm["a" /* default */])(MapIt.prototype, 'next',
  * @returns {object} This Iterator object.
  */
 
-Object(object_define_property_x_esm["a" /* default */])(MapIt.prototype, $symIt, {
-  value: function iterator() {
-    return this;
-  }
-}); // eslint-disable jsdoc/check-param-names
+Object(object_define_property_x_esm["a" /* default */])(MapIt.prototype, symIt, thisIteratorDescriptor); // eslint-disable jsdoc/check-param-names
 // noinspection JSCommentMatchesSignature
 
 /**
@@ -3146,30 +3347,27 @@ Object(object_define_property_x_esm["a" /* default */])(MapIt.prototype, $symIt,
  */
 // eslint-enable jsdoc/check-param-names
 
-var $MapObject = function Map() {
-  if (collections_x_esm_castBoolean(this) === false || this instanceof $MapObject === false) {
+var MapImplementation = function Map() {
+  if (Object(to_boolean_x_esm["a" /* default */])(this) === false || !(this instanceof MapImplementation)) {
     throw new TypeError("Constructor Map requires 'new'");
   }
-  /* eslint-disable-next-line prefer-rest-params,no-void */
+  /* eslint-disable-next-line prefer-rest-params */
 
 
-  collections_x_esm_parseIterable('map', this, arguments.length ? arguments[0] : void 0);
+  collections_x_esm_parse([MAP, this, arguments.length ? arguments[0] : UNDEFINED]);
 }; // noinspection JSValidateTypes
 
-
-Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
-/** @lends $MapObject.prototype */
+Object(object_define_properties_x_esm["a" /* default */])(MapImplementation.prototype,
+/** @lends MapImplementation.prototype */
 {
   /**
    * The clear() method removes all elements from a Map object.
    *
    * @returns {object} The Map object.
    */
-  clear: {
-    value: function clear() {
-      return collections_x_esm_baseClear('map', this);
-    }
-  },
+  clear: _defineProperty({}, VALUE, function clear() {
+    return collections_x_esm_baseClear(MAP, this);
+  }),
 
   /**
    * The delete() method removes the specified element from a Map object.
@@ -3178,11 +3376,9 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
    * @returns {boolean} Returns true if an element in the Map object has been
    *  removed successfully.
    */
-  delete: {
-    value: function de1ete(key) {
-      return collections_x_esm_baseDelete('map', this, key);
-    }
-  },
+  delete: _defineProperty({}, VALUE, function de1ete(key) {
+    return collections_x_esm_baseDelete([MAP, this, key]);
+  }),
 
   /**
    * The entries() method returns a new Iterator object that contains the
@@ -3190,11 +3386,9 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
    *
    * @returns {object} A new Iterator object.
    */
-  entries: {
-    value: function entries() {
-      return new MapIt(this, 'key+value');
-    }
-  },
+  entries: _defineProperty({}, VALUE, function entries() {
+    return new MapIt(this, KIND_KEY_VALUE);
+  }),
 
   /**
    * The forEach() method executes a provided function once per each
@@ -3204,11 +3398,9 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
    * @param {*} [thisArg] - Value to use as this when executing callback.
    * @returns {object} The Map object.
    */
-  forEach: {
-    value: function forEach(callback, thisArg) {
-      return collections_x_esm_baseForEach('map', this, callback, thisArg);
-    }
-  },
+  forEach: _defineProperty({}, VALUE, function forEach(callback, thisArg) {
+    return collections_x_esm_baseForEach([MAP, this, callback, thisArg]);
+  }),
 
   /**
    * The get() method returns a specified element from a Map object.
@@ -3217,14 +3409,10 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
    * @returns {*} Returns the element associated with the specified key or
    *  undefined if the key can't be found in the Map object.
    */
-  get: {
-    value: function get(key) {
-      var index = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(this)['[[key]]'], key, 'SameValueZero');
-      /* eslint-disable-next-line no-void */
-
-      return index > -1 ? this['[[value]]'][index] : void 0;
-    }
-  },
+  get: _defineProperty({}, VALUE, function get(key) {
+    var index = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(this)[PROP_KEY], key, SAMEVALUEZERO);
+    return index > -1 ? this[PROP_VALUE][index] : UNDEFINED;
+  }),
 
   /**
    * The has() method returns a boolean indicating whether an element with
@@ -3235,9 +3423,7 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
    * @returns {boolean} Returns true if an element with the specified key
    *  exists in the Map object; otherwise false.
    */
-  has: {
-    value: baseHas
-  },
+  has: hasDescriptor,
 
   /**
    * The keys() method returns a new Iterator object that contains the keys
@@ -3245,11 +3431,9 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
    *
    * @returns {object} A new Iterator object.
    */
-  keys: {
-    value: function keys() {
-      return new MapIt(this, 'key');
-    }
-  },
+  keys: _defineProperty({}, VALUE, function keys() {
+    return new MapIt(this, KIND_KEY);
+  }),
 
   /**
    * The set() method adds a new element with a specified key and value to
@@ -3259,11 +3443,9 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
    * @param {*} value - The value of the element to add to the Map object.
    * @returns {object} The Map object.
    */
-  set: {
-    value: function set(key, value) {
-      return baseAddSet('map', this, key, value);
-    }
-  },
+  set: _defineProperty({}, VALUE, function set(key, value) {
+    return collections_x_esm_baseAddSet([MAP, this, key, value]);
+  }),
 
   /**
    * The value of size is an integer representing how many entries the Map
@@ -3274,10 +3456,7 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
    * @instance
    * @type {number}
    */
-  size: {
-    value: 0,
-    writable: true
-  },
+  size: sizeDescriptor,
 
   /**
    * The values() method returns a new Iterator object that contains the
@@ -3285,11 +3464,9 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
    *
    * @returns {object} A new Iterator object.
    */
-  values: {
-    value: function values() {
-      return new MapIt(this, 'value');
-    }
-  }
+  values: _defineProperty({}, VALUE, function values() {
+    return new MapIt(this, KIND_VALUE);
+  })
 });
 /**
  * The initial value of the @@iterator property is the same function object
@@ -3300,286 +3477,181 @@ Object(object_define_properties_x_esm["a" /* default */])($MapObject.prototype,
  * @returns {object} A new Iterator object.
  */
 
-Object(object_define_property_x_esm["a" /* default */])($MapObject.prototype, $symIt, {
-  value: $MapObject.prototype.entries
-});
+Object(object_define_property_x_esm["a" /* default */])(MapImplementation.prototype, symIt, _defineProperty({}, VALUE, MapImplementation.prototype.entries));
 /*
  * Determine whether to use shim or native.
  */
 
-var ExportMap = $MapObject;
+/* istanbul ignore next */
 
-try {
-  /* eslint-disable-next-line compat/compat */
-  ExportMap = new Map() ? Map : $MapObject;
-} catch (ignore) {// empty
-}
+var collections_x_esm_getMyClass = function getMyClass(Subject) {
+  var MyClass = function MyClass(arg) {
+    var testObject = new Subject(arg);
+    setPrototypeOf(testObject, MyClass.prototype);
+    return testObject;
+  };
 
-var MapConstructor = ExportMap;
-var ExportSet = $SetObject;
+  setPrototypeOf(MyClass, Subject);
+  MyClass.prototype = Object(object_create_x_esm["a" /* default */])(Subject.prototype, {
+    constructor: _defineProperty({}, VALUE, MyClass)
+  });
+  return MyClass;
+};
 
-try {
-  /* eslint-disable-next-line compat/compat */
-  ExportSet = new Set() ? Set : $SetObject;
-} catch (ignore) {// empty
-}
+var collections_x_esm_noNewfixee = function noNewfixee(Subject) {
+  var res = Object(attempt_x_esm["a" /* default */])(function attemptee() {
+    /* eslint-disable-next-line babel/new-cap */
+    return Subject();
+  });
+  return res.threw === false;
+};
 
-var SetConstructor = ExportSet;
-var testMap;
+var collections_x_esm_badDoneFixee = function badDoneFixee(Subject) {
+  var res = Object(attempt_x_esm["a" /* default */])(function attemptee() {
+    return new Subject().keys()[NEXT]()[DONE] === false;
+  });
+  return res.threw || res.value;
+};
 
-if (ExportMap !== $MapObject) {
-  testMap = new ExportMap();
+var collections_x_esm_badNextFunction = function badNextFunction(Subject) {
+  // Safari 8
+  return Object(is_function_x_esm["a" /* default */])(new Subject().keys()[NEXT]) === false;
+};
+/* Map fixes */
 
-  if (isNumberType(testMap.size) === false || testMap.size !== 0) {
-    ExportMap = $MapObject;
-  } else {
-    var propsMap = ['has', 'set', 'clear', 'delete', 'forEach', 'values', 'entries', 'keys', $symIt];
-    var failedMap = Object(array_some_x_esm["a" /* default */])(propsMap, function (method) {
-      collections_x_esm_newArrowCheck(this, collections_x_esm_this);
+/* istanbul ignore next */
 
+
+var collections_x_esm_performMapFixes = function performMapFixes() {
+  var result = Object(attempt_x_esm["a" /* default */])(function attemptee() {
+    /* eslint-disable-next-line compat/compat */
+    return Object(to_boolean_x_esm["a" /* default */])(new Map() instanceof Map) === false;
+  });
+  var Export = result.threw || result.value ? MapImplementation : Map;
+
+  var peformMapFix = function peformMapFix(fixee) {
+    if (Export !== MapImplementation && fixee(Export)) {
+      Export = MapImplementation;
+    }
+  };
+
+  var fixees = [collections_x_esm_noNewfixee, function fixee(Subject) {
+    var testMap = new Subject();
+
+    if (typeof testMap[SIZE] !== 'number' || testMap[SIZE] !== 0) {
+      return true;
+    }
+
+    var propsMap = ['has', 'set', 'clear', 'delete', 'forEach', 'values', 'entries', 'keys', symIt];
+    return Object(array_some_x_esm["a" /* default */])(propsMap, function predicate(method) {
       return Object(is_function_x_esm["a" /* default */])(testMap[method]) === false;
-    }.bind(undefined));
-
-    if (failedMap) {
-      ExportMap = $MapObject;
-    }
-  }
-}
-
-if (ExportMap !== $MapObject) {
-  // Safari 8, for example, doesn't accept an iterable.
-  var mapAcceptsArguments = false;
-
-  try {
-    mapAcceptsArguments = new ExportMap([[1, 2]]).get(1) === 2;
-  } catch (ignore) {// empty
-  }
-
-  if (mapAcceptsArguments === false) {
-    ExportMap = $MapObject;
-  }
-}
-
-if (ExportMap !== $MapObject) {
-  testMap = new ExportMap();
-  var mapSupportsChaining = testMap.set(1, 2) === testMap;
-
-  if (mapSupportsChaining === false) {
-    ExportMap = $MapObject;
-  }
-}
-
-if (ExportMap !== $MapObject) {
-  // Chrome 38-42, node 0.11/0.12, iojs 1/2 also have a bug when the Map has a size > 4
-  testMap = new ExportMap([[1, 0], [2, 0], [3, 0], [4, 0]]);
-  testMap.set(-0, testMap);
-  var gets = testMap.get(0) === testMap && testMap.get(-0) === testMap;
-  var mapUsesSameValueZero = gets && testMap.has(0) && testMap.has(-0);
-
-  if (mapUsesSameValueZero === false) {
-    ExportMap = $MapObject;
-  }
-}
-
-if (ExportMap !== $MapObject) {
-  if (setPrototypeOf) {
-    var MyMap = function MyMap(arg) {
-      testMap = new ExportMap(arg);
-      setPrototypeOf(testMap, MyMap.prototype);
-      return testMap;
-    };
-
-    setPrototypeOf(MyMap, ExportMap);
-    MyMap.prototype = Object(object_create_x_esm["a" /* default */])(ExportMap.prototype, {
-      constructor: {
-        value: MyMap
-      }
     });
-    var mapSupportsSubclassing = false;
-
-    try {
-      testMap = new MyMap([]); // Firefox 32 is ok with the instantiating the subclass but will
-      // throw when the map is used.
-
-      testMap.set(42, 42);
-      mapSupportsSubclassing = testMap instanceof MyMap;
-    } catch (ignore) {// empty
+  }, function fixee(Subject) {
+    // Safari 8, for example, doesn't accept an iterable.
+    var res = Object(attempt_x_esm["a" /* default */])(function attemptee() {
+      return new Subject([[1, 2]]).get(1) !== 2;
+    });
+    return res.threw || res.result;
+  }, function fixee(Subject) {
+    var testMap = new Subject();
+    return testMap.set(1, 2) !== testMap;
+  }, function fixee(Subject) {
+    // Chrome 38-42, node 0.11/0.12, iojs 1/2 also have a bug when the Map has a size > 4
+    var testMap = new Subject([[1, 0], [2, 0], [3, 0], [4, 0]]);
+    testMap.set(-0, testMap);
+    var gets = testMap.get(0) === testMap && testMap.get(-0) === testMap;
+    var mapUsesSameValueZero = gets && testMap.has(0) && testMap.has(-0);
+    return mapUsesSameValueZero === false;
+  }, function fixee(Subject) {
+    if (setPrototypeOf) {
+      return false;
     }
 
-    if (mapSupportsSubclassing === false) {
-      ExportMap = $MapObject;
+    var MyMap = collections_x_esm_getMyClass(Subject);
+    var res = Object(attempt_x_esm["a" /* default */])(function attemptee() {
+      return Object(to_boolean_x_esm["a" /* default */])(new MyMap([]).set(42, 42) instanceof MyMap) === false;
+    });
+    return res.threw || res.value;
+  }, collections_x_esm_badDoneFixee, collections_x_esm_badNextFunction, function fixee(Subject) {
+    var testMapProto = hasRealSymbolIterator && Object(get_prototype_of_x_esm["a" /* default */])(new Subject().keys());
+    return Object(to_boolean_x_esm["a" /* default */])(testMapProto) && Object(is_function_x_esm["a" /* default */])(testMapProto[symIt]) === false;
+  }];
+  Object(array_for_each_x_esm["a" /* default */])(fixees, function iteratee(fixee) {
+    peformMapFix(fixee);
+  });
+  return Export;
+};
+/* Set fixes */
+
+/* istanbul ignore next */
+
+
+var collections_x_esm_performSetFixes = function performSetFixes() {
+  var result = Object(attempt_x_esm["a" /* default */])(function attemptee() {
+    /* eslint-disable-next-line compat/compat */
+    return Object(to_boolean_x_esm["a" /* default */])(new Set() instanceof Set) === false;
+  });
+  var Export = result.threw || result.value ? SetImplementation : Set;
+
+  var peformSetFix = function peformSetFix(fixee) {
+    if (Export !== SetImplementation && fixee(Export)) {
+      Export = SetImplementation;
     }
-  }
-}
+  };
 
-if (ExportMap !== $MapObject) {
-  var mapRequiresNew;
+  var fixees = [collections_x_esm_noNewfixee, function fixee(Subject) {
+    var testSet = new Subject();
 
-  try {
-    /* eslint-disable-next-line babel/new-cap */
-    mapRequiresNew = ExportMap() instanceof ExportMap === false;
-  } catch (e) {
-    mapRequiresNew = e instanceof TypeError;
-  }
+    if (typeof testSet[SIZE] !== 'number' || testSet[SIZE] !== 0) {
+      /* istanbul ignore next */
+      return true;
+    }
 
-  if (mapRequiresNew === false) {
-    ExportMap = $MapObject;
-  }
-}
-
-if (ExportMap !== $MapObject) {
-  testMap = new ExportMap();
-  var mapIterationThrowsStopIterator;
-
-  try {
-    mapIterationThrowsStopIterator = testMap.keys().next().done === false;
-  } catch (ignore) {
-    mapIterationThrowsStopIterator = true;
-  }
-
-  if (mapIterationThrowsStopIterator) {
-    ExportMap = $MapObject;
-  }
-} // Safari 8
-
-
-if (ExportMap !== $MapObject && Object(is_function_x_esm["a" /* default */])(new ExportMap().keys().next) === false) {
-  ExportMap = $MapObject;
-}
-
-if (hasRealSymbolIterator && ExportMap !== $MapObject) {
-  var testMapProto = Object(get_prototype_of_x_esm["a" /* default */])(new ExportMap().keys());
-  var hasBuggyMapIterator = true;
-
-  if (testMapProto) {
-    hasBuggyMapIterator = Object(is_function_x_esm["a" /* default */])(testMapProto[$symIt]) === false;
-  }
-
-  if (hasBuggyMapIterator) {
-    ExportMap = $MapObject;
-  }
-}
-
-var testSet;
-
-if (ExportSet !== $SetObject) {
-  testSet = new ExportSet();
-
-  if (isNumberType(testSet.size) === false || testSet.size !== 0) {
-    ExportMap = $MapObject;
-  } else {
-    var propsSet = ['has', 'add', 'clear', 'delete', 'forEach', 'values', 'entries', 'keys', $symIt];
-    var failedSet = Object(array_some_x_esm["a" /* default */])(propsSet, function (method) {
-      collections_x_esm_newArrowCheck(this, collections_x_esm_this);
-
+    var propsSet = ['has', 'add', 'clear', 'delete', 'forEach', 'values', 'entries', 'keys', symIt];
+    return Object(array_some_x_esm["a" /* default */])(propsSet, function predicate(method) {
       return Object(is_function_x_esm["a" /* default */])(testSet[method]) === false;
-    }.bind(undefined));
-
-    if (failedSet) {
-      ExportSet = $SetObject;
-    }
-  }
-}
-
-if (ExportSet !== $SetObject) {
-  testSet = new ExportSet();
-  testSet.delete(0);
-  testSet.add(-0);
-  var setUsesSameValueZero = testSet.has(0) && testSet.has(-0);
-
-  if (setUsesSameValueZero === false) {
-    ExportSet = $SetObject;
-  }
-}
-
-if (ExportSet !== $SetObject) {
-  testSet = new ExportSet();
-  var setSupportsChaining = testSet.add(1) === testSet;
-
-  if (setSupportsChaining === false) {
-    ExportSet = $SetObject;
-  }
-}
-
-if (ExportSet !== $SetObject) {
-  if (setPrototypeOf) {
-    var MySet = function MySet(arg) {
-      testSet = new ExportSet(arg);
-      setPrototypeOf(testSet, MySet.prototype);
-      return testSet;
-    };
-
-    setPrototypeOf(MySet, ExportSet);
-    MySet.prototype = Object(object_create_x_esm["a" /* default */])(ExportSet.prototype, {
-      constructor: {
-        value: MySet
-      }
     });
-    var setSupportsSubclassing = false;
-
-    try {
-      testSet = new MySet([]);
-      testSet.add(42, 42);
-      setSupportsSubclassing = testSet instanceof MySet;
-    } catch (ignore) {// empty
+  }, function fixee(Subject) {
+    var testSet = new Subject();
+    testSet.delete(0);
+    testSet.add(-0);
+    return testSet.has(0) === false || testSet.has(-0) === false;
+  }, function fixee(Subject) {
+    var testSet = new Subject();
+    return testSet.add(1) !== testSet;
+  }, function fixee(Subject) {
+    if (setPrototypeOf) {
+      return false;
     }
 
-    if (setSupportsSubclassing === false) {
-      ExportSet = $SetObject;
-    }
-  }
-}
+    var MySet = collections_x_esm_getMyClass(Subject);
+    var res = Object(attempt_x_esm["a" /* default */])(function attemptee() {
+      return Object(to_boolean_x_esm["a" /* default */])(new MySet([]).add(42) instanceof MySet) === false;
+    });
+    return res.threw || res.value;
+  }, collections_x_esm_badDoneFixee, collections_x_esm_badNextFunction, function fixee(Subject) {
+    var testSetProto = hasRealSymbolIterator && Object(get_prototype_of_x_esm["a" /* default */])(new Subject().keys());
+    return Object(to_boolean_x_esm["a" /* default */])(testSetProto) && Object(is_function_x_esm["a" /* default */])(testSetProto[symIt]) === false;
+  }];
+  Object(array_for_each_x_esm["a" /* default */])(fixees, function iteratee(fixee) {
+    peformSetFix(fixee);
+  });
+  return Export;
+};
 
-if (ExportSet !== $SetObject) {
-  var setRequiresNew;
+var MapConstructor = collections_x_esm_performMapFixes();
+var SetConstructor = collections_x_esm_performSetFixes();
 
-  try {
-    /* eslint-disable-next-line babel/new-cap */
-    setRequiresNew = ExportSet() instanceof ExportSet === false;
-  } catch (e) {
-    setRequiresNew = e instanceof TypeError;
-  }
-
-  if (setRequiresNew === false) {
-    ExportSet = $SetObject;
-  }
-}
-
-if (ExportSet !== $SetObject) {
-  testSet = new ExportSet();
-  var setIterationThrowsStopIterator;
-
-  try {
-    setIterationThrowsStopIterator = testSet.keys().next().done === false;
-  } catch (ignore) {
-    setIterationThrowsStopIterator = true;
-  }
-
-  if (setIterationThrowsStopIterator) {
-    ExportSet = $SetObject;
-  }
-} // Safari 8
-
-
-if (ExportSet !== $SetObject && Object(is_function_x_esm["a" /* default */])(new ExportSet().keys().next) === false) {
-  ExportSet = $SetObject;
-}
-
-if (hasRealSymbolIterator && ExportSet !== $SetObject) {
-  var testSetProto = Object(get_prototype_of_x_esm["a" /* default */])(new ExportSet().keys());
-  var hasBuggySetIterator = true;
-
-  if (testSetProto) {
-    hasBuggySetIterator = Object(is_function_x_esm["a" /* default */])(testSetProto[$symIt]) === false;
-  }
-
-  if (hasBuggySetIterator) {
-    ExportSet = $SetObject;
-  }
-}
+var collections_x_esm_hasImplementationProps = function hasImplementationProps(object) {
+  return is_boolean_object_default()(object[PROP_CHANGED]) && Object(is_object_like_x_esm["a" /* default */])(object[PROP_ID]) && Object(is_array_x_esm["a" /* default */])(object[PROP_KEY]) && Object(is_array_x_esm["a" /* default */])(object[PROP_ORDER]) && typeof object[SIZE] === 'number';
+};
 
 var collections_x_esm_hasCommon = function hasCommon(object) {
-  return Object(is_object_like_x_esm["a" /* default */])(object) && Object(is_function_x_esm["a" /* default */])(object[$symIt]) && is_boolean_object_default()(object['[[changed]]']) && Object(is_object_like_x_esm["a" /* default */])(object['[[id]]']) && Object(is_array_x_esm["a" /* default */])(object['[[key]]']) && Object(is_array_x_esm["a" /* default */])(object['[[order]]']) && isNumberType(object.size);
+  return Object(is_object_like_x_esm["a" /* default */])(object) && Object(is_function_x_esm["a" /* default */])(object[symIt]) && collections_x_esm_hasImplementationProps(object);
+};
+
+var collections_x_esm_isMapImplementation = function isMapImplementation(object) {
+  return Object(is_map_x_esm["a" /* default */])(object) || collections_x_esm_hasCommon(object) && Object(is_array_x_esm["a" /* default */])(object[PROP_VALUE]);
 };
 /**
  * Determine if an `object` is a `Map`.
@@ -3589,22 +3661,10 @@ var collections_x_esm_hasCommon = function hasCommon(object) {
  *  else `false`.
  */
 
-
-var $$isMap;
-
-if (ExportMap === $MapObject) {
-  $$isMap = function isMap(object) {
-    if (Object(is_map_x_esm["a" /* default */])(object)) {
-      return true;
-    }
-
-    return collections_x_esm_hasCommon(object) && Object(is_array_x_esm["a" /* default */])(object['[[value]]']);
-  };
-} else {
-  $$isMap = is_map_x_esm["a" /* default */];
-}
-
-var collections_x_esm_isMap = $$isMap;
+var isMap = MapConstructor === MapImplementation ? collections_x_esm_isMapImplementation : is_map_x_esm["a" /* default */];
+var collections_x_esm_isSetImplementation = function isSetImplementation(object) {
+  return Object(is_set_x_esm["a" /* default */])(object) || collections_x_esm_hasCommon(object) && typeof object[PROP_VALUE] === 'undefined';
+};
 /**
  * Determine if an `object` is a `Set`.
  *
@@ -3613,40 +3673,27 @@ var collections_x_esm_isMap = $$isMap;
  *  else `false`.
  */
 
-var $$isSet;
-
-if (ExportSet === $SetObject) {
-  $$isSet = function isSet(object) {
-    if (isSet(object)) {
-      return true;
-    }
-
-    return collections_x_esm_hasCommon(object) && typeof object['[[value]]'] === 'undefined';
-  };
-} else {
-  $$isSet = is_set_x_esm["a" /* default */];
-}
-
-var isSet = $$isSet;
+var isSet = SetConstructor === SetImplementation ? collections_x_esm_isSetImplementation : is_set_x_esm["a" /* default */];
 
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(13);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(12);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var is_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(75);
-/* harmony import */ var property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(44);
+/* harmony import */ var is_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(74);
+/* harmony import */ var property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(46);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(1);
 
 
 
@@ -3656,13 +3703,12 @@ var isSet = $$isSet;
 
 
 
-/** @type {ObjectConstructor} */
 
+var EMPTY_STRING = '';
+var charAt = EMPTY_STRING.charAt;
 var castObject = {}.constructor;
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
-var nativeGOPD = typeof castObject.getOwnPropertyDescriptor === 'function' && castObject.getOwnPropertyDescriptor;
+var ngopd = castObject.getOwnPropertyDescriptor;
+var nativeGOPD = typeof ngopd === 'function' && ngopd;
 var getOPDFallback1;
 var getOPDFallback2; // ES5 15.2.3.3
 // http://es5.github.com/#x15.2.3.3
@@ -3701,7 +3747,7 @@ if (nativeGOPD) {
         var worksWithPrim = Object(attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nativeGOPD, 42, 'name').threw === false;
         /* eslint-disable-next-line compat/compat */
 
-        var worksWithObjSym = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"] && doesGOPDWork({}, castObject(Symbol('')));
+        var worksWithObjSym = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"] && doesGOPDWork({}, castObject(Symbol(EMPTY_STRING)));
 
         if (worksWithObjSym) {
           if (worksWithPrim) {
@@ -3729,7 +3775,7 @@ if (nativeGOPD) {
   }
 }
 
-if (castBoolean($getOwnPropertyDescriptor) === false || getOPDFallback1 || getOPDFallback2) {
+if (Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])($getOwnPropertyDescriptor) === false || getOPDFallback1 || getOPDFallback2) {
   var prototypeOfObject = castObject.prototype; // If JS engine supports accessors creating shortcuts.
 
   var lookupGetter;
@@ -3839,7 +3885,7 @@ if (castBoolean($getOwnPropertyDescriptor) === false || getOPDFallback1 || getOP
 
 
     if (isStringIndex) {
-      descriptor.value = obj.charAt(propKey);
+      descriptor.value = charAt.call(obj, propKey);
       descriptor.writable = false;
     } else {
       descriptor.value = obj[propKey];
@@ -3856,47 +3902,46 @@ var gOPS = $getOwnPropertyDescriptor;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+/* unused harmony export implementation */
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
 
 
-/**
- * This method returns the prototype (i.e. The value of the internal [[Prototype]] property)
- * of the specified object.
- *
- * @function getPrototypeOf
- * @param {*} obj - The object whose prototype is to be returned.
- * @returns {object} The prototype of the given object. If there are no inherited properties, null is returned.
- */
 
-var gpo;
-gpo = {}.getPrototypeOf;
+var ObjectCtr = {}.constructor;
+var nativeGetPrototypeOf = ObjectCtr.getPrototypeOf;
 
-if (gpo) {
+var test1 = function test1() {
+  var prototypeOfCtr = {};
+  /* eslint-disable-next-line lodash/prefer-noop */
+
+  var Ctr = function Ctr() {};
+
+  Ctr.prototype = prototypeOfCtr;
+  var ctr = new Ctr();
+
   try {
-    gpo = gpo(Object) === {}.prototype && gpo;
+    return nativeGetPrototypeOf(ctr) === prototypeOfCtr;
   } catch (ignore) {
-    gpo = null;
+    return false;
   }
-}
+};
 
-if (gpo) {
-  try {
-    gpo(1);
-  } catch (ignore) {
-    /** @type {Function} */
-    var $getPrototypeOf = gpo;
+var isWorking = Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nativeGetPrototypeOf) && test1();
 
-    gpo = function getPrototypeOf(obj) {
-      return $getPrototypeOf(Object(to_object_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(obj));
-    };
-  }
-} else {
-  gpo = function getPrototypeOf(obj) {
+var patchedGetPrototypeOf = function patchedGetPrototypeOf() {
+  return function getPrototypeOf(obj) {
+    return nativeGetPrototypeOf(Object(to_object_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(obj));
+  };
+};
+
+var implementation = function implementation() {
+  return function getPrototypeOf(obj) {
     var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(obj);
     /* eslint-disable-next-line no-proto */
 
@@ -3910,26 +3955,34 @@ if (gpo) {
       return object.constructor.prototype;
     }
 
-    if (object instanceof Object) {
-      return Object.prototype;
+    if (object instanceof ObjectCtr) {
+      return ObjectCtr.prototype;
     }
 
     return null;
   };
-}
+};
+/**
+ * This method returns the prototype (i.e. The value of the internal [[Prototype]] property)
+ * of the specified object.
+ *
+ * @function getPrototypeOf
+ * @param {*} obj - The object whose prototype is to be returned.
+ * @returns {object} The prototype of the given object. If there are no inherited properties, null is returned.
+ */
 
-var getPO = gpo;
-/* harmony default export */ __webpack_exports__["a"] = (getPO);
+var gpo = isWorking ? patchedGetPrototypeOf() : implementation();
+/* harmony default export */ __webpack_exports__["a"] = (gpo);
 
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(16);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -3947,13 +4000,133 @@ is_symbol__WEBPACK_IMPORTED_MODULE_1___default()(Symbol.toStringTag));
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(70);
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(69);
+/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(64);
+/* harmony import */ var parse_int_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(71);
+/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(72);
+
+
+
+
+
+var binaryRadix = 2;
+var octalRadix = 8;
+var testCharsCount = 2;
+var ERROR_MESSAGE = 'Cannot convert a Symbol value to a number';
+var castNumber = testCharsCount.constructor;
+var pStrSlice = ERROR_MESSAGE.slice;
+var binaryRegex = /^0b[01]+$/i;
+var RegExpConstructor = binaryRegex.constructor; // Note that in IE 8, RegExp.prototype.test doesn't seem to exist: ie, "test" is
+// an own property of regexes. wtf.
+
+var test = binaryRegex.test;
+
+var isBinary = function isBinary(value) {
+  return test.call(binaryRegex, value);
+};
+
+var octalRegex = /^0o[0-7]+$/i;
+
+var isOctal = function isOctal(value) {
+  return test.call(octalRegex, value);
+};
+
+var nonWSregex = new RegExpConstructor("[\x85\u180E\u200B\uFFFE]", 'g');
+
+var hasNonWS = function hasNonWS(value) {
+  return test.call(nonWSregex, value);
+};
+
+var invalidHexLiteral = /^[-+]0x[0-9a-f]+$/i;
+
+var isInvalidHexLiteral = function isInvalidHexLiteral(value) {
+  return test.call(invalidHexLiteral, value);
+};
+
+var assertNotSymbol = function assertNotSymbol(value) {
+  if (is_symbol__WEBPACK_IMPORTED_MODULE_0___default()(value)) {
+    throw new TypeError(ERROR_MESSAGE);
+  }
+
+  return value;
+};
+
+var parseBase = function parseBase(value, radix) {
+  return Object(parse_int_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(pStrSlice.call(value, testCharsCount), radix);
+};
+
+var parseString = function parseString(toNum, value) {
+  if (isBinary(value)) {
+    return toNum(parseBase(value, binaryRadix));
+  }
+
+  if (isOctal(value)) {
+    return toNum(parseBase(value, octalRadix));
+  }
+
+  return null;
+};
+
+var convertString = function convertString(toNum, value) {
+  var val = parseString(toNum, value);
+
+  if (val !== null) {
+    return val;
+  }
+
+  if (hasNonWS(value) || isInvalidHexLiteral(value)) {
+    return nan_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"];
+  }
+
+  var trimmed = Object(trim_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(value);
+
+  if (trimmed !== value) {
+    return toNum(trimmed);
+  }
+
+  return null;
+};
+/**
+ * This method converts argument to a value of type Number. (ES2019).
+ *
+ * @param {*} [argument] - The argument to convert to a number.
+ * @throws {TypeError} - If argument is a Symbol or not coercible.
+ * @returns {*} The argument converted to a number.
+ */
+
+
+var toNumber = function toNumber(argument) {
+  var value = assertNotSymbol(Object(to_primitive_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(argument, castNumber));
+
+  if (typeof value === 'string') {
+    var val = convertString(toNumber, value);
+
+    if (val !== null) {
+      return val;
+    }
+  }
+
+  return castNumber(value);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (toNumber);
+
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(69);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -3964,7 +4137,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
  *
  * @param {*} argument - The argument to convert to a property key.
  * @throws {TypeError} If argument is not a symbol and is not coercible to a string.
- * @returns {string|Symbol} The converted argument.
+ * @returns {string|symbol} The converted argument.
  */
 
 var toPropertyKey = function toPropertyKey(argument) {
@@ -3977,16 +4150,17 @@ var toPropertyKey = function toPropertyKey(argument) {
 
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 
 
 
@@ -4147,50 +4321,13 @@ var implementation = function implementation() {
  *  any array element; otherwise, `false`.
  */
 
-
 var $some = isWorking ? patchedSome() : implementation();
 /* harmony default export */ __webpack_exports__["a"] = ($some);
 
 
 
 /***/ }),
-/* 35 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXTERNAL MODULE: ./node_modules/is-nan-x/dist/is-nan-x.esm.js
-var is_nan_x_esm = __webpack_require__(21);
-
-// CONCATENATED MODULE: ./node_modules/infinity-x/dist/infinity-x.esm.js
-/**
- * The constant value Infinity derived mathematically by 1 / 0.
- *
- * @type number
- */
-/* harmony default export */ var infinity_x_esm = (1 / 0);
-
-
-// CONCATENATED MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js
-
-
-/**
- * This method determines whether the passed value is a finite number.
- *
- * @param {*} [number] - The value to be tested for finiteness.
- * @returns {boolean} A Boolean indicating whether or not the given value is a finite number.
- */
-
-var is_finite_x_esm_isFinite = function isFinite(number) {
-  return typeof number === 'number' && Object(is_nan_x_esm["a" /* default */])(number) === false && number !== infinity_x_esm && number !== -infinity_x_esm;
-};
-
-/* harmony default export */ var is_finite_x_esm = __webpack_exports__["a"] = (is_finite_x_esm_isFinite);
-
-
-
-/***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4217,12 +4354,12 @@ module.exports = function isDateObject(value) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 
 
@@ -4261,16 +4398,17 @@ var getOwnPropertySymbols = function getOwnPropertySymbols(obj) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 
 
 
@@ -4409,101 +4547,8 @@ var implementation = function implementation() {
  * callback function.
  */
 
-
 var $map = isWorking ? patchedMap() : implementation();
 /* harmony default export */ __webpack_exports__["a"] = ($map);
-
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(70);
-/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(62);
-/* harmony import */ var parse_int_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
-/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(73);
-
-
-
-
-
-var binaryRadix = 2;
-var octalRadix = 8;
-var testCharsCount = 2;
-var ERROR_MESSAGE = 'Cannot convert a Symbol value to a number';
-var castNumber = testCharsCount.constructor;
-var pStrSlice = ERROR_MESSAGE.slice;
-var binaryRegex = /^0b[01]+$/i;
-var RegExpConstructor = binaryRegex.constructor; // Note that in IE 8, RegExp.prototype.test doesn't seem to exist: ie, "test" is
-// an own property of regexes. wtf.
-
-var test = binaryRegex.test;
-
-var isBinary = function _isBinary(value) {
-  return test.call(binaryRegex, value);
-};
-
-var octalRegex = /^0o[0-7]+$/i;
-
-var isOctal = function _isOctal(value) {
-  return test.call(octalRegex, value);
-};
-
-var nonWSregex2018 = new RegExpConstructor("[\x85\u180E\u200B\uFFFE]", 'g');
-
-var hasNonWS2018 = function _hasNonWS(value) {
-  return test.call(nonWSregex2018, value);
-};
-
-var invalidHexLiteral = /^[-+]0x[0-9a-f]+$/i;
-
-var isInvalidHexLiteral = function _isInvalidHexLiteral(value) {
-  return test.call(invalidHexLiteral, value);
-};
-/**
- * This method converts argument to a value of type Number. (ES2018).
- *
- * @param {*} [argument] - The argument to convert to a number.
- * @throws {TypeError} - If argument is a Symbol or not coercible.
- * @returns {*} The argument converted to a number.
- */
-
-
-var toNumber = function toNumber(argument) {
-  var value = Object(to_primitive_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(argument, castNumber);
-
-  if (is_symbol__WEBPACK_IMPORTED_MODULE_0___default()(value)) {
-    throw new TypeError(ERROR_MESSAGE);
-  }
-
-  if (typeof value === 'string') {
-    if (isBinary(value)) {
-      return toNumber(Object(parse_int_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(pStrSlice.call(value, testCharsCount), binaryRadix));
-    }
-
-    if (isOctal(value)) {
-      return toNumber(Object(parse_int_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(pStrSlice.call(value, testCharsCount), octalRadix));
-    }
-
-    if (hasNonWS2018(value) || isInvalidHexLiteral(value)) {
-      return nan_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"];
-    }
-
-    var trimmed = Object(trim_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(value);
-
-    if (trimmed !== value) {
-      return toNumber(trimmed);
-    }
-  }
-
-  return castNumber(value);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (toNumber);
 
 
 
@@ -4540,17 +4585,16 @@ module.exports = function isBoolean(value) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var same_value_zero_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(67);
-/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(43);
-/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(55);
-/* harmony import */ var calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(68);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(11);
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(0);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var array_reduce_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
+/* harmony import */ var get_own_property_names_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(43);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2);
+/* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(16);
+/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(19);
+/* harmony import */ var get_own_enumerable_property_symbols_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(75);
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
 
 
@@ -4563,9 +4607,177 @@ function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { t
 
 
 
-/** @type {BooleanConstructor} */
+var EMPTY_STRING = '';
+var StringCtr = EMPTY_STRING.constructor;
+var fromCharCode = StringCtr.fromCharCode;
+var castObject = {}.constructor;
+var nAssign = castObject.assign;
+var nativeAssign = Object(is_function_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nAssign) && nAssign;
 
-var castBoolean = true.constructor;
+var workingNativeAssign = function nativeWorks() {
+  var obj = {};
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeAssign, obj, {
+    0: 1
+  }, {
+    1: 2
+  });
+  return res.threw === false && res.value === obj && Object(object_keys_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(obj).length === 2 && obj[0] === 1 && obj[1] === 2;
+};
+
+var lacksProperEnumerationOrder = function enumOrder() {
+  var _this = this;
+
+  // https://bugs.chromium.org/p/v8/issues/detail?id=4118
+  var test1 = castObject('abc');
+  test1[5] = 'de';
+
+  if (Object(get_own_property_names_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(test1)[0] === '5') {
+    return true;
+  }
+
+  var strNums = '0123456789'; // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+
+  var test2 = Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(strNums.split(EMPTY_STRING), function (acc, ignore, index) {
+    _newArrowCheck(this, _this);
+
+    acc["_".concat(fromCharCode(index))] = index;
+    return acc;
+  }.bind(this), {});
+  var order = Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(get_own_property_names_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(test2), function (acc, name) {
+    _newArrowCheck(this, _this);
+
+    return acc + test2[name];
+  }.bind(this), EMPTY_STRING);
+
+  if (order !== strNums) {
+    return true;
+  } // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+
+
+  var letters = 'abcdefghijklmnopqrst';
+  var test3 = Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(letters.split(EMPTY_STRING), function (acc, letter) {
+    _newArrowCheck(this, _this);
+
+    acc[letter] = letter;
+    return acc;
+  }.bind(this), {});
+  var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeAssign, {}, test3);
+  return result.threw === false && Object(object_keys_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(result.value).join(EMPTY_STRING) !== letters;
+};
+
+var assignHasPendingExceptions = function exceptions() {
+  if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(castObject.preventExtensions) === false) {
+    return false;
+  } // Firefox 37 still has "pending exception" logic in its Object.assign implementation,
+  // which is 72% slower than our shim, and Firefox 40's native implementation.
+
+
+  var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(castObject.preventExtensions, {
+    1: 2
+  });
+
+  if (result.threw || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(result.value) === false) {
+    return false;
+  }
+
+  var thrower = result.value;
+  result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeAssign, thrower, 'xy');
+  return result.threw ? thrower[1] === 'y' : false;
+};
+
+var shouldImplement = function getShouldImplement() {
+  if (nativeAssign === false) {
+    return true;
+  }
+
+  if (workingNativeAssign() === false) {
+    return true;
+  }
+
+  if (lacksProperEnumerationOrder()) {
+    return true;
+  }
+
+  return assignHasPendingExceptions();
+}();
+/**
+ * This method is used to copy the values of all enumerable own properties from
+ * one or more source objects to a target object. It will return the target object.
+ *
+ * @param {*} target - The target object.
+ * @param {*} [...source] - The source object(s).
+ * @throws {TypeError} If target is null or undefined.
+ * @returns {object} The target object.
+ */
+
+
+var $assign;
+
+if (shouldImplement) {
+  var concat = [].concat; // 19.1.3.1
+
+  $assign = function assign(target) {
+    var _this2 = this;
+
+    return Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(
+    /* eslint-disable-next-line prefer-rest-params */
+    Object(array_slice_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(arguments, 1), function (tgt, source) {
+      var _this3 = this;
+
+      _newArrowCheck(this, _this2);
+
+      if (Object(is_nil_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(source)) {
+        return tgt;
+      }
+
+      var object = castObject(source);
+      return Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(concat.call(Object(object_keys_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object), Object(get_own_enumerable_property_symbols_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(object)), function (tar, key) {
+        _newArrowCheck(this, _this3);
+
+        tar[key] = object[key];
+        return tar;
+      }.bind(this), tgt);
+    }.bind(this), Object(to_object_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(target));
+  };
+} else {
+  $assign = nativeAssign;
+}
+
+var assign = $assign;
+/* harmony default export */ __webpack_exports__["a"] = (assign);
+
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
+/* harmony import */ var same_value_zero_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(67);
+/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(44);
+/* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(58);
+/* harmony import */ var calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(68);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(12);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(0);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(1);
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+
+
+
+
+
+
+
+
+
 var pIndexOf = typeof Array.prototype.indexOf === 'function' && Array.prototype.indexOf;
 var isWorking;
 
@@ -4737,7 +4949,7 @@ var indexOf = function indexOf(array, searchElement) {
     }.bind(this));
   }
 
-  if (argLength > 3 || argLength > 2 && castBoolean(extendFn) === false) {
+  if (argLength > 3 || argLength > 2 && Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(extendFn) === false) {
     /* eslint-disable-next-line prefer-rest-params */
     fromIndex = Object(calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(iterable, arguments[2]);
 
@@ -4758,16 +4970,18 @@ var indexOf = function indexOf(array, searchElement) {
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* unused harmony export implementation1 */
+/* unused harmony export implementation2 */
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(22);
-/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
-/* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
-/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(18);
+/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
+/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(21);
+/* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(16);
+/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -4779,6 +4993,61 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 var ObjectCtr = {}.constructor;
 var nGOPN = ObjectCtr.getOwnPropertyNames;
 var nativeGOPN = typeof nGOPN === 'function' && nGOPN;
+
+var isCorrectRes = function isCorrectRes(r, length) {
+  return r.threw === false && Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(r.value) && r.value.length === length;
+};
+
+var either = function either(r, a, b) {
+  var x = r.value[0];
+  var y = r.value[1];
+  return x === a && y === b || x === b && y === a;
+};
+
+var test1 = function test1() {
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeGOPN, 'fo');
+  return isCorrectRes(res, 3) && either(res, '0', '1') && res.value[2] === 'length';
+};
+
+var test2 = function test2() {
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeGOPN, {
+    a: 1,
+    b: 2
+  });
+  return isCorrectRes(res, 2) && either(res, 'a', 'b');
+};
+
+var implementation1 = function implementation1() {
+  var win = (typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object' && window;
+  var cachedWindowNames = win ? nativeGOPN(win) : [];
+  return function getOwnPropertyNames(obj) {
+    var val = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj); // IE bug where layout engine calls userland gOPN for cross-domain `window` objects
+
+    if (win && win !== window && Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(val) === '[object Window]') {
+      var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeGOPN, val);
+      return result.threw ? Object(array_slice_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(cachedWindowNames) : result.value;
+    }
+
+    return nativeGOPN(val);
+  };
+};
+var implementation2 = function implementation2() {
+  return function getOwnPropertyNames(obj) {
+    return Object(object_keys_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(obj);
+  };
+};
+
+var getImplementation = function getImplementation() {
+  if (test1()) {
+    return nativeGOPN;
+  }
+
+  if (test2()) {
+    return implementation1();
+  }
+
+  return implementation2();
+};
 /**
  * This method creates an array of all properties (enumerable or not) found
  * directly upon a given object.
@@ -4790,64 +5059,18 @@ var nativeGOPN = typeof nGOPN === 'function' && nGOPN;
  *  directly upon the given object.
  */
 
-var getOPN;
 
-if (nativeGOPN) {
-  var isCorrectRes = function isCorrectRes(r, length) {
-    return r.threw === false && Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(r.value) && r.value.length === length;
-  };
-
-  var either = function either(r, a, b) {
-    var x = r.value[0];
-    var y = r.value[1];
-    return x === a && y === b || x === b && y === a;
-  };
-
-  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeGOPN, 'fo');
-
-  if (isCorrectRes(res, 3) && either(res, '0', '1') && res.value[2] === 'length') {
-    getOPN = nativeGOPN;
-  } else {
-    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeGOPN, {
-      a: 1,
-      b: 2
-    });
-
-    if (isCorrectRes(res, 2) && either(res, 'a', 'b')) {
-      var win = (typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object' && window;
-      var cachedWindowNames = win ? nativeGOPN(win) : [];
-
-      getOPN = function getOwnPropertyNames(obj) {
-        var val = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(obj); // IE bug where layout engine calls userland gOPN for cross-domain `window` objects
-
-        if (win && win !== window && Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(val) === '[object Window]') {
-          var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeGOPN, val);
-          return result.threw ? Object(array_slice_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(cachedWindowNames) : result.value;
-        }
-
-        return nativeGOPN(val);
-      };
-    }
-  }
-}
-
-if (typeof getOPN !== 'function') {
-  getOPN = function getOwnPropertyNames(obj) {
-    return Object(object_keys_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(obj);
-  };
-}
-
-var gopn = getOPN;
-/* harmony default export */ __webpack_exports__["a"] = (gopn);
+var getOPN = getImplementation();
+/* harmony default export */ __webpack_exports__["a"] = (getOPN);
 
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
+/* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
 
 /**
  * This method is the comparison abstract operation SameValue(x, y), where x
@@ -4876,12 +5099,188 @@ var sameValue = function sameValue(value1, value2) {
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(33);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+/* unused harmony export implementation */
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1);
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+
+
+
+
+
+var nfe = [].forEach;
+var nativeForEach = typeof nfe === 'function' && nfe;
+
+var test1 = function test1() {
+  var _this = this;
+
+  var spy = 0;
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1, 2], nativeForEach, function (item) {
+    _newArrowCheck(this, _this);
+
+    spy += item;
+  }.bind(this));
+  return res.threw === false && typeof res.value === 'undefined' && spy === 3;
+};
+
+var test2 = function test2() {
+  var _this2 = this;
+
+  var spy = '';
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({}.constructor('abc'), nativeForEach, function (item) {
+    _newArrowCheck(this, _this2);
+
+    spy += item;
+  }.bind(this));
+  return res.threw === false && typeof res.value === 'undefined' && spy === 'abc';
+};
+
+var test3 = function test3() {
+  var spy = 0;
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
+    /* eslint-disable-next-line prefer-rest-params */
+    return arguments;
+  }(1, 2, 3), nativeForEach, function spyAdd1(item) {
+    spy += item;
+  });
+  return res.threw === false && typeof res.value === 'undefined' && spy === 6;
+};
+
+var test4 = function test4() {
+  var spy = 0;
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({
+    0: 1,
+    1: 2,
+    3: 3,
+    4: 4,
+    length: 4
+  }, nativeForEach, function spyAdd2(item) {
+    spy += item;
+  });
+  return res.threw === false && typeof res.value === 'undefined' && spy === 6;
+};
+
+var test5 = function test5() {
+  var doc = typeof document !== 'undefined' && document;
+
+  if (doc) {
+    var spy = null;
+    var fragment = doc.createDocumentFragment();
+    var div = doc.createElement('div');
+    fragment.appendChild(div);
+    var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(fragment.childNodes, nativeForEach, function spyAssign(item) {
+      spy = item;
+    });
+    return res.threw === false && typeof res.value === 'undefined' && spy === div;
+  }
+
+  return true;
+};
+
+var test6 = function test6() {
+  var isStrict = function returnIsStrict() {
+    /* eslint-disable-next-line babel/no-invalid-this */
+    return Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(this) === false;
+  }();
+
+  if (isStrict) {
+    var spy = null;
+    var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1], nativeForEach, function thisTest() {
+      /* eslint-disable-next-line babel/no-invalid-this */
+      spy = typeof this === 'string';
+    }, 'x');
+    return res.threw === false && typeof res.value === 'undefined' && spy === true;
+  }
+
+  return true;
+};
+
+var test7 = function test7() {
+  var spy = {};
+  var fn = 'return nativeForEach.call("foo", function (_, __, context) {' + 'if (toBoolean(context) === false || typeof context !== "object") {' + 'spy.value = true;}});';
+  /* eslint-disable-next-line no-new-func */
+
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Function('nativeForEach', 'spy', 'toBoolean', fn), nativeForEach, spy, to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"]);
+  return res.threw === false && typeof res.value === 'undefined' && spy.value !== true;
+};
+
+var isWorking = Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(nativeForEach) && test1() && test2() && test3() && test4() && test5() && test6() && test7();
+
+var patchedNative = function patchedNative() {
+  return function forEach(array, callBack
+  /* , thisArg */
+  ) {
+    Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(array);
+    var args = [Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack)];
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      args[1] = arguments[2];
+    }
+
+    return nativeForEach.apply(array, args);
+  };
+};
+
+var implementation = function implementation() {
+  return function forEach(array, callBack
+  /* , thisArg */
+  ) {
+    var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(array); // If no callback function or if callback is not a callable function
+
+    Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack);
+    var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object);
+    var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
+    /* eslint-disable-next-line no-void,prefer-rest-params */
+
+    var thisArg = arguments.length > 2 ? arguments[2] : void 0;
+    var noThis = typeof thisArg === 'undefined';
+
+    for (var i = 0; i < length; i += 1) {
+      if (i in iterable) {
+        if (noThis) {
+          callBack(iterable[i], i, object);
+        } else {
+          callBack.call(thisArg, iterable[i], i, object);
+        }
+      }
+    }
+  };
+};
+/**
+ * This method executes a provided function once for each array element.
+ *
+ * @param {Array} array - The array to iterate over.
+ * @param {Function} callBack - Function to execute for each element.
+ * @param {*} [thisArg] - Value to use as this when executing callback.
+ * @throws {TypeError} If array is null or undefined.
+ * @throws {TypeError} If callBack is not a function.
+ */
+
+var $forEach = isWorking ? patchedNative() : implementation();
+/* harmony default export */ __webpack_exports__["a"] = ($forEach);
+
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(35);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 
 
 var propIsEnumerable = {}.propertyIsEnumerable;
@@ -4891,7 +5290,7 @@ var propIsEnumerable = {}.propertyIsEnumerable;
  * does ES6ify the method.
  *
  * @param {!object} object - The object on which to test the property.
- * @param {string|Symbol} property - The name of the property to test.
+ * @param {string|symbol} property - The name of the property to test.
  * @throws {TypeError} If target is null or undefined.
  * @returns {boolean} A Boolean indicating whether the specified property is
  *  enumerable.
@@ -4906,18 +5305,16 @@ var propertyIsEnumerable = function propertyIsEnumerable(object, property) {
 
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
-/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32);
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
-/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(20);
-var _this = undefined;
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
+/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1);
 
 
 
@@ -4926,28 +5323,28 @@ function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { t
 
 var hasABuf = typeof ArrayBuffer === 'function';
 var aBufTag = '[object ArrayBuffer]';
-var bLength = false;
 
-if (hasABuf) {
-  if (has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]) {
+var getGetter = function getGetter(descriptor) {
+  var resBuf = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function attemptee() {
     /* eslint-disable-next-line compat/compat */
-    var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(ArrayBuffer.prototype, 'byteLength');
+    return new ArrayBuffer(4);
+  });
 
-    if (descriptor && typeof descriptor.get === 'function') {
-      var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function () {
-        _newArrowCheck(this, _this);
-
-        /* eslint-disable-next-line compat/compat */
-        return new ArrayBuffer(4);
-      }.bind(undefined));
-
-      if (res.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(res.value)) {
-        res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(res.value, descriptor.get);
-        bLength = res.threw === false && typeof res.value === 'number' && descriptor.get;
-      }
-    }
+  if (resBuf.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(resBuf.value)) {
+    var resGet = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(resBuf.value, descriptor.get);
+    return resGet.threw === false && typeof resGet.value === 'number' && descriptor.get;
   }
-}
+
+  return null;
+};
+
+var getBlength = function getBlength() {
+  /* eslint-disable-next-line compat/compat */
+  var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(ArrayBuffer.prototype, 'byteLength');
+  return descriptor && typeof descriptor.get === 'function' ? getGetter(descriptor) : null;
+};
+
+var bLength = hasABuf && has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"] ? getBlength() : null;
 /**
  * Determine if an `object` is an `ArrayBuffer`.
  *
@@ -4956,13 +5353,12 @@ if (hasABuf) {
  *  else false`.
  */
 
-
 var isArrayBuffer = function isArrayBuffer(object) {
   if (hasABuf === false || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object) === false) {
     return false;
   }
 
-  if (bLength === false) {
+  if (Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(bLength) === false) {
     return Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(object) === aBufTag;
   }
 
@@ -4975,14 +5371,88 @@ var isArrayBuffer = function isArrayBuffer(object) {
 
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(30);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
-/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(52);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(55);
+
+
+
+
+
+var test1 = function test1() {
+  return Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(function createSet() {
+    /* eslint-disable-next-line compat/compat */
+    return new Set();
+  });
+};
+
+var getFromDescriptor = function getFromDescriptor(descriptor) {
+  var resTest1 = test1();
+
+  if (resTest1.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(resTest1.value)) {
+    var res = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(resTest1.value, descriptor.get);
+
+    if (res.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(res.value)) {
+      return descriptor.get;
+    }
+  }
+
+  return null;
+};
+
+var getGetter = function getGetter() {
+  if (typeof Set === 'function') {
+    /* eslint-disable-next-line compat/compat */
+    var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Set.prototype, 'size');
+
+    if (descriptor && typeof descriptor.get === 'function') {
+      var getter = getFromDescriptor(descriptor);
+
+      if (getter !== null) {
+        return getter;
+      }
+    }
+  }
+
+  return null;
+};
+
+var getSize = getGetter();
+/**
+ * Determine if an `object` is a `Set`.
+ *
+ * @param {*} object - The object to test.
+ * @returns {boolean} `true` if the `object` is a `Set`,
+ *  else `false`.
+ */
+
+var isSet = function isSet(object) {
+  if (getSize === null || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false) {
+    return false;
+  }
+
+  var result = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(object, getSize);
+  return result.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(result.value);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (isSet);
+
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(55);
 
 
 
@@ -4995,27 +5465,35 @@ var test1 = function test1() {
   });
 };
 
+var getFromDescriptor = function getFromDescriptor(descriptor) {
+  var resTest1 = test1();
+
+  if (resTest1.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(resTest1.value)) {
+    var res = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(resTest1.value, descriptor.get);
+
+    if (res.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(res.value)) {
+      return descriptor.get;
+    }
+  }
+
+  return null;
+};
+
 var getGetter = function getGetter() {
   if (typeof Map === 'function') {
     /* eslint-disable-next-line compat/compat */
     var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Map.prototype, 'size');
 
     if (descriptor && typeof descriptor.get === 'function') {
-      var resTest1 = test1();
+      var getter = getFromDescriptor(descriptor);
 
-      if (resTest1.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(resTest1.value)) {
-        var res = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(resTest1.value, descriptor.get);
-
-        if (res.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(res.value)) {
-          return descriptor.get;
-        }
+      if (getter !== null) {
+        return getter;
       }
     }
   }
-  /* eslint-disable-next-line no-void */
 
-
-  return void 0;
+  return null;
 };
 
 var getSize = getGetter();
@@ -5028,7 +5506,7 @@ var getSize = getGetter();
  */
 
 var isMap = function isMap(object) {
-  if (!getSize || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false) {
+  if (getSize === null || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false) {
     return false;
   }
 
@@ -5041,13 +5519,13 @@ var isMap = function isMap(object) {
 
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
-/* harmony import */ var get_prototype_of_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(31);
+/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var get_prototype_of_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32);
 
 
 
@@ -5098,22 +5576,22 @@ var isError = function isError(value) {
 
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/assert-is-function-x/dist/assert-is-function-x.esm.js
-var assert_is_function_x_esm = __webpack_require__(6);
+var assert_is_function_x_esm = __webpack_require__(7);
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
-var array_slice_x_esm = __webpack_require__(14);
+var array_slice_x_esm = __webpack_require__(16);
 
 // EXTERNAL MODULE: ./node_modules/attempt-x/dist/attempt-x.esm.js
 var attempt_x_esm = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
-var is_primitive = __webpack_require__(8);
+var is_primitive = __webpack_require__(9);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // CONCATENATED MODULE: ./node_modules/bind-x/dist/bind-x.esm.js
@@ -5276,32 +5754,28 @@ var libBind = $bind;
 
 
 // EXTERNAL MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js
-var is_function_x_esm = __webpack_require__(2);
+var is_function_x_esm = __webpack_require__(3);
 
 // EXTERNAL MODULE: ./node_modules/is-generator-function/index.js
-var is_generator_function = __webpack_require__(94);
+var is_generator_function = __webpack_require__(95);
 var is_generator_function_default = /*#__PURE__*/__webpack_require__.n(is_generator_function);
 
 // EXTERNAL MODULE: ./node_modules/to-string-tag-x/dist/to-string-tag-x.esm.js
-var to_string_tag_x_esm = __webpack_require__(20);
+var to_string_tag_x_esm = __webpack_require__(21);
 
 // EXTERNAL MODULE: ./node_modules/has-to-string-tag-x/dist/has-to-string-tag-x.esm.js
-var has_to_string_tag_x_esm = __webpack_require__(32);
+var has_to_string_tag_x_esm = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/normalize-space-x/dist/normalize-space-x.esm.js
-var normalize_space_x_esm = __webpack_require__(59);
+var normalize_space_x_esm = __webpack_require__(61);
 
 // EXTERNAL MODULE: ./node_modules/replace-comments-x/dist/replace-comments-x.esm.js
-var replace_comments_x_esm = __webpack_require__(61);
+var replace_comments_x_esm = __webpack_require__(63);
 
 // EXTERNAL MODULE: ./node_modules/get-prototype-of-x/dist/get-prototype-of-x.esm.js
-var get_prototype_of_x_esm = __webpack_require__(31);
+var get_prototype_of_x_esm = __webpack_require__(32);
 
 // CONCATENATED MODULE: ./node_modules/is-async-function-x/dist/is-async-function-x.esm.js
-var is_async_function_x_esm_this = undefined;
-
-function is_async_function_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
 
 
 
@@ -5311,14 +5785,22 @@ function is_async_function_x_esm_newArrowCheck(innerThis, boundThis) { if (inner
 var isFnRegex = /^async function/;
 var test = isFnRegex.test;
 var functionCtr = attempt_x_esm["a" /* default */].constructor;
-var fToString = functionCtr.prototype.toString;
-var testRes = Object(attempt_x_esm["a" /* default */])(function () {
-  is_async_function_x_esm_newArrowCheck(this, is_async_function_x_esm_this);
-
+var fToString = functionCtr.toString;
+var testRes = Object(attempt_x_esm["a" /* default */])(function attemptee() {
   return Object(get_prototype_of_x_esm["a" /* default */])(functionCtr('return async function() {}')());
-}.bind(undefined));
+});
 var supportsAsync = testRes.threw === false;
 var asyncProto = testRes.value;
+
+var is_async_function_x_esm_attemptToString = function attemptToString(fn) {
+  return Object(attempt_x_esm["a" /* default */])(function attemptee() {
+    return Object(normalize_space_x_esm["a" /* default */])(Object(replace_comments_x_esm["a" /* default */])(fToString.call(fn), ' '));
+  });
+};
+
+var is_async_function_x_esm_compare = function compare(fn) {
+  return has_to_string_tag_x_esm["a" /* default */] ? Object(get_prototype_of_x_esm["a" /* default */])(fn) === asyncProto : Object(to_string_tag_x_esm["a" /* default */])(fn) === '[object AsyncFunction]';
+};
 /**
  * Checks if `value` is classified as an `Async Function` object.
  *
@@ -5327,79 +5809,74 @@ var asyncProto = testRes.value;
  * else `false`.
  */
 
-var is_async_function_x_esm_isAsyncFunction = function isAsyncFunction(fn) {
+
+var isAsyncFunction = function isAsyncFunction(fn) {
   if (supportsAsync === false || typeof fn !== 'function') {
     return false;
   }
 
-  var str;
+  var result = is_async_function_x_esm_attemptToString(fn);
 
-  try {
-    str = Object(normalize_space_x_esm["a" /* default */])(Object(replace_comments_x_esm["a" /* default */])(fToString.call(fn), ' '));
-  } catch (ignore) {
+  if (result.threw) {
     return false;
   }
 
-  if (test.call(isFnRegex, str)) {
+  if (test.call(isFnRegex, result.value)) {
     return true;
   }
 
-  if (has_to_string_tag_x_esm["a" /* default */] === false) {
-    return Object(to_string_tag_x_esm["a" /* default */])(fn) === '[object AsyncFunction]';
-  }
-
-  return Object(get_prototype_of_x_esm["a" /* default */])(fn) === asyncProto;
+  return is_async_function_x_esm_compare(fn);
 };
 
-/* harmony default export */ var is_async_function_x_esm = (is_async_function_x_esm_isAsyncFunction);
+/* harmony default export */ var is_async_function_x_esm = (isAsyncFunction);
 
 
 // EXTERNAL MODULE: ./node_modules/is-regex/index.js
-var is_regex = __webpack_require__(80);
+var is_regex = __webpack_require__(81);
 var is_regex_default = /*#__PURE__*/__webpack_require__.n(is_regex);
 
 // EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
-var object_define_properties_x_esm = __webpack_require__(10);
+var object_define_properties_x_esm = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/is-date-object/index.js
-var is_date_object = __webpack_require__(36);
+var is_date_object = __webpack_require__(37);
 var is_date_object_default = /*#__PURE__*/__webpack_require__.n(is_date_object);
 
 // EXTERNAL MODULE: ./node_modules/is-array-buffer-x/dist/is-array-buffer-x.esm.js
-var is_array_buffer_x_esm = __webpack_require__(45);
+var is_array_buffer_x_esm = __webpack_require__(47);
 
 // EXTERNAL MODULE: ./node_modules/is-set-x/dist/is-set-x.esm.js
-var is_set_x_esm = __webpack_require__(50);
+var is_set_x_esm = __webpack_require__(48);
 
 // EXTERNAL MODULE: ./node_modules/is-map-x/dist/is-map-x.esm.js
-var is_map_x_esm = __webpack_require__(46);
+var is_map_x_esm = __webpack_require__(49);
 
 // EXTERNAL MODULE: ./node_modules/is-typed-array/index.js
-var is_typed_array = __webpack_require__(77);
+var is_typed_array = __webpack_require__(76);
 var is_typed_array_default = /*#__PURE__*/__webpack_require__.n(is_typed_array);
 
 // EXTERNAL MODULE: ./node_modules/is-data-view-x/dist/is-data-view-x.esm.js
-var is_data_view_x_esm = __webpack_require__(78);
+var is_data_view_x_esm = __webpack_require__(77);
 
 // EXTERNAL MODULE: ./node_modules/is-nil-x/dist/is-nil-x.esm.js
-var is_nil_x_esm = __webpack_require__(17);
+var is_nil_x_esm = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/is-error-x/dist/is-error-x.esm.js
-var is_error_x_esm = __webpack_require__(47);
+var is_error_x_esm = __webpack_require__(50);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
-var is_object_like_x_esm = __webpack_require__(7);
+var is_object_like_x_esm = __webpack_require__(8);
 
 // EXTERNAL MODULE: ./node_modules/is-promise/index.js
-var is_promise = __webpack_require__(85);
+var is_promise = __webpack_require__(86);
 var is_promise_default = /*#__PURE__*/__webpack_require__.n(is_promise);
 
 // EXTERNAL MODULE: ./node_modules/is-string/index.js
-var is_string = __webpack_require__(12);
+var is_string = __webpack_require__(13);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-number-object/index.js
-var is_number_object = __webpack_require__(56);
+var is_number_object = __webpack_require__(59);
 var is_number_object_default = /*#__PURE__*/__webpack_require__.n(is_number_object);
 
 // EXTERNAL MODULE: ./node_modules/is-boolean-object/index.js
@@ -5407,22 +5884,22 @@ var is_boolean_object = __webpack_require__(40);
 var is_boolean_object_default = /*#__PURE__*/__webpack_require__.n(is_boolean_object);
 
 // EXTERNAL MODULE: ./node_modules/object-is/index.js
-var object_is = __webpack_require__(95);
+var object_is = __webpack_require__(96);
 var object_is_default = /*#__PURE__*/__webpack_require__.n(object_is);
 
 // EXTERNAL MODULE: ./node_modules/is-symbol/index.js
-var is_symbol = __webpack_require__(16);
+var is_symbol = __webpack_require__(18);
 var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
 
 // EXTERNAL MODULE: ./node_modules/is-array-x/dist/is-array-x.esm.js
-var is_array_x_esm = __webpack_require__(22);
+var is_array_x_esm = __webpack_require__(23);
 
 // EXTERNAL MODULE: ./node_modules/is-nan/index.js
-var is_nan = __webpack_require__(96);
+var is_nan = __webpack_require__(97);
 var is_nan_default = /*#__PURE__*/__webpack_require__.n(is_nan);
 
 // EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
-var to_string_x_esm = __webpack_require__(9);
+var to_string_x_esm = __webpack_require__(10);
 
 // CONCATENATED MODULE: ./node_modules/get-function-name-x/dist/get-function-name-x.esm.js
 
@@ -5480,196 +5957,25 @@ var get_function_name_x_esm_getFunctionName = function getFunctionName(fn) {
 
 
 // EXTERNAL MODULE: ./node_modules/has-symbol-support-x/dist/has-symbol-support-x.esm.js
-var has_symbol_support_x_esm = __webpack_require__(13);
+var has_symbol_support_x_esm = __webpack_require__(14);
 
 // EXTERNAL MODULE: ./node_modules/white-space-x/dist/white-space-x.esm.js
-var white_space_x_esm = __webpack_require__(49);
+var white_space_x_esm = __webpack_require__(52);
 
 // EXTERNAL MODULE: ./node_modules/array-reduce-x/dist/array-reduce-x.esm.js
-var array_reduce_x_esm = __webpack_require__(26);
+var array_reduce_x_esm = __webpack_require__(28);
 
 // EXTERNAL MODULE: ./node_modules/array-filter-x/dist/array-filter-x.esm.js
-var array_filter_x_esm = __webpack_require__(23);
+var array_filter_x_esm = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/array-some-x/dist/array-some-x.esm.js
-var array_some_x_esm = __webpack_require__(34);
+var array_some_x_esm = __webpack_require__(36);
 
-// EXTERNAL MODULE: ./node_modules/split-if-boxed-bug-x/dist/split-if-boxed-bug-x.esm.js + 1 modules
-var split_if_boxed_bug_x_esm = __webpack_require__(11);
-
-// EXTERNAL MODULE: ./node_modules/to-length-x/dist/to-length-x.esm.js
-var to_length_x_esm = __webpack_require__(4);
-
-// EXTERNAL MODULE: ./node_modules/to-object-x/dist/to-object-x.esm.js
-var to_object_x_esm = __webpack_require__(1);
-
-// EXTERNAL MODULE: ./node_modules/require-object-coercible-x/dist/require-object-coercible-x.esm.js
-var require_object_coercible_x_esm = __webpack_require__(5);
-
-// CONCATENATED MODULE: ./node_modules/array-every-x/dist/array-every-x.esm.js
-
-
-
-
-
-
-var ne = [].every;
-var nativeEvery = typeof ne === 'function' && ne;
-
-var array_every_x_esm_test1 = function test1() {
-  var spy = 0;
-  var res = attempt_x_esm["a" /* default */].call([1, 2], nativeEvery, function spyAdd1(item) {
-    spy += item;
-    return true;
-  });
-  return res.threw === false && res.value === true && spy === 3;
-};
-
-var array_every_x_esm_test2 = function test2() {
-  var spy = '';
-  var res = attempt_x_esm["a" /* default */].call({}.constructor('abc'), nativeEvery, function spyAdd2(item, index) {
-    spy += item;
-    return index !== 2;
-  });
-  return res.threw === false && res.value === false && spy === 'abc';
-};
-
-var array_every_x_esm_test3 = function test3() {
-  var spy = 0;
-  var res = attempt_x_esm["a" /* default */].call(function getArgs() {
-    /* eslint-disable-next-line prefer-rest-params */
-    return arguments;
-  }(1, 2, 3), nativeEvery, function spyAdd3(item, index) {
-    spy += item;
-    return index !== 1;
-  });
-  return res.threw === false && res.value === false && spy === 3;
-};
-
-var array_every_x_esm_test4 = function test4() {
-  var spy = 0;
-  var res = attempt_x_esm["a" /* default */].call({
-    0: 1,
-    1: 2,
-    3: 3,
-    4: 4,
-    length: 4
-  }, nativeEvery, function spyAdd4(item) {
-    spy += item;
-    return true;
-  });
-  return res.threw === false && res.value === true && spy === 6;
-};
-
-var array_every_x_esm_test5 = function test5() {
-  var doc = typeof document !== 'undefined' && document;
-
-  if (doc) {
-    var spy = null;
-    var fragment = doc.createDocumentFragment();
-    var div = doc.createElement('div');
-    fragment.appendChild(div);
-    var res = attempt_x_esm["a" /* default */].call(fragment.childNodes, nativeEvery, function spyAssign(item) {
-      spy = item;
-    });
-    return res.threw === false && res.value === false && spy === div;
-  }
-
-  return true;
-};
-
-var array_every_x_esm_test6 = function test6() {
-  var isStrict = function returnIsStrict() {
-    /* eslint-disable-next-line babel/no-invalid-this */
-    return true.constructor(this) === false;
-  }();
-
-  if (isStrict) {
-    var spy = null;
-    var res = attempt_x_esm["a" /* default */].call([1], nativeEvery, function testThis() {
-      /* eslint-disable-next-line babel/no-invalid-this */
-      spy = typeof this === 'string';
-    }, 'x');
-    return res.threw === false && res.value === false && spy === true;
-  }
-
-  return true;
-};
-
-var array_every_x_esm_test7 = function test7() {
-  var spy = {};
-  var fn = 'return nativeEvery.call("foo", function (_, __, context) {' + 'if (castBoolean(context) === false || typeof context !== "object") {' + 'spy.value = true;}});';
-  /* eslint-disable-next-line no-new-func */
-
-  var res = Object(attempt_x_esm["a" /* default */])(Function('nativeEvery', 'spy', 'castBoolean', fn), nativeEvery, spy, true.constructor);
-  return res.threw === false && res.value === false && spy.value !== true;
-};
-
-var array_every_x_esm_isWorking = true.constructor(nativeEvery) && array_every_x_esm_test1() && array_every_x_esm_test2() && array_every_x_esm_test3() && array_every_x_esm_test4() && array_every_x_esm_test5() && array_every_x_esm_test6() && array_every_x_esm_test7();
-
-var array_every_x_esm_patchedEvery = function patchedEvery() {
-  return function every(array, callBack
-  /* , thisArg */
-  ) {
-    Object(require_object_coercible_x_esm["a" /* default */])(array);
-    var args = [Object(assert_is_function_x_esm["a" /* default */])(callBack)];
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      args[1] = arguments[2];
-    }
-
-    return nativeEvery.apply(array, args);
-  };
-};
-
-var array_every_x_esm_implementation = function implementation() {
-  return function every(array, callBack
-  /* , thisArg */
-  ) {
-    var object = Object(to_object_x_esm["a" /* default */])(array); // If no callback function or if callback is not a callable function
-
-    Object(assert_is_function_x_esm["a" /* default */])(callBack);
-    var iterable = Object(split_if_boxed_bug_x_esm["a" /* default */])(object);
-    var length = Object(to_length_x_esm["a" /* default */])(iterable.length);
-    /* eslint-disable-next-line prefer-rest-params,no-void */
-
-    var thisArg = arguments.length > 2 ? arguments[2] : void 0;
-    var noThis = typeof thisArg === 'undefined';
-
-    for (var i = 0; i < length; i += 1) {
-      if (i in iterable) {
-        var item = iterable[i];
-
-        if ((noThis ? callBack(item, i, object) : callBack.call(thisArg, item, i, object)) === false) {
-          return false;
-        }
-      }
-    }
-
-    return true;
-  };
-};
-/**
- * This method tests whether all elements in the array pass the test implemented
- * by the provided function.
- *
- * @param {Array} array - The array to iterate over.
- * @param {Function} callBack - Function to test for each element.
- * @param {*} [thisArg] - Value to use as this when executing callback.
- * @throws {TypeError} If array is null or undefined.
- * @throws {TypeError} If callBack is not a function.
- * @returns {boolean} `true` if the callback function returns a truthy value for
- *  every array element; otherwise, `false`.
- */
-
-
-var $every = array_every_x_esm_isWorking ? array_every_x_esm_patchedEvery() : array_every_x_esm_implementation();
-/* harmony default export */ var array_every_x_esm = ($every);
-
+// EXTERNAL MODULE: ./node_modules/array-every-x/dist/array-every-x.esm.js
+var array_every_x_esm = __webpack_require__(78);
 
 // EXTERNAL MODULE: ./node_modules/array-map-x/dist/array-map-x.esm.js
-var array_map_x_esm = __webpack_require__(38);
+var array_map_x_esm = __webpack_require__(39);
 
 // CONCATENATED MODULE: ./node_modules/has-reflect-support-x/dist/has-reflect-support-x.esm.js
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -5684,13 +5990,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
 // EXTERNAL MODULE: ./node_modules/assert-is-object-x/dist/assert-is-object-x.esm.js
-var assert_is_object_x_esm = __webpack_require__(19);
+var assert_is_object_x_esm = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./node_modules/get-own-property-names-x/dist/get-own-property-names-x.esm.js
-var get_own_property_names_x_esm = __webpack_require__(42);
+var get_own_property_names_x_esm = __webpack_require__(43);
 
 // EXTERNAL MODULE: ./node_modules/get-own-property-symbols-x/dist/get-own-property-symbols-x.esm.js
-var get_own_property_symbols_x_esm = __webpack_require__(37);
+var get_own_property_symbols_x_esm = __webpack_require__(38);
+
+// EXTERNAL MODULE: ./node_modules/to-boolean-x/dist/to-boolean-x.esm.js
+var to_boolean_x_esm = __webpack_require__(1);
 
 // CONCATENATED MODULE: ./node_modules/reflect-own-keys-x/dist/reflect-own-keys-x.esm.js
 
@@ -5700,44 +6009,58 @@ var get_own_property_symbols_x_esm = __webpack_require__(37);
 
 
 
+
 /* eslint-disable-next-line compat/compat */
 
-var nativeOwnKeys = has_symbol_support_x_esm["a" /* default */] && typeof Reflect.ownKeys === 'function' && Reflect.ownKeys;
-var reflect_own_keys_x_esm_isWorking;
+var rok = Reflect.ownKeys;
+var nativeOwnKeys = has_symbol_support_x_esm["a" /* default */] && typeof rok === 'function' && rok;
 
-if (nativeOwnKeys) {
-  var reflect_own_keys_x_esm_isCorrectRes = function isCorrectRes(r, length) {
-    return r.threw === false && Object(is_array_x_esm["a" /* default */])(r.value) && r.value.length === length;
-  };
+var reflect_own_keys_x_esm_isCorrectRes = function isCorrectRes(r, length) {
+  return r.threw === false && Object(is_array_x_esm["a" /* default */])(r.value) && r.value.length === length;
+};
 
-  var either = function either(r, a, b) {
-    var x = r.value[0];
-    var y = r.value[1];
-    return x === a && y === b || x === b && y === a;
-  };
+var either = function either(r, a, b) {
+  var x = r.value[0];
+  var y = r.value[1];
+  return x === a && y === b || x === b && y === a;
+};
 
-  var reflect_own_keys_x_esm_res = Object(attempt_x_esm["a" /* default */])(nativeOwnKeys, 1);
-  reflect_own_keys_x_esm_isWorking = reflect_own_keys_x_esm_res.threw;
+var reflect_own_keys_x_esm_test1 = function test1() {
+  return Object(attempt_x_esm["a" /* default */])(nativeOwnKeys, 1).threw;
+};
 
-  if (reflect_own_keys_x_esm_isWorking) {
-    reflect_own_keys_x_esm_res = Object(attempt_x_esm["a" /* default */])(nativeOwnKeys, {
-      a: 1,
-      b: 2
-    });
-    reflect_own_keys_x_esm_isWorking = reflect_own_keys_x_esm_isCorrectRes(reflect_own_keys_x_esm_res, 2) && either(reflect_own_keys_x_esm_res, 'a', 'b');
-  }
+var reflect_own_keys_x_esm_test2 = function test2() {
+  var res = Object(attempt_x_esm["a" /* default */])(nativeOwnKeys, {
+    a: 1,
+    b: 2
+  });
+  return reflect_own_keys_x_esm_isCorrectRes(res, 2) && either(res, 'a', 'b');
+};
 
-  if (reflect_own_keys_x_esm_isWorking && has_reflect_support_x_esm) {
+var reflect_own_keys_x_esm_test3 = function test3() {
+  if (has_reflect_support_x_esm) {
     /* eslint-disable-next-line compat/compat */
     var symbol = Symbol('');
     var testObj = {
       a: 1
     };
     testObj[symbol] = 2;
-    reflect_own_keys_x_esm_res = Object(attempt_x_esm["a" /* default */])(nativeOwnKeys, testObj);
-    reflect_own_keys_x_esm_isWorking = reflect_own_keys_x_esm_isCorrectRes(reflect_own_keys_x_esm_res, 2) && either(reflect_own_keys_x_esm_res, 'a', symbol);
+    var res = Object(attempt_x_esm["a" /* default */])(nativeOwnKeys, testObj);
+    return reflect_own_keys_x_esm_isCorrectRes(res, 2) && either(res, 'a', symbol);
   }
-}
+
+  return true;
+};
+
+var reflect_own_keys_x_esm_isWorking = Object(to_boolean_x_esm["a" /* default */])(nativeOwnKeys) && reflect_own_keys_x_esm_test1() && reflect_own_keys_x_esm_test2() && reflect_own_keys_x_esm_test3();
+
+var reflect_own_keys_x_esm_implementation = function implementation() {
+  var concat = [].concat;
+  return function ownKeys(target) {
+    Object(assert_is_object_x_esm["a" /* default */])(target);
+    return concat.call(Object(get_own_property_names_x_esm["a" /* default */])(target), Object(get_own_property_symbols_x_esm["a" /* default */])(target));
+  };
+};
 /**
  * This method returns an array of the target object's own property keys.
  * Its return value is equivalent to Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target)).
@@ -5748,54 +6071,45 @@ if (nativeOwnKeys) {
  */
 
 
-var reflectOwnKeys;
-
-if (reflect_own_keys_x_esm_isWorking) {
-  reflectOwnKeys = nativeOwnKeys;
-} else {
-  var reflect_own_keys_x_esm_concat = [].concat;
-
-  reflectOwnKeys = function ownKeys(target) {
-    Object(assert_is_object_x_esm["a" /* default */])(target);
-    return reflect_own_keys_x_esm_concat.call(Object(get_own_property_names_x_esm["a" /* default */])(target), Object(get_own_property_symbols_x_esm["a" /* default */])(target));
-  };
-}
-
-var rok = reflectOwnKeys;
-/* harmony default export */ var reflect_own_keys_x_esm = (rok);
+var reflectOwnKeys = reflect_own_keys_x_esm_isWorking ? nativeOwnKeys : reflect_own_keys_x_esm_implementation();
+/* harmony default export */ var reflect_own_keys_x_esm = (reflectOwnKeys);
 
 
 // EXTERNAL MODULE: ./node_modules/json3/lib/json3.js
-var json3 = __webpack_require__(64);
+var json3 = __webpack_require__(65);
 
 // EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
-var object_keys_x_esm = __webpack_require__(18);
+var object_keys_x_esm = __webpack_require__(15);
 
 // EXTERNAL MODULE: ./node_modules/object-get-own-property-descriptor-x/dist/object-get-own-property-descriptor-x.esm.js
-var object_get_own_property_descriptor_x_esm = __webpack_require__(30);
+var object_get_own_property_descriptor_x_esm = __webpack_require__(31);
 
 // EXTERNAL MODULE: ./node_modules/array-includes-x/dist/array-includes-x.esm.js
-var array_includes_x_esm = __webpack_require__(24);
+var array_includes_x_esm = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/object-assign-x/dist/object-assign-x.esm.js
-var object_assign_x_esm = __webpack_require__(58);
+var object_assign_x_esm = __webpack_require__(41);
 
 // EXTERNAL MODULE: ./node_modules/to-iso-string-x/dist/to-iso-string-x.esm.js + 1 modules
-var to_iso_string_x_esm = __webpack_require__(79);
+var to_iso_string_x_esm = __webpack_require__(80);
 
 // EXTERNAL MODULE: ./node_modules/collections-x/dist/collections-x.esm.js + 3 modules
-var collections_x_esm = __webpack_require__(29);
+var collections_x_esm = __webpack_require__(30);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(15);
+var object_define_property_x_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/to-integer-x/dist/to-integer-x.esm.js + 1 modules
-var to_integer_x_esm = __webpack_require__(25);
+var to_integer_x_esm = __webpack_require__(26);
+
+// EXTERNAL MODULE: ./node_modules/require-object-coercible-x/dist/require-object-coercible-x.esm.js
+var require_object_coercible_x_esm = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./node_modules/is-regexp-x/dist/is-regexp-x.esm.js
-var is_regexp_x_esm = __webpack_require__(28);
+var is_regexp_x_esm = __webpack_require__(29);
 
 // CONCATENATED MODULE: ./node_modules/string-starts-with-x/dist/string-starts-with-x.esm.js
+
 
 
 
@@ -5804,44 +6118,29 @@ var is_regexp_x_esm = __webpack_require__(28);
 var ERR_MSG = 'Cannot call method "startsWith" with a regex';
 var sw = ERR_MSG.startsWith;
 var nativeStartsWith = typeof sw === 'function' && sw;
-var string_starts_with_x_esm_isWorking;
 
-if (nativeStartsWith) {
-  var string_starts_with_x_esm_res = attempt_x_esm["a" /* default */].call('/a/', nativeStartsWith, /a/);
-  string_starts_with_x_esm_isWorking = string_starts_with_x_esm_res.threw;
+var string_starts_with_x_esm_test1 = function test1() {
+  return attempt_x_esm["a" /* default */].call('/a/', nativeStartsWith, /a/).threw;
+};
 
-  if (string_starts_with_x_esm_isWorking) {
-    string_starts_with_x_esm_res = attempt_x_esm["a" /* default */].call('abc', nativeStartsWith, 'a', 1 / 0);
-    string_starts_with_x_esm_isWorking = string_starts_with_x_esm_res.threw === false && string_starts_with_x_esm_res.value === false;
-  }
+var string_starts_with_x_esm_test2 = function test2() {
+  var res = attempt_x_esm["a" /* default */].call('abc', nativeStartsWith, 'a', 1 / 0);
+  return res.threw === false && res.value === false;
+};
 
-  if (string_starts_with_x_esm_isWorking) {
-    string_starts_with_x_esm_res = attempt_x_esm["a" /* default */].call(123, nativeStartsWith, '1');
-    string_starts_with_x_esm_isWorking = string_starts_with_x_esm_res.threw === false && string_starts_with_x_esm_res.value === true;
-  }
+var string_starts_with_x_esm_test3 = function test3() {
+  var res = attempt_x_esm["a" /* default */].call(123, nativeStartsWith, '1');
+  return res.threw === false && res.value === true;
+};
 
-  if (string_starts_with_x_esm_isWorking) {
-    string_starts_with_x_esm_res = attempt_x_esm["a" /* default */].call(null, nativeStartsWith, 'n');
-    string_starts_with_x_esm_isWorking = string_starts_with_x_esm_res.threw;
-  }
-}
-/**
- * This method determines whether a string begins with the characters of a
- * specified string, returning true or false as appropriate.
- *
- * @param {string} string - The string to be search.
- * @throws {TypeError} If string is null or undefined.
- * @param {string} searchString - The characters to be searched for at the start of this string.
- * @throws {TypeError} If searchString is a RegExp.
- * @param {number} [position] -The position in this string at which to begin searching for searchString; defaults to 0.
- * @returns {boolean} `true` if the given characters are found at the beginning of the string; otherwise, `false`.
- */
+var string_starts_with_x_esm_test4 = function test4() {
+  return attempt_x_esm["a" /* default */].call(null, nativeStartsWith, 'n').threw;
+};
 
+var string_starts_with_x_esm_isWorking = Object(to_boolean_x_esm["a" /* default */])(nativeStartsWith) && string_starts_with_x_esm_test1() && string_starts_with_x_esm_test2() && string_starts_with_x_esm_test3() && string_starts_with_x_esm_test4();
 
-var $startsWith;
-
-if (string_starts_with_x_esm_isWorking) {
-  $startsWith = function startsWith(string, searchString) {
+var string_starts_with_x_esm_patchedStartsWith = function patchedStartsWith() {
+  return function startsWith(string, searchString) {
     var str = Object(require_object_coercible_x_esm["a" /* default */])(string);
 
     if (Object(is_regexp_x_esm["a" /* default */])(searchString)) {
@@ -5857,9 +6156,11 @@ if (string_starts_with_x_esm_isWorking) {
 
     return nativeStartsWith.apply(str, args);
   };
-} else {
-  // Firefox (< 37?) and IE 11 TP have a noncompliant startsWith implementation
-  $startsWith = function startsWith(string, searchString) {
+};
+
+var string_starts_with_x_esm_implementation = function implementation() {
+  // Firefox (< 37?) and IE 11 TP have a non-compliant startsWith implementation
+  return function startsWith(string, searchString) {
     var str = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(string));
 
     if (Object(is_regexp_x_esm["a" /* default */])(searchString)) {
@@ -5873,10 +6174,21 @@ if (string_starts_with_x_esm_isWorking) {
     var start = position > 0 ? position : 0;
     return str.slice(start, start + searchStr.length) === searchStr;
   };
-}
+};
+/**
+ * This method determines whether a string begins with the characters of a
+ * specified string, returning true or false as appropriate.
+ *
+ * @param {string} string - The string to be search.
+ * @throws {TypeError} If string is null or undefined.
+ * @param {string} searchString - The characters to be searched for at the start of this string.
+ * @throws {TypeError} If searchString is a RegExp.
+ * @param {number} [position] -The position in this string at which to begin searching for searchString; defaults to 0.
+ * @returns {boolean} `true` if the given characters are found at the beginning of the string; otherwise, `false`.
+ */
 
-var ssw = $startsWith;
-/* harmony default export */ var string_starts_with_x_esm = (ssw);
+var $startsWith = string_starts_with_x_esm_isWorking ? string_starts_with_x_esm_patchedStartsWith() : string_starts_with_x_esm_implementation();
+/* harmony default export */ var string_starts_with_x_esm = ($startsWith);
 
 
 // CONCATENATED MODULE: ./node_modules/string-includes-x/dist/string-includes-x.esm.js
@@ -5884,29 +6196,70 @@ var ssw = $startsWith;
 
 
 
-var ni = ''.includes;
+
+var EMPTY_STRING = '';
+var ni = EMPTY_STRING.includes;
 var nativeIncludes = typeof ni === 'function' && ni;
-var string_includes_x_esm_isWorking;
 
-if (nativeIncludes) {
-  var string_includes_x_esm_res = attempt_x_esm["a" /* default */].call('/a/', nativeIncludes, /a/);
-  string_includes_x_esm_isWorking = string_includes_x_esm_res.threw;
+var string_includes_x_esm_test1 = function test1() {
+  return attempt_x_esm["a" /* default */].call('/a/', nativeIncludes, /a/).threw;
+};
 
-  if (string_includes_x_esm_isWorking) {
-    string_includes_x_esm_res = attempt_x_esm["a" /* default */].call('abc', nativeIncludes, 'a', Infinity);
-    string_includes_x_esm_isWorking = string_includes_x_esm_res.threw === false && string_includes_x_esm_res.value === false;
+var string_includes_x_esm_test2 = function test2() {
+  var res = attempt_x_esm["a" /* default */].call('abc', nativeIncludes, 'a', Infinity);
+  return res.threw === false && res.value === false;
+};
+
+var string_includes_x_esm_test3 = function test3() {
+  var res = attempt_x_esm["a" /* default */].call(123, nativeIncludes, '2');
+  return res.threw === false && res.value === true;
+};
+
+var string_includes_x_esm_test4 = function test4() {
+  var res = attempt_x_esm["a" /* default */].call(null, nativeIncludes, 'u');
+  return res.threw;
+};
+
+var string_includes_x_esm_isWorking = Object(to_boolean_x_esm["a" /* default */])(nativeIncludes) && string_includes_x_esm_test1() && string_includes_x_esm_test2() && string_includes_x_esm_test3() && string_includes_x_esm_test4();
+
+var string_includes_x_esm_assertRegex = function assertRegex(searchString) {
+  if (Object(is_regexp_x_esm["a" /* default */])(searchString)) {
+    throw new TypeError('"includes" does not accept a RegExp');
   }
 
-  if (string_includes_x_esm_isWorking) {
-    string_includes_x_esm_res = attempt_x_esm["a" /* default */].call(123, nativeIncludes, '2');
-    string_includes_x_esm_isWorking = string_includes_x_esm_res.threw === false && string_includes_x_esm_res.value === true;
-  }
+  return searchString;
+};
 
-  if (string_includes_x_esm_isWorking) {
-    string_includes_x_esm_res = attempt_x_esm["a" /* default */].call(null, nativeIncludes, 'u');
-    string_includes_x_esm_isWorking = string_includes_x_esm_res.threw;
-  }
-}
+var string_includes_x_esm_patchedIncludes = function patchedIncludes() {
+  return function includes(string, searchString) {
+    Object(require_object_coercible_x_esm["a" /* default */])(string);
+    var args = [string_includes_x_esm_assertRegex(searchString)];
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      args[1] = arguments[2];
+    }
+
+    return nativeIncludes.apply(string, args);
+  };
+};
+
+var string_includes_x_esm_implementation = function implementation() {
+  var indexOf = EMPTY_STRING.indexOf;
+  return function includes(string, searchString) {
+    var str = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(string));
+    string_includes_x_esm_assertRegex(searchString);
+    var args = [Object(to_string_x_esm["a" /* default */])(searchString)];
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      args[1] = arguments[2];
+    } // Somehow this trick makes method 100% compat with the spec.
+
+
+    return indexOf.apply(str, args) !== -1;
+  };
+};
 /**
  * This method determines whether one string may be found within another string,
  * returning true or false as appropriate.
@@ -5922,51 +6275,15 @@ if (nativeIncludes) {
  *  search string; otherwise, `false` if not.
  */
 
-
-var $includes;
-
-if (string_includes_x_esm_isWorking) {
-  $includes = function includes(string, searchString) {
-    var args = [searchString];
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      args[1] = arguments[2];
-    }
-
-    return nativeIncludes.apply(string, args);
-  };
-} else {
-  var indexOf = String.prototype.indexOf;
-
-  $includes = function includes(string, searchString) {
-    var str = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(string));
-
-    if (Object(is_regexp_x_esm["a" /* default */])(searchString)) {
-      throw new TypeError('"includes" does not accept a RegExp');
-    }
-
-    var args = [Object(to_string_x_esm["a" /* default */])(searchString)];
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      args[1] = arguments[2];
-    } // Somehow this trick makes method 100% compat with the spec.
-
-
-    return indexOf.apply(str, args) !== -1;
-  };
-}
-
-var inc = $includes;
-/* harmony default export */ var string_includes_x_esm = (inc);
+var $includes = string_includes_x_esm_isWorking ? string_includes_x_esm_patchedIncludes() : string_includes_x_esm_implementation();
+/* harmony default export */ var string_includes_x_esm = ($includes);
 
 
 // EXTERNAL MODULE: ./node_modules/math-clamp-x/dist/math-clamp-x.esm.js
-var math_clamp_x_esm = __webpack_require__(54);
+var math_clamp_x_esm = __webpack_require__(57);
 
 // EXTERNAL MODULE: ./node_modules/array-like-slice-x/dist/array-like-slice-x.esm.js
-var array_like_slice_x_esm = __webpack_require__(53);
+var array_like_slice_x_esm = __webpack_require__(56);
 
 // CONCATENATED MODULE: ./node_modules/array-difference-x/dist/array-difference-x.esm.js
 function array_difference_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -6017,17 +6334,29 @@ var array_difference_x_esm_difference = function difference(array) {
 
 
 // CONCATENATED MODULE: ./node_modules/array-intersection-x/dist/array-intersection-x.esm.js
-function array_intersection_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
 
 
 
 
 
-
-var shift = Array.prototype.shift;
+var shift = [].shift;
 
 var notNill = function notNil(value) {
   return Object(is_nil_x_esm["a" /* default */])(value) === false;
+};
+
+var array_intersection_x_esm_createReducer = function createReducer(arrays) {
+  return function reducer(acc, value) {
+    var isIncluded = Object(array_some_x_esm["a" /* default */])(arrays, function exclude(array) {
+      return Object(array_includes_x_esm["a" /* default */])(array, value) === false;
+    });
+
+    if (isIncluded === false && Object(array_includes_x_esm["a" /* default */])(acc, value) === false) {
+      acc[acc.length] = value;
+    }
+
+    return acc;
+  };
 }; // eslint-disable jsdoc/check-param-names
 // noinspection JSCommentMatchesSignature
 
@@ -6043,32 +6372,14 @@ var notNill = function notNil(value) {
 
 
 var array_intersection_x_esm_intersection = function intersection() {
-  var _this = this;
-
-  /* eslint-disable-next-line prefer-rest-params */
   var arrays = Object(array_filter_x_esm["a" /* default */])(arguments, notNill);
+  /* eslint-disable-line prefer-rest-params */
 
   if (arrays.length < 1) {
     return [];
   }
 
-  return Object(array_reduce_x_esm["a" /* default */])(shift.call(arrays), function (acc, value) {
-    var _this2 = this;
-
-    array_intersection_x_esm_newArrowCheck(this, _this);
-
-    var isExcluded = Object(array_some_x_esm["a" /* default */])(arrays, function (array) {
-      array_intersection_x_esm_newArrowCheck(this, _this2);
-
-      return Object(array_includes_x_esm["a" /* default */])(array, value) === false;
-    }.bind(this)) === false;
-
-    if (isExcluded && Object(array_includes_x_esm["a" /* default */])(acc, value) === false) {
-      acc[acc.length] = value;
-    }
-
-    return acc;
-  }.bind(this), []);
+  return Object(array_reduce_x_esm["a" /* default */])(shift.call(arrays), array_intersection_x_esm_createReducer(arrays), []);
 };
 
 /* harmony default export */ var array_intersection_x_esm = (array_intersection_x_esm_intersection);
@@ -6110,12 +6421,20 @@ var array_union_x_esm_union = function union() {
 /* harmony default export */ var array_union_x_esm = (array_union_x_esm_union);
 
 
+// EXTERNAL MODULE: ./node_modules/to-object-x/dist/to-object-x.esm.js
+var to_object_x_esm = __webpack_require__(2);
+
 // CONCATENATED MODULE: ./node_modules/inspect-x/dist/inspect-x.esm.js
-var inspect_x_esm_this = undefined;
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function inspect_x_esm_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { inspect_x_esm_typeof = function _typeof(obj) { return typeof obj; }; } else { inspect_x_esm_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return inspect_x_esm_typeof(obj); }
 
-function inspect_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
 
 
 
@@ -6168,24 +6487,11 @@ function inspect_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== b
 
 
 
-/** @type {RegExpConstructor} */
 
+var EMPTY_ARRAY = [];
 var RegExpCtr = /none/.constructor;
-/** @type {BooleanConstructor} */
-
-var NumberCtr = 0 .constructor;
-/** @type {ArrayConstructor} */
-
-var ArrayCtr = [].constructor;
-/** @type {StringConstructor} */
-
-var StringCtr = ''.constructor;
-/** @type {ObjectConstructor} */
-
-var castObject = {}.constructor;
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
+var inspect_x_esm_EMPTY_STRING = '';
+var EMPTY_OBJECT = {};
 var call = is_function_x_esm["a" /* default */].call;
 /* eslint-disable-next-line compat/compat */
 
@@ -6193,45 +6499,38 @@ var hasSet = typeof Set === 'function' && Object(is_set_x_esm["a" /* default */]
 /* eslint-disable-next-line compat/compat */
 
 var testSet = hasSet && new Set(['SetSentinel']);
-/* eslint-disable-next-line compat/compat */
-
-var setForEach = hasSet && bind_x_esm(call, Set.prototype.forEach);
-/* eslint-disable-next-line compat/compat */
-
-var setValues = hasSet && bind_x_esm(call, Set.prototype.values);
+var setForEach = hasSet && bind_x_esm(call, testSet.forEach);
+var setValues = hasSet && bind_x_esm(call, testSet.values);
 /* eslint-disable-next-line compat/compat */
 
 var hasMap = typeof Map === 'function' && Object(is_map_x_esm["a" /* default */])(new Map());
 /* eslint-disable-next-line compat/compat */
 
 var testMap = hasMap && new Map([[1, 'MapSentinel']]);
-/* eslint-disable-next-line compat/compat */
-
-var mapForEach = hasMap && bind_x_esm(call, Map.prototype.forEach);
-/* eslint-disable-next-line compat/compat */
-
-var mapValues = hasMap && bind_x_esm(call, Map.prototype.values);
+var mapForEach = hasMap && bind_x_esm(call, testMap.forEach);
+var mapValues = hasMap && bind_x_esm(call, testMap.values);
 /* eslint-disable-next-line compat/compat */
 
 var symbolToString = has_symbol_support_x_esm["a" /* default */] && bind_x_esm(call, Symbol.prototype.toString);
 /* eslint-disable-next-line compat/compat */
 
 var symbolValueOf = has_symbol_support_x_esm["a" /* default */] && bind_x_esm(call, Symbol.prototype.valueOf);
-var objectSeal = Object(is_function_x_esm["a" /* default */])(castObject.seal) ? castObject.seal : function seal(value) {
+var oSeal = EMPTY_OBJECT.constructor.seal;
+var objectSeal = Object(is_function_x_esm["a" /* default */])(oSeal) ? oSeal : function seal(value) {
   return value;
 };
 var regexpToString = bind_x_esm(call, RegExpCtr.prototype.toString);
 var regexpTest = bind_x_esm(call, RegExpCtr.prototype.test);
 var errorToString = bind_x_esm(call, Error.prototype.toString);
-var numberToString = bind_x_esm(call, NumberCtr.prototype.toString);
-var booleanToString = bind_x_esm(call, castBoolean.prototype.toString);
-var inspect_x_esm_concat = bind_x_esm(call, ArrayCtr.prototype.concat, []);
-var join = bind_x_esm(call, ArrayCtr.prototype.join);
-var push = bind_x_esm(call, ArrayCtr.prototype.push);
+var numberToString = bind_x_esm(call, 0 .toString);
+var booleanToString = bind_x_esm(call, true.toString);
+var inspect_x_esm_concat = bind_x_esm(call, EMPTY_ARRAY.concat, EMPTY_ARRAY);
+var join = bind_x_esm(call, EMPTY_ARRAY.join);
+var push = bind_x_esm(call, EMPTY_ARRAY.push);
 var getTime = bind_x_esm(call, Date.prototype.getTime);
-var replace = bind_x_esm(call, StringCtr.prototype.replace);
-var strSlice = bind_x_esm(call, StringCtr.prototype.slice);
-var propertyIsEnumerable = bind_x_esm(call, castObject.prototype.propertyIsEnumerable);
+var replace = bind_x_esm(call, inspect_x_esm_EMPTY_STRING.replace);
+var strSlice = bind_x_esm(call, inspect_x_esm_EMPTY_STRING.slice);
+var propertyIsEnumerable = bind_x_esm(call, EMPTY_OBJECT.propertyIsEnumerable);
 /* eslint-disable-next-line compat/compat */
 
 var customInspectSymbol = has_symbol_support_x_esm["a" /* default */] ? Symbol('inspect.custom') : '_inspect.custom_';
@@ -6247,11 +6546,11 @@ var customInspectSymbol = has_symbol_support_x_esm["a" /* default */] ? Symbol('
  * @returns {string} The string representation.
  */
 
-var inspect;
-var fmtValue;
+var $inspect;
+var $fmtValue;
 
-var isFalsey = function _isFalsey(value) {
-  return castBoolean(value) === false;
+var inspect_x_esm_isFalsey = function isFalsey(value) {
+  return Object(to_boolean_x_esm["a" /* default */])(value) === false;
 };
 
 var supportsClasses;
@@ -6263,7 +6562,7 @@ try {
 } catch (ignore) {// empty
 }
 
-var isClass = function _isClass(value) {
+var inspect_x_esm_isClass = function isClass(value) {
   return supportsClasses ? Object(is_function_x_esm["a" /* default */])(value, true) && Object(is_function_x_esm["a" /* default */])(value) === false : false;
 };
 
@@ -6286,19 +6585,19 @@ try {
 } catch (ignore) {// empty
 }
 
-var pluralEnding = function _pluralEnding(number) {
-  return number > 1 ? 's' : '';
+var pluralEnding = function pluralEnding(number) {
+  return number > 1 ? 's' : inspect_x_esm_EMPTY_STRING;
 };
 
-var isDigits = function _isDigits(key) {
+var isDigits = function isDigits(key) {
   return regexpTest(/^\d+$/, key);
 };
 
-var appendMissing = function _appendMissing(array, values) {
+var inspect_x_esm_appendMissing = function appendMissing(array, values) {
   return inspect_x_esm_concat(array, array_difference_x_esm(values, array));
 };
 
-var promote = function _promote(array, values) {
+var inspect_x_esm_promote = function promote(array, values) {
   return inspect_x_esm_concat(values, array_difference_x_esm(array, values));
 };
 
@@ -6323,7 +6622,7 @@ try {
 }
 
 if (is_date_object_default()(Date.prototype)) {
-  isDate = function _isDate(value) {
+  isDate = function $isDate(value) {
     try {
       getTime(value);
       return true;
@@ -6338,11 +6637,9 @@ var dateProps = Object(object_keys_x_esm["a" /* default */])(Date);
 
 if (dateProps.length > 0) {
   var datePropsCheck = ['now', 'UTC', 'parse'];
-  shimmedDate = array_every_x_esm(datePropsCheck, function (prop) {
-    inspect_x_esm_newArrowCheck(this, inspect_x_esm_this);
-
+  shimmedDate = Object(array_every_x_esm["a" /* default */])(datePropsCheck, function predicate(prop) {
     return Object(array_includes_x_esm["a" /* default */])(dateProps, prop);
-  }.bind(undefined)) && Object(array_includes_x_esm["a" /* default */])(Object(object_keys_x_esm["a" /* default */])(new Date()), 'constructor');
+  }) && Object(array_includes_x_esm["a" /* default */])(Object(object_keys_x_esm["a" /* default */])(new Date()), 'constructor');
 }
 /* eslint-disable-next-line lodash/prefer-noop */
 
@@ -6352,21 +6649,17 @@ var testFunc1 = function test1() {};
 var fnSupportsName = testFunc1.name === 'test1';
 var hiddenFuncCtr = Object(array_includes_x_esm["a" /* default */])(reflect_own_keys_x_esm(testFunc1.prototype), 'constructor') === false;
 var wantedFnProps = ['length', 'name', 'prototype'];
-var fnPropsCheck = fnSupportsName ? Object(array_slice_x_esm["a" /* default */])(wantedFnProps) : Object(array_filter_x_esm["a" /* default */])(wantedFnProps, function (prop) {
-  inspect_x_esm_newArrowCheck(this, inspect_x_esm_this);
-
+var fnPropsCheck = fnSupportsName ? Object(array_slice_x_esm["a" /* default */])(wantedFnProps) : Object(array_filter_x_esm["a" /* default */])(wantedFnProps, function predicate(prop) {
   return prop !== 'name';
-}.bind(undefined));
+});
 var funcKeys = reflect_own_keys_x_esm(testFunc1);
 var unwantedFnProps = array_intersection_x_esm(['arguments', 'caller'], funcKeys);
 var mustFilterFnProps = array_difference_x_esm(fnPropsCheck, funcKeys).length > 0;
 
 if (mustFilterFnProps === false) {
-  mustFilterFnProps = Object(array_some_x_esm["a" /* default */])(array_intersection_x_esm(funcKeys, wantedFnProps), function (key, index) {
-    inspect_x_esm_newArrowCheck(this, inspect_x_esm_this);
-
+  mustFilterFnProps = Object(array_some_x_esm["a" /* default */])(array_intersection_x_esm(funcKeys, wantedFnProps), function predicate(key, index) {
     return wantedFnProps[index] !== key;
-  }.bind(undefined));
+  });
 }
 
 var inspectDefaultOptions = objectSeal({
@@ -6379,23 +6672,23 @@ var inspectDefaultOptions = objectSeal({
   showProxy: false
 });
 
-var isBooleanType = function _isBooleanType(arg) {
+var isBooleanType = function isBooleanType(arg) {
   return typeof arg === 'boolean';
 };
 
-var isNumberType = function _isNumberType(arg) {
+var isNumberType = function isNumberType(arg) {
   return typeof arg === 'number';
 };
 
-var isStringType = function _isStringType(arg) {
+var isStringType = function isStringType(arg) {
   return typeof arg === 'string';
 };
 
-var isSymbolType = function _isSymbolType(arg) {
+var isSymbolType = function isSymbolType(arg) {
   return inspect_x_esm_typeof(arg) === 'symbol';
 };
 
-var isMapIterator = function _isMapIterator(value) {
+var inspect_x_esm_isMapIterator = function isMapIterator(value) {
   if (hasMap === false || Object(is_object_like_x_esm["a" /* default */])(value) === false) {
     return false;
   }
@@ -6408,7 +6701,7 @@ var isMapIterator = function _isMapIterator(value) {
   return false;
 };
 
-var isSetIterator = function _isSetIterator(value) {
+var inspect_x_esm_isSetIterator = function isSetIterator(value) {
   if (hasSet === false || Object(is_object_like_x_esm["a" /* default */])(value) === false) {
     return false;
   }
@@ -6421,42 +6714,38 @@ var isSetIterator = function _isSetIterator(value) {
   return false;
 };
 
-var filterIndexes = function _filterIndexes(keys, length) {
-  var _this2 = this;
-
-  return Object(array_filter_x_esm["a" /* default */])(keys, function (key) {
-    inspect_x_esm_newArrowCheck(this, _this2);
-
+var inspect_x_esm_filterIndexes = function filterIndexes(keys, length) {
+  return Object(array_filter_x_esm["a" /* default */])(keys, function predicate(key) {
     return isSymbolType(key) || key < 0 || key > length || key % 1 !== 0;
-  }.bind(this));
+  });
 };
 
-var stylizeWithColor = function _stylizeWithColor(str, styleType) {
-  var style = inspect.styles[styleType];
+var stylizeWithColor = function stylizeWithColor(str, styleType) {
+  var style = $inspect.styles[styleType];
 
   if (style) {
-    var colors = inspect.colors[style];
+    var colors = $inspect.colors[style];
     return "\x1B[".concat(colors[0], "m").concat(str, "\x1B[").concat(colors[1], "m");
   }
 
   return str;
 };
 
-var stylizeNoColor = function _stylizeNoColor(str) {
+var stylizeNoColor = function stylizeNoColor(str) {
   return str;
 };
 
-var getNameSep = function _getNameSep(obj) {
+var inspect_x_esm_getNameSep = function getNameSep(obj) {
   var name = get_function_name_x_esm(obj);
   return name ? ": ".concat(name) : name;
 };
 
-var getConstructorOf = function _getConstructorOf(obj) {
+var inspect_x_esm_getConstructorOf = function getConstructorOf(obj) {
   var o = obj;
   var maxLoop = 100;
 
   while (Object(is_nil_x_esm["a" /* default */])(o) === false && maxLoop >= 0) {
-    o = castObject(o);
+    o = Object(to_object_x_esm["a" /* default */])(o);
     var descriptor = Object(object_get_own_property_descriptor_x_esm["a" /* default */])(o, 'constructor');
 
     if (descriptor && descriptor.value) {
@@ -6470,39 +6759,39 @@ var getConstructorOf = function _getConstructorOf(obj) {
   return null;
 };
 
-var isSub = function _isSub(value) {
+var inspect_x_esm_isSub = function isSub(value) {
   if (supportsClasses !== true || is_primitive_default()(value)) {
     return false;
   }
 
-  var constructor = getConstructorOf(value);
+  var constructor = inspect_x_esm_getConstructorOf(value);
   return Object(is_function_x_esm["a" /* default */])(constructor) === false && Object(is_function_x_esm["a" /* default */])(constructor, true);
 };
 
-var getSubName = function _getSubName(value, name) {
-  if (isSub(value)) {
-    var subName = get_function_name_x_esm(getConstructorOf(value));
+var inspect_x_esm_getSubName = function getSubName(value, name) {
+  if (inspect_x_esm_isSub(value)) {
+    var subName = get_function_name_x_esm(inspect_x_esm_getConstructorOf(value));
 
     if (subName && subName !== name) {
       return subName;
     }
   }
 
-  return name || get_function_name_x_esm(getConstructorOf(value));
+  return name || get_function_name_x_esm(inspect_x_esm_getConstructorOf(value));
 };
 
-var fmtNumber = function _fmtNumber(ctx, value) {
+var inspect_x_esm_fmtNumber = function fmtNumber(ctx, value) {
   // Format -0 as '-0'.
   return ctx.stylize(object_is_default()(value, -0) ? '-0' : numberToString(value), 'number');
 };
 
-var fmtPrimitiveReplacers = [[/^"|"$/g, ''], [/'/g, "\\'"], [/\\"/g, '"']];
+var fmtPrimitiveReplacers = [[/^"|"$/g, inspect_x_esm_EMPTY_STRING], [/'/g, "\\'"], [/\\"/g, '"']];
 
 var fmtPrimitiveReplace = function _fmtPrimitiveReplace(acc, pair) {
   return replace(acc, pair[0], pair[1]);
 };
 
-var fmtPrimitive = function _fmtPrimitive(ctx, value) {
+var inspect_x_esm_fmtPrimitive = function fmtPrimitive(ctx, value) {
   if (Object(is_nil_x_esm["a" /* default */])(value)) {
     var str = Object(to_string_x_esm["a" /* default */])(value);
     return ctx.stylize(str, str);
@@ -6513,7 +6802,7 @@ var fmtPrimitive = function _fmtPrimitive(ctx, value) {
   }
 
   if (isNumberType(value)) {
-    return fmtNumber(ctx, value);
+    return inspect_x_esm_fmtNumber(ctx, value);
   }
 
   if (isBooleanType(value)) {
@@ -6530,15 +6819,15 @@ var fmtPrimitive = function _fmtPrimitive(ctx, value) {
   return void 0;
 };
 
-var fmtPrimNoColor = function _fmtPrimNoColor(ctx, value) {
+var fmtPrimNoColor = function fmtPrimNoColor(ctx, value) {
   var stylize = ctx.stylize;
   ctx.stylize = stylizeNoColor;
-  var str = fmtPrimitive(ctx, value);
+  var str = inspect_x_esm_fmtPrimitive(ctx, value);
   ctx.stylize = stylize;
   return str;
 };
 
-var recurse = function _recurse(depth) {
+var recurse = function recurse(depth) {
   return depth === null ? null : depth - 1;
 };
 
@@ -6552,7 +6841,15 @@ var fmtPropReplacer1 = [/\n/g, '\n  '];
 var fmtPropReplacer2 = [/(^|\n)/g, '\n   '];
 var fmtPropTestRx = /^"[\w$]+"$/;
 
-var fmtProp = function _fmtProp(ctx, value, depth, visibleKeys, key, arr) {
+var inspect_x_esm_fmtProp = function fmtProp(args) {
+  var _args = _slicedToArray(args, 6),
+      ctx = _args[0],
+      value = _args[1],
+      depth = _args[2],
+      visibleKeys = _args[3],
+      key = _args[4],
+      arr = _args[5];
+
   var desc = Object(object_get_own_property_descriptor_x_esm["a" /* default */])(value, key) || {
     value: value[key]
   };
@@ -6566,8 +6863,8 @@ var fmtProp = function _fmtProp(ctx, value, depth, visibleKeys, key, arr) {
   var name;
 
   if (Object(array_includes_x_esm["a" /* default */])(visibleKeys, key) === false) {
-    if (key === 'BYTES_PER_ELEMENT' && isFalsey(value.BYTES_PER_ELEMENT) && is_typed_array_default()(value)) {
-      var _constructor = getConstructorOf(value);
+    if (key === 'BYTES_PER_ELEMENT' && inspect_x_esm_isFalsey(value.BYTES_PER_ELEMENT) && is_typed_array_default()(value)) {
+      var _constructor = inspect_x_esm_getConstructorOf(value);
 
       if (_constructor) {
         desc.value = _constructor.BYTES_PER_ELEMENT;
@@ -6586,7 +6883,7 @@ var fmtProp = function _fmtProp(ctx, value, depth, visibleKeys, key, arr) {
   } else if (desc.set) {
     str = ctx.stylize('[Setter]', 'special');
   } else {
-    var formattedStr = fmtValue(ctx, desc.value, recurse(depth), key === 'prototype');
+    var formattedStr = $fmtValue([ctx, desc.value, recurse(depth), key === 'prototype']);
 
     if (string_includes_x_esm(formattedStr, '\n')) {
       var replacer = arr ? fmtPropReplacer1 : fmtPropReplacer2;
@@ -6613,50 +6910,56 @@ var fmtProp = function _fmtProp(ctx, value, depth, visibleKeys, key, arr) {
   return "".concat(name, ": ").concat(str);
 };
 
-var fmtObject = function _fmtObject(ctx, value, depth, visibleKeys, keys) {
-  return Object(array_map_x_esm["a" /* default */])(keys, function _mapFmObject(key) {
-    return fmtProp(ctx, value, depth, visibleKeys, key, false);
+var inspect_x_esm_fmtObject = function fmtObject(args) {
+  var _args2 = _slicedToArray(args, 5),
+      ctx = _args2[0],
+      value = _args2[1],
+      depth = _args2[2],
+      visibleKeys = _args2[3],
+      keys = _args2[4];
+
+  return Object(array_map_x_esm["a" /* default */])(keys, function mapFmObject(key) {
+    return inspect_x_esm_fmtProp([ctx, value, depth, visibleKeys, key, false]);
   });
 };
 
-var getMoreItemText = function _getMoreItemText(remaining) {
+var getMoreItemText = function getMoreItemText(remaining) {
   return "... ".concat(remaining, " more item").concat(pluralEnding(remaining));
 };
 
-var getEmptyItemText = function _getEmptyItemText(emptyItems) {
+var getEmptyItemText = function getEmptyItemText(emptyItems) {
   return "<".concat(emptyItems, " empty item").concat(pluralEnding(emptyItems), ">");
 };
 
-var filterOutIndexes = function _filterOutIndexes(keys) {
-  var _this3 = this;
-
-  return Object(array_filter_x_esm["a" /* default */])(keys, function (key) {
-    inspect_x_esm_newArrowCheck(this, _this3);
-
+var inspect_x_esm_filterOutIndexes = function filterOutIndexes(keys) {
+  return Object(array_filter_x_esm["a" /* default */])(keys, function predicate(key) {
     return isSymbolType(key) || isDigits(key) === false;
-  }.bind(this));
+  });
 };
 
-var fmtArray = function _fmtArray(ctx, value, depth, visibleKeys, keys) {
-  var _this4 = this;
+var inspect_x_esm_fmtArray = function fmtArray(args) {
+  var _args3 = _slicedToArray(args, 5),
+      ctx = _args3[0],
+      value = _args3[1],
+      depth = _args3[2],
+      visibleKeys = _args3[3],
+      keys = _args3[4];
 
   var length = value.length;
   var maxLength = Object(math_clamp_x_esm["a" /* default */])(length, 0, ctx.maxArrayLength);
   var lastIndex = 0;
   var nextIndex = 0;
   var output = [];
-  var moreItems = Object(array_some_x_esm["a" /* default */])(value, function (item, index) {
-    inspect_x_esm_newArrowCheck(this, _this4);
-
+  var moreItems = Object(array_some_x_esm["a" /* default */])(value, function predicate(item, index) {
     if (index !== nextIndex) {
       push(output, ctx.stylize(getEmptyItemText(index - lastIndex - 1), 'undefined'));
     }
 
-    push(output, fmtProp(ctx, value, depth, visibleKeys, numberToString(index), true));
+    push(output, inspect_x_esm_fmtProp([ctx, value, depth, visibleKeys, numberToString(index), true]));
     lastIndex = index;
     nextIndex = index + 1;
     return nextIndex >= maxLength;
-  }.bind(this));
+  });
   var remaining = length - nextIndex;
 
   if (remaining > 0) {
@@ -6667,76 +6970,77 @@ var fmtArray = function _fmtArray(ctx, value, depth, visibleKeys, keys) {
     }
   }
 
-  var fmtdProps = Object(array_map_x_esm["a" /* default */])(filterOutIndexes(keys), function (key) {
-    inspect_x_esm_newArrowCheck(this, _this4);
-
-    return fmtProp(ctx, value, depth, visibleKeys, key, true);
-  }.bind(this));
+  var fmtdProps = Object(array_map_x_esm["a" /* default */])(inspect_x_esm_filterOutIndexes(keys), function iteratee(key) {
+    return inspect_x_esm_fmtProp([ctx, value, depth, visibleKeys, key, true]);
+  });
   return inspect_x_esm_concat(output, fmtdProps);
 };
 
-var fmtTypedArray = function _fmtTypedArray(ctx, value, depth, visibleKeys, keys) {
-  var _this5 = this;
+var inspect_x_esm_fmtTypedArray = function fmtTypedArray(args) {
+  var _args4 = _slicedToArray(args, 5),
+      ctx = _args4[0],
+      value = _args4[1],
+      depth = _args4[2],
+      visibleKeys = _args4[3],
+      keys = _args4[4];
 
   var length = value.length;
   var maxLength = Object(math_clamp_x_esm["a" /* default */])(length, 0, ctx.maxArrayLength);
   var output = [];
   output.length = maxLength;
-  var moreItems = Object(array_some_x_esm["a" /* default */])(value, function (item, index) {
-    inspect_x_esm_newArrowCheck(this, _this5);
-
+  var moreItems = Object(array_some_x_esm["a" /* default */])(value, function predicate(item, index) {
     if (index >= maxLength) {
       return true;
     }
 
-    output[index] = fmtNumber(ctx, value[index]);
+    output[index] = inspect_x_esm_fmtNumber(ctx, value[index]);
     return false;
-  }.bind(this));
+  });
 
   if (moreItems) {
     push(output, getMoreItemText(length - maxLength));
   }
 
-  var fmtdProps = Object(array_map_x_esm["a" /* default */])(filterOutIndexes(keys), function (key) {
-    inspect_x_esm_newArrowCheck(this, _this5);
-
-    return fmtProp(ctx, value, depth, visibleKeys, key, true);
-  }.bind(this));
+  var fmtdProps = Object(array_map_x_esm["a" /* default */])(inspect_x_esm_filterOutIndexes(keys), function iteratee(key) {
+    return inspect_x_esm_fmtProp([ctx, value, depth, visibleKeys, key, true]);
+  });
   return inspect_x_esm_concat(output, fmtdProps);
 };
 
-var fmtSet = function _fmtSet(ctx, value, depth, visibleKeys, keys) {
-  var _this6 = this;
+var inspect_x_esm_fmtSet = function fmtSet(args) {
+  var _args5 = _slicedToArray(args, 5),
+      ctx = _args5[0],
+      value = _args5[1],
+      depth = _args5[2],
+      visibleKeys = _args5[3],
+      keys = _args5[4];
 
   var output = [];
-  setForEach(value, function (v) {
-    inspect_x_esm_newArrowCheck(this, _this6);
-
-    push(output, fmtValue(ctx, v, recurse(depth)));
-  }.bind(this));
-  var fmtdProps = Object(array_map_x_esm["a" /* default */])(keys, function (key) {
-    inspect_x_esm_newArrowCheck(this, _this6);
-
-    return fmtProp(ctx, value, depth, visibleKeys, key, false);
-  }.bind(this));
+  setForEach(value, function iteratee(v) {
+    push(output, $fmtValue([ctx, v, recurse(depth)]));
+  });
+  var fmtdProps = Object(array_map_x_esm["a" /* default */])(keys, function iteratee(key) {
+    return inspect_x_esm_fmtProp([ctx, value, depth, visibleKeys, key, false]);
+  });
   return inspect_x_esm_concat(output, fmtdProps);
 };
 
-var fmtMap = function _fmtMap(ctx, value, depth, visibleKeys, keys) {
-  var _this7 = this;
+var inspect_x_esm_fmtMap = function fmtMap(args) {
+  var _args6 = _slicedToArray(args, 5),
+      ctx = _args6[0],
+      value = _args6[1],
+      depth = _args6[2],
+      visibleKeys = _args6[3],
+      keys = _args6[4];
 
   var r = recurse(depth);
   var output = [];
-  mapForEach(value, function (v, k) {
-    inspect_x_esm_newArrowCheck(this, _this7);
-
-    push(output, "".concat(fmtValue(ctx, k, r), " => ").concat(fmtValue(ctx, v, r)));
-  }.bind(this));
-  var fmtdProps = Object(array_map_x_esm["a" /* default */])(keys, function (key) {
-    inspect_x_esm_newArrowCheck(this, _this7);
-
-    return fmtProp(ctx, value, depth, visibleKeys, key, false);
-  }.bind(this));
+  mapForEach(value, function iteratee(v, k) {
+    push(output, "".concat($fmtValue([ctx, k, r]), " => ").concat($fmtValue([ctx, v, r])));
+  });
+  var fmtdProps = Object(array_map_x_esm["a" /* default */])(keys, function iteratee(key) {
+    return inspect_x_esm_fmtProp([ctx, value, depth, visibleKeys, key, false]);
+  });
   return inspect_x_esm_concat(output, fmtdProps);
 };
 
@@ -6745,18 +7049,24 @@ var reSingle = new RegExpCtr("\\{[".concat(white_space_x_esm["a" /* default */],
 
 var lengthReduceRx = /\u001b\[\d\d?m/g;
 
-var lengthReduce = function _lengthReduce(prev, cur) {
-  return prev + replace(cur, lengthReduceRx, '').length + 1;
+var lengthReduce = function lengthReduce(prev, cur) {
+  return prev + replace(cur, lengthReduceRx, inspect_x_esm_EMPTY_STRING).length + 1;
 };
 
-var reduceToSingleString = function _reduceToSingleString(out, base, braces, breakLength) {
+var inspect_x_esm_reduceToSingleString = function reduceToSingleString(args) {
+  var _args7 = _slicedToArray(args, 4),
+      out = _args7[0],
+      base = _args7[1],
+      braces = _args7[2],
+      breakLength = _args7[3];
+
   var result;
 
   if (Object(array_reduce_x_esm["a" /* default */])(out, lengthReduce, 0) > breakLength) {
     // If the opening "brace" is too large, like in the case of "Set {",
     // we need to force the first item to be on the next line or the
     // items will not line up correctly.
-    var layoutBase = base === '' && braces[0].length === 1 ? '' : "".concat(base, "\n ");
+    var layoutBase = base === inspect_x_esm_EMPTY_STRING && braces[0].length === 1 ? inspect_x_esm_EMPTY_STRING : "".concat(base, "\n ");
     result = "".concat(braces[0] + layoutBase, " ").concat(join(out, ',\n  '), " ").concat(braces[1]);
   } else {
     result = "".concat(braces[0] + base, " ").concat(join(out, ', '), " ").concat(braces[1]);
@@ -6765,20 +7075,20 @@ var reduceToSingleString = function _reduceToSingleString(out, base, braces, bre
   return replace(result, reSingle, '{}');
 };
 
-var fmtDate = function _fmtDate(value) {
+var inspect_x_esm_fmtDate = function fmtDate(value) {
   return is_nan_default()(getTime(value)) ? 'Invalid Date' : Object(to_iso_string_x_esm["a" /* default */])(value);
 };
 
-var fmtError = function _fmtError(value) {
+var inspect_x_esm_fmtError = function fmtError(value) {
   var stack = value.stack;
 
   if (stack) {
     if (supportsClasses) {
-      var subName = getSubName(value);
+      var subName = inspect_x_esm_getSubName(value);
 
       if (subName && string_starts_with_x_esm(stack, subName) === false) {
         var msg = value.message;
-        return replace(stack, errorToString(value), subName + (msg ? ": ".concat(msg) : ''));
+        return replace(stack, errorToString(value), subName + (msg ? ": ".concat(msg) : inspect_x_esm_EMPTY_STRING));
       }
     } else if (missingError) {
       return "".concat(errorToString(value), "\n").concat(stack);
@@ -6795,18 +7105,22 @@ var collectionKeys = ['size'];
 var arrayKeys = ['length'];
 var errorKeys = ['message'];
 
-fmtValue = function _fmtValue(ctx, value, depth, isProto) {
-  var _this8 = this;
-
-  // Provide a hook for user-specified inspect functions.
+$fmtValue = function fmtValue(args) {
+  var _args8 = _slicedToArray(args, 4),
+      ctx = _args8[0],
+      value = _args8[1],
+      depth = _args8[2],
+      isProto = _args8[3]; // Provide a hook for user-specified inspect functions.
   // Check that value is an object with an inspect function on it
+
+
   if (ctx.customInspect && value) {
     var maybeCustomInspect = value[customInspectSymbol] || value.inspect;
 
     if (Object(is_function_x_esm["a" /* default */])(maybeCustomInspect)) {
       // Filter out the util module, its inspect function is special
-      if (maybeCustomInspect !== inspect) {
-        var _constructor2 = getConstructorOf(value); // Also filter out any prototype objects using the circular check.
+      if (maybeCustomInspect !== $inspect) {
+        var _constructor2 = inspect_x_esm_getConstructorOf(value); // Also filter out any prototype objects using the circular check.
 
 
         var isCircular = _constructor2 && _constructor2.prototype === value;
@@ -6816,7 +7130,7 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
           // infinite recursion.
 
           if (ret !== value) {
-            return isStringType(ret) ? ret : fmtValue(ctx, ret, depth);
+            return isStringType(ret) ? ret : $fmtValue([ctx, ret, depth]);
           }
         }
       }
@@ -6824,7 +7138,7 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
   } // Primitive types cannot have properties
 
 
-  var primitive = fmtPrimitive(ctx, value);
+  var primitive = inspect_x_esm_fmtPrimitive(ctx, value);
 
   if (primitive) {
     return primitive;
@@ -6835,17 +7149,13 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
 
   if (visibleKeys.length > 0) {
     if (shimmedDate && is_date_object_default()(value)) {
-      visibleKeys = Object(array_filter_x_esm["a" /* default */])(visibleKeys, function (key) {
-        inspect_x_esm_newArrowCheck(this, _this8);
-
+      visibleKeys = Object(array_filter_x_esm["a" /* default */])(visibleKeys, function predicate(key) {
         return key !== 'constructor';
-      }.bind(this));
+      });
     } else if (errProps.length > 0 && Object(is_error_x_esm["a" /* default */])(value)) {
-      visibleKeys = Object(array_filter_x_esm["a" /* default */])(visibleKeys, function (key) {
-        inspect_x_esm_newArrowCheck(this, _this8);
-
+      visibleKeys = Object(array_filter_x_esm["a" /* default */])(visibleKeys, function predicate(key) {
         return Object(array_includes_x_esm["a" /* default */])(errProps, key) === false;
-      }.bind(this));
+      });
     }
   }
 
@@ -6856,7 +7166,7 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
 
     if (Object(is_error_x_esm["a" /* default */])(value)) {
       if (Object(array_includes_x_esm["a" /* default */])(keys, 'message') === false) {
-        keys = promote(keys, errorKeys);
+        keys = inspect_x_esm_promote(keys, errorKeys);
       }
     } else if ((unwantedFnProps.length > 0 || mustFilterFnProps) && Object(is_function_x_esm["a" /* default */])(value)) {
       if (unwantedFnProps.length > 0) {
@@ -6868,28 +7178,26 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
         var missingFnProps = array_difference_x_esm(fnPropsCheck, visibleKeys, keysDiff);
         keys = inspect_x_esm_concat(missingFnProps, keysDiff);
       }
-    } else if (hiddenFuncCtr && isProto && Object(is_function_x_esm["a" /* default */])(getConstructorOf(value))) {
+    } else if (hiddenFuncCtr && isProto && Object(is_function_x_esm["a" /* default */])(inspect_x_esm_getConstructorOf(value))) {
       if (Object(array_includes_x_esm["a" /* default */])(visibleKeys, 'constructor') === false && Object(array_includes_x_esm["a" /* default */])(keys, 'constructor') === false) {
-        keys = promote(keys, 'constructor');
+        keys = inspect_x_esm_promote(keys, 'constructor');
       }
     }
   } else {
-    var enumSymbols = Object(array_filter_x_esm["a" /* default */])(Object(get_own_property_symbols_x_esm["a" /* default */])(value), function (key) {
-      inspect_x_esm_newArrowCheck(this, _this8);
-
+    var enumSymbols = Object(array_filter_x_esm["a" /* default */])(Object(get_own_property_symbols_x_esm["a" /* default */])(value), function predicate(key) {
       return propertyIsEnumerable(value, key);
-    }.bind(this));
+    });
     keys = inspect_x_esm_concat(visibleKeys, enumSymbols);
   }
 
   if (is_string_default()(value)) {
     // for boxed Strings, we have to remove the 0-n indexed entries,
     // since they just noisy up the out and are redundant
-    keys = filterIndexes(keys, value.length);
-    visibleKeys = filterIndexes(visibleKeys, value.length);
+    keys = inspect_x_esm_filterIndexes(keys, value.length);
+    visibleKeys = inspect_x_esm_filterIndexes(visibleKeys, value.length);
   } else if (Object(is_array_buffer_x_esm["a" /* default */])(value)) {
-    keys = filterIndexes(keys, value.byteLength);
-    visibleKeys = filterIndexes(visibleKeys, value.byteLength);
+    keys = inspect_x_esm_filterIndexes(keys, value.byteLength);
+    visibleKeys = inspect_x_esm_filterIndexes(visibleKeys, value.byteLength);
   }
 
   var name;
@@ -6898,15 +7206,15 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
   if (keys.length < 1) {
     // This could be a boxed primitive (new String(), etc.)
     if (is_string_default()(value)) {
-      return ctx.stylize("[".concat(getSubName(value, 'String'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]"), 'string');
+      return ctx.stylize("[".concat(inspect_x_esm_getSubName(value, 'String'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]"), 'string');
     }
 
     if (is_number_object_default()(value)) {
-      return ctx.stylize("[".concat(getSubName(value, 'Number'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]"), 'number');
+      return ctx.stylize("[".concat(inspect_x_esm_getSubName(value, 'Number'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]"), 'number');
     }
 
     if (is_boolean_object_default()(value)) {
-      return ctx.stylize("[".concat(getSubName(value, 'Boolean'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]"), 'boolean');
+      return ctx.stylize("[".concat(inspect_x_esm_getSubName(value, 'Boolean'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]"), 'boolean');
     }
 
     if (is_symbol_default()(value)) {
@@ -6914,19 +7222,19 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
     }
 
     if (is_async_function_x_esm(value)) {
-      return ctx.stylize("[AsyncFunction".concat(getNameSep(value), "]"), 'special');
+      return ctx.stylize("[AsyncFunction".concat(inspect_x_esm_getNameSep(value), "]"), 'special');
     }
 
     if (is_generator_function_default()(value)) {
-      return ctx.stylize("[GeneratorFunction".concat(getNameSep(value), "]"), 'special');
+      return ctx.stylize("[GeneratorFunction".concat(inspect_x_esm_getNameSep(value), "]"), 'special');
     }
 
     if (Object(is_function_x_esm["a" /* default */])(value)) {
-      return ctx.stylize("[".concat(getSubName(value, 'Function')).concat(getNameSep(value), "]"), 'special');
+      return ctx.stylize("[".concat(inspect_x_esm_getSubName(value, 'Function')).concat(inspect_x_esm_getNameSep(value), "]"), 'special');
     }
 
-    if (isClass(value)) {
-      return ctx.stylize("[Class".concat(getNameSep(value), "]"), 'special');
+    if (inspect_x_esm_isClass(value)) {
+      return ctx.stylize("[Class".concat(inspect_x_esm_getNameSep(value), "]"), 'special');
     }
 
     if (is_regex_default()(value)) {
@@ -6934,8 +7242,8 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
     }
 
     if (is_date_object_default()(value)) {
-      name = getSubName(value);
-      formatted = ctx.stylize(fmtDate(value), 'date');
+      name = inspect_x_esm_getSubName(value);
+      formatted = ctx.stylize(inspect_x_esm_fmtDate(value), 'date');
 
       if (name === 'Date') {
         return formatted;
@@ -6945,32 +7253,32 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
     }
 
     if (Object(is_error_x_esm["a" /* default */])(value)) {
-      return fmtError(value);
+      return inspect_x_esm_fmtError(value);
     } // Fast path for ArrayBuffer. Can't do the same for DataView because it
     // has a non-primitive buffer property that we need to recurse for.
 
 
     if (Object(is_array_buffer_x_esm["a" /* default */])(value)) {
-      return "".concat(getSubName(value, 'ArrayBuffer'), " { byteLength: ").concat(fmtNumber(ctx, value.byteLength), " }");
+      return "".concat(inspect_x_esm_getSubName(value, 'ArrayBuffer'), " { byteLength: ").concat(inspect_x_esm_fmtNumber(ctx, value.byteLength), " }");
     }
 
-    if (isMapIterator(value)) {
-      return "".concat(getSubName(value, 'MapIterator'), " {}");
+    if (inspect_x_esm_isMapIterator(value)) {
+      return "".concat(inspect_x_esm_getSubName(value, 'MapIterator'), " {}");
     }
 
-    if (isSetIterator(value)) {
-      return "".concat(getSubName(value, 'SetIterator'), " {}");
+    if (inspect_x_esm_isSetIterator(value)) {
+      return "".concat(inspect_x_esm_getSubName(value, 'SetIterator'), " {}");
     }
 
     if (is_promise_default()(value)) {
-      return "".concat(getSubName(value, 'Promise'), " {}");
+      return "".concat(inspect_x_esm_getSubName(value, 'Promise'), " {}");
     }
   }
 
-  var base = '';
+  var base = inspect_x_esm_EMPTY_STRING;
   var empty = false;
   var braces = ['{', '}'];
-  var fmtter = fmtObject; // We can't compare constructors for various objects using a comparison
+  var fmtter = inspect_x_esm_fmtObject; // We can't compare constructors for various objects using a comparison
   // like `constructor === Array` because the object could have come from a
   // different context and thus the constructor won't match. Instead we check
   // the constructor names (including those up the prototype chain where
@@ -6978,27 +7286,27 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
 
   if (is_string_default()(value)) {
     // Make boxed primitive Strings look like such
-    base = "[".concat(getSubName(value, 'String'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]");
+    base = "[".concat(inspect_x_esm_getSubName(value, 'String'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]");
   } else if (is_number_object_default()(value)) {
     // Make boxed primitive Numbers look like such
-    base = "[".concat(getSubName(value, 'Number'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]");
+    base = "[".concat(inspect_x_esm_getSubName(value, 'Number'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]");
   } else if (is_boolean_object_default()(value)) {
     // Make boxed primitive Booleans look like such
-    base = "[".concat(getSubName(value, 'Boolean'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]");
+    base = "[".concat(inspect_x_esm_getSubName(value, 'Boolean'), ": ").concat(fmtPrimNoColor(ctx, value.valueOf()), "]");
   } else if (Object(is_function_x_esm["a" /* default */])(value)) {
     // Make functions say that they are functions
-    base = "[".concat(getSubName(value, 'Function')).concat(getNameSep(value), "]");
-  } else if (isClass(value)) {
+    base = "[".concat(inspect_x_esm_getSubName(value, 'Function')).concat(inspect_x_esm_getNameSep(value), "]");
+  } else if (inspect_x_esm_isClass(value)) {
     // Make functions say that they are functions
-    base = "[Class".concat(getNameSep(value), "]");
+    base = "[Class".concat(inspect_x_esm_getNameSep(value), "]");
   } else if (is_regex_default()(value)) {
     // Make RegExps say that they are RegExps
     // name = getSubName(value, 'RegExp');
     base = regexpToString(value);
   } else if (is_date_object_default()(value)) {
     // Make dates with properties first say the date
-    name = getSubName(value);
-    formatted = fmtDate(value);
+    name = inspect_x_esm_getSubName(value);
+    formatted = inspect_x_esm_fmtDate(value);
 
     if (name === 'Date') {
       base = formatted;
@@ -7006,71 +7314,71 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
       base = "[".concat(name, ": ").concat(formatted, "]");
     }
   } else if (Object(is_error_x_esm["a" /* default */])(value)) {
-    name = getSubName(value); // Make error with message first say the error
+    name = inspect_x_esm_getSubName(value); // Make error with message first say the error
 
-    base = fmtError(value);
+    base = inspect_x_esm_fmtError(value);
   } else if (Object(is_array_x_esm["a" /* default */])(value)) {
-    name = getSubName(value); // Unset the constructor to prevent "Array [...]" for ordinary arrays.
+    name = inspect_x_esm_getSubName(value); // Unset the constructor to prevent "Array [...]" for ordinary arrays.
 
-    name = name === 'Array' ? '' : name;
+    name = name === 'Array' ? inspect_x_esm_EMPTY_STRING : name;
     braces = ['[', ']'];
 
     if (ctx.showHidden) {
-      keys = promote(keys, arrayKeys);
+      keys = inspect_x_esm_promote(keys, arrayKeys);
     }
 
     empty = value.length < 1;
-    fmtter = fmtArray;
+    fmtter = inspect_x_esm_fmtArray;
   } else if (Object(is_set_x_esm["a" /* default */])(value)) {
-    name = getSubName(value, 'Set');
-    fmtter = fmtSet; // With `showHidden`, `length` will display as a hidden property for
+    name = inspect_x_esm_getSubName(value, 'Set');
+    fmtter = inspect_x_esm_fmtSet; // With `showHidden`, `length` will display as a hidden property for
     // arrays. For consistency's sake, do the same for `size`, even though
     // this property isn't selected by Object.getOwnPropertyNames().
 
     if (ctx.showHidden) {
-      keys = promote(keys, collectionKeys);
+      keys = inspect_x_esm_promote(keys, collectionKeys);
     }
 
     empty = value.size < 1;
   } else if (Object(is_map_x_esm["a" /* default */])(value)) {
-    name = getSubName(value, 'Map');
-    fmtter = fmtMap; // With `showHidden`, `length` will display as a hidden property for
+    name = inspect_x_esm_getSubName(value, 'Map');
+    fmtter = inspect_x_esm_fmtMap; // With `showHidden`, `length` will display as a hidden property for
     // arrays. For consistency's sake, do the same for `size`, even though
     // this property isn't selected by Object.getOwnPropertyNames().
 
     if (ctx.showHidden) {
-      keys = promote(keys, collectionKeys);
+      keys = inspect_x_esm_promote(keys, collectionKeys);
     }
 
     empty = value.size < 1;
   } else if (Object(is_array_buffer_x_esm["a" /* default */])(value)) {
-    name = getSubName(value, 'ArrayBuffer');
-    keys = promote(keys, arrayBufferKeys);
-    visibleKeys = appendMissing(visibleKeys, arrayBufferKeys);
+    name = inspect_x_esm_getSubName(value, 'ArrayBuffer');
+    keys = inspect_x_esm_promote(keys, arrayBufferKeys);
+    visibleKeys = inspect_x_esm_appendMissing(visibleKeys, arrayBufferKeys);
   } else if (Object(is_data_view_x_esm["a" /* default */])(value)) {
-    name = getSubName(value, 'DataView');
-    keys = promote(keys, dataViewKeys);
-    visibleKeys = appendMissing(visibleKeys, dataViewKeys);
+    name = inspect_x_esm_getSubName(value, 'DataView');
+    keys = inspect_x_esm_promote(keys, dataViewKeys);
+    visibleKeys = inspect_x_esm_appendMissing(visibleKeys, dataViewKeys);
   } else if (is_typed_array_default()(value)) {
-    name = getSubName(value);
+    name = inspect_x_esm_getSubName(value);
     braces = ['[', ']'];
-    fmtter = fmtTypedArray;
+    fmtter = inspect_x_esm_fmtTypedArray;
 
     if (ctx.showHidden) {
-      keys = promote(keys, typedArrayKeys);
+      keys = inspect_x_esm_promote(keys, typedArrayKeys);
     }
   } else if (is_promise_default()(value)) {
-    name = getSubName(value, 'Promise');
-  } else if (isMapIterator(value)) {
-    name = getSubName(value, 'MapIterator');
+    name = inspect_x_esm_getSubName(value, 'Promise');
+  } else if (inspect_x_esm_isMapIterator(value)) {
+    name = inspect_x_esm_getSubName(value, 'MapIterator');
     empty = true;
-  } else if (isSetIterator(value)) {
-    name = getSubName(value, 'SetIterator');
+  } else if (inspect_x_esm_isSetIterator(value)) {
+    name = inspect_x_esm_getSubName(value, 'SetIterator');
     empty = true;
   } else {
-    name = getSubName(value); // Unset the constructor to prevent "Object {...}" for ordinary objects.
+    name = inspect_x_esm_getSubName(value); // Unset the constructor to prevent "Object {...}" for ordinary objects.
 
-    name = name === 'Object' ? '' : name;
+    name = name === 'Object' ? inspect_x_esm_EMPTY_STRING : name;
     empty = true; // No other data than keys.
   }
 
@@ -7104,12 +7412,12 @@ fmtValue = function _fmtValue(ctx, value, depth, isProto) {
   }
 
   ctx.seen.add(value);
-  var out = fmtter(ctx, value, depth, visibleKeys, keys);
+  var out = fmtter([ctx, value, depth, visibleKeys, keys]);
   ctx.seen.delete(value);
-  return reduceToSingleString(out, base, braces, ctx.breakLength);
+  return inspect_x_esm_reduceToSingleString([out, base, braces, ctx.breakLength]);
 };
 
-inspect = function _inspect(obj, opts) {
+$inspect = function inspect(obj, opts) {
   // default options
   var ctx = {
     seen: new collections_x_esm["b" /* SetConstructor */](),
@@ -7137,9 +7445,9 @@ inspect = function _inspect(obj, opts) {
 
 
   if (supportsGetSet) {
-    ctx = Object(object_assign_x_esm["a" /* default */])({}, inspect.defaultOptions, ctx, opts);
+    ctx = Object(object_assign_x_esm["a" /* default */])({}, $inspect.defaultOptions, ctx, opts);
   } else {
-    ctx = Object(object_assign_x_esm["a" /* default */])({}, inspectDefaultOptions, inspect.defaultOptions, ctx, opts);
+    ctx = Object(object_assign_x_esm["a" /* default */])({}, inspectDefaultOptions, $inspect.defaultOptions, ctx, opts);
   }
 
   if (ctx.colors) {
@@ -7150,11 +7458,11 @@ inspect = function _inspect(obj, opts) {
     ctx.maxArrayLength = Infinity;
   }
 
-  return fmtValue(ctx, obj, ctx.depth);
+  return $fmtValue([ctx, obj, ctx.depth]);
 };
 
 if (supportsGetSet) {
-  Object(object_define_property_x_esm["a" /* default */])(inspect, 'defaultOptions', {
+  Object(object_define_property_x_esm["a" /* default */])($inspect, 'defaultOptions', {
     get: function _get() {
       return inspectDefaultOptions;
     },
@@ -7167,7 +7475,7 @@ if (supportsGetSet) {
     }
   });
 } else {
-  Object(object_define_properties_x_esm["a" /* default */])(inspect, {
+  Object(object_define_properties_x_esm["a" /* default */])($inspect, {
     defaultOptions: {
       value: Object(object_assign_x_esm["a" /* default */])({}, inspectDefaultOptions),
       writable: true
@@ -7175,7 +7483,7 @@ if (supportsGetSet) {
   });
 }
 
-Object(object_define_properties_x_esm["a" /* default */])(inspect, {
+Object(object_define_properties_x_esm["a" /* default */])($inspect, {
   // http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
   colors: {
     value: {
@@ -7213,13 +7521,13 @@ Object(object_define_properties_x_esm["a" /* default */])(inspect, {
     }
   }
 });
-var ins = inspect;
+var ins = $inspect;
 /* harmony default export */ var inspect_x_esm = __webpack_exports__["a"] = (ins);
 
 
 
 /***/ }),
-/* 49 */
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7539,73 +7847,43 @@ var string2016 = stringES2016;
 
 
 /***/ }),
-/* 50 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(30);
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
-/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(52);
 
+// EXTERNAL MODULE: ./node_modules/is-nan-x/dist/is-nan-x.esm.js
+var is_nan_x_esm = __webpack_require__(22);
 
-
-
-
-var test1 = function test1() {
-  return Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(function createSet() {
-    /* eslint-disable-next-line compat/compat */
-    return new Set();
-  });
-};
-
-var getGetter = function getGetter() {
-  if (typeof Set === 'function') {
-    /* eslint-disable-next-line compat/compat */
-    var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Set.prototype, 'size');
-
-    if (descriptor && typeof descriptor.get === 'function') {
-      var resTest1 = test1();
-
-      if (resTest1.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(resTest1.value)) {
-        var res = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(resTest1.value, descriptor.get);
-
-        if (res.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(res.value)) {
-          return descriptor.get;
-        }
-      }
-    }
-  }
-  /* eslint-disable-next-line no-void */
-
-
-  return void 0;
-};
-
-var getSize = getGetter();
+// CONCATENATED MODULE: ./node_modules/infinity-x/dist/infinity-x.esm.js
 /**
- * Determine if an `object` is a `Set`.
+ * The constant value Infinity derived mathematically by 1 / 0.
  *
- * @param {*} object - The object to test.
- * @returns {boolean} `true` if the `object` is a `Set`,
- *  else `false`.
+ * @type number
+ */
+/* harmony default export */ var infinity_x_esm = (1 / 0);
+
+
+// CONCATENATED MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js
+
+
+/**
+ * This method determines whether the passed value is a finite number.
+ *
+ * @param {*} [number] - The value to be tested for finiteness.
+ * @returns {boolean} A Boolean indicating whether or not the given value is a finite number.
  */
 
-var isSet = function isSet(object) {
-  if (!getSize || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false) {
-    return false;
-  }
-
-  var result = attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].call(object, getSize);
-  return result.threw === false && Object(is_length_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(result.value);
+var is_finite_x_esm_isFinite = function isFinite(number) {
+  return typeof number === 'number' && Object(is_nan_x_esm["a" /* default */])(number) === false && number !== infinity_x_esm && number !== -infinity_x_esm;
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (isSet);
+/* harmony default export */ var is_finite_x_esm = __webpack_exports__["a"] = (is_finite_x_esm_isFinite);
 
 
 
 /***/ }),
-/* 51 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7648,16 +7926,16 @@ if (typeof BigInt === 'function') {
 
 
 /***/ }),
-/* 52 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js + 1 modules
-var is_finite_x_esm = __webpack_require__(35);
+var is_finite_x_esm = __webpack_require__(53);
 
 // EXTERNAL MODULE: ./node_modules/to-integer-x/dist/to-integer-x.esm.js + 1 modules
-var to_integer_x_esm = __webpack_require__(25);
+var to_integer_x_esm = __webpack_require__(26);
 
 // CONCATENATED MODULE: ./node_modules/is-integer-x/dist/is-integer-x.esm.js
 
@@ -7717,14 +7995,14 @@ var is_length_x_esm_isLength = function isLength(value) {
 
 
 /***/ }),
-/* 53 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
 
 
 
@@ -7792,12 +8070,29 @@ var slice = function slice(arrayLike, start, end) {
 
 
 /***/ }),
-/* 54 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_number_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(39);
- // eslint-disable jsdoc/check-param-names
+/* harmony import */ var to_number_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(34);
+
+
+var getMaxMin = function getMaxMin(args) {
+  var minVal = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(args[1]);
+  var result = args.length < 3 ? {
+    max: minVal,
+    min: 0
+  } : {
+    max: Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(args[2]),
+    min: minVal
+  };
+
+  if (result.min > result.max) {
+    throw new RangeError('"min" must be less than "max"');
+  }
+
+  return result;
+}; // eslint-disable jsdoc/check-param-names
 // noinspection JSCommentMatchesSignature
 
 /**
@@ -7811,30 +8106,19 @@ var slice = function slice(arrayLike, start, end) {
  */
 // eslint-enable jsdoc/check-param-names
 
+
 var clamp = function clamp(value) {
   var number = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value);
-  var argsLength = arguments.length;
 
-  if (argsLength < 2) {
+  if (arguments.length < 2) {
     return number;
   }
   /* eslint-disable-next-line prefer-rest-params */
 
 
-  var min = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(arguments[1]);
-  var max;
-
-  if (argsLength < 3) {
-    max = min;
-    min = 0;
-  } else {
-    /* eslint-disable-next-line prefer-rest-params */
-    max = Object(to_number_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(arguments[2]);
-  }
-
-  if (min > max) {
-    throw new RangeError('"min" must be less than "max"');
-  }
+  var _getMaxMin = getMaxMin(arguments),
+      max = _getMaxMin.max,
+      min = _getMaxMin.min;
 
   if (number < min) {
     return min;
@@ -7852,15 +8136,15 @@ var clamp = function clamp(value) {
 
 
 /***/ }),
-/* 55 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(11);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
 var _this = undefined;
 
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -7983,7 +8267,7 @@ var fi = findIdx;
 
 
 /***/ }),
-/* 56 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8010,13 +8294,13 @@ module.exports = function isNumberObject(value) {
 
 
 /***/ }),
-/* 57 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(52);
+/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19);
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(55);
 
 
 
@@ -8037,180 +8321,12 @@ var isArrayLike = function isArrayLike(value) {
 
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
-/* harmony import */ var array_reduce_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(26);
-/* harmony import */ var get_own_property_names_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(42);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1);
-/* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(14);
-/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(17);
-/* harmony import */ var get_own_enumerable_property_symbols_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(76);
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-
-
-
-
-
-
-var EMPTY_STRING = '';
-var StringCtr = EMPTY_STRING.constructor;
-var fromCharCode = StringCtr.fromCharCode;
-var castObject = {}.constructor;
-var nAssign = castObject.assign;
-var nativeAssign = Object(is_function_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nAssign) && nAssign;
-
-var workingNativeAssign = function nativeWorks() {
-  var obj = {};
-  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeAssign, obj, {
-    0: 1
-  }, {
-    1: 2
-  });
-  return res.threw === false && res.value === obj && Object(object_keys_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(obj).length === 2 && obj[0] === 1 && obj[1] === 2;
-};
-
-var lacksProperEnumerationOrder = function enumOrder() {
-  var _this = this;
-
-  // https://bugs.chromium.org/p/v8/issues/detail?id=4118
-  var test1 = castObject('abc');
-  test1[5] = 'de';
-
-  if (Object(get_own_property_names_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(test1)[0] === '5') {
-    return true;
-  }
-
-  var strNums = '0123456789'; // https://bugs.chromium.org/p/v8/issues/detail?id=3056
-
-  var test2 = Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(strNums.split(EMPTY_STRING), function (acc, ignore, index) {
-    _newArrowCheck(this, _this);
-
-    acc["_".concat(fromCharCode(index))] = index;
-    return acc;
-  }.bind(this), {});
-  var order = Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(get_own_property_names_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(test2), function (acc, name) {
-    _newArrowCheck(this, _this);
-
-    return acc + test2[name];
-  }.bind(this), EMPTY_STRING);
-
-  if (order !== strNums) {
-    return true;
-  } // https://bugs.chromium.org/p/v8/issues/detail?id=3056
-
-
-  var letters = 'abcdefghijklmnopqrst';
-  var test3 = Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(letters.split(EMPTY_STRING), function (acc, letter) {
-    _newArrowCheck(this, _this);
-
-    acc[letter] = letter;
-    return acc;
-  }.bind(this), {});
-  var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeAssign, {}, test3);
-  return result.threw === false && Object(object_keys_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(result.value).join(EMPTY_STRING) !== letters;
-};
-
-var assignHasPendingExceptions = function exceptions() {
-  if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(castObject.preventExtensions) === false) {
-    return false;
-  } // Firefox 37 still has "pending exception" logic in its Object.assign implementation,
-  // which is 72% slower than our shim, and Firefox 40's native implementation.
-
-
-  var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(castObject.preventExtensions, {
-    1: 2
-  });
-
-  if (result.threw || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(result.value) === false) {
-    return false;
-  }
-
-  var thrower = result.value;
-  result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(nativeAssign, thrower, 'xy');
-  return result.threw ? thrower[1] === 'y' : false;
-};
-
-var shouldImplement = function getShouldImplement() {
-  if (nativeAssign === false) {
-    return true;
-  }
-
-  if (workingNativeAssign() === false) {
-    return true;
-  }
-
-  if (lacksProperEnumerationOrder()) {
-    return true;
-  }
-
-  return assignHasPendingExceptions();
-}();
-/**
- * This method is used to copy the values of all enumerable own properties from
- * one or more source objects to a target object. It will return the target object.
- *
- * @param {*} target - The target object.
- * @param {*} [...source] - The source object(s).
- * @throws {TypeError} If target is null or undefined.
- * @returns {object} The target object.
- */
-
-
-var $assign;
-
-if (shouldImplement) {
-  var concat = [].concat; // 19.1.3.1
-
-  $assign = function assign(target) {
-    var _this2 = this;
-
-    return Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(
-    /* eslint-disable-next-line prefer-rest-params */
-    Object(array_slice_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(arguments, 1), function (tgt, source) {
-      var _this3 = this;
-
-      _newArrowCheck(this, _this2);
-
-      if (Object(is_nil_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(source)) {
-        return tgt;
-      }
-
-      var object = castObject(source);
-      return Object(array_reduce_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(concat.call(Object(object_keys_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object), Object(get_own_enumerable_property_symbols_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])(object)), function (tar, key) {
-        _newArrowCheck(this, _this3);
-
-        tar[key] = object[key];
-        return tar;
-      }.bind(this), tgt);
-    }.bind(this), Object(to_object_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(target));
-  };
-} else {
-  $assign = nativeAssign;
-}
-
-var assign = $assign;
-/* harmony default export */ __webpack_exports__["a"] = (assign);
-
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(62);
-/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(49);
+/* harmony import */ var trim_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(64);
+/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(52);
 
 
 var SPACE = ' ';
@@ -8235,12 +8351,12 @@ var normalizeSpace = function normalizeSpace(string) {
 
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
 
 
 /**
@@ -8260,12 +8376,12 @@ var requireCoercibleToString = function requireCoercibleToString(value) {
 
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
-/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(60);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(62);
 
 
 var EMPTY_STRING = '';
@@ -8290,19 +8406,19 @@ var replaceComments = function replaceComments(string, replacement) {
 
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/trim-left-x/dist/trim-left-x.esm.js
-var trim_left_x_esm = __webpack_require__(72);
+var trim_left_x_esm = __webpack_require__(70);
 
 // EXTERNAL MODULE: ./node_modules/require-coercible-to-string-x/dist/require-coercible-to-string-x.esm.js
-var require_coercible_to_string_x_esm = __webpack_require__(60);
+var require_coercible_to_string_x_esm = __webpack_require__(62);
 
 // EXTERNAL MODULE: ./node_modules/white-space-x/dist/white-space-x.esm.js
-var white_space_x_esm = __webpack_require__(49);
+var white_space_x_esm = __webpack_require__(52);
 
 // CONCATENATED MODULE: ./node_modules/trim-right-x/dist/trim-right-x.esm.js
 
@@ -8347,188 +8463,14 @@ var trim_x_esm_trim = function trim(string) {
 
 
 /***/ }),
-/* 63 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5);
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-
-
-var nfe = [].forEach;
-var nativeForEach = typeof nfe === 'function' && nfe;
-
-var test1 = function test1() {
-  var _this = this;
-
-  var spy = 0;
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1, 2], nativeForEach, function (item) {
-    _newArrowCheck(this, _this);
-
-    spy += item;
-  }.bind(this));
-  return res.threw === false && typeof res.value === 'undefined' && spy === 3;
-};
-
-var test2 = function test2() {
-  var _this2 = this;
-
-  var spy = '';
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({}.constructor('abc'), nativeForEach, function (item) {
-    _newArrowCheck(this, _this2);
-
-    spy += item;
-  }.bind(this));
-  return res.threw === false && typeof res.value === 'undefined' && spy === 'abc';
-};
-
-var test3 = function test3() {
-  var spy = 0;
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
-    /* eslint-disable-next-line prefer-rest-params */
-    return arguments;
-  }(1, 2, 3), nativeForEach, function spyAdd1(item) {
-    spy += item;
-  });
-  return res.threw === false && typeof res.value === 'undefined' && spy === 6;
-};
-
-var test4 = function test4() {
-  var spy = 0;
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({
-    0: 1,
-    1: 2,
-    3: 3,
-    4: 4,
-    length: 4
-  }, nativeForEach, function spyAdd2(item) {
-    spy += item;
-  });
-  return res.threw === false && typeof res.value === 'undefined' && spy === 6;
-};
-
-var test5 = function test5() {
-  var doc = typeof document !== 'undefined' && document;
-
-  if (doc) {
-    var spy = null;
-    var fragment = doc.createDocumentFragment();
-    var div = doc.createElement('div');
-    fragment.appendChild(div);
-    var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(fragment.childNodes, nativeForEach, function spyAssign(item) {
-      spy = item;
-    });
-    return res.threw === false && typeof res.value === 'undefined' && spy === div;
-  }
-
-  return true;
-};
-
-var test6 = function test6() {
-  var isStrict = function returnIsStrict() {
-    /* eslint-disable-next-line babel/no-invalid-this */
-    return true.constructor(this) === false;
-  }();
-
-  if (isStrict) {
-    var spy = null;
-    var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1], nativeForEach, function thisTest() {
-      /* eslint-disable-next-line babel/no-invalid-this */
-      spy = typeof this === 'string';
-    }, 'x');
-    return res.threw === false && typeof res.value === 'undefined' && spy === true;
-  }
-
-  return true;
-};
-
-var test7 = function test7() {
-  var spy = {};
-  var fn = 'return nativeForEach.call("foo", function (_, __, context) {' + 'if (castBoolean(context) === false || typeof context !== "object") {' + 'spy.value = true;}});';
-  /* eslint-disable-next-line no-new-func */
-
-  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Function('nativeForEach', 'spy', 'castBoolean', fn), nativeForEach, spy, true.constructor);
-  return res.threw === false && typeof res.value === 'undefined' && spy.value !== true;
-};
-
-var isWorking = true.constructor(nativeForEach) && test1() && test2() && test3() && test4() && test5() && test6() && test7();
-
-var patchedNative = function patchedNative() {
-  return function forEach(array, callBack
-  /* , thisArg */
-  ) {
-    Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(array);
-    var args = [Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack)];
-
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
-      args[1] = arguments[2];
-    }
-
-    return nativeForEach.apply(array, args);
-  };
-};
-
-var implementation = function implementation() {
-  return function forEach(array, callBack
-  /* , thisArg */
-  ) {
-    var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(array); // If no callback function or if callback is not a callable function
-
-    Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack);
-    var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object);
-    var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
-    /* eslint-disable-next-line no-void,prefer-rest-params */
-
-    var thisArg = arguments.length > 2 ? arguments[2] : void 0;
-    var noThis = typeof thisArg === 'undefined';
-
-    for (var i = 0; i < length; i += 1) {
-      if (i in iterable) {
-        if (noThis) {
-          callBack(iterable[i], i, object);
-        } else {
-          callBack.call(thisArg, iterable[i], i, object);
-        }
-      }
-    }
-  };
-};
-/**
- * This method executes a provided function once for each array element.
- *
- * @param {Array} array - The array to iterate over.
- * @param {Function} callBack - Function to execute for each element.
- * @param {*} [thisArg] - Value to use as this when executing callback.
- * @throws {TypeError} If array is null or undefined.
- * @throws {TypeError} If callBack is not a function.
- */
-
-
-var $forEach = isWorking ? patchedNative() : implementation();
-/* harmony default export */ __webpack_exports__["a"] = ($forEach);
-
-
-
-/***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! JSON v3.3.2 | https://bestiejs.github.io/json3 | Copyright 2012-2015, Kit Cambridge, Benjamin Tan | http://kit.mit-license.org */
 ;(function () {
   // Detect the `define` function exposed by asynchronous module loaders. The
   // strict `define` check is necessary for compatibility with `r.js`.
-  var isLoader =  true && __webpack_require__(105);
+  var isLoader =  true && __webpack_require__(106);
 
   // A set of types used to distinguish objects from primitives.
   var objectTypes = {
@@ -9464,10 +9406,10 @@ var $forEach = isWorking ? patchedNative() : implementation();
   }
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(104)(module), __webpack_require__(65)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(105)(module), __webpack_require__(66)))
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports) {
 
 var g;
@@ -9493,13 +9435,304 @@ module.exports = g;
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(73);
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
-/* harmony import */ var trim_left_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(72);
+/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
+
+/**
+ * This method determines whether two values are the same value.
+ * SameValueZero differs from SameValue (`Object.is`) only in its treatment
+ * of +0 and -0.
+ *
+ * @param {*} [x] - The first value to compare.
+ * @param {*} [y] - The second value to compare.
+ * @returns {boolean} A Boolean indicating whether or not the two arguments
+ * are the same value.
+ */
+
+var sameValueZero = function sameValueZero(x, y) {
+  return x === y || Object(same_value_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(x, y);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (sameValueZero);
+
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26);
+/* harmony import */ var is_array_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(60);
+
+
+
+
+
+var getMax = function getMax(a, b) {
+  return a >= b ? a : b;
+};
+/**
+ * This method calculates a fromIndex of a given value for an array.
+ *
+ * @param {Array} array - * The array on which to calculate the starting index.
+ * @throws {TypeError} If array is null or undefined.
+ * @param {number} fromIndex - * The position in this array at which to begin. A
+ *  negative value gives the index of array.length + fromIndex by asc.
+ * @returns {number} The calculated fromIndex. Default is 0.
+ */
+
+
+var calcFromIndex = function calcFromIndex(array, fromIndex) {
+  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(array);
+
+  if (Object(is_array_like_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object) === false) {
+    return 0;
+  }
+
+  var index = Object(to_integer_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(fromIndex);
+  return index >= 0 ? index : getMax(0, Object(to_length_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object.length) + index);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (calcFromIndex);
+
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37);
+/* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_date_object__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
+/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(19);
+
+
+
+
+
+
+
+var ZERO = 0;
+var ONE = 1;
+/* eslint-disable-next-line no-void */
+
+var UNDEFINED = void ZERO;
+var NUMBER = 'number';
+var STRING = 'string';
+var DEFAULT = 'default';
+var StringCtr = STRING.constructor;
+var NumberCtr = ZERO.constructor;
+/* eslint-disable-next-line compat/compat */
+
+var symToPrimitive = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.toPrimitive;
+/* eslint-disable-next-line compat/compat */
+
+var symValueOf = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.prototype.valueOf;
+var toStringOrder = ['toString', 'valueOf'];
+var toNumberOrder = ['valueOf', 'toString'];
+var orderLength = 2;
+
+var assertHint = function assertHint(hint) {
+  if (typeof hint !== 'string' || hint !== NUMBER && hint !== STRING) {
+    throw new TypeError('hint must be "string" or "number"');
+  }
+
+  return hint;
+};
+/**
+ * @param {*} ordinary - The ordinary to convert.
+ * @param {*} hint - The hint.
+ * @returns {*} - The primitive.
+ */
+
+
+var ordinaryToPrimitive = function ordinaryToPrimitive(ordinary, hint) {
+  Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(ordinary);
+  assertHint(hint);
+  var methodNames = hint === STRING ? toStringOrder : toNumberOrder;
+  var method;
+  var result;
+
+  for (var i = ZERO; i < orderLength; i += ONE) {
+    method = ordinary[methodNames[i]];
+
+    if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(method)) {
+      result = method.call(ordinary);
+
+      if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(result)) {
+        return result;
+      }
+    }
+  }
+
+  throw new TypeError('No default value');
+};
+/**
+ * @param {*} object - The object.
+ * @param {*} property - The property.
+ * @returns {undefined|Function} - The method.
+ */
+
+
+var getMethod = function getMethod(object, property) {
+  var func = object[property];
+
+  if (Object(is_nil_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(func) === false) {
+    if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(func) === false) {
+      throw new TypeError("".concat(func, " returned for property ").concat(property, " of object ").concat(object, " is not a function"));
+    }
+
+    return func;
+  }
+
+  return UNDEFINED;
+};
+/**
+ * Get the hint.
+ *
+ * @param {*} value - The value to compare.
+ * @param {boolean} supplied - Was a value supplied.
+ * @returns {string} - The hint string.
+ */
+
+
+var getHint = function getHint(value, supplied) {
+  if (supplied) {
+    if (value === StringCtr) {
+      return STRING;
+    }
+
+    if (value === NumberCtr) {
+      return NUMBER;
+    }
+  }
+
+  return DEFAULT;
+};
+/**
+ * Get the primitive from the exotic.
+ *
+ * @param {*} value - The exotic.
+ * @returns {*} - The primitive.
+ */
+
+
+var getExoticToPrim = function getExoticToPrim(value) {
+  if (has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]) {
+    if (symToPrimitive) {
+      return getMethod(value, symToPrimitive);
+    }
+
+    if (is_symbol__WEBPACK_IMPORTED_MODULE_3___default()(value)) {
+      return symValueOf;
+    }
+  }
+
+  return UNDEFINED;
+};
+
+var evalExotic = function evalExotic(obj) {
+  var exoticToPrim = obj.exoticToPrim,
+      input = obj.input,
+      hint = obj.hint;
+  var result = exoticToPrim.call(input, hint);
+
+  if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(result)) {
+    return result;
+  }
+
+  throw new TypeError('unable to convert exotic object to primitive');
+};
+
+var evalPrimitive = function evalPrimitive(input, hint) {
+  var newHint = hint === DEFAULT && (is_date_object__WEBPACK_IMPORTED_MODULE_2___default()(input) || is_symbol__WEBPACK_IMPORTED_MODULE_3___default()(input)) ? STRING : hint;
+  return ordinaryToPrimitive(input, newHint === DEFAULT ? NUMBER : newHint);
+};
+/**
+ * This method converts a JavaScript object to a primitive value.
+ * Note: When toPrimitive is called with no hint, then it generally behaves as
+ * if the hint were Number. However, objects may over-ride this behaviour by
+ * defining a @@toPrimitive method. Of the objects defined in this specification
+ * only Date objects (see 20.3.4.45) and Symbol objects (see 19.4.3.4) over-ride
+ * the default ToPrimitive behaviour. Date objects treat no hint as if the hint
+ * were String.
+ *
+ * @param {*} input - The input to convert.
+ * @param {Function} [preferredType] - The preferred type (String or Number).
+ * @throws {TypeError} If unable to convert input to a primitive.
+ * @returns {string|number} The converted input as a primitive.
+ * @see {http://www.ecma-international.org/ecma-262/6.0/#sec-toprimitive}
+ */
+
+
+var toPrimitive = function toPrimitive(input, preferredType) {
+  if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(input)) {
+    return input;
+  }
+
+  var hint = getHint(preferredType, arguments.length > ONE);
+  var exoticToPrim = getExoticToPrim(input);
+  return typeof exoticToPrim === 'undefined' ? evalPrimitive(input, hint) : evalExotic({
+    exoticToPrim: exoticToPrim,
+    input: input,
+    hint: hint
+  });
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (toPrimitive);
+
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(62);
+/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(52);
+
+
+var EMPTY_STRING = '';
+var RegExpCtr = /none/.constructor;
+var reLeft = new RegExpCtr("^[".concat(white_space_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], "]+"));
+var replace = EMPTY_STRING.replace;
+/**
+ * This method removes whitespace from the start of a string. (ES2019).
+ *
+ * @param {string} [string] - The string to trim the left end whitespace from.
+ * @throws {TypeError} If string is null or undefined or not coercible.
+ * @returns {string} The left trimmed string.
+ */
+
+var trimStart = function trimStart(string) {
+  return replace.call(Object(require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(string), reLeft, EMPTY_STRING);
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (trimStart);
+
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(72);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
+/* harmony import */ var trim_left_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(70);
 
 
 
@@ -9545,94 +9778,503 @@ var $parseInt = function $parseInt(string, radix) {
 
 
 /***/ }),
-/* 67 */
+/* 72 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
-
 /**
- * This method determines whether two values are the same value.
- * SameValueZero differs from SameValue (`Object.is`) only in its treatment
- * of +0 and -0.
+ * The constant NaN derived mathematically by 0 / 0.
  *
- * @param {*} [x] - The first value to compare.
- * @param {*} [y] - The second value to compare.
- * @returns {boolean} A Boolean indicating whether or not the two arguments
- * are the same value.
+ * @type number
  */
-
-var sameValueZero = function sameValueZero(x, y) {
-  return x === y || Object(same_value_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(x, y);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (sameValueZero);
+/* harmony default export */ __webpack_exports__["a"] = (0 / 0);
 
 
 
 /***/ }),
-/* 68 */
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
+var toStr = Object.prototype.toString;
+
+var isStandardArguments = function isArguments(value) {
+	if (hasToStringTag && value && typeof value === 'object' && Symbol.toStringTag in value) {
+		return false;
+	}
+	return toStr.call(value) === '[object Arguments]';
+};
+
+var isLegacyArguments = function isArguments(value) {
+	if (isStandardArguments(value)) {
+		return true;
+	}
+	return value !== null &&
+		typeof value === 'object' &&
+		typeof value.length === 'number' &&
+		value.length >= 0 &&
+		toStr.call(value) !== '[object Array]' &&
+		toStr.call(value.callee) === '[object Function]';
+};
+
+var supportsStandardArguments = (function () {
+	return isStandardArguments(arguments);
+}());
+
+isStandardArguments.isLegacyArguments = isLegacyArguments; // for tests
+
+module.exports = supportsStandardArguments ? isStandardArguments : isLegacyArguments;
+
+
+/***/ }),
+/* 74 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(25);
-/* harmony import */ var is_array_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(57);
+/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
+/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
+/* harmony import */ var to_number_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(34);
+/* harmony import */ var math_clamp_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(57);
 
 
 
 
-
-var getMax = function getMax(a, b) {
-  return a >= b ? a : b;
-};
+var MAX_SAFE_INTEGER = 9007199254740991;
+var reIsUint = /^(?:0|[1-9]\d*)$/;
+var rxTest = reIsUint.test;
 /**
- * This method calculates a fromIndex of a given value for an array.
+ * This method determines whether the passed value is a zero based index.
+ * JavaScript arrays are zero-indexed: the first element of an array is at
+ * index 0, and the last element is at the index equal to the value of the
+ * array's length property minus 1.
  *
- * @param {Array} array - * The array on which to calculate the starting index.
- * @throws {TypeError} If array is null or undefined.
- * @param {number} fromIndex - * The position in this array at which to begin. A
- *  negative value gives the index of array.length + fromIndex by asc.
- * @returns {number} The calculated fromIndex. Default is 0.
+ * @param {number|string} value - The value to be tested for being a zero based index.
+ * @param {number} [length=MAX_SAFE_INTEGER] - The length that sets the upper bound.
+ * @returns {boolean} A Boolean indicating whether or not the given value is a
+ * zero based index within bounds.
  */
 
+var isIndex = function isIndex(value, length) {
+  var string = Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value);
 
-var calcFromIndex = function calcFromIndex(array, fromIndex) {
-  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(array);
-
-  if (Object(is_array_like_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object) === false) {
-    return 0;
+  if (rxTest.call(reIsUint, string) === false) {
+    return false;
   }
 
-  var index = Object(to_integer_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(fromIndex);
-  return index >= 0 ? index : getMax(0, Object(to_length_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object.length) + index);
+  var number = Object(to_number_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(string);
+
+  if (arguments.length > 1) {
+    return number < Object(math_clamp_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(to_integer_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(length), MAX_SAFE_INTEGER);
+  }
+
+  return number < MAX_SAFE_INTEGER;
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (calcFromIndex);
+/* harmony default export */ __webpack_exports__["a"] = (isIndex);
 
 
 
 /***/ }),
-/* 69 */
+/* 75 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var array_filter_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var get_own_property_symbols_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(38);
+/* harmony import */ var property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(46);
+function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+
+
+
+
+
+/**
+ * This method returns only the enumerable own property symbols of an object.
+ *
+ * @param {object} target - The target.
+ * @throws {TypeError} - If target is null or undefined.
+ * @returns {Array} The enumerable own property symbols.
+ */
+
+var getOwnEnumerablePropertySymbols = function getOwnEnumerablePropertySymbols(target) {
+  var _this = this;
+
+  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(target);
+  return Object(array_filter_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(get_own_property_symbols_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object), function (symbol) {
+    _newArrowCheck(this, _this);
+
+    return Object(property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, symbol);
+  }.bind(this));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (getOwnEnumerablePropertySymbols);
+
+
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+var forEach = __webpack_require__(90);
+
+var toStr = Object.prototype.toString;
+var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
+
+var typedArrays = [
+	'Float32Array',
+	'Float64Array',
+	'Int8Array',
+	'Int16Array',
+	'Int32Array',
+	'Uint8Array',
+	'Uint8ClampedArray',
+	'Uint16Array',
+	'Uint32Array',
+	'BigInt64Array',
+	'BigUint64Array'
+];
+
+var slice = String.prototype.slice;
+var toStrTags = {};
+var gOPD = Object.getOwnPropertyDescriptor;
+if (hasToStringTag && gOPD && Object.getPrototypeOf) {
+	forEach(typedArrays, function (typedArray) {
+		if (typeof global[typedArray] === 'function') {
+			var arr = new global[typedArray]();
+			if (!(Symbol.toStringTag in arr)) {
+				throw new EvalError('this engine has support for Symbol.toStringTag, but ' + typedArray + ' does not have the property! Please report this.');
+			}
+			var proto = Object.getPrototypeOf(arr);
+			var descriptor = gOPD(proto, Symbol.toStringTag);
+			if (!descriptor) {
+				var superProto = Object.getPrototypeOf(proto);
+				descriptor = gOPD(superProto, Symbol.toStringTag);
+			}
+			toStrTags[typedArray] = descriptor.get;
+		}
+	});
+}
+
+var tryTypedArrays = function tryAllTypedArrays(value) {
+	var anyTrue = false;
+	forEach(toStrTags, function (getter, typedArray) {
+		if (!anyTrue) {
+			try {
+				anyTrue = getter.call(value) === typedArray;
+			} catch (e) { /**/ }
+		}
+	});
+	return anyTrue;
+};
+
+module.exports = function isTypedArray(value) {
+	if (!value || typeof value !== 'object') { return false; }
+	if (!hasToStringTag) { return typedArrays.indexOf(slice.call(toStr.call(value), 8, -1)) > -1; }
+	if (!gOPD) { return false; }
+	return tryTypedArrays(value);
+};
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(66)))
+
+/***/ }),
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
+/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
+/* harmony import */ var is_array_buffer_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(47);
 
+
+
+
+
+
+var hasDView = typeof DataView === 'function';
+var dViewTag = '[object DataView]';
+
+var getDataView = function getDataView() {
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function attemptee() {
+    /* eslint-disable-next-line compat/compat */
+    return new DataView(new ArrayBuffer(4));
+  });
+  return res.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(res.value) && res.value;
+};
+
+var getByteLengthGetter = function getByteLengthGetter(dataView) {
+  /* eslint-disable-next-line compat/compat */
+  var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(DataView.prototype, 'byteLength');
+
+  if (descriptor && typeof descriptor.get === 'function') {
+    var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(dataView, descriptor.get);
+    return res.threw === false && typeof res.value === 'number' && descriptor.get;
+  }
+
+  return null;
+};
+
+var legacyCheck1 = function legacyCheck1(object) {
+  return Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(object) === dViewTag;
+};
+
+var legacyCheck2 = function legacyCheck2(object) {
+  var isByteLength = typeof object.byteLength === 'number';
+  var isByteOffset = typeof object.byteOffset === 'number';
+  var isGetFloat32 = typeof object.getFloat32 === 'function';
+  var isSetFloat64 = typeof object.setFloat64 === 'function';
+  return isByteLength && isByteOffset && isGetFloat32 && isSetFloat64 && Object(is_array_buffer_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(object.buffer);
+};
+
+var init = function init(hasDataView) {
+  if (hasDataView) {
+    var dataView = getDataView();
+
+    var _getByteLength = dataView && has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"] ? getByteLengthGetter(dataView) : false;
+
+    return {
+      getByteLength: _getByteLength,
+      legacyCheck: _getByteLength === false && Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(dataView) === dViewTag ? legacyCheck1 : legacyCheck2
+    };
+  }
+
+  return {
+    getByteLength: false,
+    legacyCheck: false
+  };
+};
+
+var _init = init(hasDView),
+    getByteLength = _init.getByteLength,
+    legacyCheck = _init.legacyCheck;
+/**
+ * Determine if an `object` is an `DataView`.
+ *
+ * @param {*} object - The object to test.
+ * @returns {boolean} `true` if the `object` is a `DataView`, else `false`.
+ */
+
+
+var isDataView = function isDataView(object) {
+  if (hasDView === false || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object) === false) {
+    return false;
+  }
+
+  if (legacyCheck) {
+    return legacyCheck(object);
+  }
+
+  var result = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(object, getByteLength);
+  return result.threw === false && typeof result.value === 'number';
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (isDataView);
+
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export implementation */
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1);
+
+
+
+
+
+
+
+var ne = [].every;
+var nativeEvery = typeof ne === 'function' && ne;
+
+var test1 = function test1() {
+  var spy = 0;
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1, 2], nativeEvery, function spyAdd1(item) {
+    spy += item;
+    return true;
+  });
+  return res.threw === false && res.value === true && spy === 3;
+};
+
+var test2 = function test2() {
+  var spy = '';
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({}.constructor('abc'), nativeEvery, function spyAdd2(item, index) {
+    spy += item;
+    return index !== 2;
+  });
+  return res.threw === false && res.value === false && spy === 'abc';
+};
+
+var test3 = function test3() {
+  var spy = 0;
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(function getArgs() {
+    /* eslint-disable-next-line prefer-rest-params */
+    return arguments;
+  }(1, 2, 3), nativeEvery, function spyAdd3(item, index) {
+    spy += item;
+    return index !== 1;
+  });
+  return res.threw === false && res.value === false && spy === 3;
+};
+
+var test4 = function test4() {
+  var spy = 0;
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call({
+    0: 1,
+    1: 2,
+    3: 3,
+    4: 4,
+    length: 4
+  }, nativeEvery, function spyAdd4(item) {
+    spy += item;
+    return true;
+  });
+  return res.threw === false && res.value === true && spy === 6;
+};
+
+var test5 = function test5() {
+  var doc = typeof document !== 'undefined' && document;
+
+  if (doc) {
+    var spy = null;
+    var fragment = doc.createDocumentFragment();
+    var div = doc.createElement('div');
+    fragment.appendChild(div);
+    var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(fragment.childNodes, nativeEvery, function spyAssign(item) {
+      spy = item;
+    });
+    return res.threw === false && res.value === false && spy === div;
+  }
+
+  return true;
+};
+
+var test6 = function test6() {
+  var isStrict = function returnIsStrict() {
+    /* eslint-disable-next-line babel/no-invalid-this */
+    return Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(this) === false;
+  }();
+
+  if (isStrict) {
+    var spy = null;
+    var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call([1], nativeEvery, function testThis() {
+      /* eslint-disable-next-line babel/no-invalid-this */
+      spy = typeof this === 'string';
+    }, 'x');
+    return res.threw === false && res.value === false && spy === true;
+  }
+
+  return true;
+};
+
+var test7 = function test7() {
+  var spy = {};
+  var fn = 'return nativeEvery.call("foo", function (_, __, context) {' + 'if (toBoolean(context) === false || typeof context !== "object") {' + 'spy.value = true;}});';
+  /* eslint-disable-next-line no-new-func */
+
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(Function('nativeEvery', 'spy', 'toBoolean', fn), nativeEvery, spy, to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"]);
+  return res.threw === false && res.value === false && spy.value !== true;
+};
+
+var isWorking = Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(nativeEvery) && test1() && test2() && test3() && test4() && test5() && test6() && test7();
+
+var patchedEvery = function patchedEvery() {
+  return function every(array, callBack
+  /* , thisArg */
+  ) {
+    Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(array);
+    var args = [Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack)];
+
+    if (arguments.length > 2) {
+      /* eslint-disable-next-line prefer-rest-params,prefer-destructuring */
+      args[1] = arguments[2];
+    }
+
+    return nativeEvery.apply(array, args);
+  };
+};
+
+var implementation = function implementation() {
+  return function every(array, callBack
+  /* , thisArg */
+  ) {
+    var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(array); // If no callback function or if callback is not a callable function
+
+    Object(assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(callBack);
+    var iterable = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object);
+    var length = Object(to_length_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(iterable.length);
+    /* eslint-disable-next-line prefer-rest-params,no-void */
+
+    var thisArg = arguments.length > 2 ? arguments[2] : void 0;
+    var noThis = typeof thisArg === 'undefined';
+
+    for (var i = 0; i < length; i += 1) {
+      if (i in iterable) {
+        var item = iterable[i];
+
+        if ((noThis ? callBack(item, i, object) : callBack.call(thisArg, item, i, object)) === false) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  };
+};
+/**
+ * This method tests whether all elements in the array pass the test implemented
+ * by the provided function.
+ *
+ * @param {Array} array - The array to iterate over.
+ * @param {Function} callBack - Function to test for each element.
+ * @param {*} [thisArg] - Value to use as this when executing callback.
+ * @throws {TypeError} If array is null or undefined.
+ * @throws {TypeError} If callBack is not a function.
+ * @returns {boolean} `true` if the callback function returns a truthy value for
+ *  every array element; otherwise, `false`.
+ */
+
+var $every = isWorking ? patchedEvery() : implementation();
+/* harmony default export */ __webpack_exports__["a"] = ($every);
+
+
+
+/***/ }),
+/* 79 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
 
 
-/** @type {BooleanConstructor} */
 
-var castBoolean = true.constructor;
-var nativeCreate = typeof Object.create === 'function' && Object.create;
+var ObjectCtr = {}.constructor;
+var nCreate = ObjectCtr.create;
+var nativeCreate = typeof nCreate === 'function' && nCreate;
 var isWorking;
 
 if (nativeCreate) {
@@ -9720,13 +10362,13 @@ if (isWorking) {
   var doc = typeof document !== 'undefined' && document; // Contributed by Brandon Benvie, October, 2012
 
   var createEmpty;
-  var supportsProto = {
+  var supportsProto = !({
     __proto__: null
-  } instanceof Object === false; // the following produces false positives
+  } instanceof ObjectCtr); // the following produces false positives
   // in Opera Mini => not a reliable check
   // Object.prototype.__proto__ === null
 
-  if (supportsProto || castBoolean(doc) === false) {
+  if (supportsProto || Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(doc) === false) {
     createEmpty = function $createEmpty() {
       return {
         __proto__: null
@@ -9737,27 +10379,23 @@ if (isWorking) {
     // No need to use active x approach when document.domain is not set
     // see https://github.com/es-shims/es5-shim/issues/150
     // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
-    var shouldUseActiveX = function _shouldUseActiveX() {
-      var _this = this;
-
+    var shouldUseActiveX = function shouldUseActiveX() {
       // return early if document.domain not set
-      if (castBoolean(doc.domain) === false) {
+      if (Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(doc.domain) === false) {
         return false;
       }
 
-      var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function () {
-        _newArrowCheck(this, _this);
-
+      var result = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function attemptee() {
         /* eslint-disable-next-line no-undef */
         return new ActiveXObject('htmlfile');
-      }.bind(this));
+      });
       return result.threw === false && Boolean(result.value);
     }; // This supports IE8 when document.domain is used
     // see https://github.com/es-shims/es5-shim/issues/150
     // variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
 
 
-    var getEmptyViaActiveX = function _getEmptyViaActiveX() {
+    var getEmptyViaActiveX = function getEmptyViaActiveX() {
       /* eslint-disable-next-line no-undef */
       var xDoc = new ActiveXObject('htmlfile');
       /* eslint-disable-next-line no-useless-escape,prettier/prettier */
@@ -9773,7 +10411,7 @@ if (isWorking) {
     // see https://github.com/es-shims/es5-shim/issues/150
 
 
-    var getEmptyViaIFrame = function _getEmptyViaIFrame() {
+    var getEmptyViaIFrame = function getEmptyViaIFrame() {
       var iframe = doc.createElement('iframe');
       iframe.style.display = 'none';
       /* eslint-disable-next-line no-script-url */
@@ -9861,530 +10499,7 @@ var create = $create;
 
 
 /***/ }),
-/* 70 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(36);
-/* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_date_object__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(16);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
-/* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5);
-/* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(17);
-
-
-
-
-
-
-
-var ZERO = 0;
-var ONE = 1;
-/* eslint-disable-next-line no-void */
-
-var UNDEFINED = void ZERO;
-var NUMBER = 'number';
-var STRING = 'string';
-var DEFAULT = 'default';
-/** @type {StringConstructor} */
-
-var StringCtr = STRING.constructor;
-/** @type {NumberConstructor} */
-
-var NumberCtr = ZERO.constructor;
-/* eslint-disable-next-line compat/compat */
-
-var symToPrimitive = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.toPrimitive;
-/* eslint-disable-next-line compat/compat */
-
-var symValueOf = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] && Symbol.prototype.valueOf;
-var toStringOrder = ['toString', 'valueOf'];
-var toNumberOrder = ['valueOf', 'toString'];
-var orderLength = 2;
-/**
- * @param {*} ordinary - The ordinary to convert.
- * @param {*} hint - The hint.
- * @returns {*} - The primitive.
- */
-
-var ordinaryToPrimitive = function _ordinaryToPrimitive(ordinary, hint) {
-  Object(require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(ordinary);
-
-  if (typeof hint !== 'string' || hint !== NUMBER && hint !== STRING) {
-    throw new TypeError('hint must be "string" or "number"');
-  }
-
-  var methodNames = hint === STRING ? toStringOrder : toNumberOrder;
-  var method;
-  var result;
-
-  for (var i = ZERO; i < orderLength; i += ONE) {
-    method = ordinary[methodNames[i]];
-
-    if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(method)) {
-      result = method.call(ordinary);
-
-      if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(result)) {
-        return result;
-      }
-    }
-  }
-
-  throw new TypeError('No default value');
-};
-/**
- * @param {*} object - The object.
- * @param {*} property - The property.
- * @returns {undefined|Function} - The method.
- */
-
-
-var getMethod = function _getMethod(object, property) {
-  var func = object[property];
-
-  if (Object(is_nil_x__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(func) === false) {
-    if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(func) === false) {
-      throw new TypeError("".concat(func, " returned for property ").concat(property, " of object ").concat(object, " is not a function"));
-    }
-
-    return func;
-  }
-
-  return UNDEFINED;
-};
-/**
- * Get the hint.
- *
- * @param {*} value - The value to compare.
- * @param {boolean} supplied - Was a value supplied.
- * @returns {string} - The hint string.
- */
-
-
-var getHint = function getHint(value, supplied) {
-  if (supplied) {
-    if (value === StringCtr) {
-      return STRING;
-    }
-
-    if (value === NumberCtr) {
-      return NUMBER;
-    }
-  }
-
-  return DEFAULT;
-};
-/**
- * Get the primitive from the exotic.
- *
- * @param {*} value - The exotic.
- * @returns {*} - The primitive.
- */
-
-
-var getExoticToPrim = function getExoticToPrim(value) {
-  if (has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]) {
-    if (symToPrimitive) {
-      return getMethod(value, symToPrimitive);
-    }
-
-    if (is_symbol__WEBPACK_IMPORTED_MODULE_3___default()(value)) {
-      return symValueOf;
-    }
-  }
-
-  return UNDEFINED;
-};
-/**
- * This method converts a JavaScript object to a primitive value.
- * Note: When toPrimitive is called with no hint, then it generally behaves as
- * if the hint were Number. However, objects may over-ride this behaviour by
- * defining a @@toPrimitive method. Of the objects defined in this specification
- * only Date objects (see 20.3.4.45) and Symbol objects (see 19.4.3.4) over-ride
- * the default ToPrimitive behaviour. Date objects treat no hint as if the hint
- * were String.
- *
- * @param {*} input - The input to convert.
- * @param {NumberConstructor|StringConstructor} [preferredType] - The preferred type (String or Number).
- * @throws {TypeError} If unable to convert input to a primitive.
- * @returns {string|number} The converted input as a primitive.
- * @see {http://www.ecma-international.org/ecma-262/6.0/#sec-toprimitive}
- */
-
-
-var toPrimitive = function toPrimitive(input, preferredType) {
-  if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(input)) {
-    return input;
-  }
-
-  var hint = getHint(preferredType, arguments.length > ONE);
-  var exoticToPrim = getExoticToPrim(input);
-
-  if (typeof exoticToPrim !== 'undefined') {
-    var result = exoticToPrim.call(input, hint);
-
-    if (is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(result)) {
-      return result;
-    }
-
-    throw new TypeError('unable to convert exotic object to primitive');
-  }
-
-  var newHint = hint === DEFAULT && (is_date_object__WEBPACK_IMPORTED_MODULE_2___default()(input) || is_symbol__WEBPACK_IMPORTED_MODULE_3___default()(input)) ? STRING : hint;
-  return ordinaryToPrimitive(input, newHint === DEFAULT ? NUMBER : newHint);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (toPrimitive);
-
-
-
-/***/ }),
-/* 71 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/**
- * The abstract operation ToBoolean converts argument to a value of type Boolean.
- *
- * @param {*} [value] - The value to be converted.
- * @returns {boolean} 'true' if value is truthy; otherwise 'false'.
- */
-var toBoolean = function toBoolean(value) {
-  return !!value;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (toBoolean);
-
-
-
-/***/ }),
-/* 72 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(60);
-/* harmony import */ var white_space_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(49);
-
-
-var EMPTY_STRING = '';
-var RegExpCtr = /none/.constructor;
-var reLeft = new RegExpCtr("^[".concat(white_space_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], "]+"));
-var replace = EMPTY_STRING.replace;
-/**
- * This method removes whitespace from the start of a string. (ES2019).
- *
- * @param {string} [string] - The string to trim the left end whitespace from.
- * @throws {TypeError} If string is null or undefined or not coercible.
- * @returns {string} The left trimmed string.
- */
-
-var trimStart = function trimStart(string) {
-  return replace.call(Object(require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(string), reLeft, EMPTY_STRING);
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (trimStart);
-
-
-
-/***/ }),
-/* 73 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/**
- * The constant NaN derived mathematically by 0 / 0.
- *
- * @type number
- */
-/* harmony default export */ __webpack_exports__["a"] = (0 / 0);
-
-
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
-var toStr = Object.prototype.toString;
-
-var isStandardArguments = function isArguments(value) {
-	if (hasToStringTag && value && typeof value === 'object' && Symbol.toStringTag in value) {
-		return false;
-	}
-	return toStr.call(value) === '[object Arguments]';
-};
-
-var isLegacyArguments = function isArguments(value) {
-	if (isStandardArguments(value)) {
-		return true;
-	}
-	return value !== null &&
-		typeof value === 'object' &&
-		typeof value.length === 'number' &&
-		value.length >= 0 &&
-		toStr.call(value) !== '[object Array]' &&
-		toStr.call(value.callee) === '[object Function]';
-};
-
-var supportsStandardArguments = (function () {
-	return isStandardArguments(arguments);
-}());
-
-isStandardArguments.isLegacyArguments = isLegacyArguments; // for tests
-
-module.exports = supportsStandardArguments ? isStandardArguments : isLegacyArguments;
-
-
-/***/ }),
-/* 75 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
-/* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
-/* harmony import */ var to_number_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(39);
-/* harmony import */ var math_clamp_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(54);
-
-
-
-
-var MAX_SAFE_INTEGER = 9007199254740991;
-var reIsUint = /^(?:0|[1-9]\d*)$/;
-var rxTest = reIsUint.test;
-/**
- * This method determines whether the passed value is a zero based index.
- * JavaScript arrays are zero-indexed: the first element of an array is at
- * index 0, and the last element is at the index equal to the value of the
- * array's length property minus 1.
- *
- * @param {number|string} value - The value to be tested for being a zero based index.
- * @param {number} [length=MAX_SAFE_INTEGER] - The length that sets the upper bound.
- * @returns {boolean} A Boolean indicating whether or not the given value is a
- * zero based index within bounds.
- */
-
-var isIndex = function isIndex(value, length) {
-  var string = Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value);
-
-  if (rxTest.call(reIsUint, string) === false) {
-    return false;
-  }
-
-  var number = Object(to_number_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(string);
-
-  if (arguments.length > 1) {
-    return number < Object(math_clamp_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(Object(to_integer_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(length), MAX_SAFE_INTEGER);
-  }
-
-  return number < MAX_SAFE_INTEGER;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (isIndex);
-
-
-
-/***/ }),
-/* 76 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var array_filter_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23);
-/* harmony import */ var get_own_property_symbols_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37);
-/* harmony import */ var property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(44);
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-/**
- * This method returns only the enumerable own property symbols of an object.
- *
- * @param {object} target - The target.
- * @throws {TypeError} - If target is null or undefined.
- * @returns {Array} The enumerable own property symbols.
- */
-
-var getOwnEnumerablePropertySymbols = function getOwnEnumerablePropertySymbols(target) {
-  var _this = this;
-
-  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(target);
-  return Object(array_filter_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(Object(get_own_property_symbols_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object), function (symbol) {
-    _newArrowCheck(this, _this);
-
-    return Object(property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, symbol);
-  }.bind(this));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (getOwnEnumerablePropertySymbols);
-
-
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-var forEach = __webpack_require__(89);
-
-var toStr = Object.prototype.toString;
-var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
-
-var typedArrays = [
-	'Float32Array',
-	'Float64Array',
-	'Int8Array',
-	'Int16Array',
-	'Int32Array',
-	'Uint8Array',
-	'Uint8ClampedArray',
-	'Uint16Array',
-	'Uint32Array',
-	'BigInt64Array',
-	'BigUint64Array'
-];
-
-var slice = String.prototype.slice;
-var toStrTags = {};
-var gOPD = Object.getOwnPropertyDescriptor;
-if (hasToStringTag && gOPD && Object.getPrototypeOf) {
-	forEach(typedArrays, function (typedArray) {
-		if (typeof global[typedArray] === 'function') {
-			var arr = new global[typedArray]();
-			if (!(Symbol.toStringTag in arr)) {
-				throw new EvalError('this engine has support for Symbol.toStringTag, but ' + typedArray + ' does not have the property! Please report this.');
-			}
-			var proto = Object.getPrototypeOf(arr);
-			var descriptor = gOPD(proto, Symbol.toStringTag);
-			if (!descriptor) {
-				var superProto = Object.getPrototypeOf(proto);
-				descriptor = gOPD(superProto, Symbol.toStringTag);
-			}
-			toStrTags[typedArray] = descriptor.get;
-		}
-	});
-}
-
-var tryTypedArrays = function tryAllTypedArrays(value) {
-	var anyTrue = false;
-	forEach(toStrTags, function (getter, typedArray) {
-		if (!anyTrue) {
-			try {
-				anyTrue = getter.call(value) === typedArray;
-			} catch (e) { /**/ }
-		}
-	});
-	return anyTrue;
-};
-
-module.exports = function isTypedArray(value) {
-	if (!value || typeof value !== 'object') { return false; }
-	if (!hasToStringTag) { return typedArrays.indexOf(slice.call(toStr.call(value), 8, -1)) > -1; }
-	if (!gOPD) { return false; }
-	return tryTypedArrays(value);
-};
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(65)))
-
-/***/ }),
-/* 78 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
-/* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32);
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
-/* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(20);
-/* harmony import */ var is_array_buffer_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(45);
-var _this = undefined;
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-
-
-
-
-
-
-var hasDView = typeof DataView === 'function';
-var getByteLength = false;
-var legacyCheck;
-
-if (hasDView) {
-  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function () {
-    _newArrowCheck(this, _this);
-
-    /* eslint-disable-next-line compat/compat */
-    return new DataView(new ArrayBuffer(4));
-  }.bind(undefined));
-  var dataView = res.threw === false && Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(res.value) && res.value;
-
-  if (dataView && has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]) {
-    /* eslint-disable-next-line compat/compat */
-    var descriptor = Object(object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(DataView.prototype, 'byteLength');
-
-    if (descriptor && typeof descriptor.get === 'function') {
-      res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(dataView, descriptor.get);
-      getByteLength = res.threw === false && typeof res.value === 'number' && descriptor.get;
-    }
-  }
-
-  if (getByteLength === false) {
-    var dViewTag = '[object DataView]';
-
-    if (Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(dataView) === dViewTag) {
-      legacyCheck = function _legacyCheck(object) {
-        return Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(object) === dViewTag;
-      };
-    } else {
-      legacyCheck = function _legacyCheck(object) {
-        var isByteLength = typeof object.byteLength === 'number';
-        var isByteOffset = typeof object.byteOffset === 'number';
-        var isGetFloat32 = typeof object.getFloat32 === 'function';
-        var isSetFloat64 = typeof object.setFloat64 === 'function';
-        return isByteLength && isByteOffset && isGetFloat32 && isSetFloat64 && Object(is_array_buffer_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(object.buffer);
-      };
-    }
-  }
-}
-/**
- * Determine if an `object` is an `DataView`.
- *
- * @param {*} object - The object to test.
- * @returns {boolean} `true` if the `object` is a `DataView`, else `false`.
- */
-
-
-var isDataView = function isDataView(object) {
-  if (hasDView === false || Object(is_object_like_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(object) === false) {
-    return false;
-  }
-
-  if (legacyCheck) {
-    return legacyCheck(object);
-  }
-
-  var result = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(object, getByteLength);
-  return result.threw === false && typeof result.value === 'number';
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (isDataView);
-
-
-
-/***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10393,17 +10508,17 @@ var isDataView = function isDataView(object) {
 var attempt_x_esm = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./node_modules/is-date-object/index.js
-var is_date_object = __webpack_require__(36);
+var is_date_object = __webpack_require__(37);
 var is_date_object_default = /*#__PURE__*/__webpack_require__.n(is_date_object);
 
 // EXTERNAL MODULE: ./node_modules/require-object-coercible-x/dist/require-object-coercible-x.esm.js
-var require_object_coercible_x_esm = __webpack_require__(5);
+var require_object_coercible_x_esm = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
-var to_string_x_esm = __webpack_require__(9);
+var to_string_x_esm = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/to-length-x/dist/to-length-x.esm.js
-var to_length_x_esm = __webpack_require__(4);
+var to_length_x_esm = __webpack_require__(6);
 
 // CONCATENATED MODULE: ./node_modules/string-pad-start-x/dist/string-pad-start-x.esm.js
 
@@ -10467,38 +10582,124 @@ var string_pad_start_x_esm_padStart = function padStart(string, targetLength) {
 
 
 // EXTERNAL MODULE: ./node_modules/array-map-x/dist/array-map-x.esm.js
-var array_map_x_esm = __webpack_require__(38);
+var array_map_x_esm = __webpack_require__(39);
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
-var array_slice_x_esm = __webpack_require__(14);
+var array_slice_x_esm = __webpack_require__(16);
 
-// EXTERNAL MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js + 1 modules
-var is_finite_x_esm = __webpack_require__(35);
+// EXTERNAL MODULE: ./node_modules/to-boolean-x/dist/to-boolean-x.esm.js
+var to_boolean_x_esm = __webpack_require__(1);
 
 // CONCATENATED MODULE: ./node_modules/to-iso-string-x/dist/to-iso-string-x.esm.js
+/* unused harmony export implementation */
 
 
 
 
 
 
-var nativeToISOString = typeof Date.prototype.toISOString === 'function' && Date.prototype.toISOString;
-var isWorking;
+/* eslint-disable-next-line no-restricted-globals */
 
-if (nativeToISOString) {
+var globalIsFinite = isFinite;
+var abs = Math.abs;
+var _Date$prototype = Date.prototype,
+    ntis = _Date$prototype.toISOString,
+    getTime = _Date$prototype.getTime,
+    getUTCFullYear = _Date$prototype.getUTCFullYear,
+    getUTCMonth = _Date$prototype.getUTCMonth,
+    getUTCDate = _Date$prototype.getUTCDate,
+    getUTCHours = _Date$prototype.getUTCHours,
+    getUTCMinutes = _Date$prototype.getUTCMinutes,
+    getUTCSeconds = _Date$prototype.getUTCSeconds,
+    getUTCMilliseconds = _Date$prototype.getUTCMilliseconds;
+var nativeToISOString = typeof ntis === 'function' && ntis;
+var join = [].join;
+
+var to_iso_string_x_esm_test1 = function test1() {
   var res = attempt_x_esm["a" /* default */].call(new Date(0), nativeToISOString);
-  isWorking = res.threw === false && res.value === '1970-01-01T00:00:00.000Z';
+  return res.threw === false && res.value === '1970-01-01T00:00:00.000Z';
+};
 
-  if (isWorking) {
-    res = attempt_x_esm["a" /* default */].call(new Date(-62198755200000), nativeToISOString);
-    isWorking = res.threw === false && res.value.indexOf('-000001') > -1;
+var to_iso_string_x_esm_test2 = function test2() {
+  var res = attempt_x_esm["a" /* default */].call(new Date(-62198755200000), nativeToISOString);
+  return res.threw === false && res.value.indexOf('-000001') > -1;
+};
+
+var to_iso_string_x_esm_test3 = function test3() {
+  var res = attempt_x_esm["a" /* default */].call(new Date(-1), nativeToISOString);
+  return res.threw === false && res.value === '1969-12-31T23:59:59.999Z';
+};
+
+var isWorking = Object(to_boolean_x_esm["a" /* default */])(nativeToISOString) && to_iso_string_x_esm_test1() && to_iso_string_x_esm_test2() && to_iso_string_x_esm_test3();
+
+var to_iso_string_x_esm_assertIsDate = function assertIsDate(date) {
+  if (is_date_object_default()(date) === false) {
+    throw new TypeError('toISOString called on incompatible receiver.');
   }
 
-  if (isWorking) {
-    res = attempt_x_esm["a" /* default */].call(new Date(-1), nativeToISOString);
-    isWorking = res.threw === false && res.value === '1969-12-31T23:59:59.999Z';
+  return date;
+};
+
+var assertAdobe = function assertAdobe(date) {
+  if (globalIsFinite(date) === false || globalIsFinite(getTime.call(date)) === false) {
+    // Adobe Photoshop requires the second check.
+    throw new RangeError('toISOString called on non-finite value.');
   }
-}
+
+  return date;
+};
+
+var to_iso_string_x_esm_stringify = function stringify(date, month, year) {
+  // the date time string format is specified in 15.9.1.15.
+  var parts = [month + 1, getUTCDate.call(date), getUTCHours.call(date), getUTCMinutes.call(date), getUTCSeconds.call(date)];
+  var result = Object(array_map_x_esm["a" /* default */])(parts, function iteratee(item) {
+    // pad months, days, hours, minutes, and seconds to have two digits.
+    return string_pad_start_x_esm(item, 2, '0');
+  });
+  var dateStr = "".concat(year, "-").concat(join.call(Object(array_slice_x_esm["a" /* default */])(result, 0, 2), '-')); // pad milliseconds to have three digits.
+
+  var msStr = string_pad_start_x_esm(getUTCMilliseconds.call(date), 3, '0');
+  var timeStr = "".concat(join.call(Object(array_slice_x_esm["a" /* default */])(result, 2), ':'), ".").concat(msStr);
+  return "".concat(dateStr, "T").concat(timeStr, "Z");
+};
+
+var patchedToIsoString = function patchedToIsoString() {
+  return function toISOString(date) {
+    to_iso_string_x_esm_assertIsDate(date);
+    assertAdobe(date);
+    return nativeToISOString.call(date);
+  };
+};
+
+var getSign = function getSign(year) {
+  if (year < 0) {
+    return '-';
+  }
+
+  if (year > 9999) {
+    return '+';
+  }
+
+  return '';
+};
+
+var to_iso_string_x_esm_implementation = function implementation() {
+  return function toISOString(date) {
+    to_iso_string_x_esm_assertIsDate(date);
+    assertAdobe(date);
+    var year = getUTCFullYear.call(date);
+    var month = getUTCMonth.call(date); // see https://github.com/es-shims/es5-shim/issues/111
+
+    /* eslint-disable-next-line no-bitwise */
+
+    year += month / 12 >> 0; // floor
+
+    month = (month % 12 + 12) % 12;
+    var sign = getSign(year);
+    year = sign + string_pad_start_x_esm(abs(year), sign ? 6 : 4, '0');
+    return to_iso_string_x_esm_stringify(date, month, year);
+  };
+};
 /**
  * This method returns a string in simplified extended ISO format (ISO 8601),
  * which is always 24 or 27 characters long (YYYY-MM-DDTHH:mm:ss.sssZ or
@@ -10511,72 +10712,19 @@ if (nativeToISOString) {
  * @returns {string} Given date in the ISO 8601 format according to universal time.
  */
 
-
-var $toISOString;
-
-if (isWorking) {
-  $toISOString = function toISOString(date) {
-    return nativeToISOString.call(date);
-  };
-} else {
-  var join = Array.prototype.join;
-
-  $toISOString = function toISOString(date) {
-    if (is_date_object_default()(date) === false) {
-      throw new TypeError('toISOString called on incompatible receiver.');
-    }
-
-    if (Object(is_finite_x_esm["a" /* default */])(date) === false || Object(is_finite_x_esm["a" /* default */])(date.getTime()) === false) {
-      // Adope Photoshop requires the second check.
-      throw new RangeError('toISOString called on non-finite value.');
-    }
-
-    var year = date.getUTCFullYear();
-    var month = date.getUTCMonth(); // see https://github.com/es-shims/es5-shim/issues/111
-
-    /* eslint-disable-next-line no-bitwise */
-
-    year += month / 12 >> 0; // floor
-
-    month = (month % 12 + 12) % 12; // the date time string format is specified in 15.9.1.15.
-
-    var parts = [month + 1, date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()];
-    var sign;
-
-    if (year < 0) {
-      sign = '-';
-    } else if (year > 9999) {
-      sign = '+';
-    } else {
-      sign = '';
-    }
-
-    year = sign + string_pad_start_x_esm(Math.abs(year), sign ? 6 : 4, '0');
-    var result = Object(array_map_x_esm["a" /* default */])(parts, function _mapper(item) {
-      // pad months, days, hours, minutes, and seconds to have two digits.
-      return string_pad_start_x_esm(item, 2, '0');
-    });
-    var dateStr = "".concat(year, "-").concat(join.call(Object(array_slice_x_esm["a" /* default */])(result, 0, 2), '-')); // pad milliseconds to have three digits.
-
-    var msStr = string_pad_start_x_esm(date.getUTCMilliseconds(), 3, '0');
-    var timeStr = "".concat(join.call(Object(array_slice_x_esm["a" /* default */])(result, 2), ':'), ".").concat(msStr);
-    return "".concat(dateStr, "T").concat(timeStr, "Z");
-  };
-}
-
-var tis = $toISOString;
-/* harmony default export */ var to_iso_string_x_esm = __webpack_exports__["a"] = (tis);
+var $toISOString = isWorking ? patchedToIsoString() : to_iso_string_x_esm_implementation();
+/* harmony default export */ var to_iso_string_x_esm = __webpack_exports__["a"] = ($toISOString);
 
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var has = __webpack_require__(101);
+var has = __webpack_require__(102);
 var regexExec = RegExp.prototype.exec;
 var gOPD = Object.getOwnPropertyDescriptor;
 
@@ -10616,14 +10764,14 @@ module.exports = function isRegex(value) {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var forEach = __webpack_require__(89);
-var bind = __webpack_require__(88);
+var forEach = __webpack_require__(90);
+var bind = __webpack_require__(89);
 
 var toStr = bind.call(Function.call, Object.prototype.toString);
 var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
@@ -10678,7 +10826,7 @@ var tryTypedArrays = function tryAllTypedArrays(value) {
 	return foundName;
 };
 
-var isTypedArray = __webpack_require__(77);
+var isTypedArray = __webpack_require__(76);
 
 module.exports = function whichTypedArray(value) {
 	if (!isTypedArray(value)) { return false; }
@@ -10686,34 +10834,32 @@ module.exports = function whichTypedArray(value) {
 	return tryTypedArrays(value);
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(65)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(66)))
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {/* unused harmony export formatWithOptions */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return format; });
-/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(48);
-/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(43);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var parse_int_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(66);
-/* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(64);
+/* harmony import */ var inspect_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(51);
+/* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(44);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var parse_int_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(71);
+/* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(65);
 /* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(json3__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var collections_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(29);
-/* harmony import */ var array_filter_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(23);
-/* harmony import */ var get_own_property_names_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(42);
-/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(16);
+/* harmony import */ var collections_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(30);
+/* harmony import */ var array_filter_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(24);
+/* harmony import */ var get_own_property_names_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(43);
+/* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(18);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var is_bigint__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(51);
+/* harmony import */ var is_bigint__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(54);
 /* harmony import */ var is_bigint__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(is_bigint__WEBPACK_IMPORTED_MODULE_9__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+/* harmony import */ var to_number_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(34);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(0);
+/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(27);
+/* harmony import */ var object_assign_x__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(41);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -10726,15 +10872,19 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
 
-/** @type {NumberConstructor} */
 
-var castNumber = 0 .constructor;
+
+
+
+/* eslint-disable-next-line no-void */
+
+var UNDEFINED = void 0;
 var RX_NAMES = /^([A-Z][a-z]+)+$/;
 var rxTest = RX_NAMES.test;
 var EMPTY_STRING = '';
-var stringSplit = EMPTY_STRING.split;
-var stringSlice = EMPTY_STRING.slice;
-var charCodeAt = EMPTY_STRING.charCodeAt;
+var stringSplit = EMPTY_STRING.split,
+    stringSlice = EMPTY_STRING.slice,
+    charCodeAt = EMPTY_STRING.charCodeAt;
 
 var firstErrorLine = function firstErrorLine(error) {
   return stringSplit.call(error.message, '\n')[0];
@@ -10742,20 +10892,26 @@ var firstErrorLine = function firstErrorLine(error) {
 
 var CIRCULAR_ERROR_MESSAGE;
 
+var populateMessage = function populateMessage() {
+  // Populate the circular error message lazily
+  if (!CIRCULAR_ERROR_MESSAGE) {
+    var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"])(function attemptee() {
+      var a = {};
+      a.a = a;
+      Object(json3__WEBPACK_IMPORTED_MODULE_4__["stringify"])(a);
+    });
+    CIRCULAR_ERROR_MESSAGE = res.value.message;
+  }
+};
+
 var tryStringify = function tryStringify(arg) {
-  try {
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_11__[/* default */ "a"])(function attemptee() {
     return Object(json3__WEBPACK_IMPORTED_MODULE_4__["stringify"])(arg);
-  } catch (err) {
-    // Populate the circular error message lazily
-    if (!CIRCULAR_ERROR_MESSAGE) {
-      try {
-        var a = {};
-        a.a = a;
-        Object(json3__WEBPACK_IMPORTED_MODULE_4__["stringify"])(a);
-      } catch (e) {
-        CIRCULAR_ERROR_MESSAGE = e.message;
-      }
-    }
+  });
+
+  if (res.threw) {
+    populateMessage();
+    var err = res.value;
 
     if (err.name === 'TypeError' && firstErrorLine(err) === CIRCULAR_ERROR_MESSAGE) {
       return '[Circular]';
@@ -10763,6 +10919,8 @@ var tryStringify = function tryStringify(arg) {
 
     throw err;
   }
+
+  return res.value;
 };
 
 var matchNames = function matchNames(e) {
@@ -10780,14 +10938,14 @@ var stylizeNoColor = function stylizeNoColor(str) {
   return str;
 };
 
-var formatWithOptions = function formatWithOptions(inspectOptions) {
-  var first = arguments.length <= 1 ? undefined : arguments[1];
+var formatWithOptions = function formatWithOptions(inspectOptions, args) {
+  var first = args[0];
   var a = 0;
   var str = EMPTY_STRING;
   var join = EMPTY_STRING;
 
   if (typeof first === 'string') {
-    if ((arguments.length <= 1 ? 0 : arguments.length - 1) === 1) {
+    if (args.length === 1) {
       return first;
     }
 
@@ -10800,13 +10958,13 @@ var formatWithOptions = function formatWithOptions(inspectOptions) {
         i += 1;
         var nextChar = charCodeAt.call(first, i);
 
-        if (a + 1 !== (arguments.length <= 1 ? 0 : arguments.length - 1)) {
+        if (a + 1 !== args.length) {
           switch (nextChar) {
             case 115:
               // 's'
               a += 1;
               {
-                var tempArg = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+                var tempArg = args[a];
 
                 if (typeof tempArg === 'number') {
                   tempStr = formatNumber(stylizeNoColor, tempArg);
@@ -10815,16 +10973,15 @@ var formatWithOptions = function formatWithOptions(inspectOptions) {
                   if (typeof tempArg === 'bigint') {
                     tempStr = "".concat(tempArg, "n");
                   } else {
-                    /* eslint-disable-next-line no-void */
-                    var constr = _typeof(tempArg) === 'object' && tempArg !== null ? tempArg.constructor : void 0; // noinspection JSObjectNullOrUndefined
+                    var constr = _typeof(tempArg) === 'object' && tempArg !== null ? tempArg.constructor : UNDEFINED; // noinspection JSObjectNullOrUndefined
 
                     if (!constr || typeof tempArg.toString === 'function' && ( // A direct own property.
                     Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(tempArg, 'toString') || // A direct own property on the constructor prototype in
                     // case the constructor is not an built-in object.
                     !builtInObjects.has(constr.name) && constr.prototype && Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(constr.prototype, 'toString'))) {
-                      tempStr = String(tempArg);
+                      tempStr = Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_12__[/* default */ "a"])(tempArg);
                     } else {
-                      tempStr = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(tempArg, _objectSpread({}, inspectOptions, {
+                      tempStr = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(tempArg, Object(object_assign_x__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])({}, inspectOptions, {
                         compact: 3,
                         colors: false,
                         depth: 0
@@ -10838,21 +10995,21 @@ var formatWithOptions = function formatWithOptions(inspectOptions) {
             case 106:
               // 'j'
               a += 1;
-              tempStr = tryStringify(a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1]);
+              tempStr = tryStringify(args[a]);
               break;
 
             case 100:
               // 'd'
               a += 1;
               {
-                var tempNum = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+                var tempNum = args[a];
 
                 if (is_bigint__WEBPACK_IMPORTED_MODULE_9___default()(tempNum)) {
                   tempStr = "".concat(tempNum, "n");
                 } else if (is_symbol__WEBPACK_IMPORTED_MODULE_8___default()(tempNum)) {
                   tempStr = 'NaN';
                 } else {
-                  tempStr = formatNumber(stylizeNoColor, castNumber(tempNum));
+                  tempStr = formatNumber(stylizeNoColor, Object(to_number_x__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"])(tempNum));
                 }
               }
               break;
@@ -10860,13 +11017,13 @@ var formatWithOptions = function formatWithOptions(inspectOptions) {
             case 79:
               // 'O'
               a += 1;
-              tempStr = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1], inspectOptions);
+              tempStr = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(args[a], inspectOptions);
               break;
 
             case 111:
               // 'o'
               a += 1;
-              tempStr = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1], _objectSpread({}, inspectOptions, {
+              tempStr = Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(args[a], Object(object_assign_x__WEBPACK_IMPORTED_MODULE_13__[/* default */ "a"])({}, inspectOptions, {
                 showHidden: true,
                 showProxy: true,
                 depth: 4
@@ -10877,7 +11034,7 @@ var formatWithOptions = function formatWithOptions(inspectOptions) {
               // 'i'
               a += 1;
               {
-                var tempInteger = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+                var tempInteger = args[a];
 
                 if (is_bigint__WEBPACK_IMPORTED_MODULE_9___default()(tempInteger)) {
                   tempStr = "".concat(tempInteger, "n");
@@ -10893,7 +11050,7 @@ var formatWithOptions = function formatWithOptions(inspectOptions) {
               // 'f'
               a += 1;
               {
-                var tempFloat = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+                var tempFloat = args[a];
 
                 if (is_symbol__WEBPACK_IMPORTED_MODULE_8___default()(tempFloat)) {
                   tempStr = 'NaN';
@@ -10941,8 +11098,8 @@ var formatWithOptions = function formatWithOptions(inspectOptions) {
     }
   }
 
-  while (a < (arguments.length <= 1 ? 0 : arguments.length - 1)) {
-    var value = a + 1 < 1 || arguments.length <= a + 1 ? undefined : arguments[a + 1];
+  while (a < args.length) {
+    var value = args[a];
     str += join;
     str += typeof value !== 'string' ? Object(inspect_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value, inspectOptions) : value;
     join = ' ';
@@ -10968,29 +11125,25 @@ var formatWithOptions = function formatWithOptions(inspectOptions) {
 // eslint-enable jsdoc/check-param-names
 
 var format = function format() {
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key];
-  }
-
-  /* eslint-disable-next-line no-void */
-  return formatWithOptions.apply(void 0, [void 0].concat(args));
+  /* eslint-disable-next-line prefer-rest-params */
+  return formatWithOptions(UNDEFINED, arguments);
 };
 
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(65)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(66)))
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var slice = Array.prototype.slice;
-var isArgs = __webpack_require__(87);
+var isArgs = __webpack_require__(88);
 
 var origKeys = Object.keys;
-var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(100);
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(101);
 
 var originalKeys = Object.keys;
 
@@ -11019,7 +11172,7 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -11135,7 +11288,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports) {
 
 module.exports = isPromise;
@@ -11146,7 +11299,7 @@ function isPromise(obj) {
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports) {
 
 module.exports = function arraybufferEqual (buf1, buf2) {
@@ -11173,7 +11326,7 @@ module.exports = function arraybufferEqual (buf1, buf2) {
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11197,19 +11350,19 @@ module.exports = function isArguments(value) {
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(102);
+var implementation = __webpack_require__(103);
 
 module.exports = Function.prototype.bind || implementation;
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports) {
 
 
@@ -11237,13 +11390,13 @@ module.exports = function forEach (obj, fn, ctx) {
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var keys = __webpack_require__(83);
+var keys = __webpack_require__(84);
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
 
 var toStr = Object.prototype.toString;
@@ -11302,7 +11455,7 @@ module.exports = defineProperties;
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11316,13 +11469,13 @@ module.exports = function isNaN(value) {
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(91);
+var implementation = __webpack_require__(92);
 
 module.exports = function getPolyfill() {
 	if (Number.isNaN && Number.isNaN(NaN) && !Number.isNaN('a')) {
@@ -11333,7 +11486,7 @@ module.exports = function getPolyfill() {
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -11342,7 +11495,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
     /* istanbul ignore next */
     if (true) {
-        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(84)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(85)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -11530,7 +11683,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11569,7 +11722,7 @@ module.exports = function isGeneratorFunction(fn) {
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11595,17 +11748,17 @@ module.exports = function is(a, b) {
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(90);
+var define = __webpack_require__(91);
 
-var implementation = __webpack_require__(91);
-var getPolyfill = __webpack_require__(92);
-var shim = __webpack_require__(103);
+var implementation = __webpack_require__(92);
+var getPolyfill = __webpack_require__(93);
+var shim = __webpack_require__(104);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -11619,17 +11772,17 @@ module.exports = implementation;
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var isString = __webpack_require__(12);
-var isNumber = __webpack_require__(56);
+var isString = __webpack_require__(13);
+var isNumber = __webpack_require__(59);
 var isBoolean = __webpack_require__(40);
-var isSymbol = __webpack_require__(16);
-var isBigInt = __webpack_require__(51);
+var isSymbol = __webpack_require__(18);
+var isBigInt = __webpack_require__(54);
 
 module.exports = function isBoxedPrimitive(value) {
 	if (!value || typeof value !== 'object') {
@@ -11641,14 +11794,14 @@ module.exports = function isBoxedPrimitive(value) {
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
 var origSymbol = global.Symbol;
-var hasSymbolSham = __webpack_require__(99);
+var hasSymbolSham = __webpack_require__(100);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -11659,10 +11812,10 @@ module.exports = function hasNativeSymbols() {
 	return hasSymbolSham();
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(65)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(66)))
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11711,7 +11864,7 @@ module.exports = function hasSymbols() {
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11722,7 +11875,7 @@ if (!Object.keys) {
 	// modified from https://github.com/es-shims/es5-shim
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
-	var isArgs = __webpack_require__(87); // eslint-disable-line global-require
+	var isArgs = __webpack_require__(88); // eslint-disable-line global-require
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -11840,19 +11993,19 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var bind = __webpack_require__(88);
+var bind = __webpack_require__(89);
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11911,14 +12064,14 @@ module.exports = function bind(that) {
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(90);
-var getPolyfill = __webpack_require__(92);
+var define = __webpack_require__(91);
+var getPolyfill = __webpack_require__(93);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -11930,7 +12083,7 @@ module.exports = function shimNumberIsNaN() {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -11958,7 +12111,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -11967,71 +12120,71 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(this, {}))
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
-var object_define_properties_x_esm = __webpack_require__(10);
+var object_define_properties_x_esm = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(15);
+var object_define_property_x_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
-var is_primitive = __webpack_require__(8);
+var is_primitive = __webpack_require__(9);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // EXTERNAL MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js
-var is_function_x_esm = __webpack_require__(2);
+var is_function_x_esm = __webpack_require__(3);
 
 // EXTERNAL MODULE: ./node_modules/array-for-each-x/dist/array-for-each-x.esm.js
-var array_for_each_x_esm = __webpack_require__(63);
+var array_for_each_x_esm = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/has-to-string-tag-x/dist/has-to-string-tag-x.esm.js
-var has_to_string_tag_x_esm = __webpack_require__(32);
+var has_to_string_tag_x_esm = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/trim-x/dist/trim-x.esm.js + 1 modules
-var trim_x_esm = __webpack_require__(62);
+var trim_x_esm = __webpack_require__(64);
 
 // EXTERNAL MODULE: ./node_modules/to-string-symbols-supported-x/dist/to-string-symbols-supported-x.esm.js
 var to_string_symbols_supported_x_esm = __webpack_require__(27);
 
 // EXTERNAL MODULE: ./node_modules/stackframe/stackframe.js
-var stackframe = __webpack_require__(84);
+var stackframe = __webpack_require__(85);
 var stackframe_default = /*#__PURE__*/__webpack_require__.n(stackframe);
 
 // EXTERNAL MODULE: ./node_modules/error-stack-parser/error-stack-parser.js
-var error_stack_parser = __webpack_require__(93);
+var error_stack_parser = __webpack_require__(94);
 var error_stack_parser_default = /*#__PURE__*/__webpack_require__.n(error_stack_parser);
 
 // EXTERNAL MODULE: ./node_modules/find-index-x/dist/find-index-x.esm.js
-var find_index_x_esm = __webpack_require__(55);
+var find_index_x_esm = __webpack_require__(58);
 
-// EXTERNAL MODULE: ./node_modules/inspect-x/dist/inspect-x.esm.js + 11 modules
-var inspect_x_esm = __webpack_require__(48);
+// EXTERNAL MODULE: ./node_modules/inspect-x/dist/inspect-x.esm.js + 10 modules
+var inspect_x_esm = __webpack_require__(51);
 
 // EXTERNAL MODULE: ./node_modules/is-error-x/dist/is-error-x.esm.js
-var is_error_x_esm = __webpack_require__(47);
+var is_error_x_esm = __webpack_require__(50);
 
 // EXTERNAL MODULE: ./node_modules/is-nil-x/dist/is-nil-x.esm.js
-var is_nil_x_esm = __webpack_require__(17);
+var is_nil_x_esm = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/object-create-x/dist/object-create-x.esm.js
-var object_create_x_esm = __webpack_require__(69);
+var object_create_x_esm = __webpack_require__(79);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
-var is_object_like_x_esm = __webpack_require__(7);
+var is_object_like_x_esm = __webpack_require__(8);
 
 // EXTERNAL MODULE: ./node_modules/array-map-x/dist/array-map-x.esm.js
-var array_map_x_esm = __webpack_require__(38);
+var array_map_x_esm = __webpack_require__(39);
 
 // EXTERNAL MODULE: ./node_modules/is-nan-x/dist/is-nan-x.esm.js
-var is_nan_x_esm = __webpack_require__(21);
+var is_nan_x_esm = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js + 1 modules
-var is_finite_x_esm = __webpack_require__(35);
+var is_finite_x_esm = __webpack_require__(53);
 
 // CONCATENATED MODULE: ./node_modules/is-var-name/index.mjs
 /*!
@@ -12057,19 +12210,19 @@ function isVarName(str) {
 }
 
 // EXTERNAL MODULE: ./node_modules/to-integer-x/dist/to-integer-x.esm.js + 1 modules
-var to_integer_x_esm = __webpack_require__(25);
+var to_integer_x_esm = __webpack_require__(26);
 
 // EXTERNAL MODULE: ./node_modules/require-object-coercible-x/dist/require-object-coercible-x.esm.js
-var require_object_coercible_x_esm = __webpack_require__(5);
+var require_object_coercible_x_esm = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
-var to_string_x_esm = __webpack_require__(9);
+var to_string_x_esm = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/attempt-x/dist/attempt-x.esm.js
 var attempt_x_esm = __webpack_require__(0);
 
 // CONCATENATED MODULE: ./node_modules/string-repeat-x/dist/string-repeat-x.esm.js
-var string_repeat_x_esm_this = undefined;
+var _this = undefined;
 
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
 
@@ -12081,33 +12234,30 @@ function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { t
 var EMPTY_STRING = '';
 var nativeRepeat = EMPTY_STRING.repeat;
 var hasNative = Object(attempt_x_esm["a" /* default */])(function () {
-  _newArrowCheck(this, string_repeat_x_esm_this);
+  _newArrowCheck(this, _this);
 
   return nativeRepeat.call('a', 5);
 }.bind(undefined)).value === 'aaaaa';
-/**
- * Repeat the given string the specified number of times.
- *
- * @param {string} value - The string to repeat.
- * @param {(number|string)} count - The number of times to repeat the string.
- * @returns {string} Repeated string.
- */
 
-var $repeat;
-
-if (hasNative) {
-  $repeat = function repeat(value, count) {
+var string_repeat_x_esm_patchedRepeat = function patchedRepeat() {
+  return function repeat(value, count) {
     return nativeRepeat.call(Object(require_object_coercible_x_esm["a" /* default */])(value), count) || EMPTY_STRING;
   };
-} else {
-  $repeat = function repeat(value, count) {
+};
+
+var string_repeat_x_esm_assertRange = function assertRange(n) {
+  // Account for out-of-bounds indices
+  if (n < 0 || !Object(is_finite_x_esm["a" /* default */])(n)) {
+    throw new RangeError('Invalid count value');
+  }
+
+  return n;
+};
+
+var string_repeat_x_esm_implementation = function implementation() {
+  return function repeat(value, count) {
     var string = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(value));
-    var n = Object(to_integer_x_esm["a" /* default */])(count); // Account for out-of-bounds indices
-
-    if (n < 0 || !Object(is_finite_x_esm["a" /* default */])(n)) {
-      throw new RangeError('Invalid count value');
-    }
-
+    var n = string_repeat_x_esm_assertRange(Object(to_integer_x_esm["a" /* default */])(count));
     var result = EMPTY_STRING;
 
     while (n) {
@@ -12126,19 +12276,30 @@ if (hasNative) {
 
     return result;
   };
-}
+};
+/**
+ * Repeat the given string the specified number of times.
+ *
+ * @param {string} value - The string to repeat.
+ * @param {(number|string)} count - The number of times to repeat the string.
+ * @returns {string} Repeated string.
+ */
 
-var r = $repeat;
-/* harmony default export */ var string_repeat_x_esm = (r);
+var $repeat = hasNative ? string_repeat_x_esm_patchedRepeat() : string_repeat_x_esm_implementation();
+/* harmony default export */ var string_repeat_x_esm = ($repeat);
 
 
 // EXTERNAL MODULE: ./node_modules/is-regexp-x/dist/is-regexp-x.esm.js
-var is_regexp_x_esm = __webpack_require__(28);
+var is_regexp_x_esm = __webpack_require__(29);
 
 // EXTERNAL MODULE: ./node_modules/math-clamp-x/dist/math-clamp-x.esm.js
-var math_clamp_x_esm = __webpack_require__(54);
+var math_clamp_x_esm = __webpack_require__(57);
+
+// EXTERNAL MODULE: ./node_modules/to-boolean-x/dist/to-boolean-x.esm.js
+var to_boolean_x_esm = __webpack_require__(1);
 
 // CONCATENATED MODULE: ./node_modules/string-ends-with-x/dist/string-ends-with-x.esm.js
+
 
 
 
@@ -12150,44 +12311,29 @@ var ERR_MSG = 'Cannot call method "endsWith" with a regex';
 var ew = ERR_MSG.endsWith,
     charCodeAt = ERR_MSG.charCodeAt;
 var nativeEndsWith = typeof ew === 'function' && ew;
-var isWorking;
 
-if (nativeEndsWith) {
-  var string_ends_with_x_esm_res = attempt_x_esm["a" /* default */].call('/a/', nativeEndsWith, /a/);
-  isWorking = string_ends_with_x_esm_res.threw;
+var string_ends_with_x_esm_test1 = function test1() {
+  return attempt_x_esm["a" /* default */].call('/a/', nativeEndsWith, /a/).threw;
+};
 
-  if (isWorking) {
-    string_ends_with_x_esm_res = attempt_x_esm["a" /* default */].call('abc', nativeEndsWith, 'c', -1 / 0);
-    isWorking = string_ends_with_x_esm_res.threw === false && string_ends_with_x_esm_res.value === false;
-  }
+var string_ends_with_x_esm_test2 = function test2() {
+  var res = attempt_x_esm["a" /* default */].call('abc', nativeEndsWith, 'c', -1 / 0);
+  return res.threw === false && res.value === false;
+};
 
-  if (isWorking) {
-    string_ends_with_x_esm_res = attempt_x_esm["a" /* default */].call(123, nativeEndsWith, '3');
-    isWorking = string_ends_with_x_esm_res.threw === false && string_ends_with_x_esm_res.value === true;
-  }
+var string_ends_with_x_esm_test3 = function test3() {
+  var res = attempt_x_esm["a" /* default */].call(123, nativeEndsWith, '3');
+  return res.threw === false && res.value === true;
+};
 
-  if (isWorking) {
-    string_ends_with_x_esm_res = attempt_x_esm["a" /* default */].call(null, nativeEndsWith, 'n');
-    isWorking = string_ends_with_x_esm_res.threw;
-  }
-}
-/**
- * The endsWith method determines whether a string ends with the characters of a specified string, returning true or
- * false as appropriate.
- *
- * @param {string} string - The string to search.
- * @throws {TypeError} If string is null or undefined.
- * @param {string} searchString - The characters to be searched for at the end of this string.
- * @throws {TypeError} If searchString is a RegExp.
- * @param {number} [length] - If provided it is used as the length of string. If omitted, the default value is the string length.
- * @returns {boolean} - `true` if the given characters are found at the end of the string; otherwise, `false`.
- */
+var string_ends_with_x_esm_test4 = function test4() {
+  return attempt_x_esm["a" /* default */].call(null, nativeEndsWith, 'n').threw;
+};
 
+var isWorking = Object(to_boolean_x_esm["a" /* default */])(nativeEndsWith) && string_ends_with_x_esm_test1() && string_ends_with_x_esm_test2() && string_ends_with_x_esm_test3() && string_ends_with_x_esm_test4();
 
-var $endsWith;
-
-if (isWorking) {
-  $endsWith = function endsWith(string, searchString) {
+var string_ends_with_x_esm_patchedEndsWith = function patchedEndsWith() {
+  return function endsWith(string, searchString) {
     var str = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(string));
 
     if (Object(is_regexp_x_esm["a" /* default */])(searchString)) {
@@ -12203,61 +12349,101 @@ if (isWorking) {
 
     return nativeEndsWith.apply(str, args);
   };
-} else {
-  // Firefox (< 37?) and IE 11 TP have a noncompliant startsWith implementation
-  $endsWith = function endsWith(string, searchString) {
-    var str = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(string));
+};
 
-    if (Object(is_regexp_x_esm["a" /* default */])(searchString)) {
-      throw new TypeError(ERR_MSG);
-    }
+var string_ends_with_x_esm_assertNotRegexp = function assertNotRegexp(searchString) {
+  if (Object(is_regexp_x_esm["a" /* default */])(searchString)) {
+    throw new TypeError(ERR_MSG);
+  }
 
-    var stringLength = str.length;
-    var searchStr = Object(to_string_x_esm["a" /* default */])(searchString);
-    var searchLength = searchStr.length;
-    var length = stringLength;
+  return searchString;
+};
 
-    if (arguments.length > 2) {
-      /* eslint-disable-next-line prefer-rest-params */
-      var position = arguments[2];
+var string_ends_with_x_esm_getLength = function getLength(args, stringLength) {
+  var length = stringLength;
 
-      if (typeof position !== 'undefined') {
-        length = Object(to_integer_x_esm["a" /* default */])(position);
+  if (args.length > 2) {
+    var position = args[2];
 
-        if (Object(is_nan_x_esm["a" /* default */])(length)) {
-          length = 0;
-        }
+    if (typeof position !== 'undefined') {
+      length = Object(to_integer_x_esm["a" /* default */])(position);
+
+      if (Object(is_nan_x_esm["a" /* default */])(length)) {
+        length = 0;
       }
     }
+  }
 
-    var end = Object(math_clamp_x_esm["a" /* default */])(length, 0, stringLength);
-    var start = end - searchLength;
+  return length;
+};
 
-    if (start < 0) {
+var string_ends_with_x_esm_predicate = function predicate(obj) {
+  var str = obj.str,
+      searchStr = obj.searchStr,
+      start = obj.start,
+      searchLength = obj.searchLength;
+
+  if (start < 0) {
+    return false;
+  }
+
+  var index = 0;
+
+  while (index < searchLength) {
+    if (charCodeAt.call(str, start + index) !== charCodeAt.call(searchStr, index)) {
       return false;
     }
 
-    var index = 0;
+    index += 1;
+  }
 
-    while (index < searchLength) {
-      if (charCodeAt.call(str, start + index) !== charCodeAt.call(searchStr, index)) {
-        return false;
-      }
+  return true;
+};
 
-      index += 1;
-    }
+var string_ends_with_x_esm_implementation = function implementation() {
+  // Firefox (< 37?) and IE 11 TP have a non-compliant startsWith implementation
+  return function endsWith(string, searchString) {
+    var str = Object(to_string_x_esm["a" /* default */])(Object(require_object_coercible_x_esm["a" /* default */])(string));
+    string_ends_with_x_esm_assertNotRegexp(searchString);
+    var stringLength = str.length;
+    var searchStr = Object(to_string_x_esm["a" /* default */])(searchString);
+    var searchLength = searchStr.length;
+    /* eslint-disable-next-line prefer-rest-params */
 
-    return true;
+    var length = string_ends_with_x_esm_getLength(arguments, stringLength);
+    var end = Object(math_clamp_x_esm["a" /* default */])(length, 0, stringLength);
+    var start = end - searchLength;
+    return string_ends_with_x_esm_predicate({
+      str: str,
+      searchStr: searchStr,
+      start: start,
+      searchLength: searchLength
+    });
   };
-}
+};
+/**
+ * The endsWith method determines whether a string ends with the characters of a specified string, returning true or
+ * false as appropriate.
+ *
+ * @param {string} string - The string to search.
+ * @throws {TypeError} If string is null or undefined.
+ * @param {string} searchString - The characters to be searched for at the end of this string.
+ * @throws {TypeError} If searchString is a RegExp.
+ * @param {number} [length] - If provided it is used as the length of string. If omitted, the default value is the string length.
+ * @returns {boolean} - `true` if the given characters are found at the end of the string; otherwise, `false`.
+ */
 
-var sew = $endsWith;
-/* harmony default export */ var string_ends_with_x_esm = (sew);
+var $endsWith = isWorking ? string_ends_with_x_esm_patchedEndsWith() : string_ends_with_x_esm_implementation();
+/* harmony default export */ var string_ends_with_x_esm = ($endsWith);
 
+
+// EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
+var object_keys_x_esm = __webpack_require__(15);
+
+// EXTERNAL MODULE: ./node_modules/array-every-x/dist/array-every-x.esm.js
+var array_every_x_esm = __webpack_require__(78);
 
 // CONCATENATED MODULE: ./node_modules/error-x/dist/error-x.esm.js
-function error_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /*
@@ -12291,6 +12477,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
 
+
+
+
 var isError = is_error_x_esm["a" /* default */];
 var mathMax = Math.max;
 /**
@@ -12298,22 +12487,20 @@ var mathMax = Math.max;
  */
 
 var error_x_esm_EMPTY_STRING = '';
-var stringSplit = error_x_esm_EMPTY_STRING.split,
+var split = error_x_esm_EMPTY_STRING.split,
     stringIndexOf = error_x_esm_EMPTY_STRING.indexOf,
     stringSlice = error_x_esm_EMPTY_STRING.slice;
 var _ref = [],
     pop = _ref.pop,
     join = _ref.join,
     arraySlice = _ref.slice;
-/** @type {BooleanConstructor} */
-
-var castBoolean = true.constructor;
 /* eslint-disable-next-line compat/compat */
 
 var $toStringTag = has_to_string_tag_x_esm["a" /* default */] && Symbol.toStringTag;
 /** @type {ErrorConstructor} */
 
-var $Error = Error; // Capture the function (if any).
+var $Error = Error;
+/* Capture the function (if any). */
 
 var captureStackTrace = $Error.captureStackTrace,
     prepareStackTrace = $Error.prepareStackTrace;
@@ -12333,7 +12520,7 @@ var kReadableOperator = {
 
 var kMaxShortLength = 12;
 
-function inspectValue(val) {
+var error_x_esm_inspectValue = function inspectValue(val) {
   /*
    *The util.inspect default values could be changed. This makes sure the
    * error messages contain the necessary information nevertheless.
@@ -12354,51 +12541,46 @@ function inspectValue(val) {
     /* Inspect getters as we also check them when comparing entries. */
     getters: true
   });
-}
+};
 
-function createErrDiff(actual, expected, $operator) {
-  var operator = $operator;
+var error_x_esm_createErrDiff = function createErrDiff(obj) {
+  var actual = obj.actual,
+      expected = obj.expected,
+      operator = obj.operator;
+  var $operator = operator;
   var other = error_x_esm_EMPTY_STRING;
   var res = error_x_esm_EMPTY_STRING;
   var end = error_x_esm_EMPTY_STRING;
   var skipped = false;
-  var actualInspected = inspectValue(actual);
-  var actualLines = stringSplit.call(actualInspected, '\n');
-  var expectedLines = stringSplit.call(inspectValue(expected), '\n');
+  var actualInspected = error_x_esm_inspectValue(actual);
+  var actualLines = split.call(actualInspected, '\n');
+  var expectedLines = split.call(error_x_esm_inspectValue(expected), '\n');
   var i = 0;
   var indicator = error_x_esm_EMPTY_STRING;
-  /*
-   * In case both values are objects or functions explicitly mark them as not
-   * reference equal for the `strictEqual` operator.
-   */
+  /* In case both values are objects or functions explicitly mark them as not reference equal for the `strictEqual` operator. */
 
-  if (operator === 'strictEqual' && (_typeof(actual) === 'object' && actual !== null && _typeof(expected) === 'object' && expected !== null || typeof actual === 'function' && typeof expected === 'function')) {
-    operator = 'strictEqualObject';
+  if ($operator === 'strictEqual' && (_typeof(actual) === 'object' && actual !== null && _typeof(expected) === 'object' && expected !== null || typeof actual === 'function' && typeof expected === 'function')) {
+    $operator = 'strictEqualObject';
   }
-  /*
-   * If "actual" and "expected" fit on a single line and they are not strictly
-   * equal, check further special handling.
-   */
+  /* If "actual" and "expected" fit on a single line and they are not strictly equal, check further special handling. */
 
 
   if (actualLines.length === 1 && expectedLines.length === 1 && actualLines[0] !== expectedLines[0]) {
     var inputLength = actualLines[0].length + expectedLines[0].length;
     /*
-     * If the character length of "actual" and "expected" together is less than
-     * kMaxShortLength and if neither is an object and at least one of them is
-     *not `zero`, use the strict equal comparison to visualize the output.
+     * If the character length of "actual" and "expected" together is less than kMaxShortLength and if neither is an object and at
+     * least one of them is not `zero`, use the strict equal comparison to visualize the output.
      */
 
     if (inputLength <= kMaxShortLength) {
       if ((_typeof(actual) !== 'object' || actual === null) && (_typeof(expected) !== 'object' || expected === null) && (actual !== 0 || expected !== 0)) {
         /* -0 === +0 */
-        return "".concat(kReadableOperator[operator], "\n\n").concat(actualLines[0], " !== ").concat(expectedLines[0], "\n");
+        return "".concat(kReadableOperator[$operator], "\n\n").concat(actualLines[0], " !== ").concat(expectedLines[0], "\n");
       }
-    } else if (operator !== 'strictEqualObject') {
+    } else if ($operator !== 'strictEqualObject') {
       /*
-       * If the stderr is a tty and the input length is lower than the current
-       * columns per line, add a mismatch indicator below the output. If it is
-       * not a tty, use a default value of 80 characters.
+       * If the stderr is a tty and the input length is lower than the current columns per line,
+       * add a mismatch indicator below the output. If it is not a tty, use a default value of 80 characters.
        */
       var _maxLength = 80;
 
@@ -12456,7 +12638,7 @@ function createErrDiff(actual, expected, $operator) {
 
   if (maxLines === 0) {
     /* We have to get the result again. The lines were all removed before. */
-    var aLines = actualInspected.split('\n');
+    var aLines = split.call(actualInspected, '\n');
     /* Only remove lines in case it makes sense to collapse those. */
 
     /* TODO: Accept env to always show the full error. */
@@ -12486,7 +12668,7 @@ function createErrDiff(actual, expected, $operator) {
 
   var printedLines = 0;
   var identical = 0;
-  var msg = "".concat(kReadableOperator[operator], "\n+ actual - expected");
+  var msg = "".concat(kReadableOperator[$operator], "\n+ actual - expected");
   var skippedMsg = ' ... Lines skipped';
   var lines = actualLines;
   var plusMinus = '+';
@@ -12500,10 +12682,7 @@ function createErrDiff(actual, expected, $operator) {
 
   for (i = 0; i < maxLines; i += 1) {
     if (maxLength < i + 1) {
-      /*
-       * If more than two former lines are identical, print them. Collapse them
-       * in case more than five lines were identical.
-       */
+      /* If more than two former lines are identical, print them. Collapse them in case more than five lines were identical. */
       if (identical > 2) {
         if (identical > 3) {
           if (identical > 4) {
@@ -12536,23 +12715,19 @@ function createErrDiff(actual, expected, $operator) {
       }
 
       printedLines += 1;
-      /* Only extra actual lines exist */
-
-      /* Lines diverge */
+      /* Only extra actual lines exist. Lines diverge */
     } else {
       var expectedLine = expectedLines[i];
       var actualLine = actualLines[i];
       /*
-       * If the lines diverge, specifically check for lines that only diverge by
-       * a trailing comma. In that case it is actually identical and we should
-       * mark it as such.
+       * If the lines diverge, specifically check for lines that only diverge by a trailing comma.
+       * In that case it is actually identical and we should mark it as such.
        */
 
       var divergingLines = actualLine !== expectedLine && (!string_ends_with_x_esm(actualLine, ',') || stringSlice.call(actualLine, 0, -1) !== expectedLine);
       /*
-       * If the expected line has a trailing comma but is otherwise identical,
-       * add a comma at the end of the actual line. Otherwise the output could
-       * look weird as in:
+       * If the expected line has a trailing comma but is otherwise identical, add a comma at the end of the actual line.
+       * Otherwise the output could look weird as in:
        *
        * [
        *   1         // No comma at the end!
@@ -12566,10 +12741,7 @@ function createErrDiff(actual, expected, $operator) {
       }
 
       if (divergingLines) {
-        /*
-         * If more than two former lines are identical, print them. Collapse
-         * them in case more than five lines were identical.
-         */
+        /* If more than two former lines are identical, print them. Collapse them in case more than five lines were identical. */
         if (identical > 2) {
           if (identical > 3) {
             if (identical > 4) {
@@ -12624,7 +12796,7 @@ function createErrDiff(actual, expected, $operator) {
   }
 
   return "".concat(msg).concat(skipped ? skippedMsg : error_x_esm_EMPTY_STRING, "\n").concat(res).concat(other).concat(end).concat(indicator);
-}
+};
 /**
  * Tests for number as specified in StackTrace library.
  *
@@ -12647,156 +12819,248 @@ var error_x_esm_isNumber = function isNumber(n) {
  */
 
 
-var tempPrepareStackTrace = function _prepareStackTrace(ignore, thisStack) {
+var tempPrepareStackTrace = function $prepareStackTrace(ignore, thisStack) {
   return thisStack;
 };
 
-var cV8 = castBoolean(captureStackTrace) && function getCV8() {
-  // Test to see if the function works.
+var getFrameIterateeOpts = function getFrameIterateeOpts(frame) {
+  return {
+    functionName: frame.getFunctionName(),
+    isConstructor: frame.isConstructor(),
+    isEval: frame.isEval(),
+    isNative: frame.isNative(),
+    isToplevel: frame.isToplevel(),
+    source: frame.toString()
+  };
+};
+
+var error_x_esm_setFileName = function setFileName(frame, opts) {
+  var getFileName = Object(is_function_x_esm["a" /* default */])(frame.getFileName) && frame.getFileName();
+
+  if (getFileName) {
+    opts.getFileName = getFileName;
+  }
+
+  return opts;
+};
+
+var error_x_esm_setColumnNumber = function setColumnNumber(frame, opts) {
+  var columnNumber = Object(is_function_x_esm["a" /* default */])(frame.getColumnNumber) && frame.getColumnNumber();
+
+  if (error_x_esm_isNumber(columnNumber)) {
+    opts.columnNumber = columnNumber;
+  }
+
+  return opts;
+};
+
+var error_x_esm_setLineNumber = function setLineNumber(frame, opts) {
+  var lineNumber = Object(is_function_x_esm["a" /* default */])(frame.getLineNumber) && frame.getLineNumber();
+
+  if (error_x_esm_isNumber(lineNumber)) {
+    opts.lineNumber = lineNumber;
+  }
+
+  return opts;
+};
+
+var error_x_esm_setEvalOrigin = function setEvalOrigin(frame, opts) {
+  var evalOrigin = Object(is_function_x_esm["a" /* default */])(frame.getEvalOrigin) && frame.getEvalOrigin();
+
+  if (Object(is_object_like_x_esm["a" /* default */])(evalOrigin)) {
+    opts.evalOrigin = evalOrigin;
+  }
+
+  return opts;
+};
+
+var error_x_esm_v8FrameIteratee = function v8FrameIteratee(frame) {
+  var opts = getFrameIterateeOpts(frame);
+  error_x_esm_setFileName(frame, opts);
+  error_x_esm_setEvalOrigin(frame, opts);
+  error_x_esm_setColumnNumber(frame, opts);
+  error_x_esm_setLineNumber(frame, opts);
+  error_x_esm_setEvalOrigin(frame, opts);
+  return new stackframe_default.a(opts);
+};
+/**
+ * Captures the V8 stack and converts it to an array of Stackframes.
+ *
+ * @private
+ * @function captureV8
+ * @param {!object} context - The Custom Error this object.
+ * @returns {!Array.<!object>} Array of StackFrames.
+ */
+
+
+var error_x_esm_captureV8 = function captureV8(context) {
+  $Error.prepareStackTrace = tempPrepareStackTrace;
+  /** @type {object} */
+
+  var error = new $Error();
+  captureStackTrace(error, context.constructor);
+  var frames = Object(array_map_x_esm["a" /* default */])(error.stack, error_x_esm_v8FrameIteratee);
+
+  if (typeof prepareStackTrace === 'undefined') {
+    delete $Error.prepareStackTrace;
+  } else {
+    $Error.prepareStackTrace = prepareStackTrace;
+  }
+
+  return frames;
+};
+
+var getCV8 = function getCV8() {
+  /* Test to see if the function works. */
   try {
     captureStackTrace(new $Error(), captureStackTrace);
   } catch (ignore) {
     return false;
   }
-  /**
-   * Captures the V8 stack and converts it to an array of Stackframes.
-   *
-   * @private
-   * @function captureV8
-   * @param {!object} context - The Custom Error this object.
-   * @returns {!Array.<!object>} Array of StackFrames.
-   */
 
+  return error_x_esm_captureV8;
+};
 
-  return function captureV8(context) {
-    var _this = this;
-
-    $Error.prepareStackTrace = tempPrepareStackTrace;
-    /** @type {object} */
-
-    var error = new $Error();
-    captureStackTrace(error, context.constructor);
-    var frames = Object(array_map_x_esm["a" /* default */])(error.stack, function (frame) {
-      error_x_esm_newArrowCheck(this, _this);
-
-      var opts = {
-        // args: void 0,
-        functionName: frame.getFunctionName(),
-        isConstructor: frame.isConstructor(),
-        isEval: frame.isEval(),
-        isNative: frame.isNative(),
-        isToplevel: frame.isToplevel(),
-        source: frame.toString()
-      };
-      var getFileName = Object(is_function_x_esm["a" /* default */])(frame.getFileName) && frame.getFileName();
-
-      if (getFileName) {
-        opts.getFileName = getFileName;
-      }
-
-      var columnNumber = Object(is_function_x_esm["a" /* default */])(frame.getColumnNumber) && frame.getColumnNumber();
-
-      if (error_x_esm_isNumber(columnNumber)) {
-        opts.columnNumber = columnNumber;
-      }
-
-      var lineNumber = Object(is_function_x_esm["a" /* default */])(frame.getLineNumber) && frame.getLineNumber();
-
-      if (error_x_esm_isNumber(lineNumber)) {
-        opts.lineNumber = lineNumber;
-      }
-
-      var evalOrigin = Object(is_function_x_esm["a" /* default */])(frame.getEvalOrigin) && frame.getEvalOrigin();
-
-      if (Object(is_object_like_x_esm["a" /* default */])(evalOrigin)) {
-        opts.evalOrigin = evalOrigin;
-      }
-
-      return new stackframe_default.a(opts);
-    }.bind(this));
-
-    if (typeof prepareStackTrace === 'undefined') {
-      delete $Error.prepareStackTrace;
-    } else {
-      $Error.prepareStackTrace = prepareStackTrace;
-    }
-
-    return frames;
-  };
-}();
-
+var cV8 = Object(to_boolean_x_esm["a" /* default */])(captureStackTrace) && getCV8();
 var allCtrs = true;
 var STACK_NEWLINE = '\n    ';
 /**
  * Defines frames and stack on the Custom Error this object.
  *
  * @private
- * @param {!object} context - The Custom Error this object.
- * @param {!Array.<!object>} frames - Array of StackFrames.
- * @param {string} name - The name of the constructor.
+ * @param {!object} obj - The parameters.
+ * @property {!object} objcontext - The Custom Error this object.
+ * @property {!Array.<!object>} objframes - Array of StackFrames.
+ * @property {string} objname - The name of the constructor.
  */
 
-var error_x_esm_defContext = function defContext(context, frames, name) {
-  var _this2 = this;
-
+var error_x_esm_defContext = function defContext(obj) {
+  var context = obj.context,
+      frames = obj.frames,
+      name = obj.name;
   Object(object_define_properties_x_esm["a" /* default */])(context, {
     frames: {
       value: frames
     },
     stack: {
-      value: "".concat(name).concat(STACK_NEWLINE).concat(join.call(Object(array_map_x_esm["a" /* default */])(frames, function (frame) {
-        error_x_esm_newArrowCheck(this, _this2);
-
+      value: "".concat(name).concat(STACK_NEWLINE).concat(join.call(Object(array_map_x_esm["a" /* default */])(frames, function iteratee(frame) {
         return frame.toString();
-      }.bind(this)), STACK_NEWLINE))
+      }), STACK_NEWLINE))
     }
   });
+};
+/**
+ * @private
+ * @param {Array} frames - The frames array.
+ * @param {number} start - Start from.
+ * @returns {Array} - The filtered frames array.
+ */
+
+
+var error_x_esm_filterFramesErrParse = function filterFramesErrParse(frames, start) {
+  var item = frames[start];
+  var $frames = arraySlice.call(frames, start + 1);
+  var end = Object(find_index_x_esm["a" /* default */])($frames, function predicate(frame) {
+    return item.source === frame.source;
+  });
+  return end > -1 ? arraySlice.call($frames, 0, end) : $frames;
+};
+/**
+ * @private
+ * @param {Error} err - The error object.
+ * @returns {Array|boolean} - The frames array or false.
+ */
+
+
+var error_x_esm_getErrParseFrames = function getErrParseFrames(err) {
+  try {
+    return error_stack_parser_default.a.parse(err);
+  } catch (ignore) {
+    return false;
+  }
 };
 /**
  * Captures the other stacks and converts them to an array of Stackframes.
  *
  * @private
- * @param {!object} context - The Custom Error this object.
- * @param {!Error} err - The Error object to be parsed.
- * @param {string} name - The name of the constructor.
+ * @param {!object} obj - The parameters.
+ * @property {!object} obj.context - The Custom Error this object.
+ * @property {!Error} obj.err - The Error object to be parsed.
+ * @property {string} obj.name - The name of the constructor.
  * @returns {boolean} True if the Error object was parsed, otherwise false.
  */
 
 
-var error_x_esm_errParse = function errParse(context, err, name) {
-  var _this3 = this;
+var error_x_esm_errParse = function errParse(obj) {
+  var context = obj.context,
+      err = obj.err,
+      name = obj.name;
+  var frames = error_x_esm_getErrParseFrames(err);
 
-  var frames;
-
-  try {
-    frames = error_stack_parser_default.a.parse(err);
-  } catch (ignore) {
+  if (frames === false) {
     return false;
   }
 
-  var start = Object(find_index_x_esm["a" /* default */])(frames, function (frame) {
-    error_x_esm_newArrowCheck(this, _this3);
-
+  var start = Object(find_index_x_esm["a" /* default */])(frames, function predicate(frame) {
     var fName = typeof frame.functionName === 'string' ? frame.functionName : error_x_esm_EMPTY_STRING;
     return stringIndexOf.call(fName, name) > -1;
-  }.bind(this));
+  });
 
   if (start > -1) {
-    var item = frames[start];
-    frames = arraySlice.call(frames, start + 1);
-    var end = Object(find_index_x_esm["a" /* default */])(frames, function (frame) {
-      error_x_esm_newArrowCheck(this, _this3);
-
-      return item.source === frame.source;
-    }.bind(this));
-
-    if (end > -1) {
-      frames = arraySlice.call(frames, 0, end);
-    }
+    frames = error_x_esm_filterFramesErrParse(frames, start);
   }
 
-  error_x_esm_defContext(context, frames, name);
+  error_x_esm_defContext({
+    context: context,
+    frames: frames,
+    name: name
+  });
   return true;
+};
+/**
+ * Error must be thrown to get stack in IE.
+ *
+ * @private
+ * @returns {Error} - The thrown error.
+ */
+
+
+var getParseStackError = function getParseStackError() {
+  try {
+    // noinspection ExceptionCaughtLocallyJS,JSValidateTypes
+    throw $Error();
+  } catch (e) {
+    return e;
+  }
+};
+/**
+ * If `Error` has a non-standard `stack`, `stacktrace` or `opera#sourceloc` property that offers a trace of which functions
+ * were called, in what order, from which line and  file, and with what argument, then we will set it.
+ *
+ * @private
+ * @param {Error} err - - The error object.
+ * @returns {string} - The stack string.
+ */
+
+
+var getParseStackStack = function getParseStackStack(err) {
+  if (typeof err.stack !== 'undefined') {
+    return err.stack;
+  } // noinspection JSUnresolvedVariable
+
+
+  if (typeof err.stacktrace !== 'undefined') {
+    // noinspection JSUnresolvedVariable
+    return err.stacktrace;
+  }
+
+  var sourceloc = err['opera#sourceloc'];
+
+  if (typeof sourceloc !== 'undefined') {
+    return sourceloc;
+  }
+
+  return error_x_esm_EMPTY_STRING;
 };
 /**
  * The main function for capturing and parsing stacks and setting properties
@@ -12805,59 +13069,37 @@ var error_x_esm_errParse = function errParse(context, err, name) {
  * @private
  * @param {!object} context - The Custom Error this object.
  * @param {string} name - The name of the constructor.
+ * @returns {!object} - The context.
  */
 
 
 var error_x_esm_parseStack = function parseStack(context, name) {
   if (cV8) {
-    error_x_esm_defContext(context, cV8(context), name);
+    error_x_esm_defContext({
+      context: context,
+      frames: cV8(context),
+      name: name
+    });
   } else {
-    /** @type {Error} */
-    var err;
+    var err = getParseStackError();
 
-    try {
-      // Error must be thrown to get stack in IE
-      // noinspection ExceptionCaughtLocallyJS,JSValidateTypes
-      throw $Error();
-    } catch (e) {
-      err = e;
-    }
-
-    if (error_x_esm_errParse(context, err, name) === false) {
-      var stack = error_x_esm_EMPTY_STRING; // If `Error` has a non-standard `stack`, `stacktrace` or
-      // `opera#sourceloc` property that offers a trace of which functions
-      // were called, in what order, from which line and  file, and with what
-      // argument, then we will set it.
-
-      if (typeof err.stack !== 'undefined') {
-        /* eslint-disable-next-line prefer-destructuring */
-        stack = err.stack;
-      } else {
-        // noinspection JSUnresolvedVariable
-        if (
-        /* eslint-disable-line no-lonely-if */
-        typeof err.stacktrace !== 'undefined') {
-          // noinspection JSUnresolvedVariable
-          stack = err.stacktrace;
-        } else {
-          var sourceloc = err['opera#sourceloc'];
-
-          if (typeof sourceloc !== 'undefined') {
-            stack = sourceloc;
-          }
-        }
-      }
-
+    if (error_x_esm_errParse({
+      context: context,
+      err: err,
+      name: name
+    }) === false) {
       Object(object_define_properties_x_esm["a" /* default */])(context, {
         frames: {
           value: []
         },
         stack: {
-          value: stack
+          value: getParseStackStack(err)
         }
       });
     }
   }
+
+  return context;
 };
 /**
  * Test whether we have a valid Error constructor.
@@ -12888,19 +13130,22 @@ var error_x_esm_isErrorCtr = function isErrorCtr(ErrorCtr) {
  */
 
 
-var asAssertionError = function asAssertionError(name, ErrorCtr) {
+var error_x_esm_asAssertionError = function asAssertionError(name, ErrorCtr) {
   if (name === 'AssertionError') {
     return true;
   }
 
   if (error_x_esm_isErrorCtr(ErrorCtr)) {
-    var err = new ErrorCtr({
+    var testObject = {
       actual: 'b',
       expected: 'c',
       message: 'a',
       operator: 'd'
+    };
+    var err = new ErrorCtr(testObject);
+    return Object(array_every_x_esm["a" /* default */])(Object(object_keys_x_esm["a" /* default */])(testObject), function predicate(key) {
+      return err[key] === testObject[key];
     });
-    return typeof err.name === 'string' && err.message === 'a' && err.actual === 'b' && err.expected === 'c' && err.operator === 'd';
   }
 
   return false;
@@ -12916,22 +13161,30 @@ var asAssertionError = function asAssertionError(name, ErrorCtr) {
 
 var getMessage = function getMessage(message) {
   if (message.operator === 'deepStrictEqual' || message.operator === 'strictEqual') {
-    return createErrDiff(message.actual, message.expected, message.operator);
+    var _actual = message.actual,
+        expected = message.expected,
+        operator = message.operator;
+    return error_x_esm_createErrDiff({
+      actual: _actual,
+      expected: expected,
+      operator: operator
+    });
   }
 
   if (message.operator === 'notDeepStrictEqual' || message.operator === 'notStrictEqual') {
-    // In case the objects are equal but the operator requires unequal, show
-    // the first object and say A equals B
+    /* In case the objects are equal but the operator requires unequal, show the first object and say A equals B. */
     var base = kReadableOperator[message.operator];
 
-    var _res = inspectValue(message.actual).split('\n'); // In case "actual" is an object or a function, it should not be
-    // reference equal.
+    var _res = split.call(error_x_esm_inspectValue(message.actual), '\n');
+    /* In case "actual" is an object or a function, it should not be reference equal. */
 
 
     if (message.operator === 'notStrictEqual' && (_typeof(message.actual) === 'object' && message.actual !== null || typeof actual === 'function')) {
       base = kReadableOperator.notStrictEqualObject;
-    } // Only remove lines in case it makes sense to collapse those.
-    // TODO: Accept env to always show the full error.
+    }
+    /* Only remove lines in case it makes sense to collapse those. */
+
+    /* TODO: Accept env to always show the full error. */
 
 
     if (_res.length > 50) {
@@ -12940,7 +13193,8 @@ var getMessage = function getMessage(message) {
       while (_res.length > 47) {
         pop.call(_res);
       }
-    } // Only print a single input.
+    }
+    /* Only print a single input. */
 
 
     if (_res.length === 1) {
@@ -12950,8 +13204,8 @@ var getMessage = function getMessage(message) {
     return "".concat(base, "\n\n").concat(join.call(_res, '\n'), "\n");
   }
 
-  var res = inspectValue(message.actual);
-  var other = inspectValue(message.expected);
+  var res = error_x_esm_inspectValue(message.actual);
+  var other = error_x_esm_inspectValue(message.expected);
   var knownOperator = kReadableOperator[message.operator];
 
   if (message.operator === 'notDeepEqual' && res === other) {
@@ -13003,105 +13257,107 @@ var toJSON = function toJSON() {
     stack: this.stack
   };
 };
+
+var error_x_esm_defineAssertionErrorProps = function defineAssertionErrorProps(context, message) {
+  if (_typeof(message) !== 'object' || message === null) {
+    throw new TypeError("The \"options\" argument must be of type Object. Received type ".concat(_typeof(message)));
+  }
+
+  Object(object_define_properties_x_esm["a" /* default */])(context, {
+    actual: {
+      value: message.actual
+    },
+    code: {
+      value: 'ERR_ASSERTION'
+    },
+    expected: {
+      value: message.expected
+    },
+    generatedMessage: {
+      value: Object(to_boolean_x_esm["a" /* default */])(message.message) === false
+    },
+    message: {
+      value: message.message || getMessage(message)
+    },
+    operator: {
+      value: message.operator
+    }
+  });
+  return context;
+};
 /**
  * Initialise a new instance of a custom error.
  *
  * @private
- * @param {!object} context - The Custom Error this object.
- * @param {object} message - Human-readable description of the error.
- * @param {string} name - The name for the custom Error.
- * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
+ * @param {!object} obj - The parameters.
+ * @property {!object} obj.context - The Custom Error this object.
+ * @property {object} obj.message - Human-readable description of the error.
+ * @property {string} obj.name - The name for the custom Error.
+ * @property {OfErrorConstructor} [obj.ErrorCtr=Error] - Error constructor to be used.
+ * @returns {!object} - The context;.
  */
 
 
-var error_x_esm_init = function init(context, message, name, ErrorCtr) {
-  if (asAssertionError(name, ErrorCtr)) {
-    if (_typeof(message) !== 'object' || message === null) {
-      throw new TypeError("The \"options\" argument must be of type Object. Received type ".concat(_typeof(message)));
-    }
+var error_x_esm_init = function init(obj) {
+  var context = obj.context,
+      message = obj.message,
+      name = obj.name,
+      ErrorCtr = obj.ErrorCtr;
 
-    Object(object_define_properties_x_esm["a" /* default */])(context, {
-      actual: {
-        value: message.actual
-      },
-      code: {
-        value: 'ERR_ASSERTION'
-      },
-      expected: {
-        value: message.expected
-      },
-      generatedMessage: {
-        value: castBoolean(message.message) === false
-      },
-      message: {
-        value: message.message || getMessage(message)
-      },
-      operator: {
-        value: message.operator
-      }
-    });
+  if (error_x_esm_asAssertionError(name, ErrorCtr)) {
+    error_x_esm_defineAssertionErrorProps(context, message);
   } else if (typeof message !== 'undefined') {
-    // Standard Errors. Only set `this.message` if the argument `message`
-    // was not `undefined`.
+    /* Standard Errors. Only set `this.message` if the argument `message` was not `undefined`. */
     Object(object_define_properties_x_esm["a" /* default */])(context, {
       message: {
         value: Object(to_string_symbols_supported_x_esm["a" /* default */])(message)
       }
     });
-  } // Parse and set the 'this' properties.
+  }
+  /* Parse and set the 'this' properties. */
 
 
-  error_x_esm_parseStack(context, name);
-}; // `init` is used in `eval`, don't delete.
+  return error_x_esm_parseStack(context, name);
+};
+/* `init` is used in `eval`, don't delete. */
 
 
-error_x_esm_init({}, 'message', 'name', $Error);
-/* eslint-disable-next-line no-void */
-
-var AssertionError = void 0;
+error_x_esm_init({
+  context: {},
+  message: 'message',
+  name: 'name',
+  ErrorCtr: $Error
+});
+var AssertionError = null;
 var CUSTOM_NAME = 'CustomError';
-/**
- * Creates a custom Error constructor. Will use `Error` if argument is not
- * a valid constructor.
- *
- * @function
- * @param {string} [name='Error'] - The name for the custom Error.
- * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
- * @returns {Function} The custom Error constructor.
- */
 
-var error_x_esm_createErrorCtr = function createErrorCtr(name, ErrorCtr) {
-  var ECTR = allCtrs === false || error_x_esm_isErrorCtr(ErrorCtr) === false ? $Error : ErrorCtr;
-  var initialName = Object(is_nil_x_esm["a" /* default */])(name) ? CUSTOM_NAME : Object(trim_x_esm["a" /* default */])(Object(to_string_symbols_supported_x_esm["a" /* default */])(name));
-  var customName = initialName === CUSTOM_NAME || isVarName(initialName) ? initialName : CUSTOM_NAME;
-  var nativeToString = ECTR.prototype.toString;
-  /**
-   * Create a new object, that prototypically inherits from the `Error`
-   * constructor.
-   *
-   * @private
-   * @class CstmCtr
-   * @param {string} [message] - Human-readable description of the error.
-   */
+var error_x_esm_assignToStringTag = function assignToStringTag(CstmCtr) {
+  if ($toStringTag) {
+    /**
+     * Name Symbol.toStringTag.
+     *
+     * @memberof CstmCtr.prototype
+     * @type {string}
+     */
+    Object(object_define_property_x_esm["a" /* default */])(CstmCtr.prototype, $toStringTag, {
+      value: '[object Error]'
+    });
+  }
 
-  var CstmCtr; // noinspection JSUnusedLocalSymbols
+  return CstmCtr;
+};
 
-  var f = function f(context, message) {
-    var isInstCtr = context instanceof CstmCtr;
-
-    if (isInstCtr === false) {
-      return new CstmCtr(message);
-    }
-
-    error_x_esm_init(context, message, customName, ErrorCtr);
-    return context;
+var getToStringFn = function getToStringFn(nativeToString) {
+  return function $toString() {
+    /* eslint-disable-next-line babel/no-invalid-this */
+    return this instanceof AssertionError ? "".concat(this.name, " [").concat(this.code, "]: ").concat(this.message) : nativeToString.call(this);
   };
-  /* eslint-disable-next-line no-new-func */
+};
 
-
-  CstmCtr = Function('f', "return function ".concat(customName, "(message){return f(this,message)}"))(f); // Inherit the prototype methods from `ECTR`.
-
-  CstmCtr.prototype = Object(object_create_x_esm["a" /* default */])(ECTR.prototype); // noinspection JSValidateTypes
+var error_x_esm_assignCtrMethods = function assignCtrMethods(obj) {
+  var CstmCtr = obj.CstmCtr,
+      customName = obj.customName,
+      nativeToString = obj.nativeToString; // noinspection JSValidateTypes
 
   Object(object_define_properties_x_esm["a" /* default */])(CstmCtr.prototype,
   /** @lends CstmCtr.prototype */
@@ -13134,28 +13390,70 @@ var error_x_esm_createErrorCtr = function createErrorCtr(name, ErrorCtr) {
       value: toJSON
     },
     toString: {
-      value: function $toString() {
-        return this instanceof AssertionError ? "".concat(this.name, " [").concat(this.code, "]: ").concat(this.message) : nativeToString.call(this);
-      }
+      value: getToStringFn(nativeToString)
     }
   });
+  return error_x_esm_assignToStringTag(CstmCtr);
+};
+/**
+ * @private
+ * @param {*} name - The supplied name.
+ * @returns {string} - The custom name.
+ */
 
-  if ($toStringTag) {
-    /**
-     * Name Symbol.toStringTag.
-     *
-     * @memberof CstmCtr.prototype
-     * @type {string}
-     */
-    Object(object_define_property_x_esm["a" /* default */])(CstmCtr.prototype, $toStringTag, {
-      value: '[object Error]'
-    });
-  }
 
-  return CstmCtr;
+var error_x_esm_getCustomName = function getCustomName(name) {
+  var initialName = Object(is_nil_x_esm["a" /* default */])(name) ? CUSTOM_NAME : Object(trim_x_esm["a" /* default */])(Object(to_string_symbols_supported_x_esm["a" /* default */])(name));
+  return initialName === CUSTOM_NAME || isVarName(initialName) ? initialName : CUSTOM_NAME;
+};
+/**
+ * Creates a custom Error constructor. Will use `Error` if argument is not a valid constructor.
+ *
+ * @function
+ * @param {string} [name='Error'] - The name for the custom Error.
+ * @param {OfErrorConstructor} [ErrorCtr=Error] - Error constructor to be used.
+ * @returns {Function} The custom Error constructor.
+ */
+
+
+var error_x_esm_createErrorCtr = function createErrorCtr(name, ErrorCtr) {
+  var ECTR = allCtrs === false || error_x_esm_isErrorCtr(ErrorCtr) === false ? $Error : ErrorCtr;
+  var customName = error_x_esm_getCustomName(name);
+  /**
+   * Create a new object, that prototypically inherits from the `Error`
+   * constructor.
+   *
+   * @private
+   * @class CstmCtr
+   * @param {string} [message] - Human-readable description of the error.
+   */
+
+  var CstmCtr; // noinspection JSUnusedLocalSymbols
+
+  var f = function f(context, message) {
+    return context instanceof CstmCtr ? error_x_esm_init({
+      context: context,
+      message: message,
+      name: customName,
+      ErrorCtr: ErrorCtr
+    }) : new CstmCtr(message);
+  };
+  /* eslint-disable-next-line no-new-func */
+
+
+  CstmCtr = Function('f', "return function ".concat(customName, "(message){return f(this,message)}"))(f);
+  /* Inherit the prototype methods from `ECTR`. */
+
+  CstmCtr.prototype = Object(object_create_x_esm["a" /* default */])(ECTR.prototype);
+  return error_x_esm_assignCtrMethods({
+    CstmCtr: CstmCtr,
+    customName: customName,
+    nativeToString: ECTR.prototype.toString
+  });
 };
 
-var create = error_x_esm_createErrorCtr; // Test if we can use more than just the Error constructor.
+var create = error_x_esm_createErrorCtr;
+/* Test if we can use more than just the Error constructor. */
 
 try {
   allCtrs = error_x_esm_createErrorCtr('X', SyntaxError)('x') instanceof SyntaxError;
@@ -13258,30 +13556,30 @@ var URIErrorConstructor = error_x_esm_createErrorCtr('URIError', URIError);
 
 
 // EXTERNAL MODULE: ./node_modules/has-own-property-x/dist/has-own-property-x.esm.js
-var has_own_property_x_esm = __webpack_require__(3);
+var has_own_property_x_esm = __webpack_require__(5);
 
 // EXTERNAL MODULE: ./node_modules/property-is-enumerable-x/dist/property-is-enumerable-x.esm.js
-var property_is_enumerable_x_esm = __webpack_require__(44);
+var property_is_enumerable_x_esm = __webpack_require__(46);
 
 // EXTERNAL MODULE: ./node_modules/to-string-tag-x/dist/to-string-tag-x.esm.js
-var to_string_tag_x_esm = __webpack_require__(20);
+var to_string_tag_x_esm = __webpack_require__(21);
 
 // EXTERNAL MODULE: ./node_modules/is-date-object/index.js
-var is_date_object = __webpack_require__(36);
+var is_date_object = __webpack_require__(37);
 var is_date_object_default = /*#__PURE__*/__webpack_require__.n(is_date_object);
 
 // EXTERNAL MODULE: ./node_modules/is-map-x/dist/is-map-x.esm.js
-var is_map_x_esm = __webpack_require__(46);
+var is_map_x_esm = __webpack_require__(49);
 
 // EXTERNAL MODULE: ./node_modules/is-set-x/dist/is-set-x.esm.js
-var is_set_x_esm = __webpack_require__(50);
+var is_set_x_esm = __webpack_require__(48);
 
 // EXTERNAL MODULE: ./node_modules/is-number-object/index.js
-var is_number_object = __webpack_require__(56);
+var is_number_object = __webpack_require__(59);
 var is_number_object_default = /*#__PURE__*/__webpack_require__.n(is_number_object);
 
 // EXTERNAL MODULE: ./node_modules/is-string/index.js
-var is_string = __webpack_require__(12);
+var is_string = __webpack_require__(13);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-boolean-object/index.js
@@ -13289,62 +13587,61 @@ var is_boolean_object = __webpack_require__(40);
 var is_boolean_object_default = /*#__PURE__*/__webpack_require__.n(is_boolean_object);
 
 // EXTERNAL MODULE: ./node_modules/is-symbol/index.js
-var is_symbol = __webpack_require__(16);
+var is_symbol = __webpack_require__(18);
 var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
 
 // EXTERNAL MODULE: ./node_modules/is-array-buffer-x/dist/is-array-buffer-x.esm.js
-var is_array_buffer_x_esm = __webpack_require__(45);
+var is_array_buffer_x_esm = __webpack_require__(47);
 
 // EXTERNAL MODULE: ./node_modules/is-boxed-primitive/implementation.js
-var implementation = __webpack_require__(97);
-var implementation_default = /*#__PURE__*/__webpack_require__.n(implementation);
+var is_boxed_primitive_implementation = __webpack_require__(98);
+var implementation_default = /*#__PURE__*/__webpack_require__.n(is_boxed_primitive_implementation);
 
 // EXTERNAL MODULE: ./node_modules/is-bigint/index.js
-var is_bigint = __webpack_require__(51);
+var is_bigint = __webpack_require__(54);
 var is_bigint_default = /*#__PURE__*/__webpack_require__.n(is_bigint);
 
 // EXTERNAL MODULE: ./node_modules/which-typed-array/index.js
-var which_typed_array = __webpack_require__(81);
+var which_typed_array = __webpack_require__(82);
 var which_typed_array_default = /*#__PURE__*/__webpack_require__.n(which_typed_array);
 
 // EXTERNAL MODULE: ./node_modules/has-symbol-support-x/dist/has-symbol-support-x.esm.js
-var has_symbol_support_x_esm = __webpack_require__(13);
+var has_symbol_support_x_esm = __webpack_require__(14);
 
 // EXTERNAL MODULE: ./node_modules/same-value-x/dist/same-value-x.esm.js
-var same_value_x_esm = __webpack_require__(43);
-
-// EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
-var object_keys_x_esm = __webpack_require__(18);
+var same_value_x_esm = __webpack_require__(44);
 
 // EXTERNAL MODULE: ./node_modules/get-prototype-of-x/dist/get-prototype-of-x.esm.js
-var get_prototype_of_x_esm = __webpack_require__(31);
+var get_prototype_of_x_esm = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/is-array-x/dist/is-array-x.esm.js
-var is_array_x_esm = __webpack_require__(22);
+var is_array_x_esm = __webpack_require__(23);
 
 // EXTERNAL MODULE: ./node_modules/get-own-property-symbols-x/dist/get-own-property-symbols-x.esm.js
-var get_own_property_symbols_x_esm = __webpack_require__(37);
+var get_own_property_symbols_x_esm = __webpack_require__(38);
 
 // EXTERNAL MODULE: ./node_modules/get-own-property-names-x/dist/get-own-property-names-x.esm.js
-var get_own_property_names_x_esm = __webpack_require__(42);
+var get_own_property_names_x_esm = __webpack_require__(43);
 
 // EXTERNAL MODULE: ./node_modules/array-filter-x/dist/array-filter-x.esm.js
-var array_filter_x_esm = __webpack_require__(23);
+var array_filter_x_esm = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/is-index-x/dist/is-index-x.esm.js
-var is_index_x_esm = __webpack_require__(75);
+var is_index_x_esm = __webpack_require__(74);
 
 // EXTERNAL MODULE: ./node_modules/collections-x/dist/collections-x.esm.js + 3 modules
-var collections_x_esm = __webpack_require__(29);
+var collections_x_esm = __webpack_require__(30);
 
 // EXTERNAL MODULE: ./node_modules/arraybuffer-equal/index.js
-var arraybuffer_equal = __webpack_require__(86);
+var arraybuffer_equal = __webpack_require__(87);
 var arraybuffer_equal_default = /*#__PURE__*/__webpack_require__.n(arraybuffer_equal);
 
 // EXTERNAL MODULE: ./node_modules/is-data-view-x/dist/is-data-view-x.esm.js
-var is_data_view_x_esm = __webpack_require__(78);
+var is_data_view_x_esm = __webpack_require__(77);
 
 // CONCATENATED MODULE: ./node_modules/is-deep-strict-equal-x/dist/is-deep-strict-equal-x.esm.js
+function is_deep_strict_equal_x_esm_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { is_deep_strict_equal_x_esm_typeof = function _typeof(obj) { return typeof obj; }; } else { is_deep_strict_equal_x_esm_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return is_deep_strict_equal_x_esm_typeof(obj); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -13353,17 +13650,6 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function is_deep_strict_equal_x_esm_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { is_deep_strict_equal_x_esm_typeof = function _typeof(obj) { return typeof obj; }; } else { is_deep_strict_equal_x_esm_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return is_deep_strict_equal_x_esm_typeof(obj); }
-
-function is_deep_strict_equal_x_esm_newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 
 
@@ -13394,45 +13680,58 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 
 
+var is_deep_strict_equal_x_esm_ref = [],
+    concat = is_deep_strict_equal_x_esm_ref.concat,
+    push = is_deep_strict_equal_x_esm_ref.push;
 /* eslint-disable-next-line no-void */
 
 var UNDEFINED = void 0;
 var is_deep_strict_equal_x_esm_EMPTY_STRING = '';
-var innerDeepEqual;
+var $innerDeepEqual;
 
-var bigInt48 = function getBigInt48() {
+var is_deep_strict_equal_x_esm_getBigInt48 = function getBigInt48() {
   if (typeof BigInt === 'function') {
-    try {
+    var res = Object(attempt_x_esm["a" /* default */])(function attemptee() {
       /* eslint-disable-next-line babel/new-cap,no-undef,compat/compat */
       return BigInt(48);
-    } catch (ignore) {// empty
+    });
+
+    if (res.threw === false) {
+      return res.value;
     }
   }
 
   return UNDEFINED;
-}();
+};
 
+var bigInt48 = is_deep_strict_equal_x_esm_getBigInt48();
 var hasBigInt = is_bigint_default()(bigInt48);
 var BigIntValueOf = hasBigInt ? bigInt48.valueOf : UNDEFINED;
 var BooleanValueOf = true.valueOf;
 var DateGetTime = new Date().getTime;
-var NumberValueOf = 0 .valueOf; // const ObjectPrototype = Object.prototype;
-
+var NumberValueOf = 0 .valueOf;
 var StringValueOf = is_deep_strict_equal_x_esm_EMPTY_STRING.valueOf;
 /* eslint-disable-next-line compat/compat */
 
 var SymbolValueOf = has_symbol_support_x_esm["a" /* default */] ? Symbol(is_deep_strict_equal_x_esm_EMPTY_STRING).valueOf : UNDEFINED;
 
-var hasArrayBuffer = typeof ArrayBuffer === 'function' && function testArrayBuffer() {
-  try {
-    /* eslint-disable-next-line compat/compat */
-    return Object(is_array_buffer_x_esm["a" /* default */])(new ArrayBuffer(4));
-  } catch (ignore) {
-    return false;
-  }
-}();
-/* eslint-disable-next-line compat/compat */
+var is_deep_strict_equal_x_esm_testArrayBuffer = function testArrayBuffer() {
+  if (typeof ArrayBuffer === 'function') {
+    var res = Object(attempt_x_esm["a" /* default */])(function attemptee() {
+      /* eslint-disable-next-line compat/compat */
+      return Object(is_array_buffer_x_esm["a" /* default */])(new ArrayBuffer(4));
+    });
 
+    if (res.threw === false) {
+      return res.value;
+    }
+  }
+
+  return false;
+};
+
+var hasArrayBuffer = is_deep_strict_equal_x_esm_testArrayBuffer();
+/* eslint-disable-next-line compat/compat */
 
 var hasIsView = hasArrayBuffer && typeof ArrayBuffer.isView === 'function';
 var is_deep_strict_equal_x_esm_isArrayBufferView = hasIsView ? ArrayBuffer.isView
@@ -13459,8 +13758,6 @@ var ONLY_ENUMERABLE = 2; // const ONLY_CONFIGURABLE = 4;
 var SKIP_SYMBOLS = 16;
 
 var is_deep_strict_equal_x_esm_getOwnNonIndexProperties = function getOwnNonIndexProperties(value, filter) {
-  var _this = this;
-
   // noinspection JSBitwiseOperatorUsage
   var names = filter & ONLY_ENUMERABLE
   /* eslint-disable-line no-bitwise */
@@ -13469,11 +13766,9 @@ var is_deep_strict_equal_x_esm_getOwnNonIndexProperties = function getOwnNonInde
   var symbols = filter & SKIP_SYMBOLS
   /* eslint-disable-line no-bitwise */
   ? [] : Object(get_own_property_symbols_x_esm["a" /* default */])(value);
-  return Object(array_filter_x_esm["a" /* default */])([].concat(_toConsumableArray(names), _toConsumableArray(symbols)), function (key) {
-    is_deep_strict_equal_x_esm_newArrowCheck(this, _this);
-
+  return Object(array_filter_x_esm["a" /* default */])(concat.call([], names, symbols), function predicate(key) {
     return !Object(is_index_x_esm["a" /* default */])(key);
-  }.bind(this));
+  });
 };
 
 var kStrict = true;
@@ -13483,11 +13778,11 @@ var kIsArray = 1;
 var kIsSet = 2;
 var kIsMap = 3; // Check if they have the same source and flags
 
-function areSimilarRegExps(a, b) {
+var areSimilarRegExps = function areSimilarRegExps(a, b) {
   return a.source === b.source && a.flags === b.flags;
-}
+};
 
-function areSimilarFloatArrays(a, b) {
+var areSimilarFloatArrays = function areSimilarFloatArrays(a, b) {
   if (a.byteLength !== b.byteLength) {
     return false;
   }
@@ -13499,9 +13794,9 @@ function areSimilarFloatArrays(a, b) {
   }
 
   return true;
-}
+};
 
-function areSimilarTypedArrays(a, b) {
+var is_deep_strict_equal_x_esm_areSimilarTypedArrays = function areSimilarTypedArrays(a, b) {
   if (a.byteLength !== b.byteLength) {
     return false;
   }
@@ -13509,22 +13804,28 @@ function areSimilarTypedArrays(a, b) {
 
 
   return arraybuffer_equal_default()(a.buffer, new Uint8Array(b.buffer, b.byteOffset, b.byteLength).buffer);
-}
+};
 
-function areEqualArrayBuffers(buf1, buf2) {
+var is_deep_strict_equal_x_esm_areEqualArrayBuffers = function areEqualArrayBuffers(buf1, buf2) {
   /* eslint-disable-next-line compat/compat */
   return buf1.byteLength === buf2.byteLength && arraybuffer_equal_default()(new Uint8Array(buf1).buffer, new Uint8Array(buf2).buffer);
-}
+};
 
-function setHasEqualElement(set, val1, strict, memo) {
-  // Go looking.
+var setHasEqualElement = function setHasEqualElement(args) {
+  var _args = _slicedToArray(args, 4),
+      set = _args[0],
+      val1 = _args[1],
+      strict = _args[2],
+      memo = _args[3]; // Go looking.
+
+
   var setIter = set.values();
   var next = setIter.next();
 
   while (!next.done) {
     var val2 = next.value;
 
-    if (innerDeepEqual(val1, val2, strict, memo)) {
+    if ($innerDeepEqual([val1, val2, strict, memo])) {
       // Remove the matching element to make sure we do not check that again.
       set.delete(val2);
       return true;
@@ -13534,23 +13835,19 @@ function setHasEqualElement(set, val1, strict, memo) {
   }
 
   return false;
-}
+};
 
-function getEnumerables(val, keys) {
-  var _this2 = this;
-
-  return Object(array_filter_x_esm["a" /* default */])(keys, function (k) {
-    is_deep_strict_equal_x_esm_newArrowCheck(this, _this2);
-
+var is_deep_strict_equal_x_esm_getEnumerables = function getEnumerables(val, keys) {
+  return Object(array_filter_x_esm["a" /* default */])(keys, function predicate(k) {
     return Object(property_is_enumerable_x_esm["a" /* default */])(val, k);
-  }.bind(this));
-} // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#Loose_equality_using
+  });
+}; // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#Loose_equality_using
 // Sadly it is not possible to detect corresponding values properly in case the
 // type is a string, number, bigint or boolean. The reason is that those values
 // can match lots of different string values (e.g., 1n == '+00001').
 
 
-function findLooseMatchingPrimitives(prim) {
+var is_deep_strict_equal_x_esm_findLooseMatchingPrimitives = function findLooseMatchingPrimitives(prim) {
   var $prim = prim;
 
   switch (is_deep_strict_equal_x_esm_typeof($prim)) {
@@ -13581,20 +13878,32 @@ function findLooseMatchingPrimitives(prim) {
   }
 
   return true;
-}
+};
 
-function setMightHaveLoosePrim(a, b, prim) {
-  var altValue = findLooseMatchingPrimitives(prim);
+var setMightHaveLoosePrim = function setMightHaveLoosePrim(args) {
+  var _args2 = _slicedToArray(args, 3),
+      a = _args2[0],
+      b = _args2[1],
+      prim = _args2[2];
+
+  var altValue = is_deep_strict_equal_x_esm_findLooseMatchingPrimitives(prim);
 
   if (altValue != null) {
     return altValue;
   }
 
   return b.has(altValue) && !a.has(altValue);
-}
+};
 
-function mapMightHaveLoosePrim(a, b, prim, item, memo) {
-  var altValue = findLooseMatchingPrimitives(prim);
+var mapMightHaveLoosePrim = function mapMightHaveLoosePrim(args) {
+  var _args3 = _slicedToArray(args, 5),
+      a = _args3[0],
+      b = _args3[1],
+      prim = _args3[2],
+      item = _args3[3],
+      memo = _args3[4];
+
+  var altValue = is_deep_strict_equal_x_esm_findLooseMatchingPrimitives(prim);
 
   if (altValue != null) {
     return altValue;
@@ -13602,18 +13911,23 @@ function mapMightHaveLoosePrim(a, b, prim, item, memo) {
 
   var curB = b.get(altValue);
 
-  if (typeof curB === 'undefined' && !b.has(altValue) || !innerDeepEqual(item, curB, false, memo)) {
+  if (typeof curB === 'undefined' && !b.has(altValue) || !$innerDeepEqual([item, curB, false, memo])) {
     return false;
   }
 
-  return !a.has(altValue) && innerDeepEqual(item, curB, false, memo);
-}
+  return !a.has(altValue) && $innerDeepEqual([item, curB, false, memo]);
+};
 
-function setEquiv(a, b, strict, memo) {
-  // This is a lazily initiated Set of entries which have to be compared
-  // pairwise.
+var is_deep_strict_equal_x_esm_setEquiv = function setEquiv(args) {
+  var _args4 = _slicedToArray(args, 4),
+      a = _args4[0],
+      b = _args4[1],
+      strict = _args4[2],
+      memo = _args4[3]; // This is a lazily initiated Set of entries which have to be compared pairwise.
 
   /** @type {Set} */
+
+
   var set = null;
   var setIterA = a.values();
   var nextA = setIterA.next();
@@ -13639,7 +13953,7 @@ function setEquiv(a, b, strict, memo) {
       } // Fast path to detect missing string, symbol, undefined and null values.
 
 
-      if (!setMightHaveLoosePrim(a, b, val)) {
+      if (!setMightHaveLoosePrim([a, b, val])) {
         return false;
       }
 
@@ -13662,10 +13976,10 @@ function setEquiv(a, b, strict, memo) {
       // matching and only if it's not, go hunting for it.
 
       if (is_deep_strict_equal_x_esm_typeof(_val) === 'object' && _val !== null) {
-        if (!setHasEqualElement(set, _val, strict, memo)) {
+        if (!setHasEqualElement([set, _val, strict, memo])) {
           return false;
         }
-      } else if (!strict && !a.has(_val) && !setHasEqualElement(set, _val, strict, memo)) {
+      } else if (!strict && !a.has(_val) && !setHasEqualElement([set, _val, strict, memo])) {
         return false;
       }
 
@@ -13676,19 +13990,27 @@ function setEquiv(a, b, strict, memo) {
   }
 
   return true;
-}
+};
 
-function mapHasEqualEntry(set, map, key1, item1, strict, memo) {
-  // To be able to handle cases like:
+var mapHasEqualEntry = function mapHasEqualEntry(args) {
+  var _args5 = _slicedToArray(args, 6),
+      set = _args5[0],
+      map = _args5[1],
+      key1 = _args5[2],
+      item1 = _args5[3],
+      strict = _args5[4],
+      memo = _args5[5]; // To be able to handle cases like:
   //   Map([[{}, 'a'], [{}, 'b']]) vs Map([[{}, 'b'], [{}, 'a']])
   // ... we need to consider *all* matching keys, not just the first we find.
+
+
   var setIter = set.values();
   var next = setIter.next();
 
   while (!next.done) {
     var key2 = next.value;
 
-    if (innerDeepEqual(key1, key2, strict, memo) && innerDeepEqual(item1, map.get(key2), strict, memo)) {
+    if ($innerDeepEqual([key1, key2, strict, memo]) && $innerDeepEqual([item1, map.get(key2), strict, memo])) {
       set.delete(key2);
       return true;
     }
@@ -13697,10 +14019,17 @@ function mapHasEqualEntry(set, map, key1, item1, strict, memo) {
   }
 
   return false;
-}
+};
 
-function mapEquiv(a, b, strict, memo) {
+var is_deep_strict_equal_x_esm_mapEquiv = function mapEquiv(args) {
+  var _args6 = _slicedToArray(args, 4),
+      a = _args6[0],
+      b = _args6[1],
+      strict = _args6[2],
+      memo = _args6[3];
   /** @type {Set} */
+
+
   var set = null;
   var setIterA = a.entries();
   var nextA = setIterA.next();
@@ -13721,14 +14050,14 @@ function mapEquiv(a, b, strict, memo) {
       // almost all possible cases.
       var item2 = b.get(key);
 
-      if (typeof item2 === 'undefined' && !b.has(key) || !innerDeepEqual(item1, item2, strict, memo)) {
+      if (typeof item2 === 'undefined' && !b.has(key) || !$innerDeepEqual([item1, item2, strict, memo])) {
         if (strict) {
           return false;
         } // Fast path to detect missing string, symbol, undefined and null
         // keys.
 
 
-        if (!mapMightHaveLoosePrim(a, b, key, item1, memo)) {
+        if (!mapMightHaveLoosePrim([a, b, key, item1, memo])) {
           return false;
         }
 
@@ -13753,10 +14082,10 @@ function mapEquiv(a, b, strict, memo) {
           item = _nextB$value[1];
 
       if (is_deep_strict_equal_x_esm_typeof(key) === 'object' && key !== null) {
-        if (!mapHasEqualEntry(set, a, key, item, strict, memo)) {
+        if (!mapHasEqualEntry([set, a, key, item, strict, memo])) {
           return false;
         }
-      } else if (!strict && (!a.has(key) || !innerDeepEqual(a.get(key), item, false, memo)) && !mapHasEqualEntry(set, a, key, item, false, memo)) {
+      } else if (!strict && (!a.has(key) || !$innerDeepEqual([a.get(key), item, false, memo])) && !mapHasEqualEntry([set, a, key, item, false, memo])) {
         return false;
       }
 
@@ -13767,9 +14096,9 @@ function mapEquiv(a, b, strict, memo) {
   }
 
   return true;
-}
+};
 
-function isEqualBoxedPrimitive(val1, val2) {
+var is_deep_strict_equal_x_esm_isEqualBoxedPrimitive = function isEqualBoxedPrimitive(val1, val2) {
   if (is_number_object_default()(val1)) {
     return is_number_object_default()(val2) && Object(same_value_x_esm["a" /* default */])(NumberValueOf.call(val1), NumberValueOf.call(val2));
   }
@@ -13787,25 +14116,33 @@ function isEqualBoxedPrimitive(val1, val2) {
   }
 
   return is_symbol_default()(val2) && SymbolValueOf.call(val1) === SymbolValueOf.call(val2);
-}
+};
 
-function objEquiv(a, b, strict, keys, memos, iterationType) {
-  // Sets and maps don't have their entries accessible via normal object
+var is_deep_strict_equal_x_esm_objEquiv = function objEquiv(args) {
+  var _args7 = _slicedToArray(args, 6),
+      a = _args7[0],
+      b = _args7[1],
+      strict = _args7[2],
+      keys = _args7[3],
+      memos = _args7[4],
+      iterationType = _args7[5]; // Sets and maps don't have their entries accessible via normal object
   // properties.
+
+
   var i = 0;
 
   if (iterationType === kIsSet) {
-    if (!setEquiv(a, b, strict, memos)) {
+    if (!is_deep_strict_equal_x_esm_setEquiv([a, b, strict, memos])) {
       return false;
     }
   } else if (iterationType === kIsMap) {
-    if (!mapEquiv(a, b, strict, memos)) {
+    if (!is_deep_strict_equal_x_esm_mapEquiv([a, b, strict, memos])) {
       return false;
     }
   } else if (iterationType === kIsArray) {
     for (; i < a.length; i += 1) {
       if (Object(has_own_property_x_esm["a" /* default */])(a, i)) {
-        if (!Object(has_own_property_x_esm["a" /* default */])(b, i) || !innerDeepEqual(a[i], b[i], strict, memos)) {
+        if (!Object(has_own_property_x_esm["a" /* default */])(b, i) || !$innerDeepEqual([a[i], b[i], strict, memos])) {
           return false;
         }
       } else if (Object(has_own_property_x_esm["a" /* default */])(b, i)) {
@@ -13817,7 +14154,7 @@ function objEquiv(a, b, strict, keys, memos, iterationType) {
         for (; i < keysA.length; i += 1) {
           var key = keysA[i];
 
-          if (!Object(has_own_property_x_esm["a" /* default */])(b, key) || !innerDeepEqual(a[key], b[key], strict, memos)) {
+          if (!Object(has_own_property_x_esm["a" /* default */])(b, key) || !$innerDeepEqual([a[key], b[key], strict, memos])) {
             return false;
           }
         }
@@ -13832,15 +14169,23 @@ function objEquiv(a, b, strict, keys, memos, iterationType) {
   for (i = 0; i < keys.length; i += 1) {
     var _key = keys[i];
 
-    if (!innerDeepEqual(a[_key], b[_key], strict, memos)) {
+    if (!$innerDeepEqual([a[_key], b[_key], strict, memos])) {
       return false;
     }
   }
 
   return true;
-}
+};
 
-function keyCheck(val1, val2, strict, memos, iterationType, aKeys) {
+var is_deep_strict_equal_x_esm_keyCheck = function keyCheck(args) {
+  var _args8 = _slicedToArray(args, 6),
+      val1 = _args8[0],
+      val2 = _args8[1],
+      strict = _args8[2],
+      memos = _args8[3],
+      iterationType = _args8[4],
+      aKeys = _args8[5];
+
   var $memos = memos;
   var $aKeys = aKeys; // For all remaining Object pairs, including Array, objects and Maps,
   // equivalence is determined by having:
@@ -13850,7 +14195,7 @@ function keyCheck(val1, val2, strict, memos, iterationType, aKeys) {
   // d) For Sets and Maps, equal contents
   // Note: this accounts for both named and indexed properties on Arrays.
 
-  if (arguments.length === 5) {
+  if (args.length === 5) {
     $aKeys = Object(object_keys_x_esm["a" /* default */])(val1);
     var bKeys = Object(object_keys_x_esm["a" /* default */])(val2); // The pair must have the same number of owned properties.
 
@@ -13868,7 +14213,7 @@ function keyCheck(val1, val2, strict, memos, iterationType, aKeys) {
     }
   }
 
-  if (strict && arguments.length === 5) {
+  if (strict && args.length === 5) {
     var symbolKeysA = Object(get_own_property_symbols_x_esm["a" /* default */])(val1);
 
     if (symbolKeysA.length !== 0) {
@@ -13882,7 +14227,7 @@ function keyCheck(val1, val2, strict, memos, iterationType, aKeys) {
             return false;
           }
 
-          $aKeys.push(key);
+          push.call($aKeys, key);
           count += 1;
         } else if (Object(property_is_enumerable_x_esm["a" /* default */])(val2, key)) {
           return false;
@@ -13891,13 +14236,13 @@ function keyCheck(val1, val2, strict, memos, iterationType, aKeys) {
 
       var symbolKeysB = Object(get_own_property_symbols_x_esm["a" /* default */])(val2);
 
-      if (symbolKeysA.length !== symbolKeysB.length && getEnumerables(val2, symbolKeysB).length !== count) {
+      if (symbolKeysA.length !== symbolKeysB.length && is_deep_strict_equal_x_esm_getEnumerables(val2, symbolKeysB).length !== count) {
         return false;
       }
     } else {
       var _symbolKeysB = Object(get_own_property_symbols_x_esm["a" /* default */])(val2);
 
-      if (_symbolKeysB.length !== 0 && getEnumerables(val2, _symbolKeysB).length !== 0) {
+      if (_symbolKeysB.length !== 0 && is_deep_strict_equal_x_esm_getEnumerables(val2, _symbolKeysB).length !== 0) {
         return false;
       }
     }
@@ -13933,11 +14278,11 @@ function keyCheck(val1, val2, strict, memos, iterationType, aKeys) {
 
   $memos.val1.set(val1, $memos.position);
   $memos.val2.set(val2, $memos.position);
-  var areEq = objEquiv(val1, val2, strict, $aKeys, $memos, iterationType);
+  var areEq = is_deep_strict_equal_x_esm_objEquiv([val1, val2, strict, $aKeys, $memos, iterationType]);
   $memos.val1.delete(val1);
   $memos.val2.delete(val2);
   return areEq;
-} // Notes: Type tags are historical [[Class]] properties that can be set by
+}; // Notes: Type tags are historical [[Class]] properties that can be set by
 // FunctionTemplate::SetClassName() in C++ or Symbol.toStringTag in JS
 // and retrieved using Object.prototype.toString.call(obj) in JS
 // See https://tc39.github.io/ecma262/#sec-object.prototype.tostring
@@ -13957,8 +14302,14 @@ function keyCheck(val1, val2, strict, memos, iterationType, aKeys) {
 // b) The same prototypes.
 
 
-innerDeepEqual = function _innerDeepEqual(val1, val2, strict, memos) {
-  // All identical values are equivalent, as determined by ===.
+$innerDeepEqual = function innerDeepEqual(args) {
+  var _args9 = _slicedToArray(args, 4),
+      val1 = _args9[0],
+      val2 = _args9[1],
+      strict = _args9[2],
+      memos = _args9[3]; // All identical values are equivalent, as determined by ===.
+
+
   if (val1 === val2) {
     if (val1 !== 0) {
       return true;
@@ -14019,11 +14370,11 @@ innerDeepEqual = function _innerDeepEqual(val1, val2, strict, memos) {
       return false;
     }
 
-    return keyCheck(val1, val2, strict, memos, kIsArray, keys1);
+    return is_deep_strict_equal_x_esm_keyCheck([val1, val2, strict, memos, kIsArray, keys1]);
   }
 
   if (val1Tag === '[object Object]') {
-    return keyCheck(val1, val2, strict, memos, kNoIterator);
+    return is_deep_strict_equal_x_esm_keyCheck([val1, val2, strict, memos, kNoIterator]);
   }
 
   if (is_date_object_default()(val1)) {
@@ -14045,7 +14396,7 @@ innerDeepEqual = function _innerDeepEqual(val1, val2, strict, memos) {
       if (!areSimilarFloatArrays(val1, val2)) {
         return false;
       }
-    } else if (!areSimilarTypedArrays(val1, val2)) {
+    } else if (!is_deep_strict_equal_x_esm_areSimilarTypedArrays(val1, val2)) {
       return false;
     } // Buffer.compare returns true, so val1.length === val2.length. If they both
     // only contain numeric keys, we don't need to exam further than checking
@@ -14064,45 +14415,52 @@ innerDeepEqual = function _innerDeepEqual(val1, val2, strict, memos) {
       return false;
     }
 
-    return keyCheck(val1, val2, strict, memos, kNoIterator, _keys);
+    return is_deep_strict_equal_x_esm_keyCheck([val1, val2, strict, memos, kNoIterator, _keys]);
   } else if (Object(is_set_x_esm["a" /* default */])(val1)) {
     if (!Object(is_set_x_esm["a" /* default */])(val2) || val1.size !== val2.size) {
       return false;
     }
 
-    return keyCheck(val1, val2, strict, memos, kIsSet);
+    return is_deep_strict_equal_x_esm_keyCheck([val1, val2, strict, memos, kIsSet]);
   } else if (Object(is_map_x_esm["a" /* default */])(val1)) {
     if (!Object(is_map_x_esm["a" /* default */])(val2) || val1.size !== val2.size) {
       return false;
     }
 
-    return keyCheck(val1, val2, strict, memos, kIsMap);
+    return is_deep_strict_equal_x_esm_keyCheck([val1, val2, strict, memos, kIsMap]);
   } else if (Object(is_array_buffer_x_esm["a" /* default */])(val1)) {
-    if (!areEqualArrayBuffers(val1, val2)) {
+    if (!is_deep_strict_equal_x_esm_areEqualArrayBuffers(val1, val2)) {
       return false;
     }
-  } else if (implementation_default()(val1) && !isEqualBoxedPrimitive(val1, val2)) {
+  } else if (implementation_default()(val1) && !is_deep_strict_equal_x_esm_isEqualBoxedPrimitive(val1, val2)) {
     return false;
   }
 
-  return keyCheck(val1, val2, strict, memos, kNoIterator);
+  return is_deep_strict_equal_x_esm_keyCheck([val1, val2, strict, memos, kNoIterator]);
 }; // noinspection JSUnusedGlobalSymbols
 
 
 function isDeepEqual(val1, val2) {
-  return innerDeepEqual(val1, val2, kLoose);
+  return $innerDeepEqual([val1, val2, kLoose]);
 }
 function isDeepStrictEqual(val1, val2) {
-  return innerDeepEqual(val1, val2, kStrict);
+  return $innerDeepEqual([val1, val2, kStrict]);
 }
 
 
 // EXTERNAL MODULE: ./node_modules/object-assign-x/dist/object-assign-x.esm.js
-var object_assign_x_esm = __webpack_require__(58);
+var object_assign_x_esm = __webpack_require__(41);
 
 // CONCATENATED MODULE: ./node_modules/assert-x/dist/assert-x.esm.js
 function assert_x_esm_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { assert_x_esm_typeof = function _typeof(obj) { return typeof obj; }; } else { assert_x_esm_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return assert_x_esm_typeof(obj); }
 
+function assert_x_esm_slicedToArray(arr, i) { return assert_x_esm_arrayWithHoles(arr) || assert_x_esm_iterableToArrayLimit(arr, i) || assert_x_esm_nonIterableRest(); }
+
+function assert_x_esm_nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function assert_x_esm_iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function assert_x_esm_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -14110,14 +14468,14 @@ function assert_x_esm_typeof(obj) { if (typeof Symbol === "function" && typeof S
 
 
 
-/** @type {BooleanConstructor} */
 
-var assert_x_esm_castBoolean = true.constructor;
-var rxTest = /none/.test;
 
-var isStringType = function isStringType(value) {
-  return typeof value === 'string';
-};
+/* eslint-disable-next-line no-void */
+
+var assert_x_esm_UNDEFINED = void 0;
+var rxTest = /none/.test; // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
 /**
  * Throws an exception that displays the values for actual and expected
  * separated by the provided operator.
@@ -14129,16 +14487,21 @@ var isStringType = function isStringType(value) {
  * @param {string} operator - The compare operator.
  * @throws {Error} Throws an `AssertionError`.
  */
+// eslint-enable jsdoc/check-param-names
 
+var assert_x_esm_baseFail = function baseFail(args) {
+  var _args = assert_x_esm_slicedToArray(args, 4),
+      actual = _args[0],
+      expected = _args[1],
+      message = _args[2],
+      operator = _args[3];
 
-var assert_x_esm_baseFail = function baseFail(actual, expected, message, operator) {
-  var arg = {
+  throw new AssertionErrorConstructor({
     actual: actual,
     expected: expected,
     message: message,
     operator: operator
-  };
-  throw new AssertionErrorConstructor(arg);
+  });
 };
 /**
  * Returns whether an exception is expected. Used by throws.
@@ -14151,7 +14514,7 @@ var assert_x_esm_baseFail = function baseFail(actual, expected, message, operato
 
 
 var assert_x_esm_expectedException = function expectedException(actual, expected) {
-  if (assert_x_esm_castBoolean(actual) === false || assert_x_esm_castBoolean(expected) === false) {
+  if (Object(to_boolean_x_esm["a" /* default */])(actual) === false || Object(to_boolean_x_esm["a" /* default */])(expected) === false) {
     return false;
   }
 
@@ -14169,6 +14532,74 @@ var assert_x_esm_expectedException = function expectedException(actual, expected
 
   return false;
 };
+
+var assert_x_esm_assertBaseThrowsFnArg = function assertBaseThrowsFnArg(fn) {
+  if (Object(is_function_x_esm["a" /* default */])(fn) === false) {
+    throw new TypeError("The \"fn\" argument must be of type Function. Received type ".concat(assert_x_esm_typeof(fn)));
+  }
+};
+
+var assert_x_esm_conditonal1 = function conditonal1(msg, xpd) {
+  return (Object(to_boolean_x_esm["a" /* default */])(msg) === false || typeof msg !== 'string') && typeof xpd === 'string';
+};
+
+var getParts = function getParts(msg, xpd) {
+  return {
+    part1: xpd && typeof xpd.name === 'string' && xpd.name ? " (".concat(xpd.name, ").") : '.',
+    part2: msg ? " ".concat(msg) : '.'
+  };
+};
+
+var getBaseThrowsMsg = function getBaseThrowsMsg(message, expected) {
+  var msg = message;
+  var xpd = expected;
+
+  if (assert_x_esm_conditonal1(msg, xpd)) {
+    msg = xpd;
+    xpd = assert_x_esm_UNDEFINED;
+  }
+
+  var _getParts = getParts(msg, xpd),
+      part1 = _getParts.part1,
+      part2 = _getParts.part2;
+
+  return {
+    msg: (part1 === '.' ? '' : part1) + part2,
+    xpd: xpd
+  };
+};
+
+var assert_x_esm_throwerBaseThrows = function throwerBaseThrows(args) {
+  var _args2 = assert_x_esm_slicedToArray(args, 4),
+      shouldThrow = _args2[0],
+      actual = _args2[1],
+      xpd = _args2[2],
+      wasExceptionExpected = _args2[3];
+
+  var clause1;
+  var clause2;
+
+  if (shouldThrow) {
+    clause1 = actual && xpd && Object(to_boolean_x_esm["a" /* default */])(wasExceptionExpected) === false;
+  } else {
+    clause1 = false;
+    clause2 = actual;
+  }
+
+  if (clause1 || clause2) {
+    throw actual;
+  }
+};
+
+var getBaseThrowsActual = function getBaseThrowsActual(fn) {
+  try {
+    return fn();
+  } catch (e) {
+    return e;
+  }
+}; // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
 /**
  * Returns whether an exception is expected. Used by assertx~throws and
  * assertx~doesNotThrow.
@@ -14179,58 +14610,35 @@ var assert_x_esm_expectedException = function expectedException(actual, expected
  * @param {*} expected - The expected value to compare against actual.
  * @param {string} [message] - Text description of test.
  */
+// eslint-enable jsdoc/check-param-names
 
 
-var assert_x_esm_baseThrows = function baseThrows(shouldThrow, fn, expected, message) {
-  var msg = message;
-  var clause1 = assert_x_esm_castBoolean(msg) === false || isStringType(msg) === false;
+var assert_x_esm_baseThrows = function baseThrows(args) {
+  var _args3 = assert_x_esm_slicedToArray(args, 4),
+      shouldThrow = _args3[0],
+      fn = _args3[1],
+      expected = _args3[2],
+      message = _args3[3];
 
-  if (Object(is_function_x_esm["a" /* default */])(fn) === false) {
-    throw new TypeError("The \"fn\" argument must be of type Function. Received type ".concat(assert_x_esm_typeof(fn)));
-  }
+  assert_x_esm_assertBaseThrowsFnArg(fn);
+  var actual = getBaseThrowsActual(fn);
 
-  var xpd = expected;
-
-  if (clause1 && isStringType(xpd)) {
-    msg = xpd;
-    /* eslint-disable-next-line no-void */
-
-    xpd = void 0;
-  }
-
-  var actual;
-
-  try {
-    fn();
-  } catch (e) {
-    actual = e;
-  }
+  var _getBaseThrowsMsg = getBaseThrowsMsg(message, expected),
+      msg = _getBaseThrowsMsg.msg,
+      xpd = _getBaseThrowsMsg.xpd;
 
   var wasExceptionExpected = assert_x_esm_expectedException(actual, xpd);
-  clause1 = xpd && isStringType(xpd.name) && xpd.name;
-  var part1 = clause1 ? " (".concat(xpd.name, ").") : '.';
-  var part2 = msg ? " ".concat(msg) : '.';
-  msg = (part1 === '.' ? '' : part1) + part2;
 
-  if (shouldThrow && assert_x_esm_castBoolean(actual) === false) {
-    assert_x_esm_baseFail(actual, xpd, "Missing expected exception".concat(msg), '');
-  } else if (assert_x_esm_castBoolean(shouldThrow) === false && wasExceptionExpected) {
-    assert_x_esm_baseFail(actual, xpd, "Got unwanted exception".concat(msg), '');
+  if (shouldThrow && Object(to_boolean_x_esm["a" /* default */])(actual) === false) {
+    assert_x_esm_baseFail([actual, xpd, "Missing expected exception".concat(msg), '']);
+  } else if (Object(to_boolean_x_esm["a" /* default */])(shouldThrow) === false && wasExceptionExpected) {
+    assert_x_esm_baseFail([actual, xpd, "Got unwanted exception".concat(msg), '']);
   } else {
-    var clause2;
-
-    if (shouldThrow) {
-      clause1 = actual && xpd && assert_x_esm_castBoolean(wasExceptionExpected) === false;
-    } else {
-      clause1 = false;
-      clause2 = actual;
-    }
-
-    if (clause1 || clause2) {
-      throw actual;
-    }
+    assert_x_esm_throwerBaseThrows([shouldThrow, actual, xpd, wasExceptionExpected]);
   }
-};
+}; // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
 /**
  * Common function for `assert` and `assert~ok`.
  *
@@ -14239,23 +14647,33 @@ var assert_x_esm_baseThrows = function baseThrows(shouldThrow, fn, expected, mes
  * @param {string} message - Text description of test.
  * @param {string} operator - Text description of test operator.
  */
+// eslint-enable jsdoc/check-param-names
 
 
-var baseAssert = function baseAssert(value, message, operator) {
-  if (assert_x_esm_castBoolean(value) === false) {
-    assert_x_esm_baseFail(false, true, message, operator);
+var assert_x_esm_baseAssert = function baseAssert(args) {
+  var _args4 = assert_x_esm_slicedToArray(args, 3),
+      value = _args4[0],
+      message = _args4[1],
+      operator = _args4[2];
+
+  if (Object(to_boolean_x_esm["a" /* default */])(value) === false) {
+    assert_x_esm_baseFail([false, true, message, operator]);
   }
-};
+}; // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
 /**
  * Tests if value is truthy, it is equivalent to `equal(!!value, true, message)`.
  *
  * @param {*} value - The value to be tested.
- * @param {string} message - Text description of test.
+ * @param {string} [message] - Text description of test.
  */
+// eslint-enable jsdoc/check-param-names
 
 
-var assert = function assert(value, message) {
-  baseAssert(value, message, 'ok');
+var assert = function assert(value) {
+  /* eslint-disable-next-line prefer-rest-params */
+  assert_x_esm_baseAssert([value, arguments[1], 'ok']);
 };
 
 var assertMethods = {
@@ -14280,9 +14698,10 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   deepEqual: {
-    value: function deepEqual(actual, expected, message) {
+    value: function deepEqual(actual, expected) {
       if (isDeepEqual(actual, expected) === false) {
-        assert_x_esm_baseFail(actual, expected, message, 'deepEqual');
+        /* eslint-disable-next-line prefer-rest-params */
+        assert_x_esm_baseFail([actual, expected, arguments[2], 'deepEqual']);
       }
     }
   },
@@ -14296,9 +14715,10 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   deepStrictEqual: {
-    value: function deepStrictEqual(actual, expected, message) {
+    value: function deepStrictEqual(actual, expected) {
       if (isDeepStrictEqual(actual, expected) === false) {
-        assert_x_esm_baseFail(actual, expected, message, 'deepStrictEqual');
+        /* eslint-disable-next-line prefer-rest-params */
+        assert_x_esm_baseFail([actual, expected, arguments[2], 'deepStrictEqual']);
       }
     }
   },
@@ -14311,8 +14731,9 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   doesNotThrow: {
-    value: function doesNotThrow(fn, error, message) {
-      assert_x_esm_baseThrows(false, fn, error, message);
+    value: function doesNotThrow(fn, error) {
+      /* eslint-disable-next-line prefer-rest-params */
+      assert_x_esm_baseThrows([false, fn, error, arguments[2]]);
     }
   },
 
@@ -14325,13 +14746,13 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   equal: {
-    value: function equal(actual, expected, message) {
+    value: function equal(actual, expected) {
+      /* eslint-disable-next-line eqeqeq */
       // noinspection EqualityComparisonWithCoercionJS
-      if (actual != expected
-      /* eslint-disable-line eqeqeq */
-      ) {
-          assert_x_esm_baseFail(actual, expected, message, '==');
-        }
+      if (actual != expected) {
+        /* eslint-disable-next-line prefer-rest-params */
+        assert_x_esm_baseFail([actual, expected, arguments[2], '==']);
+      }
     }
   },
 
@@ -14339,30 +14760,31 @@ var assertMethods = {
    * Throws an exception that displays the values for actual and expected
    * separated by the provided operator.
    *
-   * @param {*} actual - The actual value to be tested.
-   * @param {*} expected - The expected value to compare against actual.
-   * @param {string} [message] - Text description of test.
-   * @param {string} operator - The compare operator.
+   * @param {string|Error} [message] - Text description of test.
    * @throws {Error} Throws an `AssertionError`.
    */
   fail: {
-    value: function fail(actual, expected, message) {
-      var operator = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '!=';
-
+    value: function fail(actual) {
       if (arguments.length < 2) {
         if (isError(actual)) {
           throw actual;
         }
-        /* eslint-disable-next-line no-void */
 
-
-        assert_x_esm_baseFail(actual, void 0, arguments.length ? actual : 'Failed', 'fail');
+        assert_x_esm_baseFail([assert_x_esm_UNDEFINED, assert_x_esm_UNDEFINED, arguments.length ? actual : 'Failed', 'fail']);
       } else {
+        /* eslint-disable-next-line prefer-rest-params */
+        var message = arguments[2];
+
         if (isError(message)) {
           throw message;
         }
+        /* eslint-disable-next-line prefer-rest-params */
 
-        assert_x_esm_baseFail(actual, expected, message, operator);
+
+        var operator = arguments.length > 3 ? arguments[3] : '!=';
+        /* eslint-disable-next-line prefer-rest-params */
+
+        assert_x_esm_baseFail([actual, arguments[1], message, operator]);
       }
     }
   },
@@ -14390,9 +14812,10 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   notDeepEqual: {
-    value: function notDeepEqual(actual, expected, message) {
+    value: function notDeepEqual(actual, expected) {
       if (isDeepEqual(actual, expected)) {
-        assert_x_esm_baseFail(actual, expected, message, 'notDeepEqual');
+        /* eslint-disable-next-line prefer-rest-params */
+        assert_x_esm_baseFail([actual, expected, arguments[2], 'notDeepEqual']);
       }
     }
   },
@@ -14405,9 +14828,10 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   notDeepStrictEqual: {
-    value: function notDeepStrictEqual(actual, expected, message) {
+    value: function notDeepStrictEqual(actual, expected) {
       if (isDeepStrictEqual(actual, expected)) {
-        assert_x_esm_baseFail(actual, expected, message, 'notDeepStrictEqual');
+        /* eslint-disable-next-line prefer-rest-params */
+        assert_x_esm_baseFail([actual, expected, arguments[2], 'notDeepStrictEqual']);
       }
     }
   },
@@ -14421,13 +14845,13 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   notEqual: {
-    value: function notEqual(actual, expected, message) {
+    value: function notEqual(actual, expected) {
+      /* eslint-disable-next-line eqeqeq */
       // noinspection EqualityComparisonWithCoercionJS
-      if (actual == expected
-      /* eslint-disable-line eqeqeq */
-      ) {
-          assert_x_esm_baseFail(actual, expected, message, '!=');
-        }
+      if (actual == expected) {
+        /* eslint-disable-next-line prefer-rest-params */
+        assert_x_esm_baseFail([actual, expected, arguments[2], '!=']);
+      }
     }
   },
 
@@ -14440,9 +14864,10 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   notStrictEqual: {
-    value: function notStrictEqual(actual, expected, message) {
+    value: function notStrictEqual(actual, expected) {
       if (actual === expected) {
-        assert_x_esm_baseFail(actual, expected, message, 'notStrictEqual');
+        /* eslint-disable-next-line prefer-rest-params */
+        assert_x_esm_baseFail([actual, expected, arguments[2], 'notStrictEqual']);
       }
     }
   },
@@ -14455,8 +14880,9 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   ok: {
-    value: function ok(value, message) {
-      baseAssert(value, message, 'ok');
+    value: function ok(value) {
+      /* eslint-disable-next-line prefer-rest-params */
+      assert_x_esm_baseAssert([value, arguments[1], 'ok']);
     }
   },
 
@@ -14469,9 +14895,10 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   strictEqual: {
-    value: function strictEqual(actual, expected, message) {
+    value: function strictEqual(actual, expected) {
       if (actual !== expected) {
-        assert_x_esm_baseFail(actual, expected, message, 'strictEqual');
+        /* eslint-disable-next-line prefer-rest-params */
+        assert_x_esm_baseFail([actual, expected, arguments[2], 'strictEqual']);
       }
     }
   },
@@ -14485,16 +14912,18 @@ var assertMethods = {
    * @param {string} [message] - Text description of test.
    */
   throws: {
-    value: function throws(fn, error, message) {
-      assert_x_esm_baseThrows(true, fn, error, message);
+    value: function throws(fn, error) {
+      /* eslint-disable-next-line prefer-rest-params */
+      assert_x_esm_baseThrows([true, fn, error, arguments[2]]);
     }
   }
 };
 Object(object_define_properties_x_esm["a" /* default */])(assert, assertMethods);
 /* harmony default export */ var assert_x_esm = (assert); // Expose a strict only variant of assert
 
-function assert_x_esm_strict(value, message) {
-  baseAssert(value, message, 'ok');
+function assert_x_esm_strict(value) {
+  /* eslint-disable-next-line prefer-rest-params */
+  assert_x_esm_baseAssert([value, arguments[1], 'ok']);
 }
 var strictMethods = Object(object_assign_x_esm["a" /* default */])({}, assertMethods, {
   equal: assertMethods.strictEqual,
@@ -14506,28 +14935,25 @@ Object(object_define_properties_x_esm["a" /* default */])(assert_x_esm_strict, s
 
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
-var array_slice_x_esm = __webpack_require__(14);
+var array_slice_x_esm = __webpack_require__(16);
 
 // EXTERNAL MODULE: ./node_modules/util-format-x/dist/util-format-x.esm.js
-var util_format_x_esm = __webpack_require__(82);
+var util_format_x_esm = __webpack_require__(83);
 
 // EXTERNAL MODULE: ./node_modules/to-iso-string-x/dist/to-iso-string-x.esm.js + 1 modules
-var to_iso_string_x_esm = __webpack_require__(79);
+var to_iso_string_x_esm = __webpack_require__(80);
 
 // EXTERNAL MODULE: ./node_modules/array-includes-x/dist/array-includes-x.esm.js
-var array_includes_x_esm = __webpack_require__(24);
-
-// EXTERNAL MODULE: ./node_modules/to-boolean-x/dist/to-boolean-x.esm.js
-var to_boolean_x_esm = __webpack_require__(71);
+var array_includes_x_esm = __webpack_require__(25);
 
 // CONCATENATED MODULE: ./dist/cross-console-x.esm.js
-function cross_console_x_esm_toConsumableArray(arr) { return cross_console_x_esm_arrayWithoutHoles(arr) || cross_console_x_esm_iterableToArray(arr) || cross_console_x_esm_nonIterableSpread(); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
-function cross_console_x_esm_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
 
-function cross_console_x_esm_iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
-function cross_console_x_esm_arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 
 
@@ -14620,7 +15046,7 @@ var shams = Object(object_define_properties_x_esm["a" /* default */])({}, {
 
       if (Object(to_boolean_x_esm["a" /* default */])(expression) === false) {
         /* eslint-disable-next-line prefer-rest-params */
-        assert_x_esm.ok(false, util_format_x_esm["a" /* format */].apply(void 0, cross_console_x_esm_toConsumableArray(Object(array_slice_x_esm["a" /* default */])(arguments, 1))));
+        assert_x_esm.ok(false, util_format_x_esm["a" /* format */].apply(void 0, _toConsumableArray(Object(array_slice_x_esm["a" /* default */])(arguments, 1))));
       }
     }
   },
@@ -14665,7 +15091,7 @@ var shams = Object(object_define_properties_x_esm["a" /* default */])({}, {
         var stampStr = Object(util_format_x_esm["a" /* format */])('[%s] [%s]', Object(to_iso_string_x_esm["a" /* default */])(new DateCtr()), type);
         /* eslint-disable-next-line prefer-rest-params */
 
-        this[type].apply(this, [stampStr].concat(cross_console_x_esm_toConsumableArray(Object(array_slice_x_esm["a" /* default */])(arguments, 1))));
+        this[type].apply(this, [stampStr].concat(_toConsumableArray(Object(array_slice_x_esm["a" /* default */])(arguments, 1))));
       }
     }
   },
@@ -14699,7 +15125,7 @@ var shams = Object(object_define_properties_x_esm["a" /* default */])({}, {
     enumerable: true,
     value: function trace() {
       /* eslint-disable-next-line prefer-rest-params */
-      this.error(new Trace(util_format_x_esm["a" /* format */].apply(void 0, cross_console_x_esm_toConsumableArray(Object(array_slice_x_esm["a" /* default */])(arguments)))));
+      this.error(new Trace(util_format_x_esm["a" /* format */].apply(void 0, _toConsumableArray(Object(array_slice_x_esm["a" /* default */])(arguments)))));
     }
   },
   warn: {
