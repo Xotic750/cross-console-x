@@ -2,7 +2,7 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-31T18:50:16.412Z",
+  "date": "2019-07-31T20:49:12.691Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
