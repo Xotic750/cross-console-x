@@ -2,11 +2,11 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-08-04T23:52:31.822Z",
+  "date": "2019-08-05T07:59:12.156Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
-  "hash": "e22307baa8b23c90d2df",
+  "hash": "7ebd7386cc01dcd3b361",
   "license": "MIT",
   "version": "4.0.22"
 }
@@ -120,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 107);
+/******/ 	return __webpack_require__(__webpack_require__.s = 108);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -214,7 +214,7 @@ var toObject = function toObject(value) {
 /* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 /* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
 /* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(33);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(11);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var normalize_space_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(61);
 /* harmony import */ var replace_comments_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(63);
@@ -361,6 +361,40 @@ var hasOwnProperty = function hasOwnProperty(object, property) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(27);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+/**
+ * Tests `callback` to see if it is a function, throws a `TypeError` if it is
+ * not. Otherwise returns the `callback`.
+ *
+ * @param {*} callback - The argument to be tested.
+ * @throws {TypeError} Throws if `callback` is not a function.
+ * @returns {*} Returns `callback` if it is function.
+ */
+
+var assertIsFunction = function assertIsFunction(callback) {
+  if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(callback) === false) {
+    var msg = is_primitive__WEBPACK_IMPORTED_MODULE_2___default()(callback) ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(callback) : '#<Object>';
+    throw new TypeError("".concat(msg, " is not a function"));
+  }
+
+  return callback;
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (assertIsFunction);
+
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
 
 var MAX_SAFE_INTEGER = 9007199254740991;
@@ -391,89 +425,7 @@ var toLength = function toLength(value) {
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
-/* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(27);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-/**
- * Tests `callback` to see if it is a function, throws a `TypeError` if it is
- * not. Otherwise returns the `callback`.
- *
- * @param {*} callback - The argument to be tested.
- * @throws {TypeError} Throws if `callback` is not a function.
- * @returns {*} Returns `callback` if it is function.
- */
-
-var assertIsFunction = function assertIsFunction(callback) {
-  if (Object(is_function_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(callback) === false) {
-    var msg = is_primitive__WEBPACK_IMPORTED_MODULE_2___default()(callback) ? Object(to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(callback) : '#<Object>';
-    throw new TypeError("".concat(msg, " is not a function"));
-  }
-
-  return callback;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (assertIsFunction);
-
-
-
-/***/ }),
 /* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
-
-
-/**
- * Checks if `value` is object-like. A value is object-like if it's not a
- * primitive and not a function.
- *
- * @param {*} [value] - The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- */
-
-var isObjectLike = function isObjectLike(value) {
-  return is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(value) === false && Object(is_function_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value, true) === false;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (isObjectLike);
-
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*!
- * is-primitive <https://github.com/jonschlinkert/is-primitive>
- *
- * Copyright (c) 2014-present, Jon Schlinkert.
- * Released under the MIT License.
- */
-
-
-
-module.exports = function isPrimitive(val) {
-  if (typeof val === 'object') {
-    return val === null;
-  }
-  return typeof val !== 'function';
-};
-
-
-/***/ }),
-/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -503,162 +455,33 @@ var ToString = function ToString(value) {
 
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-// EXTERNAL MODULE: ./node_modules/array-for-each-x/dist/array-for-each-x.esm.js
-var array_for_each_x_esm = __webpack_require__(45);
-
-// EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(17);
-
-// EXTERNAL MODULE: ./node_modules/to-object-x/dist/to-object-x.esm.js
-var to_object_x_esm = __webpack_require__(2);
-
-// EXTERNAL MODULE: ./node_modules/assert-is-object-x/dist/assert-is-object-x.esm.js
-var assert_is_object_x_esm = __webpack_require__(20);
-
-// EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
-var object_keys_x_esm = __webpack_require__(15);
-
-// EXTERNAL MODULE: ./node_modules/get-own-enumerable-property-symbols-x/dist/get-own-enumerable-property-symbols-x.esm.js
-var get_own_enumerable_property_symbols_x_esm = __webpack_require__(75);
-
-// CONCATENATED MODULE: ./node_modules/get-own-enumerable-keys-x/dist/get-own-enumerable-keys-x.esm.js
+/* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
 
 
-
-var concat = [].concat;
 /**
- * This method returns only the enumerable own keys of an object.
+ * Checks if `value` is object-like. A value is object-like if it's not a
+ * primitive and not a function.
  *
- * @param {object} target - The target.
- * @throws {TypeError} - If target is null or undefined.
- * @returns {Array} The enumerable own keys.
+ * @param {*} [value] - The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
  */
 
-var get_own_enumerable_keys_x_esm_getOwnNonEnumerableKeys = function getOwnNonEnumerableKeys(target) {
-  var object = Object(to_object_x_esm["a" /* default */])(target);
-  return concat.call(Object(object_keys_x_esm["a" /* default */])(object), Object(get_own_enumerable_property_symbols_x_esm["a" /* default */])(object));
+var isObjectLike = function isObjectLike(value) {
+  return is_primitive__WEBPACK_IMPORTED_MODULE_1___default()(value) === false && Object(is_function_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(value, true) === false;
 };
 
-/* harmony default export */ var get_own_enumerable_keys_x_esm = (get_own_enumerable_keys_x_esm_getOwnNonEnumerableKeys);
-
-
-// CONCATENATED MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js
-/* unused harmony export defineProperty */
-
-
-
-
-
-var defineProperty = object_define_property_x_esm["a" /* default */];
-/**
- * This method defines new or modifies existing properties directly on an
- * object, returning the object.
- *
- * @param {object} object - The object on which to define or modify properties.
- * @param {object} properties - An object whose own enumerable properties
- *  constitute descriptors for the
- * properties to be defined or modified.
- * @returns {object} The object that was passed to the function.
- */
-
-var object_define_properties_x_esm_defineProperties = function defineProperties(object, properties) {
-  Object(assert_is_object_x_esm["a" /* default */])(object);
-  var props = Object(to_object_x_esm["a" /* default */])(properties);
-  Object(array_for_each_x_esm["a" /* default */])(get_own_enumerable_keys_x_esm(props), function defineProp(property) {
-    if (property !== '__proto__') {
-      Object(object_define_property_x_esm["a" /* default */])(object, property, props[property]);
-    }
-  });
-  return object;
-};
-
-/* harmony default export */ var object_define_properties_x_esm = __webpack_exports__["a"] = (object_define_properties_x_esm_defineProperties);
+/* harmony default export */ __webpack_exports__["a"] = (isObjectLike);
 
 
 
 /***/ }),
-/* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// CONCATENATED MODULE: ./node_modules/has-boxed-string-x/dist/has-boxed-string-x.esm.js
-var string = 'a';
-var boxedString = {}.constructor(string);
-/**
- * Check failure of by-index access of string characters (IE < 9)
- * and failure of `0 in boxedString` (Rhino).
- *
- * `true` if no failure; otherwise `false`.
- *
- * @type boolean
- */
-
-var hasBoxed = boxedString[0] === string && 0 in boxedString;
-/* harmony default export */ var has_boxed_string_x_esm = (hasBoxed);
-
-
-// EXTERNAL MODULE: ./node_modules/is-string/index.js
-var is_string = __webpack_require__(13);
-var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
-
-// CONCATENATED MODULE: ./node_modules/split-if-boxed-bug-x/dist/split-if-boxed-bug-x.esm.js
-
-
-var EMPTY_STRING = '';
-var strSplit = EMPTY_STRING.split;
-var isStringFn = has_boxed_string_x_esm === false && typeof strSplit === 'function' && is_string_default.a;
-/**
- * This method tests if a value is a string with the boxed bug; splits to an
- * array for iteration; otherwise returns the original value.
- *
- * @param {*} [value] - The value to be tested.
- * @returns {*} An array or characters if value was a string with the boxed bug;
- *  otherwise the value.
- */
-
-var splitIfBoxedBug = function splitIfBoxedBug(value) {
-  return isStringFn && isStringFn(value) ? strSplit.call(value, EMPTY_STRING) : value;
-};
-
-/* harmony default export */ var split_if_boxed_bug_x_esm = __webpack_exports__["a"] = (splitIfBoxedBug);
-
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var strValue = String.prototype.valueOf;
-var tryStringObject = function tryStringObject(value) {
-	try {
-		strValue.call(value);
-		return true;
-	} catch (e) {
-		return false;
-	}
-};
-var toStr = Object.prototype.toString;
-var strClass = '[object String]';
-var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
-
-module.exports = function isString(value) {
-	if (typeof value === 'string') { return true; }
-	if (typeof value !== 'object') { return false; }
-	return hasToStringTag ? tryStringObject(value) : toStr.call(value) === strClass;
-};
-
-
-/***/ }),
-/* 14 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -689,213 +512,29 @@ var hasSymbolSupport = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default 
 
 
 /***/ }),
-/* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
-/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(73);
-/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(is_arguments__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(56);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(12);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(29);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5);
-/* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(84);
-/* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(object_keys__WEBPACK_IMPORTED_MODULE_9__);
-
-
-
-
-
-
-
-
-
-
-var ObjectCtr = {}.constructor;
-var nativeKeys = typeof ObjectCtr.keys === 'function' && ObjectCtr.keys;
-var isWorking;
-var throwsWithNull;
-var worksWithPrim;
-var worksWithRegex;
-var worksWithArgs;
-var worksWithStr;
-
-if (nativeKeys) {
-  var isCorrectRes = function _isCorrectRes(r, length) {
-    return r.threw === false && Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(r.value) && r.value.length === length;
-  };
-
-  var either = function _either(r, a, b) {
-    var x = r.value[0];
-    var y = r.value[1];
-    return x === a && y === b || x === b && y === a;
-  };
-
-  var testObj = {
-    a: 1,
-    b: 2
-  };
-  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, testObj);
-  isWorking = isCorrectRes(res, 2) && either(res, 'a', 'b');
-
-  if (isWorking) {
-    testObj = Object('a');
-    testObj.y = 1;
-    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, testObj);
-    isWorking = isCorrectRes(res, 2) && either(res, '0', 'y');
-  }
-
-  if (isWorking) {
-    throwsWithNull = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, null).threw;
-    worksWithPrim = isCorrectRes(Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, 42), 0);
-    worksWithRegex = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, /a/g).threw === false;
-    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, function getArgs() {
-      /* eslint-disable-next-line prefer-rest-params */
-      return arguments;
-    }(1, 2));
-    worksWithArgs = isCorrectRes(res, 2) && either(res, '0', '1');
-    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, Object('ab'));
-    worksWithStr = isCorrectRes(res, 2) && either(res, '0', '1');
-  }
-}
-/**
- * This method returns an array of a given object's own enumerable properties,
- * in the same order as that provided by a for...in loop (the difference being
- * that a for-in loop enumerates properties in the prototype chain as well).
+/*!
+ * is-primitive <https://github.com/jonschlinkert/is-primitive>
  *
- * @param {*} obj - The object of which the enumerable own properties are to be returned.
- * @returns {Array} An array of strings that represent all the enumerable properties of the given object.
+ * Copyright (c) 2014-present, Jon Schlinkert.
+ * Released under the MIT License.
  */
 
 
-var objectKeys;
 
-if (isWorking) {
-  if (throwsWithNull && worksWithPrim && worksWithRegex && worksWithArgs && worksWithStr) {
-    objectKeys = nativeKeys;
-  } else {
-    objectKeys = function keys(object) {
-      var obj = to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] ? Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object) : object;
-
-      if (worksWithArgs !== true && is_arguments__WEBPACK_IMPORTED_MODULE_3___default()(obj)) {
-        obj = Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(obj);
-      } else if (worksWithStr !== true && is_string__WEBPACK_IMPORTED_MODULE_6___default()(obj)) {
-        obj = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(obj);
-      } else if (worksWithRegex !== true && Object(is_regexp_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(obj)) {
-        var regexKeys = [];
-        /* eslint-disable-next-line no-restricted-syntax */
-
-        for (var key in obj) {
-          // noinspection JSUnfilteredForInLoop
-          if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(obj, key)) {
-            regexKeys[regexKeys.length] = key;
-          }
-        }
-
-        return regexKeys;
-      }
-
-      return nativeKeys(obj);
-    };
+module.exports = function isPrimitive(val) {
+  if (typeof val === 'object') {
+    return val === null;
   }
-} else {
-  objectKeys = function keys(object) {
-    return object_keys__WEBPACK_IMPORTED_MODULE_9___default()(Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object));
-  };
-}
-
-var ok = objectKeys;
-/* harmony default export */ __webpack_exports__["a"] = (ok);
-
+  return typeof val !== 'function';
+};
 
 
 /***/ }),
-/* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(73);
-/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_arguments__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
-/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(56);
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(0);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(13);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-
-
-
-var nativeSlice = [].slice;
-
-var testArray = function testArray() {
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call([1, 2, 3], nativeSlice, 1, 2);
-  return res.threw || Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value) === false || res.value.length !== 1 || res.value[0] !== 2;
-};
-
-var testString = function testString() {
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call('abc', nativeSlice, 1, 2);
-  return res.threw || Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value) === false || res.value.length !== 1 || res.value[0] !== 'b';
-};
-
-var testDOM = function testDOM() {
-  var doc = typeof document !== 'undefined' && document;
-  var resultDocElement = doc ? attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call(doc.documentElement, nativeSlice).threw : false;
-  return resultDocElement ? resultDocElement.threw : false;
-};
-
-var failArray = testArray();
-var failString = testString();
-var failDOM = testDOM();
-/**
- * The slice() method returns a shallow copy of a portion of an array into a new
- * array object selected from begin to end (end not included). The original
- * array will not be modified.
- *
- * @param {Array|object} array - The array to slice.
- * @param {number} [start] - Zero-based index at which to begin extraction.
- *  A negative index can be used, indicating an offset from the end of the
- *  sequence. Running slice(-2) extracts the last two elements in the sequence.
- *  If begin is undefined, slice begins from index 0.
- * @param {number} [end] - Zero-based index before which to end extraction.
- *  Slice extracts up to but not including end. For example, slice(1,4)
- *  extracts the second element through the fourth element (elements indexed
- *  1, 2, and 3).
- *  A negative index can be used, indicating an offset from the end of the
- *  sequence. Running slice(2,-1) extracts the third element through the second-to-last
- *  element in the sequence.
- *  If end is omitted, slice extracts through the end of the
- *  sequence (arr.length).
- *  If end is greater than the length of the sequence, slice extracts through
- *  the end of the sequence (arr.length).
- * @returns {Array} A new array containing the extracted elements.
- */
-
-var slice = function slice(array, start, end) {
-  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(array);
-
-  if (failArray || failDOM && Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false || failString && is_string__WEBPACK_IMPORTED_MODULE_5___default()(object) || is_arguments__WEBPACK_IMPORTED_MODULE_1___default()(object)) {
-    return Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, start, end);
-  }
-  /* eslint-disable-next-line prefer-rest-params */
-
-
-  return nativeSlice.apply(object, Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(arguments, 1));
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (slice);
-
-
-
-/***/ }),
-/* 17 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1084,6 +723,367 @@ var defProp = $defineProperty;
 
 
 /***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXTERNAL MODULE: ./node_modules/array-for-each-x/dist/array-for-each-x.esm.js
+var array_for_each_x_esm = __webpack_require__(45);
+
+// EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
+var object_define_property_x_esm = __webpack_require__(12);
+
+// EXTERNAL MODULE: ./node_modules/to-object-x/dist/to-object-x.esm.js
+var to_object_x_esm = __webpack_require__(2);
+
+// EXTERNAL MODULE: ./node_modules/assert-is-object-x/dist/assert-is-object-x.esm.js
+var assert_is_object_x_esm = __webpack_require__(20);
+
+// EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
+var object_keys_x_esm = __webpack_require__(16);
+
+// EXTERNAL MODULE: ./node_modules/get-own-enumerable-property-symbols-x/dist/get-own-enumerable-property-symbols-x.esm.js
+var get_own_enumerable_property_symbols_x_esm = __webpack_require__(75);
+
+// CONCATENATED MODULE: ./node_modules/get-own-enumerable-keys-x/dist/get-own-enumerable-keys-x.esm.js
+
+
+
+var concat = [].concat;
+/**
+ * This method returns only the enumerable own keys of an object.
+ *
+ * @param {object} target - The target.
+ * @throws {TypeError} - If target is null or undefined.
+ * @returns {Array} The enumerable own keys.
+ */
+
+var get_own_enumerable_keys_x_esm_getOwnNonEnumerableKeys = function getOwnNonEnumerableKeys(target) {
+  var object = Object(to_object_x_esm["a" /* default */])(target);
+  return concat.call(Object(object_keys_x_esm["a" /* default */])(object), Object(get_own_enumerable_property_symbols_x_esm["a" /* default */])(object));
+};
+
+/* harmony default export */ var get_own_enumerable_keys_x_esm = (get_own_enumerable_keys_x_esm_getOwnNonEnumerableKeys);
+
+
+// CONCATENATED MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js
+/* unused harmony export defineProperty */
+
+
+
+
+
+var defineProperty = object_define_property_x_esm["a" /* default */];
+/**
+ * This method defines new or modifies existing properties directly on an
+ * object, returning the object.
+ *
+ * @param {object} object - The object on which to define or modify properties.
+ * @param {object} properties - An object whose own enumerable properties
+ *  constitute descriptors for the
+ * properties to be defined or modified.
+ * @returns {object} The object that was passed to the function.
+ */
+
+var object_define_properties_x_esm_defineProperties = function defineProperties(object, properties) {
+  Object(assert_is_object_x_esm["a" /* default */])(object);
+  var props = Object(to_object_x_esm["a" /* default */])(properties);
+  Object(array_for_each_x_esm["a" /* default */])(get_own_enumerable_keys_x_esm(props), function defineProp(property) {
+    if (property !== '__proto__') {
+      Object(object_define_property_x_esm["a" /* default */])(object, property, props[property]);
+    }
+  });
+  return object;
+};
+
+/* harmony default export */ var object_define_properties_x_esm = __webpack_exports__["a"] = (object_define_properties_x_esm_defineProperties);
+
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// CONCATENATED MODULE: ./node_modules/has-boxed-string-x/dist/has-boxed-string-x.esm.js
+var string = 'a';
+var boxedString = {}.constructor(string);
+/**
+ * Check failure of by-index access of string characters (IE < 9)
+ * and failure of `0 in boxedString` (Rhino).
+ *
+ * `true` if no failure; otherwise `false`.
+ *
+ * @type boolean
+ */
+
+var hasBoxed = boxedString[0] === string && 0 in boxedString;
+/* harmony default export */ var has_boxed_string_x_esm = (hasBoxed);
+
+
+// EXTERNAL MODULE: ./node_modules/is-string/index.js
+var is_string = __webpack_require__(15);
+var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
+
+// CONCATENATED MODULE: ./node_modules/split-if-boxed-bug-x/dist/split-if-boxed-bug-x.esm.js
+
+
+var EMPTY_STRING = '';
+var strSplit = EMPTY_STRING.split;
+var isStringFn = has_boxed_string_x_esm === false && typeof strSplit === 'function' && is_string_default.a;
+/**
+ * This method tests if a value is a string with the boxed bug; splits to an
+ * array for iteration; otherwise returns the original value.
+ *
+ * @param {*} [value] - The value to be tested.
+ * @returns {*} An array or characters if value was a string with the boxed bug;
+ *  otherwise the value.
+ */
+
+var splitIfBoxedBug = function splitIfBoxedBug(value) {
+  return isStringFn && isStringFn(value) ? strSplit.call(value, EMPTY_STRING) : value;
+};
+
+/* harmony default export */ var split_if_boxed_bug_x_esm = __webpack_exports__["a"] = (splitIfBoxedBug);
+
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var strValue = String.prototype.valueOf;
+var tryStringObject = function tryStringObject(value) {
+	try {
+		strValue.call(value);
+		return true;
+	} catch (e) {
+		return false;
+	}
+};
+var toStr = Object.prototype.toString;
+var strClass = '[object String]';
+var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
+
+module.exports = function isString(value) {
+	if (typeof value === 'string') { return true; }
+	if (typeof value !== 'object') { return false; }
+	return hasToStringTag ? tryStringObject(value) : toStr.call(value) === strClass;
+};
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
+/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
+/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(73);
+/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(is_arguments__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(56);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(14);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(15);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var is_regexp_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(30);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5);
+/* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(85);
+/* harmony import */ var object_keys__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(object_keys__WEBPACK_IMPORTED_MODULE_9__);
+
+
+
+
+
+
+
+
+
+
+var ObjectCtr = {}.constructor;
+var nativeKeys = typeof ObjectCtr.keys === 'function' && ObjectCtr.keys;
+var isWorking;
+var throwsWithNull;
+var worksWithPrim;
+var worksWithRegex;
+var worksWithArgs;
+var worksWithStr;
+
+if (nativeKeys) {
+  var isCorrectRes = function _isCorrectRes(r, length) {
+    return r.threw === false && Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(r.value) && r.value.length === length;
+  };
+
+  var either = function _either(r, a, b) {
+    var x = r.value[0];
+    var y = r.value[1];
+    return x === a && y === b || x === b && y === a;
+  };
+
+  var testObj = {
+    a: 1,
+    b: 2
+  };
+  var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, testObj);
+  isWorking = isCorrectRes(res, 2) && either(res, 'a', 'b');
+
+  if (isWorking) {
+    testObj = Object('a');
+    testObj.y = 1;
+    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, testObj);
+    isWorking = isCorrectRes(res, 2) && either(res, '0', 'y');
+  }
+
+  if (isWorking) {
+    throwsWithNull = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, null).threw;
+    worksWithPrim = isCorrectRes(Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, 42), 0);
+    worksWithRegex = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, /a/g).threw === false;
+    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, function getArgs() {
+      /* eslint-disable-next-line prefer-rest-params */
+      return arguments;
+    }(1, 2));
+    worksWithArgs = isCorrectRes(res, 2) && either(res, '0', '1');
+    res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(nativeKeys, Object('ab'));
+    worksWithStr = isCorrectRes(res, 2) && either(res, '0', '1');
+  }
+}
+/**
+ * This method returns an array of a given object's own enumerable properties,
+ * in the same order as that provided by a for...in loop (the difference being
+ * that a for-in loop enumerates properties in the prototype chain as well).
+ *
+ * @param {*} obj - The object of which the enumerable own properties are to be returned.
+ * @returns {Array} An array of strings that represent all the enumerable properties of the given object.
+ */
+
+
+var objectKeys;
+
+if (isWorking) {
+  if (throwsWithNull && worksWithPrim && worksWithRegex && worksWithArgs && worksWithStr) {
+    objectKeys = nativeKeys;
+  } else {
+    objectKeys = function keys(object) {
+      var obj = to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] ? Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object) : object;
+
+      if (worksWithArgs !== true && is_arguments__WEBPACK_IMPORTED_MODULE_3___default()(obj)) {
+        obj = Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(obj);
+      } else if (worksWithStr !== true && is_string__WEBPACK_IMPORTED_MODULE_6___default()(obj)) {
+        obj = Object(split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(obj);
+      } else if (worksWithRegex !== true && Object(is_regexp_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(obj)) {
+        var regexKeys = [];
+        /* eslint-disable-next-line no-restricted-syntax */
+
+        for (var key in obj) {
+          // noinspection JSUnfilteredForInLoop
+          if (Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(obj, key)) {
+            regexKeys[regexKeys.length] = key;
+          }
+        }
+
+        return regexKeys;
+      }
+
+      return nativeKeys(obj);
+    };
+  }
+} else {
+  objectKeys = function keys(object) {
+    return object_keys__WEBPACK_IMPORTED_MODULE_9___default()(Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object));
+  };
+}
+
+var ok = objectKeys;
+/* harmony default export */ __webpack_exports__["a"] = (ok);
+
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(73);
+/* harmony import */ var is_arguments__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_arguments__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
+/* harmony import */ var array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(56);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(0);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+var nativeSlice = [].slice;
+
+var testArray = function testArray() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call([1, 2, 3], nativeSlice, 1, 2);
+  return res.threw || Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value) === false || res.value.length !== 1 || res.value[0] !== 2;
+};
+
+var testString = function testString() {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call('abc', nativeSlice, 1, 2);
+  return res.threw || Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(res.value) === false || res.value.length !== 1 || res.value[0] !== 'b';
+};
+
+var testDOM = function testDOM() {
+  var doc = typeof document !== 'undefined' && document;
+  var resultDocElement = doc ? attempt_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].call(doc.documentElement, nativeSlice).threw : false;
+  return resultDocElement ? resultDocElement.threw : false;
+};
+
+var failArray = testArray();
+var failString = testString();
+var failDOM = testDOM();
+/**
+ * The slice() method returns a shallow copy of a portion of an array into a new
+ * array object selected from begin to end (end not included). The original
+ * array will not be modified.
+ *
+ * @param {Array|object} array - The array to slice.
+ * @param {number} [start] - Zero-based index at which to begin extraction.
+ *  A negative index can be used, indicating an offset from the end of the
+ *  sequence. Running slice(-2) extracts the last two elements in the sequence.
+ *  If begin is undefined, slice begins from index 0.
+ * @param {number} [end] - Zero-based index before which to end extraction.
+ *  Slice extracts up to but not including end. For example, slice(1,4)
+ *  extracts the second element through the fourth element (elements indexed
+ *  1, 2, and 3).
+ *  A negative index can be used, indicating an offset from the end of the
+ *  sequence. Running slice(2,-1) extracts the third element through the second-to-last
+ *  element in the sequence.
+ *  If end is omitted, slice extracts through the end of the
+ *  sequence (arr.length).
+ *  If end is greater than the length of the sequence, slice extracts through
+ *  the end of the sequence (arr.length).
+ * @returns {Array} A new array containing the extracted elements.
+ */
+
+var slice = function slice(array, start, end) {
+  var object = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(array);
+
+  if (failArray || failDOM && Object(is_array_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(object) === false || failString && is_string__WEBPACK_IMPORTED_MODULE_5___default()(object) || is_arguments__WEBPACK_IMPORTED_MODULE_1___default()(object)) {
+    return Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(object, start, end);
+  }
+  /* eslint-disable-next-line prefer-rest-params */
+
+
+  return nativeSlice.apply(object, Object(array_like_slice_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(arguments, 1));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (slice);
+
+
+
+/***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1091,7 +1091,7 @@ var defProp = $defineProperty;
 
 
 var toStr = Object.prototype.toString;
-var hasSymbols = __webpack_require__(99)();
+var hasSymbols = __webpack_require__(100)();
 
 if (hasSymbols) {
 	var symToStr = Symbol.prototype.toString;
@@ -1151,7 +1151,7 @@ var isNil = function isNil(value) {
 
 "use strict";
 /* harmony import */ var to_string_symbols_supported_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -1280,10 +1280,10 @@ var isArrayFn = function iife() {
 "use strict";
 /* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 
 
@@ -1455,10 +1455,10 @@ var $filter = isWorking ? patchedFilter() : implementation();
 /* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var same_value_zero_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
 /* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(58);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(12);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(14);
 /* harmony import */ var index_of_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(42);
 /* harmony import */ var calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(68);
 /* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1);
@@ -1724,7 +1724,7 @@ var to_integer_x_esm_toInteger = function toInteger(value) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -1759,11 +1759,235 @@ var toStringSymbolsSupported = function toStringSymbolsSupported(value) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
+/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(10);
+/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(15);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var is_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(74);
+/* harmony import */ var property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(46);
+/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(1);
+
+
+
+
+
+
+
+
+
+
+var EMPTY_STRING = '';
+var charAt = EMPTY_STRING.charAt;
+var castObject = {}.constructor;
+var ngopd = castObject.getOwnPropertyDescriptor;
+var nativeGOPD = typeof ngopd === 'function' && ngopd;
+var getOPDFallback1;
+var getOPDFallback2; // ES5 15.2.3.3
+// http://es5.github.com/#x15.2.3.3
+
+var doesGOPDWork = function doesGOPDWork(object, prop) {
+  object[Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(prop)] = 0;
+  var testResult = Object(attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nativeGOPD, object, prop);
+  return testResult.threw === false && testResult.value.value === 0;
+}; // check whether getOwnPropertyDescriptor works if it's given. Otherwise, shim partially.
+
+/**
+ * This method returns a property descriptor for an own property (that is,
+ * one directly present on an object and not in the object's prototype chain)
+ * of a given object.
+ *
+ * @param {*} object - The object in which to look for the property.
+ * @param {*} property - The name of the property whose description is to be retrieved.
+ * @returns {object} A property descriptor of the given property if it exists on the object, undefined otherwise.
+ */
+
+
+var $getOwnPropertyDescriptor;
+
+if (nativeGOPD) {
+  var doc = typeof document !== 'undefined' && document;
+  var getOPDWorksOnDom = doc ? doesGOPDWork(doc.createElement('div'), 'sentinel') : true;
+
+  if (getOPDWorksOnDom) {
+    var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nativeGOPD, castObject('abc'), 1);
+    var worksWithStr = res.threw === false && res.value && res.value.value === 'b';
+
+    if (worksWithStr) {
+      var getOPDWorksOnObject = doesGOPDWork({}, 'sentinel');
+
+      if (getOPDWorksOnObject) {
+        var worksWithPrim = Object(attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nativeGOPD, 42, 'name').threw === false;
+        /* eslint-disable-next-line compat/compat */
+
+        var worksWithObjSym = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"] && doesGOPDWork({}, castObject(Symbol(EMPTY_STRING)));
+
+        if (worksWithObjSym) {
+          if (worksWithPrim) {
+            $getOwnPropertyDescriptor = nativeGOPD;
+          } else {
+            $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(object, property) {
+              return nativeGOPD(Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object), property);
+            };
+          }
+        } else if (worksWithPrim) {
+          $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(object, property) {
+            return nativeGOPD(object, Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(property));
+          };
+        } else {
+          $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(object, property) {
+            return nativeGOPD(Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object), Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(property));
+          };
+        }
+      } else {
+        getOPDFallback1 = nativeGOPD;
+      }
+    } else {
+      getOPDFallback2 = nativeGOPD;
+    }
+  }
+}
+
+if (Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])($getOwnPropertyDescriptor) === false || getOPDFallback1 || getOPDFallback2) {
+  var prototypeOfObject = castObject.prototype; // If JS engine supports accessors creating shortcuts.
+
+  var lookupGetter;
+  var lookupSetter;
+  var supportsAccessors = Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(prototypeOfObject, '__defineGetter__');
+
+  if (supportsAccessors) {
+    /* eslint-disable-next-line no-underscore-dangle */
+    var lg = prototypeOfObject.__lookupGetter__;
+    /* eslint-disable-next-line no-underscore-dangle */
+
+    var ls = prototypeOfObject.__lookupSetter__;
+
+    lookupGetter = function $lookupGetter(object, property) {
+      return lg.call(object, property);
+    };
+
+    lookupSetter = function $lookupSetter(object, property) {
+      return ls.call(object, property);
+    };
+  }
+
+  $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(object, property) {
+    var obj = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object);
+    var propKey = Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(property);
+    var result; // make a valiant attempt to use the real getOwnPropertyDescriptor for I8's DOM elements.
+
+    if (getOPDFallback1) {
+      result = attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].call(castObject, getOPDFallback1, obj, propKey);
+
+      if (result.threw === false) {
+        return result.value;
+      } // try the shim if the real one doesn't work
+
+    }
+
+    var isStringIndex = is_string__WEBPACK_IMPORTED_MODULE_6___default()(obj) && Object(is_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(propKey, obj.length);
+
+    if (getOPDFallback2 && isStringIndex === false) {
+      result = attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].call(castObject, getOPDFallback2, obj, propKey);
+
+      if (result.threw === false) {
+        return result.value;
+      } // try the shim if the real one doesn't work
+
+    }
+    /* eslint-disable-next-line no-void */
+
+
+    var descriptor = void 0; // If object does not owns property return undefined immediately.
+
+    if (isStringIndex === false && Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(obj, propKey) === false) {
+      return descriptor;
+    } // If object has a property then it's for sure `configurable`, and
+    // probably `enumerable`. Detect enumerability though.
+
+
+    descriptor = {
+      configurable: is_primitive__WEBPACK_IMPORTED_MODULE_5___default()(object) === false && isStringIndex === false,
+      enumerable: Object(property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(obj, propKey)
+    }; // If JS engine supports accessor properties then property may be a
+    // getter or setter.
+
+    if (supportsAccessors) {
+      // Unfortunately `__lookupGetter__` will return a getter even
+      // if object has own non getter property along with a same named
+      // inherited getter. To avoid misbehavior we temporary remove
+      // `__proto__` so that `__lookupGetter__` will return getter only
+      // if it's owned by an object.
+
+      /* eslint-disable-next-line no-proto */
+      var prototype = obj.__proto__;
+      var notPrototypeOfObject = obj !== prototypeOfObject; // avoid recursion problem, breaking in Opera Mini when
+      // Object.getOwnPropertyDescriptor(Object.prototype, 'toString')
+      // or any other Object.prototype accessor
+
+      if (notPrototypeOfObject) {
+        /* eslint-disable-next-line no-proto */
+        obj.__proto__ = prototypeOfObject;
+      }
+
+      var getter = lookupGetter(obj, propKey);
+      var setter = lookupSetter(obj, propKey);
+
+      if (notPrototypeOfObject) {
+        // Once we have getter and setter we can put values back.
+
+        /* eslint-disable-next-line no-proto */
+        obj.__proto__ = prototype;
+      }
+
+      if (getter || setter) {
+        if (getter) {
+          descriptor.get = getter;
+        }
+
+        if (setter) {
+          descriptor.set = setter;
+        } // If it was accessor property we're done and return here
+        // in order to avoid adding `value` to the descriptor.
+
+
+        return descriptor;
+      }
+    } // If we got this far we know that object has an own property that is
+    // not an accessor so we set it as a value and return descriptor.
+
+
+    if (isStringIndex) {
+      descriptor.value = charAt.call(obj, propKey);
+      descriptor.writable = false;
+    } else {
+      descriptor.value = obj[propKey];
+      descriptor.writable = true;
+    }
+
+    return descriptor;
+  };
+}
+
+var gOPS = $getOwnPropertyDescriptor;
+/* harmony default export */ __webpack_exports__["a"] = (gOPS);
+
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1);
 /* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1934,15 +2158,15 @@ var $reduce = isWorking ? patchedReduce() : implementation();
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
 /* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
-/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(17);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
+/* harmony import */ var object_define_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
 /* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(21);
 
 
@@ -1996,7 +2220,7 @@ var isRegex = function isRegex(value) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2008,20 +2232,20 @@ var has_own_property_x_esm = __webpack_require__(5);
 var is_function_x_esm = __webpack_require__(3);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(17);
+var object_define_property_x_esm = __webpack_require__(12);
 
 // EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
-var object_define_properties_x_esm = __webpack_require__(11);
+var object_define_properties_x_esm = __webpack_require__(13);
 
 // EXTERNAL MODULE: ./node_modules/is-string/index.js
-var is_string = __webpack_require__(13);
+var is_string = __webpack_require__(15);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-array-like-x/dist/is-array-like-x.esm.js
 var is_array_like_x_esm = __webpack_require__(60);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
-var is_primitive = __webpack_require__(9);
+var is_primitive = __webpack_require__(11);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // CONCATENATED MODULE: ./node_modules/is-surrogate-pair-x/dist/is-surrogate-pair-x.esm.js
@@ -2105,22 +2329,22 @@ var isSurrogatePair = function isSurrogatePair(char1, char2) {
 var index_of_x_esm = __webpack_require__(42);
 
 // EXTERNAL MODULE: ./node_modules/assert-is-function-x/dist/assert-is-function-x.esm.js
-var assert_is_function_x_esm = __webpack_require__(7);
+var assert_is_function_x_esm = __webpack_require__(6);
 
 // EXTERNAL MODULE: ./node_modules/assert-is-object-x/dist/assert-is-object-x.esm.js
 var assert_is_object_x_esm = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
-var array_slice_x_esm = __webpack_require__(16);
+var array_slice_x_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/attempt-x/dist/attempt-x.esm.js
 var attempt_x_esm = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./node_modules/split-if-boxed-bug-x/dist/split-if-boxed-bug-x.esm.js + 1 modules
-var split_if_boxed_bug_x_esm = __webpack_require__(12);
+var split_if_boxed_bug_x_esm = __webpack_require__(14);
 
 // EXTERNAL MODULE: ./node_modules/to-length-x/dist/to-length-x.esm.js
-var to_length_x_esm = __webpack_require__(6);
+var to_length_x_esm = __webpack_require__(7);
 
 // EXTERNAL MODULE: ./node_modules/to-object-x/dist/to-object-x.esm.js
 var to_object_x_esm = __webpack_require__(2);
@@ -2436,9 +2660,6 @@ Object(object_define_properties_x_esm["a" /* default */])(big_counter_x_esm_BigC
 /* harmony default export */ var big_counter_x_esm = (big_counter_x_esm_BigCounter);
 
 
-// EXTERNAL MODULE: ./node_modules/is-nil-x/dist/is-nil-x.esm.js
-var is_nil_x_esm = __webpack_require__(19);
-
 // EXTERNAL MODULE: ./node_modules/is-map-x/dist/is-map-x.esm.js
 var is_map_x_esm = __webpack_require__(49);
 
@@ -2446,7 +2667,7 @@ var is_map_x_esm = __webpack_require__(49);
 var is_set_x_esm = __webpack_require__(48);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
-var is_object_like_x_esm = __webpack_require__(8);
+var is_object_like_x_esm = __webpack_require__(9);
 
 // EXTERNAL MODULE: ./node_modules/is-array-x/dist/is-array-x.esm.js
 var is_array_x_esm = __webpack_require__(23);
@@ -2462,13 +2683,184 @@ var array_some_x_esm = __webpack_require__(36);
 var get_prototype_of_x_esm = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/has-symbol-support-x/dist/has-symbol-support-x.esm.js
-var has_symbol_support_x_esm = __webpack_require__(14);
+var has_symbol_support_x_esm = __webpack_require__(10);
+
+// EXTERNAL MODULE: ./node_modules/is-nil-x/dist/is-nil-x.esm.js
+var is_nil_x_esm = __webpack_require__(19);
+
+// CONCATENATED MODULE: ./node_modules/symbol-iterator-x/dist/symbol-iterator-x.esm.js
+function symbol_iterator_x_esm_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { symbol_iterator_x_esm_typeof = function _typeof(obj) { return typeof obj; }; } else { symbol_iterator_x_esm_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return symbol_iterator_x_esm_typeof(obj); }
+
+
+
+var ES6_SHIM_ITERATOR = '_es6-shim iterator_';
+var AT_AT_ITERATOR = '@@iterator';
+/* eslint-disable-next-line compat/compat */
+
+var hasRealSymbolIterator = has_symbol_support_x_esm["a" /* default */] && symbol_iterator_x_esm_typeof(Symbol.iterator) === 'symbol';
+/* eslint-disable-next-line compat/compat */
+
+var hasFakeSymbolIterator = (typeof Symbol === "undefined" ? "undefined" : symbol_iterator_x_esm_typeof(Symbol)) === 'object' && Symbol !== null && typeof Symbol.iterator === 'string';
+var hasSymbolIterator = hasRealSymbolIterator || hasFakeSymbolIterator;
+
+var getOtherSymbolIterator = function getOtherSymbolIterator(iterable) {
+  if (iterable[ES6_SHIM_ITERATOR]) {
+    return ES6_SHIM_ITERATOR;
+  }
+
+  if (iterable[AT_AT_ITERATOR]) {
+    return AT_AT_ITERATOR;
+  }
+
+  return null;
+};
+
+var getSymIt = function getSymIt() {
+  if (hasSymbolIterator) {
+    /* eslint-disable-next-line compat/compat */
+    return Symbol.iterator;
+  }
+
+  var result = getOtherSymbolIterator([]);
+
+  if (typeof result === 'string' && typeof [][result] === 'function') {
+    return result;
+  }
+
+  return AT_AT_ITERATOR;
+};
+/**
+ * Whenever an object needs to be iterated (such as at the beginning of a for..of loop),
+ * its @@iterator method is called with no arguments, and the returned iterator is used
+ * to obtain the values to be iterated.
+ *
+ * Possible values are.
+ *
+ * Symbol.iterator
+ * '_es6-shim iterator_'
+ * '@@iterator'.
+ *
+ * @type {symbol|string}
+ */
+
+
+var $iterator$ = getSymIt();
+/**
+ * Detect an iterator function.
+ *
+ * @private
+ * @param {*} iterable - Value to detect iterator function.
+ * @returns {symbol|string|undefined} The iterator property identifier.
+ */
+
+var symbol_iterator_x_esm_getSymbolIterator = function getSymbolIterator(iterable) {
+  if (Object(is_nil_x_esm["a" /* default */])(iterable) === false) {
+    if (hasSymbolIterator && iterable[$iterator$]) {
+      return $iterator$;
+    }
+
+    var result = getOtherSymbolIterator(iterable);
+
+    if (typeof result === 'string') {
+      return result;
+    }
+  }
+  /* eslint-disable-next-line no-void */
+
+
+  return void 0;
+};
+/* harmony default export */ var symbol_iterator_x_esm = ($iterator$);
+
+
+// CONCATENATED MODULE: ./node_modules/symbol-species-x/dist/symbol-species-x.esm.js
+
+/**
+ * The species accessor property allows subclasses to override the default constructor for objects.
+ *
+ * Possible values are.
+ *
+ * Symbol.species
+ * '@@species'.
+ *
+ * @type {symbol|string}
+ */
+
+var symbolSpecies = has_symbol_support_x_esm["a" /* default */] && Symbol.species || '@@species';
+/* eslint-disable-line compat/compat */
+
+/* harmony default export */ var symbol_species_x_esm = (symbolSpecies);
+
 
 // EXTERNAL MODULE: ./node_modules/object-create-x/dist/object-create-x.esm.js
 var object_create_x_esm = __webpack_require__(79);
 
 // EXTERNAL MODULE: ./node_modules/array-for-each-x/dist/array-for-each-x.esm.js
 var array_for_each_x_esm = __webpack_require__(45);
+
+// EXTERNAL MODULE: ./node_modules/object-get-own-property-descriptor-x/dist/object-get-own-property-descriptor-x.esm.js
+var object_get_own_property_descriptor_x_esm = __webpack_require__(28);
+
+// EXTERNAL MODULE: ./node_modules/is-var-name/index.mjs
+var is_var_name = __webpack_require__(80);
+
+// EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
+var to_string_x_esm = __webpack_require__(8);
+
+// CONCATENATED MODULE: ./node_modules/rename-function-x/dist/rename-function-x.esm.js
+
+
+
+
+
+
+
+
+var rename_function_x_esm_rename = function rename(fn, name) {
+  var descriptor = Object(object_get_own_property_descriptor_x_esm["a" /* default */])(fn, 'name');
+
+  if (descriptor && descriptor.configurable) {
+    Object(object_define_property_x_esm["a" /* default */])(fn, 'name', {
+      configurable: true,
+      value: name
+    });
+  }
+
+  return fn.name;
+};
+
+var supportsFunctionRenaming = Object(attempt_x_esm["a" /* default */])(function attemptee() {
+  /* eslint-disable-next-line lodash/prefer-noop */
+  return rename_function_x_esm_rename(function test1() {}, 'test2');
+}).value === 'test2'; // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
+
+/**
+ * Renames a function.
+ *
+ * @param {Function} fn - The function to be renamed.
+ * @param {string} name - The new name for the function.
+ * @param {boolean} [force=false] - Rename even if reported as not valid.
+ * @returns {boolean} - Returns true if renaming was a success; otherwise false.
+ */
+// eslint-enable jsdoc/check-param-names
+
+var rename_function_x_esm_renameFunction = function renameFunction(fn, name) {
+  Object(assert_is_function_x_esm["a" /* default */])(fn);
+  var string = Object(to_string_x_esm["a" /* default */])(name);
+  /* eslint-disable-next-line prefer-rest-params */
+
+  var force = arguments.length > 2 && Object(to_boolean_x_esm["a" /* default */])(arguments[2]);
+
+  if (force === false && Object(is_var_name["a" /* default */])(string) === false) {
+    throw new Error("Not a valid function name \"".concat(string, "\""));
+  }
+
+  return supportsFunctionRenaming && rename_function_x_esm_rename(fn, name) === string;
+};
+
+/* harmony default export */ var rename_function_x_esm = (rename_function_x_esm_renameFunction);
+
 
 // CONCATENATED MODULE: ./node_modules/collections-x/dist/collections-x.esm.js
 /* unused harmony export symIt */
@@ -2480,7 +2872,7 @@ var array_for_each_x_esm = __webpack_require__(45);
 /* unused harmony export isMap */
 /* unused harmony export isSetImplementation */
 /* unused harmony export isSet */
-var _sizeDescriptor;
+var _sizeDescriptor, _defineProperties3, _defineProperties5;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2519,6 +2911,7 @@ function collections_x_esm_typeof(obj) { if (typeof Symbol === "function" && typ
 
 
 
+
 /* eslint-disable-next-line no-void */
 
 var UNDEFINED = void 0;
@@ -2528,6 +2921,7 @@ var KEY = 'key';
 var VALUE = 'value';
 var DONE = 'done';
 var WRITABLE = 'writable';
+var DELETE = 'delete';
 var MAP = 'map';
 var SET = 'set';
 var PROP_CHANGED = '[[changed]]';
@@ -2547,78 +2941,19 @@ var KIND_VALUE = VALUE;
 var KIND_KEY = KEY;
 var KIND_KEY_VALUE = "".concat(KIND_KEY, "+").concat(KIND_VALUE);
 var SAMEVALUEZERO = 'SameValueZero';
-var ES6_SHIM_ITERATOR = '_es6-shim iterator_';
-var AT_AT_ITERATOR = '@@iterator';
 var collections_x_esm_ref = [],
     push = collections_x_esm_ref.push,
     splice = collections_x_esm_ref.splice;
 var charAt = KEY.charAt;
 var setPrototypeOf = {}.constructor.setPrototypeOf;
-/* eslint-disable-next-line compat/compat */
-
-var hasRealSymbolIterator = has_symbol_support_x_esm["a" /* default */] && collections_x_esm_typeof(Symbol.iterator) === 'symbol';
-/* eslint-disable-next-line compat/compat */
-
-var hasFakeSymbolIterator = (typeof Symbol === "undefined" ? "undefined" : collections_x_esm_typeof(Symbol)) === 'object' && typeof Symbol.iterator === 'string';
-var hasSymbolIterator = hasRealSymbolIterator || hasFakeSymbolIterator;
-
-var getOtherSymbolIterator = function getOtherSymbolIterator(iterable) {
-  if (iterable[ES6_SHIM_ITERATOR]) {
-    return ES6_SHIM_ITERATOR;
-  }
-
-  if (iterable[AT_AT_ITERATOR]) {
-    return AT_AT_ITERATOR;
-  }
-
-  return null;
-};
-
-var collections_x_esm_getSymIt = function getSymIt() {
-  if (hasSymbolIterator) {
-    /* eslint-disable-next-line compat/compat */
-    return Symbol.iterator;
-  }
-
-  var result = getOtherSymbolIterator([]);
-
-  if (typeof result === 'string' && Object(is_function_x_esm["a" /* default */])([][result])) {
-    return result;
-  }
-
-  return AT_AT_ITERATOR;
-};
+var collections_x_esm_hasRealSymbolIterator = collections_x_esm_typeof(symbol_iterator_x_esm) === 'symbol';
 /**
  * The iterator identifier that is in use.
  *
  * Type {Symbol|string}.
  */
 
-
-var symIt = collections_x_esm_getSymIt();
-/**
- * Detect an iterator function.
- *
- * @private
- * @param {*} iterable - Value to detect iterator function.
- * @returns {symbol|string|undefined} The iterator property identifier.
- */
-
-var collections_x_esm_getSymbolIterator = function getSymbolIterator(iterable) {
-  if (Object(is_nil_x_esm["a" /* default */])(iterable) === false) {
-    if (hasSymbolIterator && iterable[symIt]) {
-      return symIt;
-    }
-
-    var result = getOtherSymbolIterator(iterable);
-
-    if (typeof result === 'string') {
-      return result;
-    }
-  }
-
-  return UNDEFINED;
-};
+var symIt = symbol_iterator_x_esm;
 
 var collections_x_esm_assertIterableEntryObject = function assertIterableEntryObject(kind, next) {
   if (kind === MAP) {
@@ -2822,7 +3157,7 @@ var collections_x_esm_parse = function parse(args) {
       context = _args7[1],
       iterable = _args7[2];
 
-  var symbolIterator = collections_x_esm_getSymbolIterator(iterable);
+  var symbolIterator = symbol_iterator_x_esm_getSymbolIterator(iterable);
 
   if (kind === MAP) {
     Object(object_define_property_x_esm["a" /* default */])(context, PROP_VALUE, _defineProperty({}, VALUE, []));
@@ -3048,6 +3383,12 @@ var collections_x_esm_baseAddSet = function baseAddSet(args) {
 var thisIteratorDescriptor = _defineProperty({}, VALUE, function iterator() {
   return this;
 });
+
+var thisSpeciesDescriptor = {
+  get: function species() {
+    return this;
+  }
+};
 /**
  * An object is an iterator when it knows how to access items from a
  * collection one at a time, while keeping track of its current position
@@ -3061,7 +3402,6 @@ var thisIteratorDescriptor = _defineProperty({}, VALUE, function iterator() {
  * @param {object} context - The Set object.
  * @param {string} [iteratorKind] - Values are `value`, `key` or `key+value`.
  */
-
 
 var SetIt = function SetIterator(context, iteratorKind) {
   var _PROP_ITERATORHASMORE, _PROP_SETNEXTINDEX, _defineProperties2;
@@ -3138,7 +3478,6 @@ var setValuesIterator = function values() {
  * values or object references.
  *
  * @class Set
- * @private
  * @param {*} [iterable] - If an iterable object is passed, all of its elements
  * will be added to the new Set. A null is treated as undefined.
  */
@@ -3155,9 +3494,7 @@ var SetImplementation = function Set() {
   collections_x_esm_parse([SET, this, arguments.length ? arguments[0] : UNDEFINED]);
 }; // noinspection JSValidateTypes
 
-Object(object_define_properties_x_esm["a" /* default */])(SetImplementation.prototype,
-/** @lends SetImplementation.prototype */
-{
+Object(object_define_properties_x_esm["a" /* default */])(SetImplementation.prototype, (_defineProperties3 = {
   /**
    * The add() method appends a new element with a specified value to the end
    * of a Set object.
@@ -3177,86 +3514,14 @@ Object(object_define_properties_x_esm["a" /* default */])(SetImplementation.prot
    */
   clear: _defineProperty({}, VALUE, function clear() {
     return collections_x_esm_baseClear(SET, this);
-  }),
-
-  /**
-   * The delete() method removes the specified element from a Set object.
-   *
-   * @param {*} value - The value of the element to remove from the Set object.
-   * @returns {boolean} Returns true if an element in the Set object has been
-   *  removed successfully; otherwise false.
-   */
-  delete: _defineProperty({}, VALUE, function de1ete(value) {
-    return collections_x_esm_baseDelete([SET, this, value]);
-  }),
-
-  /**
-   * The entries() method returns a new Iterator object that contains an
-   * array of [value, value] for each element in the Set object, in
-   * insertion order. For Set objects there is no key like in Map objects.
-   * However, to keep the API similar to the Map object, each entry has the
-   * same value for its key and value here, so that an array [value, value]
-   * is returned.
-   *
-   * @function
-   * @returns {object} A new Iterator object.
-   */
-  entries: _defineProperty({}, VALUE, function entries() {
-    return new SetIt(this, KIND_KEY_VALUE);
-  }),
-
-  /**
-   * The forEach() method executes a provided function once per each value
-   * in the Set object, in insertion order.
-   *
-   * @param {Function} callback - Function to execute for each element.
-   * @param {*} [thisArg] - Value to use as this when executing callback.
-   * @returns {object} The Set object.
-   */
-  forEach: _defineProperty({}, VALUE, function forEach(callback, thisArg) {
-    return collections_x_esm_baseForEach([SET, this, callback, thisArg]);
-  }),
-
-  /**
-   * The has() method returns a boolean indicating whether an element with the
-   * specified value exists in a Set object or not.
-   *
-   * @function
-   * @param {*} value - The value to test for presence in the Set object.
-   * @returns {boolean} Returns true if an element with the specified value
-   *  exists in the Set object; otherwise false.
-   */
-  has: hasDescriptor,
-
-  /**
-   * The keys() method is an alias for the `values` method (for similarity
-   * with Map objects); it behaves exactly the same and returns values of Set elements.
-   *
-   * @function
-   * @returns {object} A new Iterator object.
-   */
-  keys: _defineProperty({}, VALUE, setValuesIterator),
-
-  /**
-   * The value of size is an integer representing how many entries the Set
-   * object has.
-   *
-   * @name size
-   * @memberof $SetObject
-   * @instance
-   * @type {number}
-   */
-  size: sizeDescriptor,
-
-  /**
-   * The values() method returns a new Iterator object that contains the
-   * values for each element in the Set object in insertion order.
-   *
-   * @function
-   * @returns {object} A new Iterator object.
-   */
-  values: _defineProperty({}, VALUE, setValuesIterator)
-});
+  })
+}, _defineProperty(_defineProperties3, DELETE, _defineProperty({}, VALUE, function $delete(value) {
+  return collections_x_esm_baseDelete([SET, this, value]);
+})), _defineProperty(_defineProperties3, "entries", _defineProperty({}, VALUE, function entries() {
+  return new SetIt(this, KIND_KEY_VALUE);
+})), _defineProperty(_defineProperties3, "forEach", _defineProperty({}, VALUE, function forEach(callback, thisArg) {
+  return collections_x_esm_baseForEach([SET, this, callback, thisArg]);
+})), _defineProperty(_defineProperties3, "has", hasDescriptor), _defineProperty(_defineProperties3, "keys", _defineProperty({}, VALUE, setValuesIterator)), _defineProperty(_defineProperties3, "size", sizeDescriptor), _defineProperty(_defineProperties3, "values", _defineProperty({}, VALUE, setValuesIterator)), _defineProperty(_defineProperties3, symbol_species_x_esm, thisSpeciesDescriptor), _defineProperties3));
 /**
  * The initial value of the @@iterator property is the same function object
  * as the initial value of the values property.
@@ -3267,6 +3532,7 @@ Object(object_define_properties_x_esm["a" /* default */])(SetImplementation.prot
  */
 
 Object(object_define_property_x_esm["a" /* default */])(SetImplementation.prototype, symIt, _defineProperty({}, VALUE, setValuesIterator));
+rename_function_x_esm(SetImplementation.prototype.delete, DELETE, true);
 /**
  * An object is an iterator when it knows how to access items from a
  * collection one at a time, while keeping track of its current position
@@ -3282,9 +3548,9 @@ Object(object_define_property_x_esm["a" /* default */])(SetImplementation.protot
  */
 
 var MapIt = function MapIterator(context, iteratorKind) {
-  var _PROP_ITERATORHASMORE2, _PROP_MAPNEXTINDEX, _defineProperties3;
+  var _PROP_ITERATORHASMORE2, _PROP_MAPNEXTINDEX, _defineProperties4;
 
-  Object(object_define_properties_x_esm["a" /* default */])(this, (_defineProperties3 = {}, _defineProperty(_defineProperties3, PROP_ITERATORHASMORE, (_PROP_ITERATORHASMORE2 = {}, _defineProperty(_PROP_ITERATORHASMORE2, VALUE, true), _defineProperty(_PROP_ITERATORHASMORE2, WRITABLE, true), _PROP_ITERATORHASMORE2)), _defineProperty(_defineProperties3, PROP_MAP, _defineProperty({}, VALUE, Object(assert_is_object_x_esm["a" /* default */])(context))), _defineProperty(_defineProperties3, PROP_MAPITERATIONKIND, _defineProperty({}, VALUE, iteratorKind)), _defineProperty(_defineProperties3, PROP_MAPNEXTINDEX, (_PROP_MAPNEXTINDEX = {}, _defineProperty(_PROP_MAPNEXTINDEX, VALUE, 0), _defineProperty(_PROP_MAPNEXTINDEX, WRITABLE, true), _PROP_MAPNEXTINDEX)), _defineProperties3));
+  Object(object_define_properties_x_esm["a" /* default */])(this, (_defineProperties4 = {}, _defineProperty(_defineProperties4, PROP_ITERATORHASMORE, (_PROP_ITERATORHASMORE2 = {}, _defineProperty(_PROP_ITERATORHASMORE2, VALUE, true), _defineProperty(_PROP_ITERATORHASMORE2, WRITABLE, true), _PROP_ITERATORHASMORE2)), _defineProperty(_defineProperties4, PROP_MAP, _defineProperty({}, VALUE, Object(assert_is_object_x_esm["a" /* default */])(context))), _defineProperty(_defineProperties4, PROP_MAPITERATIONKIND, _defineProperty({}, VALUE, iteratorKind)), _defineProperty(_defineProperties4, PROP_MAPNEXTINDEX, (_PROP_MAPNEXTINDEX = {}, _defineProperty(_PROP_MAPNEXTINDEX, VALUE, 0), _defineProperty(_PROP_MAPNEXTINDEX, WRITABLE, true), _PROP_MAPNEXTINDEX)), _defineProperties4));
 };
 
 var getMapNextObject = function getMapNextObject(args) {
@@ -3340,7 +3606,6 @@ Object(object_define_property_x_esm["a" /* default */])(MapIt.prototype, symIt, 
  * primitive values) may be used as either a key or a value.
  *
  * @class Map
- * @private
  * @param {*} [iterable] - Iterable is an Array or other iterable object whose
  *  elements are key-value pairs (2-element Arrays). Each key-value pair is
  *  added to the new Map. A null is treated as undefined.
@@ -3357,9 +3622,7 @@ var MapImplementation = function Map() {
   collections_x_esm_parse([MAP, this, arguments.length ? arguments[0] : UNDEFINED]);
 }; // noinspection JSValidateTypes
 
-Object(object_define_properties_x_esm["a" /* default */])(MapImplementation.prototype,
-/** @lends MapImplementation.prototype */
-{
+Object(object_define_properties_x_esm["a" /* default */])(MapImplementation.prototype, (_defineProperties5 = {
   /**
    * The clear() method removes all elements from a Map object.
    *
@@ -3367,117 +3630,34 @@ Object(object_define_properties_x_esm["a" /* default */])(MapImplementation.prot
    */
   clear: _defineProperty({}, VALUE, function clear() {
     return collections_x_esm_baseClear(MAP, this);
-  }),
-
-  /**
-   * The delete() method removes the specified element from a Map object.
-   *
-   * @param {*} key - The key of the element to remove from the Map object.
-   * @returns {boolean} Returns true if an element in the Map object has been
-   *  removed successfully.
-   */
-  delete: _defineProperty({}, VALUE, function de1ete(key) {
-    return collections_x_esm_baseDelete([MAP, this, key]);
-  }),
-
-  /**
-   * The entries() method returns a new Iterator object that contains the
-   * [key, value] pairs for each element in the Map object in insertion order.
-   *
-   * @returns {object} A new Iterator object.
-   */
-  entries: _defineProperty({}, VALUE, function entries() {
-    return new MapIt(this, KIND_KEY_VALUE);
-  }),
-
-  /**
-   * The forEach() method executes a provided function once per each
-   * key/value pair in the Map object, in insertion order.
-   *
-   * @param {Function} callback - Function to execute for each element..
-   * @param {*} [thisArg] - Value to use as this when executing callback.
-   * @returns {object} The Map object.
-   */
-  forEach: _defineProperty({}, VALUE, function forEach(callback, thisArg) {
-    return collections_x_esm_baseForEach([MAP, this, callback, thisArg]);
-  }),
-
-  /**
-   * The get() method returns a specified element from a Map object.
-   *
-   * @param {*} key - The key of the element to return from the Map object.
-   * @returns {*} Returns the element associated with the specified key or
-   *  undefined if the key can't be found in the Map object.
-   */
-  get: _defineProperty({}, VALUE, function get(key) {
-    var index = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(this)[PROP_KEY], key, SAMEVALUEZERO);
-    return index > -1 ? this[PROP_VALUE][index] : UNDEFINED;
-  }),
-
-  /**
-   * The has() method returns a boolean indicating whether an element with
-   * the specified key exists or not.
-   *
-   * @function
-   * @param {*} key - The key of the element to test for presence in the Map object.
-   * @returns {boolean} Returns true if an element with the specified key
-   *  exists in the Map object; otherwise false.
-   */
-  has: hasDescriptor,
-
-  /**
-   * The keys() method returns a new Iterator object that contains the keys
-   * for each element in the Map object in insertion order.
-   *
-   * @returns {object} A new Iterator object.
-   */
-  keys: _defineProperty({}, VALUE, function keys() {
-    return new MapIt(this, KIND_KEY);
-  }),
-
-  /**
-   * The set() method adds a new element with a specified key and value to
-   * a Map object.
-   *
-   * @param {*} key - The key of the element to add to the Map object.
-   * @param {*} value - The value of the element to add to the Map object.
-   * @returns {object} The Map object.
-   */
-  set: _defineProperty({}, VALUE, function set(key, value) {
-    return collections_x_esm_baseAddSet([MAP, this, key, value]);
-  }),
-
-  /**
-   * The value of size is an integer representing how many entries the Map
-   * object has.
-   *
-   * @name size
-   * @memberof $MapObject
-   * @instance
-   * @type {number}
-   */
-  size: sizeDescriptor,
-
-  /**
-   * The values() method returns a new Iterator object that contains the
-   * values for each element in the Map object in insertion order.
-   *
-   * @returns {object} A new Iterator object.
-   */
-  values: _defineProperty({}, VALUE, function values() {
-    return new MapIt(this, KIND_VALUE);
   })
-});
+}, _defineProperty(_defineProperties5, DELETE, _defineProperty({}, VALUE, function $delete(key) {
+  return collections_x_esm_baseDelete([MAP, this, key]);
+})), _defineProperty(_defineProperties5, "entries", _defineProperty({}, VALUE, function entries() {
+  return new MapIt(this, KIND_KEY_VALUE);
+})), _defineProperty(_defineProperties5, "forEach", _defineProperty({}, VALUE, function forEach(callback, thisArg) {
+  return collections_x_esm_baseForEach([MAP, this, callback, thisArg]);
+})), _defineProperty(_defineProperties5, "get", _defineProperty({}, VALUE, function get(key) {
+  var index = Object(index_of_x_esm["a" /* default */])(Object(assert_is_object_x_esm["a" /* default */])(this)[PROP_KEY], key, SAMEVALUEZERO);
+  return index > -1 ? this[PROP_VALUE][index] : UNDEFINED;
+})), _defineProperty(_defineProperties5, "has", hasDescriptor), _defineProperty(_defineProperties5, "keys", _defineProperty({}, VALUE, function keys() {
+  return new MapIt(this, KIND_KEY);
+})), _defineProperty(_defineProperties5, "set", _defineProperty({}, VALUE, function set(key, value) {
+  return collections_x_esm_baseAddSet([MAP, this, key, value]);
+})), _defineProperty(_defineProperties5, "size", sizeDescriptor), _defineProperty(_defineProperties5, "values", _defineProperty({}, VALUE, function values() {
+  return new MapIt(this, KIND_VALUE);
+})), _defineProperty(_defineProperties5, symbol_species_x_esm, thisSpeciesDescriptor), _defineProperties5));
 /**
  * The initial value of the @@iterator property is the same function object
  * as the initial value of the entries property.
  *
  * @function symIt
- * @memberof module:collections-x.Map.prototype
+ * @memberof $MapObject.prototype
  * @returns {object} A new Iterator object.
  */
 
 Object(object_define_property_x_esm["a" /* default */])(MapImplementation.prototype, symIt, _defineProperty({}, VALUE, MapImplementation.prototype.entries));
+rename_function_x_esm(MapImplementation.prototype.delete, DELETE, true);
 /*
  * Determine whether to use shim or native.
  */
@@ -3573,7 +3753,7 @@ var collections_x_esm_performMapFixes = function performMapFixes() {
     });
     return res.threw || res.value;
   }, collections_x_esm_badDoneFixee, collections_x_esm_badNextFunction, function fixee(Subject) {
-    var testMapProto = hasRealSymbolIterator && Object(get_prototype_of_x_esm["a" /* default */])(new Subject().keys());
+    var testMapProto = collections_x_esm_hasRealSymbolIterator && Object(get_prototype_of_x_esm["a" /* default */])(new Subject().keys());
     return Object(to_boolean_x_esm["a" /* default */])(testMapProto) && Object(is_function_x_esm["a" /* default */])(testMapProto[symIt]) === false;
   }];
   Object(array_for_each_x_esm["a" /* default */])(fixees, function iteratee(fixee) {
@@ -3630,7 +3810,7 @@ var collections_x_esm_performSetFixes = function performSetFixes() {
     });
     return res.threw || res.value;
   }, collections_x_esm_badDoneFixee, collections_x_esm_badNextFunction, function fixee(Subject) {
-    var testSetProto = hasRealSymbolIterator && Object(get_prototype_of_x_esm["a" /* default */])(new Subject().keys());
+    var testSetProto = collections_x_esm_hasRealSymbolIterator && Object(get_prototype_of_x_esm["a" /* default */])(new Subject().keys());
     return Object(to_boolean_x_esm["a" /* default */])(testSetProto) && Object(is_function_x_esm["a" /* default */])(testSetProto[symIt]) === false;
   }];
   Object(array_for_each_x_esm["a" /* default */])(fixees, function iteratee(fixee) {
@@ -3638,8 +3818,27 @@ var collections_x_esm_performSetFixes = function performSetFixes() {
   });
   return Export;
 };
+/**
+ * The Map object is a simple key/value map. Any value (both objects and
+ * primitive values) may be used as either a key or a value.
+ *
+ * @class Map
+ * @param {*} [iterable] - Iterable is an Array or other iterable object whose
+ *  elements are key-value pairs (2-element Arrays). Each key-value pair is
+ *  added to the new Map. A null is treated as undefined.
+ */
+
 
 var MapConstructor = collections_x_esm_performMapFixes();
+/**
+ * The Set object lets you store unique values of any type, whether primitive
+ * values or object references.
+ *
+ * @class Set
+ * @param {*} [iterable] - If an iterable object is passed, all of its elements
+ * will be added to the new Set. A null is treated as undefined.
+ */
+
 var SetConstructor = collections_x_esm_performSetFixes();
 
 var collections_x_esm_hasImplementationProps = function hasImplementationProps(object) {
@@ -3674,230 +3873,6 @@ var collections_x_esm_isSetImplementation = function isSetImplementation(object)
  */
 
 var isSet = SetConstructor === SetImplementation ? collections_x_esm_isSetImplementation : is_set_x_esm["a" /* default */];
-
-
-
-/***/ }),
-/* 31 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var to_property_key_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
-/* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
-/* harmony import */ var has_own_property_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var is_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(74);
-/* harmony import */ var property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(46);
-/* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(1);
-
-
-
-
-
-
-
-
-
-
-var EMPTY_STRING = '';
-var charAt = EMPTY_STRING.charAt;
-var castObject = {}.constructor;
-var ngopd = castObject.getOwnPropertyDescriptor;
-var nativeGOPD = typeof ngopd === 'function' && ngopd;
-var getOPDFallback1;
-var getOPDFallback2; // ES5 15.2.3.3
-// http://es5.github.com/#x15.2.3.3
-
-var doesGOPDWork = function doesGOPDWork(object, prop) {
-  object[Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(prop)] = 0;
-  var testResult = Object(attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nativeGOPD, object, prop);
-  return testResult.threw === false && testResult.value.value === 0;
-}; // check whether getOwnPropertyDescriptor works if it's given. Otherwise, shim partially.
-
-/**
- * This method returns a property descriptor for an own property (that is,
- * one directly present on an object and not in the object's prototype chain)
- * of a given object.
- *
- * @param {*} object - The object in which to look for the property.
- * @param {*} property - The name of the property whose description is to be retrieved.
- * @returns {object} A property descriptor of the given property if it exists on the object, undefined otherwise.
- */
-
-
-var $getOwnPropertyDescriptor;
-
-if (nativeGOPD) {
-  var doc = typeof document !== 'undefined' && document;
-  var getOPDWorksOnDom = doc ? doesGOPDWork(doc.createElement('div'), 'sentinel') : true;
-
-  if (getOPDWorksOnDom) {
-    var res = Object(attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nativeGOPD, castObject('abc'), 1);
-    var worksWithStr = res.threw === false && res.value && res.value.value === 'b';
-
-    if (worksWithStr) {
-      var getOPDWorksOnObject = doesGOPDWork({}, 'sentinel');
-
-      if (getOPDWorksOnObject) {
-        var worksWithPrim = Object(attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(nativeGOPD, 42, 'name').threw === false;
-        /* eslint-disable-next-line compat/compat */
-
-        var worksWithObjSym = has_symbol_support_x__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"] && doesGOPDWork({}, castObject(Symbol(EMPTY_STRING)));
-
-        if (worksWithObjSym) {
-          if (worksWithPrim) {
-            $getOwnPropertyDescriptor = nativeGOPD;
-          } else {
-            $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(object, property) {
-              return nativeGOPD(Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object), property);
-            };
-          }
-        } else if (worksWithPrim) {
-          $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(object, property) {
-            return nativeGOPD(object, Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(property));
-          };
-        } else {
-          $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(object, property) {
-            return nativeGOPD(Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object), Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(property));
-          };
-        }
-      } else {
-        getOPDFallback1 = nativeGOPD;
-      }
-    } else {
-      getOPDFallback2 = nativeGOPD;
-    }
-  }
-}
-
-if (Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"])($getOwnPropertyDescriptor) === false || getOPDFallback1 || getOPDFallback2) {
-  var prototypeOfObject = castObject.prototype; // If JS engine supports accessors creating shortcuts.
-
-  var lookupGetter;
-  var lookupSetter;
-  var supportsAccessors = Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(prototypeOfObject, '__defineGetter__');
-
-  if (supportsAccessors) {
-    /* eslint-disable-next-line no-underscore-dangle */
-    var lg = prototypeOfObject.__lookupGetter__;
-    /* eslint-disable-next-line no-underscore-dangle */
-
-    var ls = prototypeOfObject.__lookupSetter__;
-
-    lookupGetter = function $lookupGetter(object, property) {
-      return lg.call(object, property);
-    };
-
-    lookupSetter = function $lookupSetter(object, property) {
-      return ls.call(object, property);
-    };
-  }
-
-  $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(object, property) {
-    var obj = Object(to_object_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(object);
-    var propKey = Object(to_property_key_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(property);
-    var result; // make a valiant attempt to use the real getOwnPropertyDescriptor for I8's DOM elements.
-
-    if (getOPDFallback1) {
-      result = attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].call(castObject, getOPDFallback1, obj, propKey);
-
-      if (result.threw === false) {
-        return result.value;
-      } // try the shim if the real one doesn't work
-
-    }
-
-    var isStringIndex = is_string__WEBPACK_IMPORTED_MODULE_6___default()(obj) && Object(is_index_x__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"])(propKey, obj.length);
-
-    if (getOPDFallback2 && isStringIndex === false) {
-      result = attempt_x__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].call(castObject, getOPDFallback2, obj, propKey);
-
-      if (result.threw === false) {
-        return result.value;
-      } // try the shim if the real one doesn't work
-
-    }
-    /* eslint-disable-next-line no-void */
-
-
-    var descriptor = void 0; // If object does not owns property return undefined immediately.
-
-    if (isStringIndex === false && Object(has_own_property_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(obj, propKey) === false) {
-      return descriptor;
-    } // If object has a property then it's for sure `configurable`, and
-    // probably `enumerable`. Detect enumerability though.
-
-
-    descriptor = {
-      configurable: is_primitive__WEBPACK_IMPORTED_MODULE_5___default()(object) === false && isStringIndex === false,
-      enumerable: Object(property_is_enumerable_x__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"])(obj, propKey)
-    }; // If JS engine supports accessor properties then property may be a
-    // getter or setter.
-
-    if (supportsAccessors) {
-      // Unfortunately `__lookupGetter__` will return a getter even
-      // if object has own non getter property along with a same named
-      // inherited getter. To avoid misbehavior we temporary remove
-      // `__proto__` so that `__lookupGetter__` will return getter only
-      // if it's owned by an object.
-
-      /* eslint-disable-next-line no-proto */
-      var prototype = obj.__proto__;
-      var notPrototypeOfObject = obj !== prototypeOfObject; // avoid recursion problem, breaking in Opera Mini when
-      // Object.getOwnPropertyDescriptor(Object.prototype, 'toString')
-      // or any other Object.prototype accessor
-
-      if (notPrototypeOfObject) {
-        /* eslint-disable-next-line no-proto */
-        obj.__proto__ = prototypeOfObject;
-      }
-
-      var getter = lookupGetter(obj, propKey);
-      var setter = lookupSetter(obj, propKey);
-
-      if (notPrototypeOfObject) {
-        // Once we have getter and setter we can put values back.
-
-        /* eslint-disable-next-line no-proto */
-        obj.__proto__ = prototype;
-      }
-
-      if (getter || setter) {
-        if (getter) {
-          descriptor.get = getter;
-        }
-
-        if (setter) {
-          descriptor.set = setter;
-        } // If it was accessor property we're done and return here
-        // in order to avoid adding `value` to the descriptor.
-
-
-        return descriptor;
-      }
-    } // If we got this far we know that object has an own property that is
-    // not an accessor so we set it as a value and return descriptor.
-
-
-    if (isStringIndex) {
-      descriptor.value = charAt.call(obj, propKey);
-      descriptor.writable = false;
-    } else {
-      descriptor.value = obj[propKey];
-      descriptor.writable = true;
-    }
-
-    return descriptor;
-  };
-}
-
-var gOPS = $getOwnPropertyDescriptor;
-/* harmony default export */ __webpack_exports__["a"] = (gOPS);
 
 
 
@@ -3981,7 +3956,7 @@ var gpo = isWorking ? patchedGetPrototypeOf() : implementation();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_symbol__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -4124,9 +4099,9 @@ var toNumber = function toNumber(argument) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var to_primitive_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(69);
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -4156,10 +4131,10 @@ var toPropertyKey = function toPropertyKey(argument) {
 "use strict";
 /* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 
 
@@ -4359,7 +4334,7 @@ module.exports = function isDateObject(value) {
 
 "use strict";
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 
 
@@ -4404,10 +4379,10 @@ var getOwnPropertySymbols = function getOwnPropertySymbols(obj) {
 "use strict";
 /* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 
 
@@ -4586,13 +4561,13 @@ module.exports = function isBoolean(value) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
+/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(16);
 /* harmony import */ var is_function_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var array_reduce_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
+/* harmony import */ var array_reduce_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
 /* harmony import */ var get_own_property_names_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(43);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2);
-/* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(16);
+/* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(17);
 /* harmony import */ var is_nil_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(19);
 /* harmony import */ var get_own_enumerable_property_symbols_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(75);
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -4754,15 +4729,15 @@ var assign = $assign;
 
 "use strict";
 /* harmony import */ var is_nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
-/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+/* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
 /* harmony import */ var is_string__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_string__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
 /* harmony import */ var same_value_zero_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(67);
 /* harmony import */ var same_value_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(44);
 /* harmony import */ var find_index_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(58);
 /* harmony import */ var calculate_from_index_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(68);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(12);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(14);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(0);
 /* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(1);
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -4980,8 +4955,8 @@ var indexOf = function indexOf(array, searchElement) {
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var is_array_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
 /* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(21);
-/* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(16);
-/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
+/* harmony import */ var array_slice_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(17);
+/* harmony import */ var object_keys_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(16);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -5105,10 +5080,10 @@ var sameValue = function sameValue(value1, value2) {
 "use strict";
 /* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 /* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1);
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -5310,9 +5285,9 @@ var propertyIsEnumerable = function propertyIsEnumerable(object, property) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 /* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
 /* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
 /* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1);
 
@@ -5375,9 +5350,9 @@ var isArrayBuffer = function isArrayBuffer(object) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(28);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 /* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(55);
 
 
@@ -5449,9 +5424,9 @@ var isSet = function isSet(object) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(28);
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 /* harmony import */ var is_length_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(55);
 
 
@@ -5524,7 +5499,7 @@ var isMap = function isMap(object) {
 
 "use strict";
 /* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 /* harmony import */ var get_prototype_of_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32);
 
 
@@ -5582,16 +5557,16 @@ var isError = function isError(value) {
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/assert-is-function-x/dist/assert-is-function-x.esm.js
-var assert_is_function_x_esm = __webpack_require__(7);
+var assert_is_function_x_esm = __webpack_require__(6);
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
-var array_slice_x_esm = __webpack_require__(16);
+var array_slice_x_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/attempt-x/dist/attempt-x.esm.js
 var attempt_x_esm = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
-var is_primitive = __webpack_require__(9);
+var is_primitive = __webpack_require__(11);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // CONCATENATED MODULE: ./node_modules/bind-x/dist/bind-x.esm.js
@@ -5757,7 +5732,7 @@ var libBind = $bind;
 var is_function_x_esm = __webpack_require__(3);
 
 // EXTERNAL MODULE: ./node_modules/is-generator-function/index.js
-var is_generator_function = __webpack_require__(95);
+var is_generator_function = __webpack_require__(96);
 var is_generator_function_default = /*#__PURE__*/__webpack_require__.n(is_generator_function);
 
 // EXTERNAL MODULE: ./node_modules/to-string-tag-x/dist/to-string-tag-x.esm.js
@@ -5832,11 +5807,11 @@ var isAsyncFunction = function isAsyncFunction(fn) {
 
 
 // EXTERNAL MODULE: ./node_modules/is-regex/index.js
-var is_regex = __webpack_require__(81);
+var is_regex = __webpack_require__(82);
 var is_regex_default = /*#__PURE__*/__webpack_require__.n(is_regex);
 
 // EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
-var object_define_properties_x_esm = __webpack_require__(11);
+var object_define_properties_x_esm = __webpack_require__(13);
 
 // EXTERNAL MODULE: ./node_modules/is-date-object/index.js
 var is_date_object = __webpack_require__(37);
@@ -5865,14 +5840,14 @@ var is_nil_x_esm = __webpack_require__(19);
 var is_error_x_esm = __webpack_require__(50);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
-var is_object_like_x_esm = __webpack_require__(8);
+var is_object_like_x_esm = __webpack_require__(9);
 
 // EXTERNAL MODULE: ./node_modules/is-promise/index.js
-var is_promise = __webpack_require__(86);
+var is_promise = __webpack_require__(87);
 var is_promise_default = /*#__PURE__*/__webpack_require__.n(is_promise);
 
 // EXTERNAL MODULE: ./node_modules/is-string/index.js
-var is_string = __webpack_require__(13);
+var is_string = __webpack_require__(15);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-number-object/index.js
@@ -5884,7 +5859,7 @@ var is_boolean_object = __webpack_require__(40);
 var is_boolean_object_default = /*#__PURE__*/__webpack_require__.n(is_boolean_object);
 
 // EXTERNAL MODULE: ./node_modules/object-is/index.js
-var object_is = __webpack_require__(96);
+var object_is = __webpack_require__(97);
 var object_is_default = /*#__PURE__*/__webpack_require__.n(object_is);
 
 // EXTERNAL MODULE: ./node_modules/is-symbol/index.js
@@ -5895,11 +5870,11 @@ var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
 var is_array_x_esm = __webpack_require__(23);
 
 // EXTERNAL MODULE: ./node_modules/is-nan/index.js
-var is_nan = __webpack_require__(97);
+var is_nan = __webpack_require__(98);
 var is_nan_default = /*#__PURE__*/__webpack_require__.n(is_nan);
 
 // EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
-var to_string_x_esm = __webpack_require__(10);
+var to_string_x_esm = __webpack_require__(8);
 
 // CONCATENATED MODULE: ./node_modules/get-function-name-x/dist/get-function-name-x.esm.js
 
@@ -5957,13 +5932,13 @@ var get_function_name_x_esm_getFunctionName = function getFunctionName(fn) {
 
 
 // EXTERNAL MODULE: ./node_modules/has-symbol-support-x/dist/has-symbol-support-x.esm.js
-var has_symbol_support_x_esm = __webpack_require__(14);
+var has_symbol_support_x_esm = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/white-space-x/dist/white-space-x.esm.js
 var white_space_x_esm = __webpack_require__(52);
 
 // EXTERNAL MODULE: ./node_modules/array-reduce-x/dist/array-reduce-x.esm.js
-var array_reduce_x_esm = __webpack_require__(28);
+var array_reduce_x_esm = __webpack_require__(29);
 
 // EXTERNAL MODULE: ./node_modules/array-filter-x/dist/array-filter-x.esm.js
 var array_filter_x_esm = __webpack_require__(24);
@@ -6079,10 +6054,10 @@ var reflectOwnKeys = reflect_own_keys_x_esm_isWorking ? nativeOwnKeys : reflect_
 var json3 = __webpack_require__(65);
 
 // EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
-var object_keys_x_esm = __webpack_require__(15);
+var object_keys_x_esm = __webpack_require__(16);
 
 // EXTERNAL MODULE: ./node_modules/object-get-own-property-descriptor-x/dist/object-get-own-property-descriptor-x.esm.js
-var object_get_own_property_descriptor_x_esm = __webpack_require__(31);
+var object_get_own_property_descriptor_x_esm = __webpack_require__(28);
 
 // EXTERNAL MODULE: ./node_modules/array-includes-x/dist/array-includes-x.esm.js
 var array_includes_x_esm = __webpack_require__(25);
@@ -6091,13 +6066,13 @@ var array_includes_x_esm = __webpack_require__(25);
 var object_assign_x_esm = __webpack_require__(41);
 
 // EXTERNAL MODULE: ./node_modules/to-iso-string-x/dist/to-iso-string-x.esm.js + 1 modules
-var to_iso_string_x_esm = __webpack_require__(80);
+var to_iso_string_x_esm = __webpack_require__(81);
 
-// EXTERNAL MODULE: ./node_modules/collections-x/dist/collections-x.esm.js + 3 modules
-var collections_x_esm = __webpack_require__(30);
+// EXTERNAL MODULE: ./node_modules/collections-x/dist/collections-x.esm.js + 6 modules
+var collections_x_esm = __webpack_require__(31);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(17);
+var object_define_property_x_esm = __webpack_require__(12);
 
 // EXTERNAL MODULE: ./node_modules/to-integer-x/dist/to-integer-x.esm.js + 1 modules
 var to_integer_x_esm = __webpack_require__(26);
@@ -6106,7 +6081,7 @@ var to_integer_x_esm = __webpack_require__(26);
 var require_object_coercible_x_esm = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./node_modules/is-regexp-x/dist/is-regexp-x.esm.js
-var is_regexp_x_esm = __webpack_require__(29);
+var is_regexp_x_esm = __webpack_require__(30);
 
 // CONCATENATED MODULE: ./node_modules/string-starts-with-x/dist/string-starts-with-x.esm.js
 
@@ -8001,8 +7976,8 @@ var is_length_x_esm_isLength = function isLength(value) {
 "use strict";
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
 
 
 
@@ -8141,10 +8116,10 @@ var clamp = function clamp(value) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
 var _this = undefined;
 
 function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
@@ -8356,7 +8331,7 @@ var normalizeSpace = function normalizeSpace(string) {
 
 "use strict";
 /* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
 
 
 /**
@@ -8380,7 +8355,7 @@ var requireCoercibleToString = function requireCoercibleToString(value) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 /* harmony import */ var require_coercible_to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(62);
 
 
@@ -8470,7 +8445,7 @@ var trim_x_esm_trim = function trim(string) {
 ;(function () {
   // Detect the `define` function exposed by asynchronous module loaders. The
   // strict `define` check is necessary for compatibility with `r.js`.
-  var isLoader =  true && __webpack_require__(106);
+  var isLoader =  true && __webpack_require__(107);
 
   // A set of types used to distinguish objects from primitives.
   var objectTypes = {
@@ -9406,7 +9381,7 @@ var trim_x_esm_trim = function trim(string) {
   }
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(105)(module), __webpack_require__(66)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(106)(module), __webpack_require__(66)))
 
 /***/ }),
 /* 66 */
@@ -9466,7 +9441,7 @@ var sameValueZero = function sameValueZero(x, y) {
 
 "use strict";
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var to_integer_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26);
 /* harmony import */ var is_array_like_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(60);
 
@@ -9508,8 +9483,8 @@ var calcFromIndex = function calcFromIndex(array, fromIndex) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var has_symbol_support_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37);
 /* harmony import */ var is_date_object__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(is_date_object__WEBPACK_IMPORTED_MODULE_2__);
@@ -9731,7 +9706,7 @@ var trimStart = function trimStart(string) {
 
 "use strict";
 /* harmony import */ var nan_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(72);
-/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
+/* harmony import */ var to_string_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
 /* harmony import */ var trim_left_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(70);
 
 
@@ -9922,7 +9897,7 @@ var getOwnEnumerablePropertySymbols = function getOwnEnumerablePropertySymbols(t
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var forEach = __webpack_require__(90);
+var forEach = __webpack_require__(91);
 
 var toStr = Object.prototype.toString;
 var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
@@ -9989,9 +9964,9 @@ module.exports = function isTypedArray(value) {
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var is_object_like_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 /* harmony import */ var has_to_string_tag_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
-/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
+/* harmony import */ var object_get_own_property_descriptor_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
 /* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
 /* harmony import */ var is_array_buffer_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(47);
 
@@ -10088,10 +10063,10 @@ var isDataView = function isDataView(object) {
 "use strict";
 /* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var split_if_boxed_bug_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var to_length_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var to_object_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var assert_is_function_x__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var require_object_coercible_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 /* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1);
 
@@ -10262,9 +10237,9 @@ var $every = isWorking ? patchedEvery() : implementation();
 
 "use strict";
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var is_primitive__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(is_primitive__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
+/* harmony import */ var object_define_properties_x__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 /* harmony import */ var to_boolean_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -10500,6 +10475,35 @@ var create = $create;
 
 /***/ }),
 /* 80 */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isVarName; });
+/*!
+ * is-var-name | ISC (c) Shinnosuke Watanabe
+ * https://github.com/shinnn/is-var-name
+*/
+function isVarName(str) {
+	if (typeof str !== 'string') {
+		return false;
+	}
+
+	if (str.trim() !== str) {
+		return false;
+	}
+
+	try {
+		new Function(str, 'var ' + str);
+	} catch (e) {
+		return false;
+	}
+
+	return true;
+}
+
+
+/***/ }),
+/* 81 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10515,10 +10519,10 @@ var is_date_object_default = /*#__PURE__*/__webpack_require__.n(is_date_object);
 var require_object_coercible_x_esm = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
-var to_string_x_esm = __webpack_require__(10);
+var to_string_x_esm = __webpack_require__(8);
 
 // EXTERNAL MODULE: ./node_modules/to-length-x/dist/to-length-x.esm.js
-var to_length_x_esm = __webpack_require__(6);
+var to_length_x_esm = __webpack_require__(7);
 
 // CONCATENATED MODULE: ./node_modules/string-pad-start-x/dist/string-pad-start-x.esm.js
 
@@ -10585,7 +10589,7 @@ var string_pad_start_x_esm_padStart = function padStart(string, targetLength) {
 var array_map_x_esm = __webpack_require__(39);
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
-var array_slice_x_esm = __webpack_require__(16);
+var array_slice_x_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/to-boolean-x/dist/to-boolean-x.esm.js
 var to_boolean_x_esm = __webpack_require__(1);
@@ -10718,13 +10722,13 @@ var $toISOString = isWorking ? patchedToIsoString() : to_iso_string_x_esm_implem
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var has = __webpack_require__(102);
+var has = __webpack_require__(103);
 var regexExec = RegExp.prototype.exec;
 var gOPD = Object.getOwnPropertyDescriptor;
 
@@ -10764,14 +10768,14 @@ module.exports = function isRegex(value) {
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var forEach = __webpack_require__(90);
-var bind = __webpack_require__(89);
+var forEach = __webpack_require__(91);
+var bind = __webpack_require__(90);
 
 var toStr = bind.call(Function.call, Object.prototype.toString);
 var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
@@ -10837,7 +10841,7 @@ module.exports = function whichTypedArray(value) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(66)))
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10849,7 +10853,7 @@ module.exports = function whichTypedArray(value) {
 /* harmony import */ var parse_int_x__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(71);
 /* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(65);
 /* harmony import */ var json3__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(json3__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var collections_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(30);
+/* harmony import */ var collections_x__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(31);
 /* harmony import */ var array_filter_x__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(24);
 /* harmony import */ var get_own_property_names_x__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(43);
 /* harmony import */ var is_symbol__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(18);
@@ -11133,17 +11137,17 @@ var format = function format() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(66)))
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var slice = Array.prototype.slice;
-var isArgs = __webpack_require__(88);
+var isArgs = __webpack_require__(89);
 
 var origKeys = Object.keys;
-var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(101);
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(102);
 
 var originalKeys = Object.keys;
 
@@ -11172,7 +11176,7 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -11288,7 +11292,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports) {
 
 module.exports = isPromise;
@@ -11299,7 +11303,7 @@ function isPromise(obj) {
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports) {
 
 module.exports = function arraybufferEqual (buf1, buf2) {
@@ -11326,7 +11330,7 @@ module.exports = function arraybufferEqual (buf1, buf2) {
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11350,19 +11354,19 @@ module.exports = function isArguments(value) {
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(103);
+var implementation = __webpack_require__(104);
 
 module.exports = Function.prototype.bind || implementation;
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports) {
 
 
@@ -11390,13 +11394,13 @@ module.exports = function forEach (obj, fn, ctx) {
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var keys = __webpack_require__(84);
+var keys = __webpack_require__(85);
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
 
 var toStr = Object.prototype.toString;
@@ -11455,7 +11459,7 @@ module.exports = defineProperties;
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11469,13 +11473,13 @@ module.exports = function isNaN(value) {
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(92);
+var implementation = __webpack_require__(93);
 
 module.exports = function getPolyfill() {
 	if (Number.isNaN && Number.isNaN(NaN) && !Number.isNaN('a')) {
@@ -11486,7 +11490,7 @@ module.exports = function getPolyfill() {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -11495,7 +11499,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
     /* istanbul ignore next */
     if (true) {
-        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(85)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(86)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -11683,7 +11687,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11722,7 +11726,7 @@ module.exports = function isGeneratorFunction(fn) {
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11748,17 +11752,17 @@ module.exports = function is(a, b) {
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(91);
+var define = __webpack_require__(92);
 
-var implementation = __webpack_require__(92);
-var getPolyfill = __webpack_require__(93);
-var shim = __webpack_require__(104);
+var implementation = __webpack_require__(93);
+var getPolyfill = __webpack_require__(94);
+var shim = __webpack_require__(105);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -11772,13 +11776,13 @@ module.exports = implementation;
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var isString = __webpack_require__(13);
+var isString = __webpack_require__(15);
 var isNumber = __webpack_require__(59);
 var isBoolean = __webpack_require__(40);
 var isSymbol = __webpack_require__(18);
@@ -11794,14 +11798,14 @@ module.exports = function isBoxedPrimitive(value) {
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
 var origSymbol = global.Symbol;
-var hasSymbolSham = __webpack_require__(100);
+var hasSymbolSham = __webpack_require__(101);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -11815,7 +11819,7 @@ module.exports = function hasNativeSymbols() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(66)))
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11864,7 +11868,7 @@ module.exports = function hasSymbols() {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11875,7 +11879,7 @@ if (!Object.keys) {
 	// modified from https://github.com/es-shims/es5-shim
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
-	var isArgs = __webpack_require__(88); // eslint-disable-line global-require
+	var isArgs = __webpack_require__(89); // eslint-disable-line global-require
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -11993,19 +11997,19 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var bind = __webpack_require__(89);
+var bind = __webpack_require__(90);
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12064,14 +12068,14 @@ module.exports = function bind(that) {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(91);
-var getPolyfill = __webpack_require__(93);
+var define = __webpack_require__(92);
+var getPolyfill = __webpack_require__(94);
 
 /* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
 
@@ -12083,7 +12087,7 @@ module.exports = function shimNumberIsNaN() {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -12111,7 +12115,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -12120,20 +12124,20 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(this, {}))
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/object-define-properties-x/dist/object-define-properties-x.esm.js + 1 modules
-var object_define_properties_x_esm = __webpack_require__(11);
+var object_define_properties_x_esm = __webpack_require__(13);
 
 // EXTERNAL MODULE: ./node_modules/object-define-property-x/dist/object-define-property-x.esm.js
-var object_define_property_x_esm = __webpack_require__(17);
+var object_define_property_x_esm = __webpack_require__(12);
 
 // EXTERNAL MODULE: ./node_modules/is-primitive/index.js
-var is_primitive = __webpack_require__(9);
+var is_primitive = __webpack_require__(11);
 var is_primitive_default = /*#__PURE__*/__webpack_require__.n(is_primitive);
 
 // EXTERNAL MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js
@@ -12152,11 +12156,11 @@ var trim_x_esm = __webpack_require__(64);
 var to_string_symbols_supported_x_esm = __webpack_require__(27);
 
 // EXTERNAL MODULE: ./node_modules/stackframe/stackframe.js
-var stackframe = __webpack_require__(85);
+var stackframe = __webpack_require__(86);
 var stackframe_default = /*#__PURE__*/__webpack_require__.n(stackframe);
 
 // EXTERNAL MODULE: ./node_modules/error-stack-parser/error-stack-parser.js
-var error_stack_parser = __webpack_require__(94);
+var error_stack_parser = __webpack_require__(95);
 var error_stack_parser_default = /*#__PURE__*/__webpack_require__.n(error_stack_parser);
 
 // EXTERNAL MODULE: ./node_modules/find-index-x/dist/find-index-x.esm.js
@@ -12175,7 +12179,7 @@ var is_nil_x_esm = __webpack_require__(19);
 var object_create_x_esm = __webpack_require__(79);
 
 // EXTERNAL MODULE: ./node_modules/is-object-like-x/dist/is-object-like-x.esm.js
-var is_object_like_x_esm = __webpack_require__(8);
+var is_object_like_x_esm = __webpack_require__(9);
 
 // EXTERNAL MODULE: ./node_modules/array-map-x/dist/array-map-x.esm.js
 var array_map_x_esm = __webpack_require__(39);
@@ -12186,28 +12190,8 @@ var is_nan_x_esm = __webpack_require__(22);
 // EXTERNAL MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js + 1 modules
 var is_finite_x_esm = __webpack_require__(53);
 
-// CONCATENATED MODULE: ./node_modules/is-var-name/index.mjs
-/*!
- * is-var-name | ISC (c) Shinnosuke Watanabe
- * https://github.com/shinnn/is-var-name
-*/
-function isVarName(str) {
-	if (typeof str !== 'string') {
-		return false;
-	}
-
-	if (str.trim() !== str) {
-		return false;
-	}
-
-	try {
-		new Function(str, 'var ' + str);
-	} catch (e) {
-		return false;
-	}
-
-	return true;
-}
+// EXTERNAL MODULE: ./node_modules/is-var-name/index.mjs
+var is_var_name = __webpack_require__(80);
 
 // EXTERNAL MODULE: ./node_modules/to-integer-x/dist/to-integer-x.esm.js + 1 modules
 var to_integer_x_esm = __webpack_require__(26);
@@ -12216,7 +12200,7 @@ var to_integer_x_esm = __webpack_require__(26);
 var require_object_coercible_x_esm = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
-var to_string_x_esm = __webpack_require__(10);
+var to_string_x_esm = __webpack_require__(8);
 
 // EXTERNAL MODULE: ./node_modules/attempt-x/dist/attempt-x.esm.js
 var attempt_x_esm = __webpack_require__(0);
@@ -12290,7 +12274,7 @@ var $repeat = hasNative ? string_repeat_x_esm_patchedRepeat() : string_repeat_x_
 
 
 // EXTERNAL MODULE: ./node_modules/is-regexp-x/dist/is-regexp-x.esm.js
-var is_regexp_x_esm = __webpack_require__(29);
+var is_regexp_x_esm = __webpack_require__(30);
 
 // EXTERNAL MODULE: ./node_modules/math-clamp-x/dist/math-clamp-x.esm.js
 var math_clamp_x_esm = __webpack_require__(57);
@@ -12438,7 +12422,7 @@ var $endsWith = isWorking ? string_ends_with_x_esm_patchedEndsWith() : string_en
 
 
 // EXTERNAL MODULE: ./node_modules/object-keys-x/dist/object-keys-x.esm.js
-var object_keys_x_esm = __webpack_require__(15);
+var object_keys_x_esm = __webpack_require__(16);
 
 // EXTERNAL MODULE: ./node_modules/array-every-x/dist/array-every-x.esm.js
 var array_every_x_esm = __webpack_require__(78);
@@ -13404,7 +13388,7 @@ var error_x_esm_assignCtrMethods = function assignCtrMethods(obj) {
 
 var error_x_esm_getCustomName = function getCustomName(name) {
   var initialName = Object(is_nil_x_esm["a" /* default */])(name) ? CUSTOM_NAME : Object(trim_x_esm["a" /* default */])(Object(to_string_symbols_supported_x_esm["a" /* default */])(name));
-  return initialName === CUSTOM_NAME || isVarName(initialName) ? initialName : CUSTOM_NAME;
+  return initialName === CUSTOM_NAME || Object(is_var_name["a" /* default */])(initialName) ? initialName : CUSTOM_NAME;
 };
 /**
  * Creates a custom Error constructor. Will use `Error` if argument is not a valid constructor.
@@ -13579,7 +13563,7 @@ var is_number_object = __webpack_require__(59);
 var is_number_object_default = /*#__PURE__*/__webpack_require__.n(is_number_object);
 
 // EXTERNAL MODULE: ./node_modules/is-string/index.js
-var is_string = __webpack_require__(13);
+var is_string = __webpack_require__(15);
 var is_string_default = /*#__PURE__*/__webpack_require__.n(is_string);
 
 // EXTERNAL MODULE: ./node_modules/is-boolean-object/index.js
@@ -13594,7 +13578,7 @@ var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
 var is_array_buffer_x_esm = __webpack_require__(47);
 
 // EXTERNAL MODULE: ./node_modules/is-boxed-primitive/implementation.js
-var is_boxed_primitive_implementation = __webpack_require__(98);
+var is_boxed_primitive_implementation = __webpack_require__(99);
 var implementation_default = /*#__PURE__*/__webpack_require__.n(is_boxed_primitive_implementation);
 
 // EXTERNAL MODULE: ./node_modules/is-bigint/index.js
@@ -13602,11 +13586,11 @@ var is_bigint = __webpack_require__(54);
 var is_bigint_default = /*#__PURE__*/__webpack_require__.n(is_bigint);
 
 // EXTERNAL MODULE: ./node_modules/which-typed-array/index.js
-var which_typed_array = __webpack_require__(82);
+var which_typed_array = __webpack_require__(83);
 var which_typed_array_default = /*#__PURE__*/__webpack_require__.n(which_typed_array);
 
 // EXTERNAL MODULE: ./node_modules/has-symbol-support-x/dist/has-symbol-support-x.esm.js
-var has_symbol_support_x_esm = __webpack_require__(14);
+var has_symbol_support_x_esm = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/same-value-x/dist/same-value-x.esm.js
 var same_value_x_esm = __webpack_require__(44);
@@ -13629,11 +13613,11 @@ var array_filter_x_esm = __webpack_require__(24);
 // EXTERNAL MODULE: ./node_modules/is-index-x/dist/is-index-x.esm.js
 var is_index_x_esm = __webpack_require__(74);
 
-// EXTERNAL MODULE: ./node_modules/collections-x/dist/collections-x.esm.js + 3 modules
-var collections_x_esm = __webpack_require__(30);
+// EXTERNAL MODULE: ./node_modules/collections-x/dist/collections-x.esm.js + 6 modules
+var collections_x_esm = __webpack_require__(31);
 
 // EXTERNAL MODULE: ./node_modules/arraybuffer-equal/index.js
-var arraybuffer_equal = __webpack_require__(87);
+var arraybuffer_equal = __webpack_require__(88);
 var arraybuffer_equal_default = /*#__PURE__*/__webpack_require__.n(arraybuffer_equal);
 
 // EXTERNAL MODULE: ./node_modules/is-data-view-x/dist/is-data-view-x.esm.js
@@ -14935,13 +14919,13 @@ Object(object_define_properties_x_esm["a" /* default */])(assert_x_esm_strict, s
 
 
 // EXTERNAL MODULE: ./node_modules/array-slice-x/dist/array-slice-x.esm.js
-var array_slice_x_esm = __webpack_require__(16);
+var array_slice_x_esm = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/util-format-x/dist/util-format-x.esm.js
-var util_format_x_esm = __webpack_require__(83);
+var util_format_x_esm = __webpack_require__(84);
 
 // EXTERNAL MODULE: ./node_modules/to-iso-string-x/dist/to-iso-string-x.esm.js + 1 modules
-var to_iso_string_x_esm = __webpack_require__(80);
+var to_iso_string_x_esm = __webpack_require__(81);
 
 // EXTERNAL MODULE: ./node_modules/array-includes-x/dist/array-includes-x.esm.js
 var array_includes_x_esm = __webpack_require__(25);
