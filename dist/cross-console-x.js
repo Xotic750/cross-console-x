@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-08-05T07:59:12.156Z",
+  "date": "2019-08-05T11:02:26.880Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
   "hash": "7ebd7386cc01dcd3b361",
   "license": "MIT",
-  "version": "4.0.22"
+  "version": "4.0.23"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
