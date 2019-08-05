@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-08-05T20:52:00.465Z",
+  "date": "2019-08-05T21:58:00.824Z",
   "describe": "",
   "description": "A cross-environment fix for missing methods.",
   "file": "cross-console-x.js",
-  "hash": "ea8c284c9072d7e5c6b4",
+  "hash": "b81e3b51cd760893c6d5",
   "license": "MIT",
-  "version": "4.0.24"
+  "version": "4.0.25"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -1184,43 +1184,31 @@ var isNaN = function isNaN(value) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export implementation */
 /* harmony import */ var attempt_x__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20);
-var _this = undefined;
-
-function _newArrowCheck(innerThis, boundThis) { if (innerThis !== boundThis) { throw new TypeError("Cannot instantiate an arrow function"); } }
 
 
-
-var nativeIsArray = [].isArray;
-var isArrayNative = typeof nativeIsArray === 'function' && nativeIsArray;
-var testRes = isArrayNative && Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function () {
-  _newArrowCheck(this, _this);
-
-  return isArrayNative([]) === true && isArrayNative({
+var nia = [].isArray;
+var nativeIsArray = typeof nia === 'function' && nia;
+var testResult = Object(attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(function attemptee() {
+  return nativeIsArray([]) === true && nativeIsArray({
     length: 0
   }) === false;
-}.bind(undefined));
+});
+var isWorking = testResult.threw === false && testResult.value === true;
+var implementation = function isArray(value) {
+  return Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(value) === '[object Array]';
+};
+/**
+ * Determines whether the passed value is an Array.
+ *
+ * @param {*} value - The value to test.
+ * @returns {boolean} - True if an array; otherwise false.
+ */
 
-var isArrayFn = function iife() {
-  if (testRes && testRes.threw === false && testRes.value === true) {
-    return isArrayNative;
-  }
-  /**
-   * The isArray() function determines whether the passed value is an Array.
-   *
-   * @function isArray
-   * @param {*} [value] - The object to be checked..
-   * @returns {boolean} `true` if the object is an Array; otherwise, `false`.
-   */
-
-
-  return function isArray(value) {
-    return Object(to_string_tag_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(value) === '[object Array]';
-  };
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (isArrayFn);
+var isArray = isWorking ? nativeIsArray : implementation;
+/* harmony default export */ __webpack_exports__["a"] = (isArray);
 
 
 
@@ -5122,7 +5110,7 @@ var test2 = function test2() {
   var _this2 = this;
 
   var spy = '';
-  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(Object(to_boolean_x__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])('abc'), nativeForEach, function (item) {
+  var res = attempt_x__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"].call(Object(to_object_x__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])('abc'), nativeForEach, function (item) {
     _newArrowCheck(this, _this2);
 
     spy += item;
@@ -5639,6 +5627,78 @@ if (nativeBind) {
     }
   }
 }
+/* eslint-disable-next-line no-unused-vars */
+
+
+var patchedBind = function bind(target, thisArg) {
+  /* eslint-disable-next-line prefer-rest-params */
+  return nativeBind.apply(Object(assert_is_function_x_esm["a" /* default */])(target), Object(array_slice_x_esm["a" /* default */])(arguments, 1));
+};
+
+var bind_x_esm_concat = function concat(a, b) {
+  var aLength = a.length;
+  var bLength = b.length;
+  var result = Object(array_slice_x_esm["a" /* default */])(a);
+  result.length += bLength;
+
+  for (var index = 0; index < bLength; index += 1) {
+    result[aLength + index] = b[index];
+  }
+
+  return result;
+};
+/* eslint-disable-next-line lodash/prefer-noop */
+
+
+var Empty = function Empty() {};
+
+var implementation = function bind(target, thisArg) {
+  Object(assert_is_function_x_esm["a" /* default */])(target);
+  /* eslint-disable-next-line prefer-rest-params */
+
+  var args = Object(array_slice_x_esm["a" /* default */])(arguments, 2);
+  var bound;
+
+  var binder = function _binder() {
+    /* eslint-disable-next-line babel/no-invalid-this */
+    if (this instanceof bound) {
+      /* eslint-disable-next-line babel/no-invalid-this,prefer-rest-params */
+      var result = target.apply(this, bind_x_esm_concat(args, arguments));
+      /* eslint-disable-next-line babel/no-invalid-this */
+
+      return is_primitive_default()(result) ? this : result;
+    }
+    /* eslint-disable-next-line prefer-rest-params */
+
+
+    return target.apply(thisArg, bind_x_esm_concat(args, arguments));
+  };
+
+  var boundLength = target.length - args.length;
+
+  if (boundLength < 0) {
+    boundLength = 0;
+  }
+
+  var lastIndex = boundLength - 1;
+  var boundArgs = '';
+
+  for (var index = 0; index < boundLength; index += 1) {
+    boundArgs += "$_".concat(index, "_$").concat(index < lastIndex ? ',' : '');
+  }
+  /* eslint-disable-next-line no-new-func */
+
+
+  bound = Function('binder', 'slice', "return function (".concat(boundArgs, "){ return binder.apply(this,slice(arguments)); }"))(binder, array_slice_x_esm["a" /* default */]);
+
+  if (target.prototype) {
+    Empty.prototype = target.prototype;
+    bound.prototype = new Empty();
+    Empty.prototype = null;
+  }
+
+  return bound;
+};
 /**
  * The bind() method creates a new function that, when called, has its this
  * keyword set to the provided value, with a given sequence of arguments
@@ -5654,84 +5714,8 @@ if (nativeBind) {
  * @returns {Function} The bound function.
  */
 
-
-var $bind;
-
-if (isWorking) {
-  /* eslint-disable-next-line no-unused-vars */
-  $bind = function bind(target, thisArg) {
-    /* eslint-disable-next-line prefer-rest-params */
-    return nativeBind.apply(Object(assert_is_function_x_esm["a" /* default */])(target), Object(array_slice_x_esm["a" /* default */])(arguments, 1));
-  };
-} else {
-  var bind_x_esm_concat = function concat(a, b) {
-    var aLength = a.length;
-    var bLength = b.length;
-    var result = Object(array_slice_x_esm["a" /* default */])(a);
-    result.length += bLength;
-
-    for (var index = 0; index < bLength; index += 1) {
-      result[aLength + index] = b[index];
-    }
-
-    return result;
-  };
-  /* eslint-disable-next-line lodash/prefer-noop */
-
-
-  var Empty = function Empty() {};
-
-  $bind = function bind(target, thisArg) {
-    Object(assert_is_function_x_esm["a" /* default */])(target);
-    /* eslint-disable-next-line prefer-rest-params */
-
-    var args = Object(array_slice_x_esm["a" /* default */])(arguments, 2);
-    var bound;
-
-    var binder = function _binder() {
-      /* eslint-disable-next-line babel/no-invalid-this */
-      if (this instanceof bound) {
-        /* eslint-disable-next-line babel/no-invalid-this,prefer-rest-params */
-        var result = target.apply(this, bind_x_esm_concat(args, arguments));
-        /* eslint-disable-next-line babel/no-invalid-this */
-
-        return is_primitive_default()(result) ? this : result;
-      }
-      /* eslint-disable-next-line prefer-rest-params */
-
-
-      return target.apply(thisArg, bind_x_esm_concat(args, arguments));
-    };
-
-    var boundLength = target.length - args.length;
-
-    if (boundLength < 0) {
-      boundLength = 0;
-    }
-
-    var lastIndex = boundLength - 1;
-    var boundArgs = '';
-
-    for (var index = 0; index < boundLength; index += 1) {
-      boundArgs += "$_".concat(index, "_$").concat(index < lastIndex ? ',' : '');
-    }
-    /* eslint-disable-next-line no-new-func */
-
-
-    bound = Function('binder', 'slice', "return function (".concat(boundArgs, "){ return binder.apply(this,slice(arguments)); }"))(binder, array_slice_x_esm["a" /* default */]);
-
-    if (target.prototype) {
-      Empty.prototype = target.prototype;
-      bound.prototype = new Empty();
-      Empty.prototype = null;
-    }
-
-    return bound;
-  };
-}
-
-var libBind = $bind;
-/* harmony default export */ var bind_x_esm = (libBind);
+var $bind = isWorking ? patchedBind : implementation;
+/* harmony default export */ var bind_x_esm = ($bind);
 
 
 // EXTERNAL MODULE: ./node_modules/is-function-x/dist/is-function-x.esm.js
@@ -6048,7 +6032,7 @@ var reflect_own_keys_x_esm_test3 = function test3() {
 };
 
 var reflect_own_keys_x_esm_isWorking = Object(to_boolean_x_esm["a" /* default */])(nativeOwnKeys) && reflect_own_keys_x_esm_test1() && reflect_own_keys_x_esm_test2() && reflect_own_keys_x_esm_test3();
-var implementation = function ownKeys(target) {
+var reflect_own_keys_x_esm_implementation = function ownKeys(target) {
   Object(assert_is_object_x_esm["a" /* default */])(target);
   return reflect_own_keys_x_esm_concat.call(Object(get_own_property_names_x_esm["a" /* default */])(target), Object(get_own_property_symbols_x_esm["a" /* default */])(target));
 };
@@ -6061,7 +6045,7 @@ var implementation = function ownKeys(target) {
  * @returns {object} An Array of the target object's own property keys.
  */
 
-var reflectOwnKeys = reflect_own_keys_x_esm_isWorking ? nativeOwnKeys : implementation;
+var reflectOwnKeys = reflect_own_keys_x_esm_isWorking ? nativeOwnKeys : reflect_own_keys_x_esm_implementation;
 /* harmony default export */ var reflect_own_keys_x_esm = (reflectOwnKeys);
 
 
