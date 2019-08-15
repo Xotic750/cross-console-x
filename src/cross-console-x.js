@@ -1,6 +1,6 @@
 import defineProperties from 'object-define-properties-x';
 import defineProperty from 'object-define-property-x';
-import isPrimitive from 'is-primitive';
+import isPrimitive from 'is-primitive-x';
 import isFunction from 'is-function-x';
 import forEach from 'array-for-each-x';
 import assert from 'assert-x';
