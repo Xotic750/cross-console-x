@@ -1,5 +1,4 @@
-import defineProperties from 'object-define-properties-x';
-import defineProperty from 'object-define-property-x';
+import defineProperties, {defineProperty} from 'object-define-properties-x';
 import isPrimitive from 'is-primitive-x';
 import isFunction from 'is-function-x';
 import forEach from 'array-for-each-x';
@@ -16,10 +15,11 @@ import includes from 'array-includes-x';
 import {create} from 'error-x';
 import attempt from 'attempt-x';
 import toBoolean from 'to-boolean-x';
+import methodize from 'simple-methodize-x';
+import call from 'simple-call-x';
 
 const DateCtr = Date;
-const {getTime} = DateCtr.prototype;
-const {apply} = attempt.prototype;
+const getTime = methodize(DateCtr.prototype.getTime);
 /* eslint-disable-next-line no-void */
 const UNDEFINED = void 0;
 const properties = [
@@ -53,7 +53,7 @@ const getFn = function getFn(method, property) {
   if (isPrimitive(method) === false) {
     const f = function f(context, args) {
       const res = attempt(function attemptee() {
-        return apply.call(method, context, slice(args));
+        return call(method, context, slice(args));
       });
 
       return res.threw ? UNDEFINED : res.value;
@@ -98,8 +98,10 @@ if (typeof console !== 'undefined' && isPrimitive(console) === false) {
   });
 }
 
-const {get, set, has} = MapConstructor.prototype;
 const times = new MapConstructor();
+const get = methodize(times.get);
+const set = methodize(times.set);
+const has = methodize(times.has);
 const shams = defineProperties(
   {},
   {
@@ -111,7 +113,7 @@ const shams = defineProperties(
 
         if (toBoolean(expression) === false) {
           /* eslint-disable-next-line prefer-rest-params */
-          assert.ok(false, format(...slice(arguments, 1)));
+          assert.ok(false, call(format, null, slice(arguments, 1)));
         }
       },
     },
@@ -131,16 +133,16 @@ const shams = defineProperties(
     error: {
       enumerable: true,
       value: function error() {
-        /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-        this.warn.apply(this, slice(arguments));
+        /* eslint-disable-next-line prefer-rest-params */
+        call(this.warn, this, slice(arguments));
       },
     },
 
     info: {
       enumerable: true,
       value: function info() {
-        /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-        this.log.apply(this, slice(arguments));
+        /* eslint-disable-next-line prefer-rest-params */
+        call(this.log, this, slice(arguments));
       },
     },
 
@@ -159,7 +161,7 @@ const shams = defineProperties(
         if (includes(properties, type)) {
           const stampStr = format('[%s] [%s]', toISOString(new DateCtr()), type);
           /* eslint-disable-next-line prefer-rest-params */
-          this[type].apply(this, [stampStr, ...slice(arguments, 1)]);
+          call(this[type], this, [stampStr, slice(arguments, 1)]);
         }
       },
     },
@@ -169,7 +171,7 @@ const shams = defineProperties(
       value: function time() {
         /* eslint-disable-next-line prefer-rest-params */
         const label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
-        set.call(times, label, getTime.call(new DateCtr()));
+        set(times, label, getTime(new DateCtr()));
       },
     },
 
@@ -180,8 +182,8 @@ const shams = defineProperties(
         const label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
         let duration;
 
-        if (has.call(times, label)) {
-          duration = getTime.call(new DateCtr()) - get.call(times, label);
+        if (has(times, label)) {
+          duration = getTime(new DateCtr()) - get(times, label);
           const key = 'delete';
           times[key](label);
         } else {
@@ -196,15 +198,15 @@ const shams = defineProperties(
       enumerable: true,
       value: function trace() {
         /* eslint-disable-next-line prefer-rest-params */
-        this.error(new Trace(format(...slice(arguments))));
+        this.error(new Trace(call(format, null, slice(arguments))));
       },
     },
 
     warn: {
       enumerable: true,
       value: function warn() {
-        /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-        this.log.apply(this, slice(arguments));
+        /* eslint-disable-next-line prefer-rest-params */
+        call(this.log, this, slice(arguments));
       },
     },
   },

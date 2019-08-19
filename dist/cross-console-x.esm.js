@@ -1,13 +1,4 @@
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-import defineProperties from 'object-define-properties-x';
-import defineProperty from 'object-define-property-x';
+import defineProperties, { defineProperty } from 'object-define-properties-x';
 import isPrimitive from 'is-primitive-x';
 import isFunction from 'is-function-x';
 import forEach from 'array-for-each-x';
@@ -24,9 +15,10 @@ import includes from 'array-includes-x';
 import { create } from 'error-x';
 import attempt from 'attempt-x';
 import toBoolean from 'to-boolean-x';
+import methodize from 'simple-methodize-x';
+import call from 'simple-call-x';
 var DateCtr = Date;
-var getTime = DateCtr.prototype.getTime;
-var apply = attempt.prototype.apply;
+var getTime = methodize(DateCtr.prototype.getTime);
 /* eslint-disable-next-line no-void */
 
 var UNDEFINED = void 0;
@@ -37,7 +29,7 @@ var getFn = function getFn(method, property) {
   if (isPrimitive(method) === false) {
     var f = function f(context, args) {
       var res = attempt(function attemptee() {
-        return apply.call(method, context, slice(args));
+        return call(method, context, slice(args));
       });
       return res.threw ? UNDEFINED : res.value;
     };
@@ -83,11 +75,10 @@ if (typeof console !== 'undefined' && isPrimitive(console) === false) {
   });
 }
 
-var _MapConstructor$proto = MapConstructor.prototype,
-    get = _MapConstructor$proto.get,
-    set = _MapConstructor$proto.set,
-    has = _MapConstructor$proto.has;
 var times = new MapConstructor();
+var get = methodize(times.get);
+var set = methodize(times.set);
+var has = methodize(times.has);
 var shams = defineProperties({}, {
   consoleAssert: {
     enumerable: true,
@@ -97,7 +88,7 @@ var shams = defineProperties({}, {
 
       if (toBoolean(expression) === false) {
         /* eslint-disable-next-line prefer-rest-params */
-        assert.ok(false, format.apply(void 0, _toConsumableArray(slice(arguments, 1))));
+        assert.ok(false, call(format, null, slice(arguments, 1)));
       }
     }
   },
@@ -115,15 +106,15 @@ var shams = defineProperties({}, {
   error: {
     enumerable: true,
     value: function error() {
-      /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-      this.warn.apply(this, slice(arguments));
+      /* eslint-disable-next-line prefer-rest-params */
+      call(this.warn, this, slice(arguments));
     }
   },
   info: {
     enumerable: true,
     value: function info() {
-      /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-      this.log.apply(this, slice(arguments));
+      /* eslint-disable-next-line prefer-rest-params */
+      call(this.log, this, slice(arguments));
     }
   },
   log: {
@@ -142,7 +133,7 @@ var shams = defineProperties({}, {
         var stampStr = format('[%s] [%s]', toISOString(new DateCtr()), type);
         /* eslint-disable-next-line prefer-rest-params */
 
-        this[type].apply(this, [stampStr].concat(_toConsumableArray(slice(arguments, 1))));
+        call(this[type], this, [stampStr, slice(arguments, 1)]);
       }
     }
   },
@@ -151,7 +142,7 @@ var shams = defineProperties({}, {
     value: function time() {
       /* eslint-disable-next-line prefer-rest-params */
       var label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
-      set.call(times, label, getTime.call(new DateCtr()));
+      set(times, label, getTime(new DateCtr()));
     }
   },
   timeEnd: {
@@ -161,8 +152,8 @@ var shams = defineProperties({}, {
       var label = arguments.length > 0 ? safeToString(arguments[0]) : 'default';
       var duration;
 
-      if (has.call(times, label)) {
-        duration = getTime.call(new DateCtr()) - get.call(times, label);
+      if (has(times, label)) {
+        duration = getTime(new DateCtr()) - get(times, label);
         var key = 'delete';
         times[key](label);
       } else {
@@ -176,14 +167,14 @@ var shams = defineProperties({}, {
     enumerable: true,
     value: function trace() {
       /* eslint-disable-next-line prefer-rest-params */
-      this.error(new Trace(format.apply(void 0, _toConsumableArray(slice(arguments)))));
+      this.error(new Trace(call(format, null, slice(arguments))));
     }
   },
   warn: {
     enumerable: true,
     value: function warn() {
-      /* eslint-disable-next-line prefer-rest-params,prefer-spread */
-      this.log.apply(this, slice(arguments));
+      /* eslint-disable-next-line prefer-rest-params */
+      call(this.log, this, slice(arguments));
     }
   }
 });
